@@ -3,3 +3,4 @@ bson BSON
 capnproto Cap'n Proto
 cbor CBOR
 smile SMILE
+ubjson UBJSON
