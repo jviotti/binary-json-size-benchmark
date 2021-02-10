@@ -10,5 +10,5 @@ Results
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
 
-- [**Input Document**](benchmark/openweathermap/document.js)
+- [**Input Document**](benchmark/openweathermap/document.json)
 - [**Benchmark Numbers**](results/openweathermap/data.dat)
