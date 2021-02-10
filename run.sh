@@ -19,12 +19,17 @@ DECODE_SCRIPT="decode.sh"
 ROOT_DIRECTORY="$PWD"
 OUTPUT_DIRECTORY="$ROOT_DIRECTORY/results"
 TMP_DIRECTORY="$ROOT_DIRECTORY/.tmp"
+OUTPUT_FILENAME="output.bin"
 
 for document in benchmark/*
 do
   DOCUMENT_NAME="$(basename "$document")"
   JSON_FILE="$ROOT_DIRECTORY/$document/document.json"
   assert_file_exists "$JSON_FILE"
+
+  # Create JSON format output as well
+  mkdir -p "$OUTPUT_DIRECTORY/$DOCUMENT_NAME/json"
+  cp "$JSON_FILE" "$OUTPUT_DIRECTORY/$DOCUMENT_NAME/json/$OUTPUT_FILENAME"
 
   for format in "$document"/*
   do
@@ -41,7 +46,7 @@ do
     assert_file_exists "$format/$ENCODE_SCRIPT"
     assert_file_exists "$format/$DECODE_SCRIPT"
 
-    OUTPUT_FILE="$OUTPUT_DIRECTORY/$DOCUMENT_NAME/$FORMAT_NAME/output.bin"
+    OUTPUT_FILE="$OUTPUT_DIRECTORY/$DOCUMENT_NAME/$FORMAT_NAME/$OUTPUT_FILENAME"
     rm -f "$OUTPUT_FILE"
     mkdir -p "$(dirname "$OUTPUT_FILE")"
     cd "$format"
@@ -63,3 +68,4 @@ do
 done
 
 ./compress.sh
+./csv.sh
