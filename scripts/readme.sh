@@ -19,5 +19,5 @@ do
 done
 
 echo ""
-echo "- [**Input Document**](benchmark/$DOCUMENT_ID/document.js)"
+echo "- [**Input Document**](benchmark/$DOCUMENT_ID/document.json)"
 echo "- [**Benchmark Numbers**](results/$DOCUMENT_ID/data.dat)"
