@@ -8,7 +8,7 @@ do
   do
     COMPRESSED_FILE="$file.$ratio.gz"
     rm -f "$COMPRESSED_FILE"
-    echo ">> Compressing "$file" with GZIP + ratio $ratio"
+    echo ">> Compressing $file with GZIP + ratio $ratio"
     gzip --no-name "-$ratio" < "$file" > "$COMPRESSED_FILE"
   done
 done
