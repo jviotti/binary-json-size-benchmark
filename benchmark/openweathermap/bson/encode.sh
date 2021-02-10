@@ -1,5 +1,5 @@
 #!/bin/sh
 
-set -ei
+set -eu
 
-python3 run.py "$*"
+python3 run.py $*
