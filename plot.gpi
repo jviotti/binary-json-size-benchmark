@@ -7,7 +7,8 @@ set term pngcairo
 set output "chart.png"
 set xlabel "Serialization Formats"
 set ylabel "Byte Size"
-# set terminal png size 248,768
+set bmargin 5
+set lmargin 9
 
 plot 'data.dat' using 3:xtic(2) title 'Uncompressed',\
 'data.dat' using 4:xtic(2) title 'GZIP/1',\
