@@ -59,14 +59,7 @@ do
     assert_file_exists "$DECODE_OUTPUT_FILE"
 
     colordiff "$JSON_FILE" "$DECODE_OUTPUT_FILE"
-
-    for ratio in $(seq 1 9)
-    do
-      COMPRESSED_FILE="$OUTPUT_FILE.$ratio.gz"
-      rm -f "$COMPRESSED_FILE"
-      echo ">> Compressing result with GZIP + ratio $ratio"
-      gzip --no-name "-$ratio" < "$OUTPUT_FILE" > "$COMPRESSED_FILE"
-      assert_file_exists "$COMPRESSED_FILE"
-    done
   done
 done
+
+./compress.sh
