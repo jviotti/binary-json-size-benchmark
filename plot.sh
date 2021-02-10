@@ -9,7 +9,7 @@ for document in results/*
 do
   echo ">> Plot $document"
   DOCUMENT_ID="$(basename "$document")"
-  DOCUMENT_NAME="$(cat "benchmark/$DOCUMENT_ID/NAME" | tr -d '\n')"
+  DOCUMENT_NAME="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
   cd "$document"
   gnuplot -e "description=\"$DOCUMENT_NAME\"" "$GNUPLOT_FILE"
   cd "$ROOT_DIRECTORY"
