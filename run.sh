@@ -70,3 +70,4 @@ done
 ./compress.sh
 ./data.sh
 ./plot.sh
+./scripts/readme.sh > README.md
