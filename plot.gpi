@@ -2,13 +2,12 @@ set title description
 set style data histogram
 set style histogram cluster gap 1
 set style fill solid border -1
-set xtics rotate by -90
 set term pngcairo
 set output "chart.png"
 set xlabel "Serialization Formats"
-set xlabel offset 0,-2.2
+set xlabel offset 0,-0.5
 set ylabel "Byte Size"
-set bmargin 8
+set bmargin 5
 set lmargin 9
 
 plot 'data.dat' using 3:xtic(2) title 'Uncompressed',\
