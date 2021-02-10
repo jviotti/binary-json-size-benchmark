@@ -2,7 +2,7 @@ set title description
 set style data histogram
 set style histogram cluster gap 1
 set style fill solid border -1
-set term pngcairo
+set terminal pngcairo size 1000, 500
 set output "chart.png"
 set xlabel "Serialization Formats"
 set xlabel offset 0,-0.5
