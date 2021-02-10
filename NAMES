@@ -5,3 +5,4 @@ cbor CBOR
 smile SMILE
 ubjson UBJSON
 messagepack MessagePack
+flexbuffers FlexBuffers
