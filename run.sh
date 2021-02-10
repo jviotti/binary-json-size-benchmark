@@ -47,5 +47,14 @@ do
 
     assert_file_exists "$OUTPUT_FILE"
     xxd "$OUTPUT_FILE"
+
+    for ratio in $(seq 1 9)
+    do
+      COMPRESSED_FILE="$OUTPUT_FILE.$ratio.gz"
+      rm -f "$COMPRESSED_FILE"
+      echo ">> Compressing result with GZIP + ratio $ratio"
+      cat "$OUTPUT_FILE" | gzip "-$ratio" > "$COMPRESSED_FILE"
+      assert_file_exists "$COMPRESSED_FILE"
+    done
   done
 done
