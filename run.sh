@@ -63,7 +63,7 @@ do
     cd "$ROOT_DIRECTORY"
     assert_file_exists "$DECODE_OUTPUT_FILE"
 
-    colordiff "$JSON_FILE" "$DECODE_OUTPUT_FILE"
+    python3 scripts/json-equals.py "$JSON_FILE" "$DECODE_OUTPUT_FILE"
   done
 done
 
