@@ -65,7 +65,7 @@ do
       COMPRESSED_FILE="$OUTPUT_FILE.$ratio.gz"
       rm -f "$COMPRESSED_FILE"
       echo ">> Compressing result with GZIP + ratio $ratio"
-      gzip "-$ratio" < "$OUTPUT_FILE" > "$COMPRESSED_FILE"
+      gzip --no-name "-$ratio" < "$OUTPUT_FILE" > "$COMPRESSED_FILE"
       assert_file_exists "$COMPRESSED_FILE"
     done
   done
