@@ -14,7 +14,7 @@ done
 
 for document in results/*
 do
-  OUTPUT_FILE="$document/data.csv"
+  OUTPUT_FILE="$document/data.dat"
   echo ">> Generating $OUTPUT_FILE"
   rm -f "$OUTPUT_FILE"
   INDEX="1"

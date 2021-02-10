@@ -68,4 +68,4 @@ do
 done
 
 ./compress.sh
-./csv.sh
+./data.sh
