@@ -15,8 +15,10 @@ assert_file_exists() {
 }
 
 ENCODE_SCRIPT="encode.sh"
+DECODE_SCRIPT="decode.sh"
 ROOT_DIRECTORY="$PWD"
 OUTPUT_DIRECTORY="$ROOT_DIRECTORY/results"
+TMP_DIRECTORY="$ROOT_DIRECTORY/.tmp"
 
 for document in benchmark/*
 do
@@ -30,23 +32,33 @@ do
     then
       continue
     fi
-    
+
     echo "------------------------------------------"
     echo "Processing $format"
     echo "------------------------------------------"
 
     FORMAT_NAME="$(basename "$format")"
     assert_file_exists "$format/$ENCODE_SCRIPT"
+    assert_file_exists "$format/$DECODE_SCRIPT"
+
     OUTPUT_FILE="$OUTPUT_DIRECTORY/$DOCUMENT_NAME/$FORMAT_NAME/output.bin"
     rm -f "$OUTPUT_FILE"
     mkdir -p "$(dirname "$OUTPUT_FILE")"
-
     cd "$format"
     ./"$ENCODE_SCRIPT" "$JSON_FILE" "$OUTPUT_FILE"
     cd "$ROOT_DIRECTORY"
-
     assert_file_exists "$OUTPUT_FILE"
     xxd "$OUTPUT_FILE"
+
+    DECODE_OUTPUT_FILE="$TMP_DIRECTORY/$DOCUMENT_NAME/$FORMAT_NAME.json"
+    rm -f "$DECODE_OUTPUT_FILE"
+    mkdir -p "$(dirname "$DECODE_OUTPUT_FILE")"
+    cd "$format"
+    ./"$DECODE_SCRIPT" "$OUTPUT_FILE" | jq > "$DECODE_OUTPUT_FILE"
+    cd "$ROOT_DIRECTORY"
+    assert_file_exists "$DECODE_OUTPUT_FILE"
+
+    colordiff "$JSON_FILE" "$DECODE_OUTPUT_FILE"
 
     for ratio in $(seq 1 9)
     do
