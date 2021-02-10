@@ -7,4 +7,12 @@ set output "chart.png"
 # set terminal png size 248,768
 
 plot 'data.dat' using 3:xtic(2) title 'Uncompressed',\
-'data.dat' using 4:xtic(2) title 'Compressed (GZIP)'
+'data.dat' using 4:xtic(2) title 'GZIP/1',\
+'data.dat' using 5:xtic(2) title 'GZIP/2',\
+'data.dat' using 6:xtic(2) title 'GZIP/3',\
+'data.dat' using 7:xtic(2) title 'GZIP/4',\
+'data.dat' using 8:xtic(2) title 'GZIP/5',\
+'data.dat' using 9:xtic(2) title 'GZIP/6',\
+'data.dat' using 10:xtic(2) title 'GZIP/7',\
+'data.dat' using 11:xtic(2) title 'GZIP/8',\
+'data.dat' using 12:xtic(2) title 'GZIP/9'
