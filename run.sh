@@ -69,3 +69,4 @@ done
 
 ./compress.sh
 ./data.sh
+./plot.sh

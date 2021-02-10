@@ -1,0 +1,10 @@
+set style data histogram
+set style histogram cluster gap 1
+set style fill solid border -1
+set xtics rotate by -90
+set term pngcairo
+set output "chart.png"
+# set terminal png size 248,768
+
+plot 'data.dat' using 3:xtic(2) title 'Uncompressed',\
+'data.dat' using 4:xtic(2) title 'Compressed (GZIP)'
