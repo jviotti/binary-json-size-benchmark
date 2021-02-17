@@ -1,0 +1,78 @@
+% \cite{MaedaK2012Peoo} => (context: Java Object Serialization) JSON is bigger and slower than Protocol Buffers, Apache Thrift, Apache Avro
+% - Involving a single Java class
+
+% \cite{SumarayAudie2012Acod} => (context: Android mobile devices) JSON is bigger and slower than Protocol Buffers and Apache Thrift
+% - Involving a text heavy and a numbery heavy JSON documents
+
+% \cite{10.1145/2016716.2016718} => (context: smartphones) JSON is bigger and
+% slower than Protocol Buffers, but compressed JSON beats ProtoBuf on size, at
+% the expense of more energy use for decompression
+% - Involving mobile phone data (SMSs, contacts, call information, etc)
+
+% \cite{6784954} => (context: gaming) JSON is bigger and slower than Protocol Buffers
+
+% \cite{9142787} => (context: automobile) Compares Protocol Buffers and
+% FlatBuffers. ProtoBuffers is smaller and faster at serializing data but
+% FlatBuffers uses less memory and its faster at deserialization
+
+% \cite{zaluzhnyi2016serialization} => (context: high performance computing & particle mesh simulation)
+% - Only discusses serialization and deserialization speed
+% - Some of the formats discussed include Apache Avro, Protocol Buffers, and Cap'n Proto
+% - Of those, Cap'n Proto is the fastest, but OpenFPM Packer/Unpacker, which is domain specific (meshes) is even faster
+
+% \cite{microblogging-protobuf} => (context: Microblogging & Twitter)
+% - Discussed JSON and Protocol Buffers
+% - Protocol Buffers is faster and smaller than JSON
+
+% \cite{8977050} => (context: IoT)
+% - Compares FlatBuffers, JSON, XML, and CSV
+% - FlatBuffers is smaller than JSON and XML but bigger than CSV
+% - FlatBuffers serialization time is the worst compared with the implementations of the other formats
+% - FlatBuffers deserialization time is the best
+
+% \cite{sahlmann2018binary} => (context: semantic data in IoT)
+% - Compares JSON, CBOR, and RDF HDT (binary domain specific for ontologies in the context of semantic web data)
+% > HDT was developed to share big semantic datasets in RDF format on the web
+% - Concludes that domain-specific RDF HDT is smaller than CBOR, which is a bit smaller than JSON
+
+% \cite{8876986} => (context: IoT)
+% - Compares JSON & FlatBuffers
+% - Concludes that FlatBuffers is much faster and smaller than JSON
+
+% \cite{Kyurkchiev-msgpack-json} => (context: cloud computing)
+% - Compares JSON and MessagePack
+% - Concludes that MessagePack is smaller and faster than JSON
+
+% \cite{petersen2017smart} => (context: IoT)
+% - Compares JSON, MessagePack, Smile, Protocol Buffers, BSON, CBOR, Apache Avro all on Java
+% - Compares them on serialization/deserialization time, space, and memory use
+% - Serialization time: Best is Protocol Buffers
+% - Deserialization time: Best is Protocol Buffers
+% - Message size (uncompressed): MessagePack
+% - Message size (compressed with GZip): MessagePack
+% - Memory: Smile & Protocol Buffers
+% However: the rankings vary a lot depending on the implementation!
+
+% \cite{hamerski2018evaluating} => (context: embedded development)
+% - Compares MessagePack, FlatBuffers, Protocol Buffers
+% - MessagePack (MsgPuck) has the smallest code size
+% - MessagePack (MsgPuck) has the smallest result
+% - MessagePack (MsgPuck) consumes less memory
+% - MessagePack (MsgPuck) is the best at serialization and deserialization speed
+
+% \cite{VanuraJ.2018PeoJ} => (context: random JSON data) JSON is bigger than
+% Apache Avro, Protocol Buffers, and MessagePack but whether is faster or
+% slower depends on the implementation
+
+% \cite{10589/150617} => (context: IoT sensor data)
+% - Involves Protocol Buffers, Flat Buffers, Message Pack, and BSON
+% - Protocol Buffers is the best in terms of size
+% - MessagePack is faster at serialization
+% - FlatBuf is best at deserialization
+
+% TODO: \cite{10.1007/978-981-15-8697-2_23} => (context: deep neural networks)
+% - Compares Protocol Buffers and FlatBuffers
+% - FlatBuffers is faster than Protocol Buffers at both
+%   serialization/deserialization, but this gap can be shortened by optimising
+%   the Protocol Buffers message definition (i.e. types, etc)
+% - FlatBuffers is more memory-efficient than Protocol Buffers
