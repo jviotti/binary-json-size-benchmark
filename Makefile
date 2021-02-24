@@ -11,3 +11,7 @@ lint: $(SHELL_SCRIPTS) $(PYTHON_SCRIPTS)
 
 run: run.sh
 	./$<
+
+assets/schemastore-byte-size.png: \
+	byte-size.gp datasets/schemastore-byte-size.dat
+	gnuplot $< > $@

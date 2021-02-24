@@ -15,8 +15,6 @@ then
   echo "Not a directory: $SCHEMASTORE_LOCATION" 1>&2
 fi
 
-echo "$SCHEMASTORE_LOCATION"
-
 BASE_PATH="$SCHEMASTORE_LOCATION/src/test"
 JSON_FILES="$(find "$BASE_PATH" -type f -name '*.json')"
 
