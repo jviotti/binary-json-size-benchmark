@@ -22,13 +22,17 @@ OLD_IFS="$IFS"
 # See https://unix.stackexchange.com/a/612529/43448
 IFS=$'\n'
 
+OUTPUT="$PWD/schemastore"
+rm -rf "$OUTPUT"
+mkdir -p "$OUTPUT"
+
 for file in $JSON_FILES
 do
   RELATIVE_PATH="$(realpath --relative-to="$BASE_PATH" "$file")"
-  DESTINATION="datasets/schemastore/$(echo "$RELATIVE_PATH" | tr '/' '-' | tr ' ' '-')"
+  DESTINATION="$OUTPUT/$(echo "$RELATIVE_PATH" | tr '/' '-' | tr ' ' '-')"
   cp -v "$file" "$DESTINATION"
 done
 
 IFS="$OLD_IFS"
 
-git -C "$SCHEMASTORE_LOCATION" rev-parse HEAD > datasets/schemastore.commit
+git -C "$SCHEMASTORE_LOCATION" rev-parse HEAD > schemastore.commit
