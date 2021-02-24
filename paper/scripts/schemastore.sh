@@ -34,5 +34,3 @@ do
 done
 
 IFS="$OLD_IFS"
-
-git -C "$SCHEMASTORE_LOCATION" rev-parse HEAD > schemastore.commit

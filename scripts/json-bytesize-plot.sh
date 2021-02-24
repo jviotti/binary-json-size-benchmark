@@ -4,6 +4,9 @@ set -e
 DATASET="$1"
 set -u
 
+# TODO: Refactor this as its incorrectly taking the BOM into account!!
+# Do it based on the analysis instead
+
 if [ -z "$DATASET" ]
 then
   echo "Usage: $0 <dataset>" 1>&2

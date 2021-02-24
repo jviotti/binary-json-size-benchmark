@@ -1,0 +1,10 @@
+{
+  "size": "large",
+  "keysRedundancy": 51.94805194805195,
+  "valuesRedundancy": 17.045454545454547,
+  "nestingWeight": 27,
+  "numericWeight": 0,
+  "textualWeight": 20.23829914786109,
+  "booleanWeight": 0.0026763156767867086,
+  "structuralWeight": 21.54621461910675
+}

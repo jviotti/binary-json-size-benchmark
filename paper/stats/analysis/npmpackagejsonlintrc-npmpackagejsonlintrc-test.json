@@ -1,0 +1,29 @@
+{
+  "byteSize": 1158,
+  "maxNestingDepth": 4,
+  "largestLevel": 2,
+  "duplicatedKeys": 0,
+  "duplicatedValues": 44,
+  "keys": {
+    "count": 37,
+    "byteSize": 662
+  },
+  "values": {
+    "numeric": {
+      "count": 0,
+      "byteSize": 0
+    },
+    "textual": {
+      "count": 41,
+      "byteSize": 385
+    },
+    "boolean": {
+      "count": 1,
+      "byteSize": 5
+    },
+    "structural": {
+      "count": 14,
+      "byteSize": 106
+    }
+  }
+}

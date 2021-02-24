@@ -1,0 +1,10 @@
+{
+  "size": "tiny",
+  "keysRedundancy": 0,
+  "valuesRedundancy": 0,
+  "nestingWeight": 16,
+  "numericWeight": 0,
+  "textualWeight": 0,
+  "booleanWeight": 1.2121212121212122,
+  "structuralWeight": 37.57575757575758
+}
