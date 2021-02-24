@@ -1,0 +1,12 @@
+{
+	"$schema": "https://json.schemastore.org/schema-catalog",
+
+	"version": 1,
+	"schemas": [
+		{
+			"name": "minimal",
+			"description": "minimal",
+			"url": "https://example.com"
+		}
+	]
+}

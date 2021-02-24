@@ -1,0 +1,8 @@
+{
+  "projects": [ "/foo/bar.baz" ],
+  "sdk": {
+    "version": "1.*",
+    "runtime": "clr",
+    "architecture": "x86"
+  }
+}
