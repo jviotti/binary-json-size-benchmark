@@ -1,15 +1,37 @@
 #!/bin/sh
 
 set -o errexit
+DOCUMENT="$1"
+FORMAT="$2"
 set -o nounset
 
 . "src/_utils.sh"
 
-FORMATS="$(ls -1 skeleton)"
-DOCUMENTS="$(ls -1 benchmark)"
+ALL="1"
+
+if [ -z "$DOCUMENT" ]
+then
+  DOCUMENTS="$(ls -1 benchmark)"
+else
+  ALL="0"
+  DOCUMENTS="$DOCUMENT"
+fi
+
+if [ -z "$FORMAT" ]
+then
+  FORMATS="$(ls -1 skeleton)"
+else
+  ALL="0"
+  FORMATS="$FORMAT"
+fi
 
 OUTPUT_DIRECTORY="$PWD/output"
-rm -rf "$OUTPUT_DIRECTORY"
+
+if [ "$ALL" = "1" ]
+then
+  rm -rf "$OUTPUT_DIRECTORY"
+  rm -rf charts
+fi
 
 byte_size() {
   stat -f '%z' "$1"
@@ -38,6 +60,11 @@ do
       assert_fail "Files are not equal"
     fi
 
+    if [ "$ALL" = "0" ]
+    then
+      continue
+    fi
+
     COMPRESSED_FILE="$BINARY.gz"
     rm -f "$COMPRESSED_FILE"
     info "Compressing $BINARY with GZIP"
@@ -47,7 +74,13 @@ do
     INDEX="$(echo "$INDEX + 1" | bc)"
   done
 
-  make "charts/$document.png"
+  if [ "$ALL" = "1" ]
+  then
+    make "charts/$document.png"
+  fi
 done
 
-./src/readme.sh > README.md
+if [ "$ALL" = "1" ]
+then
+  ./src/readme.sh > README.md
+fi
