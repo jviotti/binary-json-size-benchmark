@@ -34,7 +34,12 @@ then
 fi
 
 byte_size() {
-  stat -f '%z' "$1"
+  if [ "$(uname)" = "Darwin" ]
+  then
+    stat -f '%z' "$1"
+  else
+    stat -c '%s' "$1"
+  fi
 }
 
 for document in $DOCUMENTS
