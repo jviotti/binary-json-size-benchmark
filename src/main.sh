@@ -33,7 +33,7 @@ do
     ./src/decode.sh "$BINARY" "$document" "$format" "$JSON"
     cat "$JSON"
 
-    if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
+    if ! python3 src/json-equals.py "$SOURCE" "$JSON"
     then
       assert_fail "Files are not equal"
     fi
@@ -49,3 +49,5 @@ do
 
   make "charts/$document.png"
 done
+
+./src/readme.sh > README.md

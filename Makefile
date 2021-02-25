@@ -1,4 +1,4 @@
-.PHONY: deps lint run
+.PHONY: deps lint run benchmark
 
 deps: requirements.txt
 	pip3 install --requirement $<
@@ -18,3 +18,5 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME
 		-e "filename=\"$(word 2,$^)\"" \
 		$< > $@
 
+benchmark:
+	./src/main.sh

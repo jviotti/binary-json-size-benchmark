@@ -2,14 +2,16 @@
 
 set -eu
 
-cat scripts/README.pre.md
+echo "Binary JSON-compatible Format Benchmark"
+echo "======================================="
+echo "
+A size benchmark of JSON-compatible binary serialization formats.
 
-echo ""
-echo "Results"
-echo "-------"
-echo ""
+Results
+-------
+"
 
-for document in results/*
+for document in output/*
 do
   DOCUMENT_ID="$(basename "$document")"
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
@@ -18,6 +20,5 @@ do
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
   echo ""
   echo "- [**Input Document**](benchmark/$DOCUMENT_ID/document.json)"
-  echo "- [**Benchmark Numbers**](results/$DOCUMENT_ID/data.dat)"
+  echo "- [**Benchmark Numbers**](output/$DOCUMENT_ID/data.dat)"
 done
-
