@@ -6,6 +6,9 @@ A size benchmark of JSON-compatible binary serialization formats.
 Results
 -------
 
+### GeoJSON example JSON document
+
+![GeoJSON example JSON document chart](./charts/geojson.png)
 ### OpenWeatherMap API example JSON document
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
