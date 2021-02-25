@@ -5,8 +5,8 @@ set -o nounset
 
 source "$PWD/src/_utils.sh"
 
-FORMATS="$(ls -l skeleton)"
-DOCUMENTS="$(ls -l benchmark)"
+FORMATS="$(ls -1 skeleton)"
+DOCUMENTS="$(ls -1 benchmark)"
 
 OUTPUT_DIRECTORY="$PWD/output"
 rm -rf "$OUTPUT_DIRECTORY"
