@@ -5,12 +5,11 @@ set -o nounset
 
 source "$PWD/src/_utils.sh"
 
-FORMATS="json bson cbor"
-# FORMATS="bson"
-DOCUMENTS="geojson eslintrc jsonfeed"
-# DOCUMENTS="geojson"
+FORMATS="$(ls -l skeleton)"
+DOCUMENTS="$(ls -l benchmark)"
 
 OUTPUT_DIRECTORY="$PWD/output"
+rm -rf "$OUTPUT_DIRECTORY"
 
 byte_size() {
   stat -f '%z' "$1"
@@ -47,4 +46,6 @@ do
     echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE")" >> "$DATA_FILE"
     INDEX="$(echo "$INDEX + 1" | bc)"
   done
+
+  make "charts/$document.png"
 done

@@ -11,3 +11,10 @@ lint: $(SHELL_SCRIPTS) $(PYTHON_SCRIPTS)
 
 run: run.sh
 	./$<
+
+charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME
+	gnuplot \
+		-e "description=\"$(shell cat $(word 3,$^))\"" \
+		-e "filename=\"$(word 2,$^)\"" \
+		$< > $@
+

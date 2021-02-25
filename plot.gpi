@@ -3,20 +3,11 @@ set style data histogram
 set style histogram cluster gap 1
 set style fill solid border -1
 set terminal pngcairo size 1000, 500
-set output "chart.png"
 set xlabel "Serialization Formats"
 set xlabel offset 0,-0.5
 set ylabel "Byte Size"
 set bmargin 5
 set lmargin 9
 
-plot 'data.dat' using 3:xtic(2) title 'Uncompressed',\
-'data.dat' using 4:xtic(2) title 'GZIP/1',\
-'data.dat' using 5:xtic(2) title 'GZIP/2',\
-'data.dat' using 6:xtic(2) title 'GZIP/3',\
-'data.dat' using 7:xtic(2) title 'GZIP/4',\
-'data.dat' using 8:xtic(2) title 'GZIP/5',\
-'data.dat' using 9:xtic(2) title 'GZIP/6',\
-'data.dat' using 10:xtic(2) title 'GZIP/7',\
-'data.dat' using 11:xtic(2) title 'GZIP/8',\
-'data.dat' using 12:xtic(2) title 'GZIP/9'
+plot filename using 3:xtic(2) title 'Uncompressed',\
+filename using 4:xtic(2) title 'GZIP'
