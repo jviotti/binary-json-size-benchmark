@@ -3,7 +3,7 @@
 set -o errexit
 set -o nounset
 
-source "$PWD/src/_utils.sh"
+. "src/_utils.sh"
 
 FORMATS="$(ls -1 skeleton)"
 DOCUMENTS="$(ls -1 benchmark)"

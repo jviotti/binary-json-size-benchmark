@@ -12,7 +12,7 @@ then
   exit 1
 fi
 
-source "$PWD/src/_utils.sh"
+. "src/_utils.sh"
 
 # Reset output
 rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"

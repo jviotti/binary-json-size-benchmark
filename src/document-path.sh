@@ -11,6 +11,6 @@ then
   exit 1
 fi
 
-source "$PWD/src/_utils.sh"
+. "src/_utils.sh"
 DOCUMENT_PATH="$PWD/benchmark/$DOCUMENT/document.json"
 echo "$DOCUMENT_PATH"
