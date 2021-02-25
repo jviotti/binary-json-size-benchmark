@@ -1,0 +1,21 @@
+name: Benchmark
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Prepare environment
+      run: sudo ./scripts/ci-dependencies.sh
+
+    - name: Install dependencies
+      run: make deps
+
+    - name: Lint
+      run: make lint
+
+    - name: Benchmark
+      run: make benchmark
