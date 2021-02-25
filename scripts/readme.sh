@@ -16,8 +16,8 @@ do
   echo "### $TITLE"
   echo ""
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
+  echo ""
+  echo "- [**Input Document**](benchmark/$DOCUMENT_ID/document.json)"
+  echo "- [**Benchmark Numbers**](results/$DOCUMENT_ID/data.dat)"
 done
 
-echo ""
-echo "- [**Input Document**](benchmark/$DOCUMENT_ID/document.json)"
-echo "- [**Benchmark Numbers**](results/$DOCUMENT_ID/data.dat)"
