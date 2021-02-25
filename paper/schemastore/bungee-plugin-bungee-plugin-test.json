@@ -1,8 +1,0 @@
-{
-  "name": "TestPlugin",
-  "main": "me.username.testplugin.TestPlugin",
-  "version": "1.0",
-  "author": "username",
-  "depend": [ "PluginA" ],
-  "softdepend": [ "PluginB", "PluginC" ]
-}

@@ -1,7 +1,0 @@
-{
-  "auth": {
-    "username": "demo@bass.starter"
-  },
-  "sObjects": ["Account", "Contact"],
-  "outPath": "./app/generated"
-}
