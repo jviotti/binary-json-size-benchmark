@@ -174,3 +174,10 @@ Results
 - [**Input Document**](benchmark/tslint-extend/document.json)
 - [**Benchmark Numbers**](output/tslint-extend/data.dat)
   
+### TSLint linter definition (multi-rule)
+
+![TSLint linter definition (multi-rule) chart](./charts/tslint-multi.png)
+
+- [**Input Document**](benchmark/tslint-multi/document.json)
+- [**Benchmark Numbers**](output/tslint-multi/data.dat)
+  
