@@ -13,6 +13,20 @@ Results
 - [**Input Document**](benchmark/circleci-blank/document.json)
 - [**Benchmark Numbers**](output/circleci-blank/data.dat)
   
+### CircleCI matrix definition
+
+![CircleCI matrix definition chart](./charts/circleci-matrix.png)
+
+- [**Input Document**](benchmark/circleci-matrix/document.json)
+- [**Benchmark Numbers**](output/circleci-matrix/data.dat)
+  
+### CommitLint configuration
+
+![CommitLint configuration chart](./charts/commitlint.png)
+
+- [**Input Document**](benchmark/commitlint/document.json)
+- [**Benchmark Numbers**](output/commitlint/data.dat)
+  
 ### CommitLint configuration (basic)
 
 ![CommitLint configuration (basic) chart](./charts/commitlint-basic.png)
@@ -75,6 +89,20 @@ Results
 
 - [**Input Document**](benchmark/imageoptimizer-webjob/document.json)
 - [**Benchmark Numbers**](output/imageoptimizer-webjob/data.dat)
+  
+### JSON-e templating engine reverse sort example
+
+![JSON-e templating engine reverse sort example chart](./charts/jsone-reverse-sort.png)
+
+- [**Input Document**](benchmark/jsone-reverse-sort/document.json)
+- [**Benchmark Numbers**](output/jsone-reverse-sort/data.dat)
+  
+### JSON-e templating engine sort example
+
+![JSON-e templating engine sort example chart](./charts/jsone-sort.png)
+
+- [**Input Document**](benchmark/jsone-sort/document.json)
+- [**Benchmark Numbers**](output/jsone-sort/data.dat)
   
 ### JSON Feed example document
 
