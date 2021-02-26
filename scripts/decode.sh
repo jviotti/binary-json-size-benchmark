@@ -13,7 +13,7 @@ then
   exit 1
 fi
 
-. "src/_utils.sh"
+. "scripts/_utils.sh"
 
 # Reset output
 rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"

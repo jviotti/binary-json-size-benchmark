@@ -5,7 +5,7 @@ DOCUMENT="$1"
 FORMAT="$2"
 set -o nounset
 
-. "src/_utils.sh"
+. "scripts/_utils.sh"
 
 ALL="1"
 
@@ -51,16 +51,16 @@ do
   for format in $FORMATS
   do
     NAME="$(cat "$PWD/skeleton/$format/NAME")"
-    SOURCE="$("$PWD/src/document-path.sh" "$document" "$format")"
+    SOURCE="$("$PWD/scripts/document-path.sh" "$document" "$format")"
     BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
     JSON="$OUTPUT_DIRECTORY/$document/$format/decode.json"
 
-    ./src/encode.sh "$document" "$format" "$BINARY"
+    ./scripts/encode.sh "$document" "$format" "$BINARY"
     xxd "$BINARY"
-    ./src/decode.sh "$BINARY" "$document" "$format" "$JSON"
+    ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
     cat "$JSON"
 
-    if ! python3 src/json-equals.py "$SOURCE" "$JSON"
+    if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
     then
       assert_fail "Files are not equal"
     fi
@@ -87,5 +87,5 @@ done
 
 if [ "$ALL" = "1" ]
 then
-  ./src/readme.sh > README.md
+  ./scripts/readme.sh > README.md
 fi
