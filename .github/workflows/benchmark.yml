@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Prepare environment
-      run: sudo ./scripts/ci-dependencies.sh
+      run: sudo ./.github/ci-dependencies.sh
 
     - name: Install dependencies
       run: make deps
