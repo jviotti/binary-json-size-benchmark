@@ -1,0 +1,474 @@
+env:
+  browser: false
+  commonjs: true
+  node: true
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: tsconfig.json
+plugins:
+  - '@typescript-eslint'
+extends:
+  - standard
+  - "plugin:@typescript-eslint/recommended"
+rules:
+
+  # TypeScript
+  '@typescript-eslint/adjacent-overload-signatures':
+    - error
+  '@typescript-eslint/array-type':
+    - error
+    - default: array
+  '@typescript-eslint/await-thenable':
+    - error
+  '@typescript-eslint/ban-ts-comment':
+    - error
+  '@typescript-eslint/class-literal-property-style':
+    - error
+    - getters
+  '@typescript-eslint/consistent-type-assertions':
+    - error
+    - assertionStyle: never
+  '@typescript-eslint/consistent-type-definitions':
+    - error
+    - interface
+  '@typescript-eslint/explicit-member-accessibility':
+    - error
+    - accessibility: explicit
+  '@typescript-eslint/explicit-module-boundary-types':
+    - error
+  '@typescript-eslint/no-explicit-any':
+    - error
+  '@typescript-eslint/no-inferrable-types':
+    - off
+  '@typescript-eslint/no-unused-vars':
+    - error
+  '@typescript-eslint/explicit-function-return-type':
+    - error
+  '@typescript-eslint/member-delimiter-style':
+    - error
+    - multiline:
+        delimiter: semi
+        requireLast: true
+      singleline:
+        delimiter: semi
+        requireLast: true
+  '@typescript-eslint/member-ordering':
+    - error
+  '@typescript-eslint/naming-convention':
+    - error
+  '@typescript-eslint/no-base-to-string':
+    - error
+  '@typescript-eslint/no-dynamic-delete':
+    - error
+  '@typescript-eslint/no-empty-interface':
+    - error
+  '@typescript-eslint/no-extra-non-null-assertion':
+    - error
+  '@typescript-eslint/no-extraneous-class':
+    - error
+  '@typescript-eslint/no-floating-promises':
+    - error
+  '@typescript-eslint/no-for-in-array':
+    - error
+  '@typescript-eslint/no-implied-eval':
+    - error
+  '@typescript-eslint/no-misused-new':
+    - error
+  '@typescript-eslint/no-namespace':
+    - error
+  '@typescript-eslint/no-non-null-asserted-optional-chain':
+    - error
+  '@typescript-eslint/no-non-null-assertion':
+    - error
+  '@typescript-eslint/no-parameter-properties':
+    - error
+  '@typescript-eslint/no-require-imports':
+    - error
+  '@typescript-eslint/no-this-alias':
+    - error
+  '@typescript-eslint/no-throw-literal':
+    - error
+  '@typescript-eslint/no-type-alias':
+    - off
+  '@typescript-eslint/no-unnecessary-boolean-literal-compare':
+    - error
+  '@typescript-eslint/no-unnecessary-condition':
+    - error
+  '@typescript-eslint/no-unnecessary-type-arguments':
+    - error
+  '@typescript-eslint/no-unnecessary-type-assertion':
+    - error
+  '@typescript-eslint/no-unsafe-call':
+    - error
+  '@typescript-eslint/no-unsafe-member-access':
+    - error
+  '@typescript-eslint/no-unsafe-return':
+    - error
+  '@typescript-eslint/no-unused-vars-experimental':
+    - error
+  '@typescript-eslint/no-var-requires':
+    - error
+  '@typescript-eslint/prefer-as-const':
+    - error
+  '@typescript-eslint/prefer-for-of':
+    - error
+  '@typescript-eslint/prefer-function-type':
+    - error
+  '@typescript-eslint/prefer-includes':
+    - error
+  '@typescript-eslint/prefer-namespace-keyword':
+    - error
+  '@typescript-eslint/prefer-nullish-coalescing':
+    - error
+  '@typescript-eslint/prefer-optional-chain':
+    - error
+  '@typescript-eslint/prefer-readonly':
+    - error
+  '@typescript-eslint/prefer-readonly-parameter-types':
+    - off
+  '@typescript-eslint/prefer-regexp-exec':
+    - error
+  '@typescript-eslint/prefer-string-starts-ends-with':
+    - error
+  '@typescript-eslint/promise-function-async':
+    - error
+  '@typescript-eslint/require-array-sort-compare':
+    - error
+  '@typescript-eslint/restrict-plus-operands':
+    - error
+  '@typescript-eslint/restrict-template-expressions':
+    - error
+  '@typescript-eslint/strict-boolean-expressions':
+    - error
+  '@typescript-eslint/switch-exhaustiveness-check':
+    - error
+  '@typescript-eslint/triple-slash-reference':
+    - error
+  '@typescript-eslint/type-annotation-spacing':
+    - error
+  '@typescript-eslint/typedef':
+    - error
+  '@typescript-eslint/unbound-method':
+    - error
+  '@typescript-eslint/unified-signatures':
+    - error
+
+  '@typescript-eslint/brace-style':
+    - error
+  '@typescript-eslint/comma-spacing':
+    - error
+  '@typescript-eslint/indent':
+    - error
+    - 2
+  '@typescript-eslint/no-unused-expressions':
+    - error
+  '@typescript-eslint/no-use-before-define':
+    - error
+
+  # Possible Errors
+
+  no-console:
+    - off
+  no-empty:
+    - error
+  no-extra-semi:
+    - error
+  no-negated-in-lhs:
+    - error
+  no-prototype-builtins:
+    - off
+  valid-jsdoc:
+    - error
+    - requireReturn: false
+      requireReturnDescription: false
+      requireReturnType: true
+      requireParamDescription: true
+      preferType:
+        boolean: "Boolean"
+        number: "Number"
+        object: "Object"
+        string: "String"
+        array: "Array"
+      prefer:
+        arg: "param"
+        return: "returns"
+
+  # Best Practices
+
+  array-callback-return:
+    - error
+  block-scoped-var:
+    - error
+  class-methods-use-this:
+    - error
+  complexity:
+    - off
+  consistent-return:
+    - error
+  curly:
+    - error
+  default-case:
+    - error
+  dot-notation:
+    - error
+  guard-for-in:
+    - off
+  no-alert:
+    - error
+  no-case-declarations:
+    - error
+  no-div-regex:
+    - error
+  no-else-return:
+    - error
+  no-empty-function:
+    - error
+  no-eq-null:
+    - error
+  no-extra-label:
+    - error
+  no-implicit-coercion:
+    - error
+  no-implicit-globals:
+    - error
+  no-loop-func:
+    - error
+  no-magic-numbers:
+    - off
+  no-native-reassign:
+    - error
+  no-param-reassign:
+    - error
+  no-restricted-properties:
+    - error
+    - property: __proto__
+  no-return-await:
+    - error
+  no-script-url:
+    - error
+  no-unused-labels:
+    - error
+  no-useless-concat:
+    - error
+  no-void:
+    - error
+  no-warning-comments:
+    - off
+  radix:
+    - error
+  vars-on-top:
+    - off
+
+  # Strict mode
+
+  strict:
+    - error
+    - global
+
+  # Variables
+
+  init-declarations:
+    - error
+    - always
+  no-catch-shadow:
+    - error
+  no-restricted-globals:
+    - error
+    - event
+  no-undefined:
+    - off
+  no-unused-vars:
+    - off
+
+  # NodeJS and CommonJS
+
+  callback-return:
+    - error
+  global-require:
+    - off
+  no-mixed-requires:
+    - error
+  no-process-env:
+    - error
+  no-process-exit:
+    - off
+  no-sync:
+    - off
+
+  # Stylistic Issues
+
+  array-bracket-spacing:
+    - error
+    - always
+  capitalized-comments:
+    - error
+    - always
+    - ignoreConsecutiveComments: true
+  computed-property-spacing:
+    - error
+    - never
+  consistent-this:
+    - error
+    - self
+  func-name-matching:
+    - error
+    - always
+  func-names:
+    - error
+    - never
+  func-style:
+    - error
+    - expression
+  id-blacklist:
+    - error
+  id-length:
+    - error
+    - min: 2
+      exceptions:
+        - "_"
+  line-comment-position:
+    - error
+    - position: above
+  linebreak-style:
+    - error
+    - unix
+  lines-around-comment:
+    - error
+    - beforeBlockComment: true
+      afterBlockComment: false
+      beforeLineComment: true
+      afterLineComment: false
+      allowBlockStart: true
+      allowBlockEnd: false
+      allowObjectStart: true
+      allowObjectEnd: false
+      allowArrayStart: true
+      allowArrayEnd: false
+  lines-around-directive:
+    - error
+    - always
+  max-len:
+    - error
+    - code: 80
+      comments: 80
+      ignoreComments: false
+      ignoreTrailingComments: false
+      ignoreUrls: true
+  max-params:
+    - off
+  max-statements-per-line:
+    - error
+    - max: 1
+  multiline-ternary:
+    - off
+  newline-per-chained-call:
+    - off
+  no-bitwise:
+    - error
+  no-continue:
+    - off
+  no-inline-comments:
+    - error
+  no-lonely-if:
+    - error
+  no-mixed-operators:
+    - error
+  no-multi-assign:
+    - error
+  no-negated-condition:
+    - error
+  no-nested-ternary:
+    - error
+  no-plusplus:
+    - off
+  no-restricted-syntax:
+    - error
+    - WithStatement
+  no-spaced-func:
+    - error
+  no-tabs:
+    - off
+  no-underscore-dangle:
+    - error
+    - allowAfterThis: false
+  object-curly-newline:
+    - error
+    - minProperties: 1
+  object-curly-spacing:
+    - error
+    - always
+  one-var-declaration-per-line:
+    - error
+    - always
+  operator-assignment:
+    - error
+    - always
+  quotes:
+    - error
+    - single
+  quote-props:
+    - error
+    - as-needed
+  require-jsdoc:
+    - off
+    - require:
+        FunctionDeclaration: true
+        ClassDeclaration: true
+        MethodDefinition: true
+        ArrowFunctionExpression: true
+  semi:
+    - error
+    - never
+  space-before-function-paren:
+    - error
+    - anonymous: always
+      named: always
+  template-tag-spacing:
+    - error
+    - always
+  unicode-bom:
+    - error
+
+  # ECMAScript 6
+
+  arrow-body-style:
+    - error
+    - always
+  arrow-parens:
+    - error
+    - always
+  arrow-spacing:
+    - error
+    - before: true
+      after: true
+  generator-star-spacing:
+    - error
+    - before: true
+      after: false
+  no-confusing-arrow:
+    - error
+  no-var:
+    - error
+  object-shorthand:
+    - error
+    - always
+  prefer-const:
+    - error
+  prefer-reflect:
+    - error
+    - exceptions: [ getOwnPropertyNames ]
+  prefer-spread:
+    - error
+  prefer-numeric-literals:
+    - error
+  prefer-rest-params:
+    - error
+  prefer-template:
+    - error
+  prefer-arrow-callback:
+    - error
+    - allowNamedFunctions: false
+  require-yield:
+    - error
+  symbol-description:
+    - error

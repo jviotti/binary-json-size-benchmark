@@ -14,8 +14,14 @@ jobs:
     - name: Install dependencies
       run: make deps
 
+    - name: Build
+      run: make build
+
     - name: Lint
       run: make lint
+
+    - name: Test
+      run: make test
 
     - name: Benchmark
       run: make benchmark
