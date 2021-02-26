@@ -1,0 +1,7 @@
+1 "BSON" 411 273
+2 "CBOR" 288 208
+3 "FlexBuffers" 396 309
+4 "JSON" 632 267
+5 "MessagePack" 287 222
+6 "Smile" 287 235
+7 "UBJSON" 339 243
