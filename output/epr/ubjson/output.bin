@@ -1,0 +1,5 @@
+{UsiteSUhttps://eample.comUmaxAgelá3€U	reportUrlSUhttps://example.comUdefaultNavBehaviorSUblockUdefaultResBehaviorSUblockUrules[{UpathC/Utypes[SU
+navigation]U	allowDataF}{UregexSU^/\d+$Utypes[SU
+navigation]U	allowDataF}{UpathSU/imageUtypes[SUimage]U	allowDataT}{UregexSU4^/(scoreboard|random|favorites|recentvisits|create)$Utypes[SU
+navigation]U	allowDataF}{UregexSU+^/(recent|popular|metrics|template|search)$Utypes[SU
+navigation]U	allowDataT}]}
