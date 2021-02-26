@@ -20,9 +20,9 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		$< > $@
 
 benchmark:
-	./src/main.sh
+	./scripts/main.sh
 
 benchmark-%:
-	./src/main.sh \
+	./scripts/main.sh \
 		$(word 1,$(subst -, ,$(subst benchmark-,,$@))) \
 		$(word 2,$(subst -, ,$(subst benchmark-,,$@)))

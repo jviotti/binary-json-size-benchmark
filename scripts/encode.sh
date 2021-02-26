@@ -12,12 +12,12 @@ then
   exit 1
 fi
 
-. "src/_utils.sh"
+. "scripts/_utils.sh"
 
 # Reset output
 rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"
 
-DOCUMENT_PATH="$("$PWD/src/document-path.sh" "$DOCUMENT" "$FORMAT")"
+DOCUMENT_PATH="$("$PWD/scripts/document-path.sh" "$DOCUMENT" "$FORMAT")"
 assert_file_exists "$DOCUMENT_PATH"
 
 SCRIPT_NAME="encode.sh"
