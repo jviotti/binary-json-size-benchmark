@@ -34,5 +34,5 @@ info "Using entrypoint: $SCRIPT"
 info "Output: $OUTPUT"
 
 cd "$(dirname "$SCRIPT")"
-./"$(basename "$SCRIPT")" "$DOCUMENT_PATH" "$OUTPUT"
+FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" ./"$(basename "$SCRIPT")" "$DOCUMENT_PATH" "$OUTPUT"
 assert_file_exists "$OUTPUT"
