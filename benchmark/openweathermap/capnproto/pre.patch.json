@@ -1,0 +1,17 @@
+[
+  {
+    "op": "move",
+    "from": "/main/feels_like",
+    "path": "/main/feelsLike"
+  },
+  {
+    "op": "move",
+    "from": "/main/temp_min",
+    "path": "/main/tempMin"
+  },
+  {
+    "op": "move",
+    "from": "/main/temp_max",
+    "path": "/main/tempMax"
+  }
+]

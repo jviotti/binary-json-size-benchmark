@@ -16,9 +16,9 @@
     "temp": 282.55,
     "pressure": 1023,
     "humidity": 100,
-    "feels_like": 281.86,
-    "temp_min": 280.37,
-    "temp_max": 284.26
+    "feelsLike": 281.86,
+    "tempMin": 280.37,
+    "tempMax": 284.26
   },
   "visibility": 16093,
   "wind": {
