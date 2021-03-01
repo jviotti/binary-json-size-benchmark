@@ -34,7 +34,14 @@ info "Using entrypoint: $SCRIPT"
 info "Output: $OUTPUT"
 
 FINAL_JSON_PATH="$(dirname "$OUTPUT")/encode.json"
-cp "$DOCUMENT_PATH" "$FINAL_JSON_PATH"
+PATCH_PATH="$(dirname "$DOCUMENT_PATH")/$FORMAT/pre.patch.json"
+
+if [ -f "$PATCH_PATH" ]
+then
+  node scripts/jsonpatch.js "$PATCH_PATH" < "$DOCUMENT_PATH" > "$FINAL_JSON_PATH"
+else
+  cp "$DOCUMENT_PATH" "$FINAL_JSON_PATH"
+fi
 
 cd "$(dirname "$SCRIPT")"
 FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" ./"$(basename "$SCRIPT")" "$FINAL_JSON_PATH" "$OUTPUT"

@@ -5,8 +5,8 @@ deps: requirements.txt package.json
 	pip3 install --requirement $<
 	npm install
 
-SHELL_SCRIPTS = $(shell find . -type f -name '*.sh')
-PYTHON_SCRIPTS = $(shell find . -type f -name '*.py')
+SHELL_SCRIPTS = $(shell find . -type f -name '*.sh' | grep -v node_modules)
+PYTHON_SCRIPTS = $(shell find . -type f -name '*.py' | grep -v node_modules)
 lint: $(SHELL_SCRIPTS) $(PYTHON_SCRIPTS)
 	shellcheck $(SHELL_SCRIPTS)
 	python3 -m flake8 $(PYTHON_SCRIPTS)
