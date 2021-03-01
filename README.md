@@ -8,17 +8,17 @@ Results
 
 ### CircleCI definition (blank)
 
-![CircleCI definition (blank) chart](./charts/circleci-blank.png)
+![CircleCI definition (blank) chart](./charts/circleciblank.png)
 
-- [**Input Document**](benchmark/circleci-blank/document.json)
-- [**Benchmark Numbers**](output/circleci-blank/data.dat)
+- [**Input Document**](benchmark/circleciblank/document.json)
+- [**Benchmark Numbers**](output/circleciblank/data.dat)
   
 ### CircleCI matrix definition
 
-![CircleCI matrix definition chart](./charts/circleci-matrix.png)
+![CircleCI matrix definition chart](./charts/circlecimatrix.png)
 
-- [**Input Document**](benchmark/circleci-matrix/document.json)
-- [**Benchmark Numbers**](output/circleci-matrix/data.dat)
+- [**Input Document**](benchmark/circlecimatrix/document.json)
+- [**Benchmark Numbers**](output/circlecimatrix/data.dat)
   
 ### CommitLint configuration
 
@@ -29,10 +29,10 @@ Results
   
 ### CommitLint configuration (basic)
 
-![CommitLint configuration (basic) chart](./charts/commitlint-basic.png)
+![CommitLint configuration (basic) chart](./charts/commitlintbasic.png)
 
-- [**Input Document**](benchmark/commitlint-basic/document.json)
-- [**Benchmark Numbers**](output/commitlint-basic/data.dat)
+- [**Input Document**](benchmark/commitlintbasic/document.json)
+- [**Benchmark Numbers**](output/commitlintbasic/data.dat)
   
 ### Entry Point Regulation manifest
 
@@ -64,17 +64,10 @@ Results
   
 ### GeoJSON example JSON document with redundant coordinates
 
-![GeoJSON example JSON document with redundant coordinates chart](./charts/geojson-redundant.png)
+![GeoJSON example JSON document with redundant coordinates chart](./charts/geojsonredundant.png)
 
-- [**Input Document**](benchmark/geojson-redundant/document.json)
-- [**Benchmark Numbers**](output/geojson-redundant/data.dat)
-  
-### GitHub FUNDING sponsorship definition (empty)
-
-![GitHub FUNDING sponsorship definition (empty) chart](./charts/github-funding-blank.png)
-
-- [**Input Document**](benchmark/github-funding-blank/document.json)
-- [**Benchmark Numbers**](output/github-funding-blank/data.dat)
+- [**Input Document**](benchmark/geojsonredundant/document.json)
+- [**Benchmark Numbers**](output/geojsonredundant/data.dat)
   
 ### GitHub Workflow Definition
 
@@ -83,33 +76,40 @@ Results
 - [**Input Document**](benchmark/github-workflow/document.json)
 - [**Benchmark Numbers**](output/github-workflow/data.dat)
   
+### GitHub FUNDING sponsorship definition (empty)
+
+![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
+
+- [**Input Document**](benchmark/githubfundingblank/document.json)
+- [**Benchmark Numbers**](output/githubfundingblank/data.dat)
+  
 ### Grunt.js "clean" task definition
 
-![Grunt.js "clean" task definition chart](./charts/grunt-contrib-clean.png)
+![Grunt.js "clean" task definition chart](./charts/gruntcontribclean.png)
 
-- [**Input Document**](benchmark/grunt-contrib-clean/document.json)
-- [**Benchmark Numbers**](output/grunt-contrib-clean/data.dat)
+- [**Input Document**](benchmark/gruntcontribclean/document.json)
+- [**Benchmark Numbers**](output/gruntcontribclean/data.dat)
   
 ### ImageOptimizer Azure Webjob configuration
 
-![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizer-webjob.png)
+![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizerwebjob.png)
 
-- [**Input Document**](benchmark/imageoptimizer-webjob/document.json)
-- [**Benchmark Numbers**](output/imageoptimizer-webjob/data.dat)
+- [**Input Document**](benchmark/imageoptimizerwebjob/document.json)
+- [**Benchmark Numbers**](output/imageoptimizerwebjob/data.dat)
   
 ### JSON-e templating engine reverse sort example
 
-![JSON-e templating engine reverse sort example chart](./charts/jsone-reverse-sort.png)
+![JSON-e templating engine reverse sort example chart](./charts/jsonereversesort.png)
 
-- [**Input Document**](benchmark/jsone-reverse-sort/document.json)
-- [**Benchmark Numbers**](output/jsone-reverse-sort/data.dat)
+- [**Input Document**](benchmark/jsonereversesort/document.json)
+- [**Benchmark Numbers**](output/jsonereversesort/data.dat)
   
 ### JSON-e templating engine sort example
 
-![JSON-e templating engine sort example chart](./charts/jsone-sort.png)
+![JSON-e templating engine sort example chart](./charts/jsonesort.png)
 
-- [**Input Document**](benchmark/jsone-sort/document.json)
-- [**Benchmark Numbers**](output/jsone-sort/data.dat)
+- [**Input Document**](benchmark/jsonesort/document.json)
+- [**Benchmark Numbers**](output/jsonesort/data.dat)
   
 ### JSON Feed example document
 
@@ -127,10 +127,10 @@ Results
   
 ### Netlify CMS Configuration
 
-![Netlify CMS Configuration chart](./charts/netlify-cms.png)
+![Netlify CMS Configuration chart](./charts/netlifycms.png)
 
-- [**Input Document**](benchmark/netlify-cms/document.json)
-- [**Benchmark Numbers**](output/netlify-cms/data.dat)
+- [**Input Document**](benchmark/netlifycms/document.json)
+- [**Benchmark Numbers**](output/netlifycms/data.dat)
   
 ### Nightwatch.js Test Framework Configuration
 
@@ -139,19 +139,19 @@ Results
 - [**Input Document**](benchmark/nightwatch/document.json)
 - [**Benchmark Numbers**](output/nightwatch/data.dat)
   
-### OpenWeather Road Risk API example
-
-![OpenWeather Road Risk API example chart](./charts/openweather-roadrisk.png)
-
-- [**Input Document**](benchmark/openweather-roadrisk/document.json)
-- [**Benchmark Numbers**](output/openweather-roadrisk/data.dat)
-  
 ### OpenWeatherMap API example JSON document
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
 
 - [**Input Document**](benchmark/openweathermap/document.json)
 - [**Benchmark Numbers**](output/openweathermap/data.dat)
+  
+### OpenWeather Road Risk API example
+
+![OpenWeather Road Risk API example chart](./charts/openweatherroadrisk.png)
+
+- [**Input Document**](benchmark/openweatherroadrisk/document.json)
+- [**Benchmark Numbers**](output/openweatherroadrisk/data.dat)
   
 ### NPM Package.json example manifest
 
@@ -169,36 +169,36 @@ Results
   
 ### SAP Cloud SDK Continuous Delivery Toolkit configuration
 
-![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sap-cloud-sdk-pipeline.png)
+![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sapcloudsdkpipeline.png)
 
-- [**Input Document**](benchmark/sap-cloud-sdk-pipeline/document.json)
-- [**Benchmark Numbers**](output/sap-cloud-sdk-pipeline/data.dat)
+- [**Input Document**](benchmark/sapcloudsdkpipeline/document.json)
+- [**Benchmark Numbers**](output/sapcloudsdkpipeline/data.dat)
   
 ### TravisCI notifications configuration
 
-![TravisCI notifications configuration chart](./charts/travis-notifications.png)
+![TravisCI notifications configuration chart](./charts/travisnotifications.png)
 
-- [**Input Document**](benchmark/travis-notifications/document.json)
-- [**Benchmark Numbers**](output/travis-notifications/data.dat)
+- [**Input Document**](benchmark/travisnotifications/document.json)
+- [**Benchmark Numbers**](output/travisnotifications/data.dat)
   
 ### TSLint linter definition (basic)
 
-![TSLint linter definition (basic) chart](./charts/tslint-basic.png)
+![TSLint linter definition (basic) chart](./charts/tslintbasic.png)
 
-- [**Input Document**](benchmark/tslint-basic/document.json)
-- [**Benchmark Numbers**](output/tslint-basic/data.dat)
+- [**Input Document**](benchmark/tslintbasic/document.json)
+- [**Benchmark Numbers**](output/tslintbasic/data.dat)
   
 ### TSLint linter definition (extends only)
 
-![TSLint linter definition (extends only) chart](./charts/tslint-extend.png)
+![TSLint linter definition (extends only) chart](./charts/tslintextend.png)
 
-- [**Input Document**](benchmark/tslint-extend/document.json)
-- [**Benchmark Numbers**](output/tslint-extend/data.dat)
+- [**Input Document**](benchmark/tslintextend/document.json)
+- [**Benchmark Numbers**](output/tslintextend/data.dat)
   
 ### TSLint linter definition (multi-rule)
 
-![TSLint linter definition (multi-rule) chart](./charts/tslint-multi.png)
+![TSLint linter definition (multi-rule) chart](./charts/tslintmulti.png)
 
-- [**Input Document**](benchmark/tslint-multi/document.json)
-- [**Benchmark Numbers**](output/tslint-multi/data.dat)
+- [**Input Document**](benchmark/tslintmulti/document.json)
+- [**Benchmark Numbers**](output/tslintmulti/data.dat)
   
