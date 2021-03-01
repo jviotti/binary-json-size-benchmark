@@ -22,6 +22,8 @@ assert_file_exists "$FILE"
 
 SCRIPT_NAME="decode.sh"
 SCRIPT="$PWD/benchmark/$DOCUMENT/$FORMAT/$SCRIPT_NAME"
+FWD="$(dirname "$SCRIPT")"
+PATCH_PATH="$FWD/post.patch.json"
 
 # Generic fallback
 if [ ! -f "$SCRIPT" ]
@@ -34,5 +36,11 @@ info "Using entrypoint: $SCRIPT"
 info "Output: $OUTPUT"
 
 cd "$(dirname "$SCRIPT")"
-./"$(basename "$SCRIPT")" "$FILE" "$OUTPUT"
+FWD="$FWD" ./"$(basename "$SCRIPT")" "$FILE" "$OUTPUT"
 assert_file_exists "$OUTPUT"
+
+if [ -f "$PATCH_PATH" ]
+then
+  node scripts/jsonpatch.js "$PATCH_PATH" < "$OUTPUT" > "$OUTPUT.final"
+  mv "$OUTPUT.final" "$OUTPUT"
+fi
