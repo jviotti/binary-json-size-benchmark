@@ -62,6 +62,13 @@ Results
 - [**Input Document**](benchmark/geojson/document.json)
 - [**Benchmark Numbers**](output/geojson/data.dat)
   
+### GeoJSON example JSON document with redundant coordinates
+
+![GeoJSON example JSON document with redundant coordinates chart](./charts/geojson-redundant.png)
+
+- [**Input Document**](benchmark/geojson-redundant/document.json)
+- [**Benchmark Numbers**](output/geojson-redundant/data.dat)
+  
 ### GitHub FUNDING sponsorship definition (empty)
 
 ![GitHub FUNDING sponsorship definition (empty) chart](./charts/github-funding-blank.png)
@@ -159,6 +166,13 @@ Results
 
 - [**Input Document**](benchmark/sap-cloud-sdk-pipeline/document.json)
 - [**Benchmark Numbers**](output/sap-cloud-sdk-pipeline/data.dat)
+  
+### TravisCI notifications configuration
+
+![TravisCI notifications configuration chart](./charts/travis-notifications.png)
+
+- [**Input Document**](benchmark/travis-notifications/document.json)
+- [**Benchmark Numbers**](output/travis-notifications/data.dat)
   
 ### TSLint linter definition (basic)
 
