@@ -33,6 +33,9 @@ assert_file_exists "$SCRIPT"
 info "Using entrypoint: $SCRIPT"
 info "Output: $OUTPUT"
 
+FINAL_JSON_PATH="$(dirname "$OUTPUT")/encode.json"
+cp "$DOCUMENT_PATH" "$FINAL_JSON_PATH"
+
 cd "$(dirname "$SCRIPT")"
-FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" ./"$(basename "$SCRIPT")" "$DOCUMENT_PATH" "$OUTPUT"
+FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" ./"$(basename "$SCRIPT")" "$FINAL_JSON_PATH" "$OUTPUT"
 assert_file_exists "$OUTPUT"
