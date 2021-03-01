@@ -1,0 +1,18 @@
+{
+  "name": "binary-json-benchmark",
+  "version": "1.0.0",
+  "description": "Binary JSON Benchmark",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jviotti/binary-json-benchmark.git"
+  },
+  "author": "Juan Cruz Viotti <jv@jviotti.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jviotti/binary-json-benchmark/issues"
+  },
+  "homepage": "https://github.com/jviotti/binary-json-benchmark#readme",
+  "dependencies": {
+    "bson": "^4.2.2"
+  }
+}
