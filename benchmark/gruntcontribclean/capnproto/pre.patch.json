@@ -1,0 +1,7 @@
+[
+  {
+    "op": "move",
+    "from": "/options/no-write",
+    "path": "/options/noWrite"
+  }
+]
