@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "radix": [
+      true
+    ],
+    "orderedImports": {
+      "options": {
+        "groupedImports": true
+      }
+    },
+    "noAny": [
+      true
+    ]
+  }
+}
