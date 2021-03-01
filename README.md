@@ -139,6 +139,13 @@ Results
 - [**Input Document**](benchmark/nightwatch/document.json)
 - [**Benchmark Numbers**](output/nightwatch/data.dat)
   
+### OpenWeather Road Risk API example
+
+![OpenWeather Road Risk API example chart](./charts/openweather-roadrisk.png)
+
+- [**Input Document**](benchmark/openweather-roadrisk/document.json)
+- [**Benchmark Numbers**](output/openweather-roadrisk/data.dat)
+  
 ### OpenWeatherMap API example JSON document
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
