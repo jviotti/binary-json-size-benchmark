@@ -2,4 +2,4 @@
 
 set -eu
 
-python3 encode.py "$@"
+node encode.js "$@"

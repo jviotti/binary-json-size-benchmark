@@ -1,8 +1,9 @@
 .PHONY: deps lint benchmark
 .DEFAULT_GOAL = benchmark
 
-deps: requirements.txt
+deps: requirements.txt package.json
 	pip3 install --requirement $<
+	npm install
 
 SHELL_SCRIPTS = $(shell find . -type f -name '*.sh')
 PYTHON_SCRIPTS = $(shell find . -type f -name '*.py')

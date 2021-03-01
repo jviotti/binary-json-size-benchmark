@@ -2,4 +2,4 @@
 
 set -eu
 
-python3 decode.py "$1" > "$2"
+node decode.js "$1" > "$2"
