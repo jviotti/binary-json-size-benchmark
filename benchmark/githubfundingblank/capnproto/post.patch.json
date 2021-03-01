@@ -2,16 +2,16 @@
   {
     "op": "move",
     "from": "/openCollective",
-    "to": "/open_collective"
+    "path": "/open_collective"
   },
   {
     "op": "move",
     "from": "/koFi",
-    "to": "/ko_fi"
+    "path": "/ko_fi"
   },
   {
     "op": "move",
     "from": "/communityBridge",
-    "to": "/community_bridge"
+    "path": "/community_bridge"
   }
 ]
