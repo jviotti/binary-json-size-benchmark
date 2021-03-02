@@ -54,15 +54,19 @@ do
     SOURCE="$("$PWD/scripts/document-path.sh" "$document" "$format")"
     BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
     JSON="$OUTPUT_DIRECTORY/$document/$format/decode.json"
+    IMPOSSIBLE_MARK="$(dirname "$SOURCE")/$format/IMPOSSIBLE"
 
-    ./scripts/encode.sh "$document" "$format" "$BINARY"
-    xxd "$BINARY"
-    ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
-    cat "$JSON"
-
-    if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
+    if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
-      assert_fail "Files are not equal"
+      ./scripts/encode.sh "$document" "$format" "$BINARY"
+      xxd "$BINARY"
+      ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
+      cat "$JSON"
+
+      if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
+      then
+        assert_fail "Files are not equal"
+      fi
     fi
 
     if [ "$ALL" = "0" ]
@@ -70,12 +74,18 @@ do
       continue
     fi
 
-    COMPRESSED_FILE="$BINARY.gz"
-    rm -f "$COMPRESSED_FILE"
-    info "Compressing $BINARY with GZIP"
-    gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE"
+    if [ ! -f "$IMPOSSIBLE_MARK" ]
+    then
+      COMPRESSED_FILE="$BINARY.gz"
+      rm -f "$COMPRESSED_FILE"
+      info "Compressing $BINARY with GZIP"
+      gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE"
 
-    echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE")" >> "$DATA_FILE"
+      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE")" >> "$DATA_FILE"
+    else
+      echo "$INDEX \"$NAME\" 0 0" >> "$DATA_FILE"
+    fi
+
     INDEX="$(echo "$INDEX + 1" | bc)"
   done
 

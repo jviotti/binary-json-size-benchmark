@@ -15,7 +15,17 @@ cmake .
 make
 make install
 
+# Cap'n Proto
+cd /tmp/dependencies
+curl -O https://capnproto.org/capnproto-c++-0.8.0.tar.gz
+tar zxf capnproto-c++-0.8.0.tar.gz
+cd capnproto-c++-0.8.0
+./configure
+make
+make install
+
 # MessagePack
+cd /tmp/dependencies
 wget https://github.com/ludocode/msgpack-tools/releases/download/v0.6/msgpack-tools-0.6-x86_64.deb
 dpkg -i msgpack-tools-0.6-x86_64.deb
 

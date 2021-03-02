@@ -1,0 +1,17 @@
+[
+  {
+    "op": "move",
+    "from": "/open_collective",
+    "path": "/openCollective"
+  },
+  {
+    "op": "move",
+    "from": "/ko_fi",
+    "path": "/koFi"
+  },
+  {
+    "op": "move",
+    "from": "/community_bridge",
+    "path": "/communityBridge"
+  }
+]
