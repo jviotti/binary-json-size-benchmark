@@ -1,0 +1,7 @@
+namespace Benchmark;
+
+table Main {
+  version: float;
+}
+
+root_type Main;

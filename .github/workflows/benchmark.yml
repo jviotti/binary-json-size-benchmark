@@ -22,6 +22,7 @@ jobs:
         path: /tmp/dependencies
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.github/ci-dependencies.sh') }}
         restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.github/ci-dependencies.sh') }}
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
