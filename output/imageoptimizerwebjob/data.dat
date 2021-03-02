@@ -1,5 +1,5 @@
 1 "BSON" 102 103
-2 "Cap'n Proto Packed Encoding" 44 64
+2 "Cap'n Proto (packed)" 44 64
 3 "CBOR" 61 76
 4 "FlexBuffers" 89 102
 5 "JSON" 128 105
