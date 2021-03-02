@@ -8,7 +8,11 @@ mkdir /tmp/dependencies
 
 # FlatBuffers
 cd /tmp/dependencies
-git clone https://github.com/google/flatbuffers.git
+if [ ! -d flatbuffers ]
+then
+  git clone https://github.com/google/flatbuffers.git
+fi
+
 cd flatbuffers
 git checkout v1.12.0
 cmake .
@@ -17,8 +21,12 @@ make install
 
 # Cap'n Proto
 cd /tmp/dependencies
-curl -O https://capnproto.org/capnproto-c++-0.8.0.tar.gz
-tar zxf capnproto-c++-0.8.0.tar.gz
+if [ ! -d capnproto-c++-0.8.0 ]
+then
+  curl -O https://capnproto.org/capnproto-c++-0.8.0.tar.gz
+  tar zxf capnproto-c++-0.8.0.tar.gz
+fi
+
 cd capnproto-c++-0.8.0
 ./configure
 make
@@ -26,10 +34,17 @@ make install
 
 # MessagePack
 cd /tmp/dependencies
-wget https://github.com/ludocode/msgpack-tools/releases/download/v0.6/msgpack-tools-0.6-x86_64.deb
+if [ ! -f msgpack-tools-0.6-x86_64.deb ]
+then
+  wget https://github.com/ludocode/msgpack-tools/releases/download/v0.6/msgpack-tools-0.6-x86_64.deb
+fi
 dpkg -i msgpack-tools-0.6-x86_64.deb
 
 # Clojure
-curl -O https://download.clojure.org/install/linux-install-1.10.2.796.sh
-chmod +x linux-install-1.10.2.796.sh
+if [ ! -f linux-install-1.10.2.796.sh ]
+then
+  curl -O https://download.clojure.org/install/linux-install-1.10.2.796.sh
+  chmod +x linux-install-1.10.2.796.sh
+fi
+
 ./linux-install-1.10.2.796.sh
