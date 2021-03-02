@@ -1,0 +1,8 @@
+1 "BSON" 71 74
+2 "Cap'n Proto Packed Encoding" 12 29
+3 "CBOR" 51 62
+4 "FlexBuffers" 77 76
+5 "JSON" 111 84
+6 "MessagePack" 51 62
+7 "Smile" 59 68
+8 "UBJSON" 59 66

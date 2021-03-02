@@ -2,7 +2,7 @@
 
 set -eux
 
-apt install -y gnuplot python3-setuptools rlwrap
+apt install -y gnuplot python3-setuptools rlwrap capnproto
 
 mkdir /tmp/dependencies
 

@@ -69,19 +69,19 @@ Results
 - [**Input Document**](benchmark/geojsonredundant/document.json)
 - [**Benchmark Numbers**](output/geojsonredundant/data.dat)
   
-### GitHub Workflow Definition
-
-![GitHub Workflow Definition chart](./charts/github-workflow.png)
-
-- [**Input Document**](benchmark/github-workflow/document.json)
-- [**Benchmark Numbers**](output/github-workflow/data.dat)
-  
 ### GitHub FUNDING sponsorship definition (empty)
 
 ![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
 
 - [**Input Document**](benchmark/githubfundingblank/document.json)
 - [**Benchmark Numbers**](output/githubfundingblank/data.dat)
+  
+### GitHub Workflow Definition
+
+![GitHub Workflow Definition chart](./charts/githubworkflow.png)
+
+- [**Input Document**](benchmark/githubworkflow/document.json)
+- [**Benchmark Numbers**](output/githubworkflow/data.dat)
   
 ### Grunt.js "clean" task definition
 
