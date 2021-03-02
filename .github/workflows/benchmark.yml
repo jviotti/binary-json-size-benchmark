@@ -14,6 +14,18 @@ jobs:
       with:
         node-version: 14.x
 
+    - name: Cache Dependencies
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-dependencies
+      with:
+        path: /tmp/dependencies
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.github/ci-dependencies.sh') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
     - name: Prepare environment
       run: sudo ./.github/ci-dependencies.sh
 
