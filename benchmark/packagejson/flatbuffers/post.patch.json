@@ -48,15 +48,5 @@
     "op": "move",
     "path": "/devDependencies/grunt-contrib-watch",
     "from": "/devDependencies/gruntContribWatch"
-  },
-  {
-    "op": "move",
-    "path": "/_id",
-    "from": "/id"
-  },
-  {
-    "op": "move",
-    "path": "/_from",
-    "from": "/from"
   }
 ]

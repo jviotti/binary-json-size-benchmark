@@ -76,8 +76,8 @@ table Main {
   dependencies: Dependencies;
   devDependencies: DevDependencies;
   readme: string;
-  id: string;
-  from: string;
+  _id: string;
+  _from: string;
 }
 
 root_type Main;
