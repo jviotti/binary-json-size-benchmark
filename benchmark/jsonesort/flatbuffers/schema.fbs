@@ -1,0 +1,8 @@
+namespace Benchmark;
+
+table Main {
+  sort: [ubyte];
+  byX: string;
+}
+
+root_type Main;
