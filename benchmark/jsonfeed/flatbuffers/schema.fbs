@@ -1,0 +1,26 @@
+namespace Benchmark;
+
+table Author {
+  name: string;
+  url: string;
+  avatar: string;
+}
+
+table Item {
+  id: string;
+  url: string;
+  content_text: string;
+  date_published: string;
+}
+
+table Main {
+  version: string;
+  user_comment: string;
+  title: string;
+  home_page_url: string;
+  feed_url: string;
+  author: Author;
+  items: [Item];
+}
+
+root_type Main;
