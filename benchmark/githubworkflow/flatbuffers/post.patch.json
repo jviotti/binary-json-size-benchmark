@@ -1,0 +1,22 @@
+[
+  {
+    "op": "move",
+    "from": "/jobs/build/runsOn",
+    "path": "/jobs/build/runs-on"
+  },
+  {
+    "op": "move",
+    "from": "/jobs/build/env/buildSuiteDir",
+    "path": "/jobs/build/env/build-suite-dir"
+  },
+  {
+    "op": "move",
+    "from": "/jobs/build/steps/1/with/nodeVersion",
+    "path": "/jobs/build/steps/1/with/node-version"
+  },
+  {
+    "op": "move",
+    "from": "/jobs/build/steps/3/workingDirectory",
+    "path": "/jobs/build/steps/3/working-directory"
+  }
+]
