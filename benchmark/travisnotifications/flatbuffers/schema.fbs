@@ -1,0 +1,21 @@
+namespace Benchmark;
+
+table Notification {
+  secure: string;
+}
+
+table Notifications {
+  campfire: Notification;
+  irc: Notification;
+  flowdock: Notification;
+  hipchat: Notification;
+  slack: Notification;
+  webhooks: Notification;
+  email: Notification;
+}
+
+table Main {
+  notifications: Notifications;
+}
+
+root_type Main;
