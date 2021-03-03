@@ -1,0 +1,32 @@
+namespace Benchmark;
+
+table Parameters {
+  a: [ubyte];
+}
+
+table Matrix {
+  parameters: Parameters;
+}
+
+table M1 {
+  matrix: Matrix;
+}
+
+table Job {
+  m1: M1;
+}
+
+table TestWorkflow {
+  jobs: [Job];
+}
+
+table Workflows {
+  test: TestWorkflow;
+}
+
+table Main {
+  version: float;
+  workflows: Workflows;
+}
+
+root_type Main;
