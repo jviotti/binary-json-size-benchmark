@@ -1,0 +1,58 @@
+namespace Benchmark;
+
+table Coord {
+  lon: double;
+  lat: double;
+}
+
+table Weather {
+  id: uint;
+  main: string;
+  description: string;
+  icon: string;
+}
+
+table MainObject {
+  temp: double;
+  feels_like: double;
+  temp_min: double;
+  temp_max: double;
+  pressure: uint;
+  humidity: uint;
+}
+
+table Wind {
+  speed: float;
+  deg: uint;
+}
+
+table Clouds {
+  all: uint;
+}
+
+table Sys {
+  type: uint;
+  id: uint;
+  message: double;
+  country: string;
+  sunrise: uint;
+  sunset: uint;
+}
+
+table Main {
+  coord: Coord;
+  weather: [Weather];
+  base: string;
+  main: MainObject;
+  visibility: uint;
+  wind: Wind;
+  clouds: Clouds;
+  dt: uint;
+  sys: Sys;
+  timezone: int;
+  id: uint;
+  name: string;
+  cod: uint;
+}
+
+root_type Main;
