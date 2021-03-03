@@ -1,7 +1,7 @@
 namespace Benchmark;
 
 table Main {
-  defaultIgnores: bool = true;
+  defaultIgnores: bool;
 }
 
 root_type Main;
