@@ -1,0 +1,108 @@
+namespace Benchmark;
+
+table Location {
+  address: string;
+  postalCode: string;
+  city: string;
+  countryCode: string;
+  region: string;
+}
+
+table Profile {
+  network: string;
+  username: string;
+  url: string;
+}
+
+table Basics {
+  name: string;
+  label: string;
+  picture: string;
+  email: string;
+  phone: string;
+  website: string;
+  summary: string;
+  location: Location;
+  profiles: [Profile];
+}
+
+table Work {
+  company: string;
+  position: string;
+  website: string;
+  startDate: string;
+  endDate: string;
+  summary: string;
+  highlights: [string];
+}
+
+table Volunteer {
+  organization: string;
+  position: string;
+  website: string;
+  startDate: string;
+  endDate: string;
+  summary: string;
+  highlights: [string];
+}
+
+table Education {
+  institution: string;
+  area: string;
+  studyType: string;
+  startDate: string;
+  endDate: string;
+  gpa: string;
+  courses: [string];
+}
+
+table Award {
+  title: string;
+  date: string;
+  awarder: string;
+  summary: string;
+}
+
+table Publication {
+  name: string;
+  publisher: string;
+  releaseDate: string;
+  website: string;
+  summary: string;
+}
+
+table Skill {
+  name: string;
+  level: string;
+  keywords: [string];
+}
+
+table Language {
+  language: string;
+  fluency: string;
+}
+
+table Interest {
+  name: string;
+  keywords: [string];
+}
+
+table Reference {
+  name: string;
+  reference: string;
+}
+
+table Main {
+  basics: Basics;
+  work: [Work];
+  volunteer: [Volunteer];
+  education: [Education];
+  awards: [Award];
+  publications: [Publication];
+  skills: [Skill];
+  languages: [Language];
+  interests: [Interest];
+  references: [Reference];
+}
+
+root_type Main;
