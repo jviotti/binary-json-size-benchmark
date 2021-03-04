@@ -13,9 +13,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 14.x
+    - uses: DeLaGuardo/setup-clojure@master
+      with:
+        cli: '1.10.2.796'
 
     - name: Prepare environment
-      run: sudo ./.github/ci-dependencies.sh
+      run: sudo apt-get install -y gnuplot python3-setuptools rlwrap
 
     - name: Cache Dependencies
       uses: actions/cache@v2
