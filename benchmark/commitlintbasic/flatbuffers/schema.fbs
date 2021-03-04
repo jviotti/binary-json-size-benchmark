@@ -1,0 +1,7 @@
+namespace Benchmark;
+
+table Main {
+  defaultIgnores: bool;
+}
+
+root_type Main;

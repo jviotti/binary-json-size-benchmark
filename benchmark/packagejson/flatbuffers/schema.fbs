@@ -1,0 +1,83 @@
+namespace Benchmark;
+
+table Author {
+  name: string;
+  url: string;
+}
+
+table Repository {
+  type: string;
+  url: string;
+}
+
+table Bugs {
+  url: string;
+}
+
+table License {
+  type: string;
+  url: string;
+}
+
+table Scripts {
+  test: string;
+}
+
+table Engines {
+  node: string;
+}
+
+table Dependencies {
+  async: string;
+  coffeeScript: string;
+  colors: string;
+  dateformat: string;
+  eventemitter2: string;
+  findupSync: string;
+  glob: string;
+  hooker: string;
+  iconvLite: string;
+  minimatch: string;
+  nopt: string;
+  rimraf: string;
+  lodash: string;
+  underscoreString: string;
+  which: string;
+  jsYaml: string;
+  exit: string;
+  getobject: string;
+  gruntLegacyUtil: string;
+  gruntLegacyLog: string;
+}
+
+table DevDependencies {
+  temporary: string;
+  gruntContribJshint: string;
+  gruntContribNodeunit: string;
+  gruntContribWatch: string;
+  difflet: string;
+  semver: string;
+  shelljs: string;
+}
+
+table Main {
+  name: string;
+  description: string;
+  version: string;
+  author: Author;
+  homepage: string;
+  repository: Repository;
+  bugs: Bugs;
+  licenses: [License];
+  main: string;
+  scripts: Scripts;
+  engines: Engines;
+  keywords: [string];
+  dependencies: Dependencies;
+  devDependencies: DevDependencies;
+  readme: string;
+  _id: string;
+  _from: string;
+}
+
+root_type Main;

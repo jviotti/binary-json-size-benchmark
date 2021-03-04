@@ -1,0 +1,13 @@
+namespace Benchmark;
+
+table Optimization {
+  includes: [string];
+  excludes: [string];
+  lossy: bool;
+}
+
+table Main {
+  optimizations: [Optimization];
+}
+
+root_type Main;

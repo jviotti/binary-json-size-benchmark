@@ -1,0 +1,12 @@
+[
+  {
+    "op": "move",
+    "from": "/rules/ordered-imports/options/grouped-imports",
+    "path": "/rules/ordered-imports/options/groupedImports"
+  },
+  {
+    "op": "move",
+    "from": "/rules/ordered-imports",
+    "path": "/rules/orderedImports"
+  }
+]

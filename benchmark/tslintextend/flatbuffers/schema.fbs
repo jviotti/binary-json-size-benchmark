@@ -1,0 +1,7 @@
+namespace Benchmark;
+
+table Main {
+  extends: [string];
+}
+
+root_type Main;

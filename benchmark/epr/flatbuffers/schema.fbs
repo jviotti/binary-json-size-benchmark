@@ -1,0 +1,19 @@
+namespace Benchmark;
+
+table Rule {
+  path: string;
+  types: [string];
+  allowData: bool;
+  regex: string;
+}
+
+table Main {
+  site: string;
+  maxAge: uint;
+  reportUrl: string;
+  defaultNavBehavior: string;
+  defaultResBehavior: string;
+  rules: [Rule];
+}
+
+root_type Main;

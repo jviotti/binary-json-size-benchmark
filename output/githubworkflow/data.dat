@@ -1,8 +1,9 @@
 1 "BSON" 411 273
 2 "Cap'n Proto (packed)" 242 232
 3 "CBOR" 288 208
-4 "FlexBuffers" 396 309
-5 "JSON" 632 267
-6 "MessagePack" 287 222
-7 "Smile" 287 235
-8 "UBJSON" 339 243
+4 "FlatBuffers" 440 275
+5 "FlexBuffers" 396 309
+6 "JSON" 632 267
+7 "MessagePack" 287 222
+8 "Smile" 287 235
+9 "UBJSON" 339 243

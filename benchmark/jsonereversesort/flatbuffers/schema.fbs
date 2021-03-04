@@ -1,0 +1,16 @@
+namespace Benchmark;
+
+table LetDefinition {
+  x: [ubyte];
+}
+
+table Main {
+  let: LetDefinition;
+  in: Main;
+  reverse: Main;
+  sort: Main;
+  byX: string;
+  eval: string;
+}
+
+root_type Main;

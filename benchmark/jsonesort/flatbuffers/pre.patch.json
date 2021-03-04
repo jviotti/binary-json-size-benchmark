@@ -1,0 +1,12 @@
+[
+  {
+    "op": "move",
+    "from": "/$sort",
+    "path": "/sort"
+  },
+  {
+    "op": "move",
+    "from": "/by(x)",
+    "path": "/byX"
+  }
+]

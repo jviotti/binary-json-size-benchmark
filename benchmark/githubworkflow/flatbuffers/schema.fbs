@@ -1,0 +1,35 @@
+namespace Benchmark;
+
+table Environment {
+  buildSuiteDir: string;
+}
+
+table StepWith {
+  nodeVersion: string;
+}
+
+table Step {
+  uses: string;
+  with: StepWith;
+  name: string;
+  run: string;
+  workingDirectory: string;
+}
+
+table BuildJob {
+  runsOn: string;
+  env: Environment;
+  steps: [Step];
+}
+
+table Jobs {
+  build: BuildJob;
+}
+
+table Main {
+  name: string;
+  on: [string];
+  jobs: Jobs;
+}
+
+root_type Main;

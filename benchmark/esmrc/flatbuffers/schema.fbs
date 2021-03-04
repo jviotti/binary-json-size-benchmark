@@ -1,0 +1,12 @@
+namespace Benchmark;
+
+table Main {
+  cjs: bool;
+  mainFields: [string];
+  mode: string;
+  force: bool;
+  cache: bool;
+  sourceMap: bool;
+}
+
+root_type Main;

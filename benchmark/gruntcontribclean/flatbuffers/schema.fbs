@@ -1,0 +1,21 @@
+namespace Benchmark;
+
+table Files {}
+
+table MainOptions {
+  files: Files;
+  src: [string];
+}
+
+table Options {
+  force: bool;
+  noWrite: bool;
+}
+
+table Main {
+  foo: [string];
+  main: MainOptions;
+  options: Options;
+}
+
+root_type Main;
