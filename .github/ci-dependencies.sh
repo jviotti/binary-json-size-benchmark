@@ -6,19 +6,6 @@ apt-get install -y gnuplot python3-setuptools rlwrap
 
 mkdir -p /tmp/dependencies
 
-# Cap'n Proto
-cd /tmp/dependencies
-if [ ! -d capnproto-c++-0.8.0 ]
-then
-  curl -O https://capnproto.org/capnproto-c++-0.8.0.tar.gz
-  tar zxf capnproto-c++-0.8.0.tar.gz
-fi
-
-cd capnproto-c++-0.8.0
-./configure
-make
-make install
-
 # MessagePack
 cd /tmp/dependencies
 if [ ! -f msgpack-tools-0.6-x86_64.deb ]

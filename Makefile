@@ -1,4 +1,4 @@
-.PHONY: deps deps-flatbuffers lint benchmark
+.PHONY: deps deps-flatbuffers deps-capnproto lint benchmark
 .DEFAULT_GOAL = benchmark
 
 include vendor/vendorpull/targets.mk
@@ -9,9 +9,12 @@ include vendor/vendorpull/targets.mk
 deps-flatbuffers: vendor/flatbuffers | .tmp
 	cmake -S $< -B .tmp/flatbuffers
 	make --directory=.tmp/flatbuffers
-	ls -l .tmp/flatbuffers
 
-deps: requirements.txt package.json deps-flatbuffers
+deps-capnproto: vendor/capnproto | .tmp
+	cmake -S $< -B .tmp/capnproto
+	make --directory=.tmp/capnproto
+
+deps: requirements.txt package.json deps-flatbuffers deps-capnproto
 	pip3 install --requirement $<
 	npm install
 
