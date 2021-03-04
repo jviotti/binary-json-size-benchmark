@@ -174,8 +174,14 @@
           "name": "post",
           "widget": "relationKitchenSinkPost",
           "collection": "posts",
-          "displayFields": ["title", "date"],
-          "searchFields": ["title", "body"],
+          "displayFields": [
+            "title",
+            "date"
+          ],
+          "searchFields": [
+            "title",
+            "body"
+          ],
           "valueField": "title"
         },
         {
@@ -235,13 +241,21 @@
           "label": "Select",
           "name": "select",
           "widget": "select",
-          "options": ["a", "b", "c"]
+          "options": [
+            "a",
+            "b",
+            "c"
+          ]
         },
         {
           "label": "Select multiple",
           "name": "select_multiple",
           "widget": "select",
-          "options": ["a", "b", "c"],
+          "options": [
+            "a",
+            "b",
+            "c"
+          ],
           "multiple": true
         },
         {
@@ -261,7 +275,10 @@
               "name": "post",
               "widget": "relationKitchenSinkPost",
               "collection": "posts",
-              "searchFields": ["title", "body"],
+              "searchFields": [
+                "title",
+                "body"
+              ],
               "valueField": "title"
             },
             {
@@ -314,7 +331,11 @@
               "label": "Select",
               "name": "select",
               "widget": "select",
-              "options": ["a", "b", "c"]
+              "options": [
+                "a",
+                "b",
+                "c"
+              ]
             }
           ]
         },
@@ -372,7 +393,11 @@
               "label": "Select",
               "name": "select",
               "widget": "select",
-              "options": ["a", "b", "c"]
+              "options": [
+                "a",
+                "b",
+                "c"
+              ]
             },
             {
               "label": "Object",
@@ -428,7 +453,11 @@
                   "label": "Select",
                   "name": "select",
                   "widget": "select",
-                  "options": ["a", "b", "c"]
+                  "options": [
+                    "a",
+                    "b",
+                    "c"
+                  ]
                 },
                 {
                   "label": "List",
@@ -440,7 +469,10 @@
                       "name": "post",
                       "widget": "relationKitchenSinkPost",
                       "collection": "posts",
-                      "searchFields": ["title", "body"],
+                      "searchFields": [
+                        "title",
+                        "body"
+                      ],
                       "valueField": "title"
                     },
                     {
@@ -492,7 +524,11 @@
                       "label": "Select",
                       "name": "select",
                       "widget": "select",
-                      "options": ["a", "b", "c"]
+                      "options": [
+                        "a",
+                        "b",
+                        "c"
+                      ]
                     },
                     {
                       "label": "Hidden",
@@ -554,7 +590,11 @@
                           "label": "Select",
                           "name": "select",
                           "widget": "select",
-                          "options": ["a", "b", "c"]
+                          "options": [
+                            "a",
+                            "b",
+                            "c"
+                          ]
                         }
                       ]
                     }
@@ -605,7 +645,11 @@
                   "label": "Select",
                   "name": "select",
                   "widget": "select",
-                  "options": ["a", "b", "c"]
+                  "options": [
+                    "a",
+                    "b",
+                    "c"
+                  ]
                 },
                 {
                   "label": "Datetime",
