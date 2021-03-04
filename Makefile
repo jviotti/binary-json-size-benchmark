@@ -14,7 +14,12 @@ deps-capnproto: vendor/capnproto | .tmp
 	cmake -S $< -B .tmp/capnproto
 	make --directory=.tmp/capnproto
 
-deps: requirements.txt package.json deps-flatbuffers deps-capnproto
+deps-msgpack-tools: vendor/msgpack-tools | .tmp
+	cmake -S $< -B .tmp/msgpack-tools
+	make --directory=.tmp/msgpack-tools
+
+deps: requirements.txt package.json \
+	deps-flatbuffers deps-capnproto deps-msgpack-tools
 	pip3 install --requirement $<
 	npm install
 

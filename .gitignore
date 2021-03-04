@@ -561,3 +561,4 @@ TSWLatexianTemp*
 .tmp
 .DS_Store
 .cpcache
+vendor/msgpack-tools/contrib

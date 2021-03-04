@@ -1,3 +1,4 @@
 vendorpull https://github.com/jviotti/vendorpull fcbdfbe3509368c0cd60d6650e7b12a4c5e8a3c4
 flatbuffers https://github.com/google/flatbuffers.git v1.12.0
 capnproto https://github.com/capnproto/capnproto v0.8.0
+msgpack-tools https://github.com/ludocode/msgpack-tools v0.6
