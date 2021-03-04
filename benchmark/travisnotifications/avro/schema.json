@@ -1,0 +1,86 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "notifications",
+      "type": {
+        "type": "record",
+        "name": "notifications",
+        "fields": [
+          {
+            "name": "campfire",
+            "type": {
+              "type": "record",
+              "name": "campfire",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "irc",
+            "type": {
+              "type": "record",
+              "name": "irc",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "flowdock",
+            "type": {
+              "type": "record",
+              "name": "flowdock",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "hipchat",
+            "type": {
+              "type": "record",
+              "name": "hipchat",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "slack",
+            "type": {
+              "type": "record",
+              "name": "slack",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "webhooks",
+            "type": {
+              "type": "record",
+              "name": "webhooks",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "email",
+            "type": {
+              "type": "record",
+              "name": "email",
+              "fields": [
+                { "name": "secure", "type": "string" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

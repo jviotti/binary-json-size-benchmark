@@ -1,0 +1,122 @@
+[
+  {
+    "op": "move",
+    "path": "/dependencies/Microsoft.Bcl.Immutable",
+    "from": "/dependencies/microsoftBclImmutable"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/Microsoft.AspNet.ConfigurationModel",
+    "from": "/dependencies/microsoftAspNetConfigurationModel"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/Microsoft.AspNet.DependencyInjection",
+    "from": "/dependencies/microsoftAspNetDependencyInjection"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/Microsoft.AspNet.Logging",
+    "from": "/dependencies/microsoftAspNetLogging"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/System.Data.Common",
+    "from": "/dependencies/systemDataCommon"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/net45/dependencies/System.Runtime",
+    "from": "/frameworks/net45/dependencies/systemRuntime"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/net45/dependencies/System.Collections",
+    "from": "/frameworks/net45/dependencies/systemCollections"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Collections",
+    "from": "/frameworks/k10/dependencies/systemCollections"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Collections.Concurrent",
+    "from": "/frameworks/k10/dependencies/systemCollectionsConcurrent"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.ComponentModel",
+    "from": "/frameworks/k10/dependencies/systemComponentModel"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Console",
+    "from": "/frameworks/k10/dependencies/systemConsole"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Diagnostics.Contracts",
+    "from": "/frameworks/k10/dependencies/systemDiagnosticsContracts"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Diagnostics.Debug",
+    "from": "/frameworks/k10/dependencies/systemDiagnosticsDebug"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Globalization",
+    "from": "/frameworks/k10/dependencies/systemGlobalization"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Linq",
+    "from": "/frameworks/k10/dependencies/systemLinq"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Linq.Expressions",
+    "from": "/frameworks/k10/dependencies/systemLinqExpressions"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Linq.Queryable",
+    "from": "/frameworks/k10/dependencies/systemLinqQueryable"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Reflection",
+    "from": "/frameworks/k10/dependencies/systemReflection"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Reflection.Extensions",
+    "from": "/frameworks/k10/dependencies/systemReflectionExtensions"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Resources.ResourceManager",
+    "from": "/frameworks/k10/dependencies/systemResourcesResourceManager"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Runtime",
+    "from": "/frameworks/k10/dependencies/systemRuntime"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Runtime.Extensions",
+    "from": "/frameworks/k10/dependencies/systemRuntimeExtensions"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Threading",
+    "from": "/frameworks/k10/dependencies/systemThreading"
+  },
+  {
+    "op": "move",
+    "path": "/frameworks/k10/dependencies/System.Threading.Tasks",
+    "from": "/frameworks/k10/dependencies/systemThreadingTasks"
+  }
+]

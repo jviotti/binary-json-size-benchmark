@@ -1,0 +1,10 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "general", "type": "null" },
+    { "name": "stages", "type": "null" },
+    { "name": "steps", "type": "null" }
+  ]
+}

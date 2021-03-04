@@ -1,0 +1,1 @@
+{UnameSUTest on PullUon[SUpush]Ujobs{Ubuild{Uruns-onSUubuntu-latestUenv{Ubuild-suite-dirSU./build-suite}Usteps[{UusesSUactions/checkout@v1}{UusesSUactions/setup-node@v1Uwith{Unode-versionSU10.x}}{UnameSUstarting directoryUrunSUls}{UnameSUbuild directoryUrunSUlsUworking-directorySU${{env.build-suite-dir}}}]}}}

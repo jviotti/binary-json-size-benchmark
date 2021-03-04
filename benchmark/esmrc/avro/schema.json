@@ -1,0 +1,26 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "cjs", "type": "boolean" },
+    {
+      "name": "mainFields",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "mode",
+      "type": {
+        "type": "enum",
+        "name": "mode",
+        "symbols": [ "auto", "all", "strict" ]
+      }
+    },
+    { "name": "force", "type": "boolean" },
+    { "name": "cache", "type": "boolean" },
+    { "name": "sourceMap", "type": "boolean" }
+  ]
+}

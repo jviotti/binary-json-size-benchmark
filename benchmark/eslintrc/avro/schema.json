@@ -1,0 +1,101 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "extends", "type": "string" },
+    { "name": "parser", "type": "string" },
+    {
+      "name": "ecmaFeatures",
+      "type": {
+        "type": "record",
+        "name": "ecmaFeatures",
+        "fields": [
+          { "name": "jsx", "type": "boolean" }
+        ]
+      }
+    },
+    {
+      "name": "plugins",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "env",
+      "type": {
+        "type": "record",
+        "name": "env",
+        "fields": [
+          { "name": "browser", "type": "boolean" },
+          { "name": "node", "type": "boolean" },
+          { "name": "es6", "type": "boolean" }
+        ]
+      }
+    },
+    {
+      "name": "rules",
+      "type": {
+        "type": "record",
+        "name": "rules",
+        "fields": [
+          { "name": "eqeqeq", "type": "int" },
+          { "name": "comma-dangle", "type": "int" },
+          { "name": "no-console", "type": "int" },
+          { "name": "no-debugger", "type": "int" },
+          { "name": "no-extra-semi", "type": "int" },
+          { "name": "no-extra-parens", "type": "int" },
+          { "name": "no-irregular-whitespace", "type": "int" },
+          { "name": "no-undef", "type": "int" },
+          { "name": "no-unused-vars", "type": "int" },
+          { "name": "semi", "type": "int" },
+          { "name": "semi-spacing", "type": "int" },
+          {
+            "name": "valid-jsdoc",
+            "type": {
+              "type": "array",
+              "items": [
+                "int",
+                {
+                  "name": "jsdocoptions",
+                  "type": "record",
+                  "fields": [
+                    { "name": "requireReturn", "type": "boolean" }
+                  ]
+                }
+              ]
+            }
+          },
+          { "name": "react/display-name", "type": "int" },
+          { "name": "react/forbid-prop-types", "type": "int" },
+          { "name": "react/jsx-boolean-value", "type": "int" },
+          { "name": "react/jsx-closing-bracket-location", "type": "int" },
+          { "name": "react/jsx-curly-spacing", "type": "int" },
+          { "name": "react/jsx-indent-props", "type": "int" },
+          { "name": "react/jsx-max-props-per-line", "type": "int" },
+          { "name": "react/jsx-no-duplicate-props", "type": "int" },
+          { "name": "react/jsx-no-literals", "type": "int" },
+          { "name": "react/jsx-no-undef", "type": "int" },
+          { "name": "react/jsx-sort-prop-types", "type": "int" },
+          { "name": "react/jsx-sort-props", "type": "int" },
+          { "name": "react/jsx-uses-react", "type": "int" },
+          { "name": "react/jsx-uses-vars", "type": "int" },
+          { "name": "react/no-danger", "type": "int" },
+          { "name": "react/no-did-mount-set-state", "type": "int" },
+          { "name": "react/no-did-update-set-state", "type": "int" },
+          { "name": "react/no-direct-mutation-state", "type": "int" },
+          { "name": "react/no-multi-comp", "type": "int" },
+          { "name": "react/no-set-state", "type": "int" },
+          { "name": "react/no-unknown-property", "type": "int" },
+          { "name": "react/prop-types", "type": "int" },
+          { "name": "react/react-in-jsx-scope", "type": "int" },
+          { "name": "react/require-extension", "type": "int" },
+          { "name": "react/self-closing-comp", "type": "int" },
+          { "name": "react/sort-comp", "type": "int" },
+          { "name": "react/wrap-multilines", "type": "int" }
+        ]
+      }
+    }
+  ]
+}

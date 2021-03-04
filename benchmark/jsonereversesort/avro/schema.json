@@ -1,0 +1,52 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "$let",
+      "type": {
+        "type": "record",
+        "name": "let",
+        "fields": [
+          {
+            "name": "x",
+            "type": {
+              "type": "array",
+              "items": "int"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "in",
+      "type": {
+        "type": "record",
+        "name": "in",
+        "fields": [
+          {
+            "name": "$reverse",
+            "type": {
+              "type": "record",
+              "name": "reverse",
+              "fields": [
+                {
+                  "name": "$sort",
+                  "type": {
+                    "type": "record",
+                    "name": "sort",
+                    "fields": [
+                      { "name": "$eval", "type": "string" }
+                    ]
+                  }
+                },
+                { "name": "by(x)", "type": "string" }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

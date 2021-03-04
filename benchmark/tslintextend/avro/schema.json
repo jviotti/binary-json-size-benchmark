@@ -1,0 +1,14 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "extends",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

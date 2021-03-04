@@ -1,0 +1,72 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "site", "type": "string" },
+    { "name": "maxAge", "type": "int" },
+    { "name": "reportUrl", "type": "string" },
+    { "name": "defaultNavBehavior", "type": "string" },
+    { "name": "defaultResBehavior", "type": "string" },
+    {
+      "name": "rules",
+      "type": {
+        "type": "array",
+        "items": [
+          {
+            "type": "record",
+            "name": "rule1",
+            "fields": [
+              { "name": "path", "type": "string" },
+              {
+                "name": "types",
+                "type": {
+                  "type": "array",
+                  "items": {
+                    "type": "enum",
+                    "name": "type1",
+                    "symbols": [
+                      "navigation",
+                      "image",
+                      "stylesheet",
+                      "script",
+                      "xhr",
+                      "other"
+                    ]
+                  }
+                }
+              },
+              { "name": "allowData", "type": "boolean" }
+            ]
+          },
+          {
+            "type": "record",
+            "name": "rule2",
+            "fields": [
+              { "name": "regex", "type": "string" },
+              {
+                "name": "types",
+                "type": {
+                  "type": "array",
+                  "items": {
+                    "type": "enum",
+                    "name": "type2",
+                    "symbols": [
+                      "navigation",
+                      "image",
+                      "stylesheet",
+                      "script",
+                      "xhr",
+                      "other"
+                    ]
+                  }
+                }
+              },
+              { "name": "allowData", "type": "boolean" }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

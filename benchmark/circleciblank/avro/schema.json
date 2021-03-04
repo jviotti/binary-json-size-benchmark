@@ -1,7 +1,7 @@
 {
   "namespace": "schema.avro",
   "type": "record",
-  "name": "Benchmark",
+  "name": "benchmark",
   "fields": [
     { "name": "version", "type": "float" }
   ]

@@ -1,0 +1,34 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "optimizations",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "optimization",
+          "fields": [
+            {
+              "name": "includes",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            },
+            {
+              "name": "excludes",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            },
+            { "name": "lossy", "type": "boolean" }
+          ]
+        }
+      }
+    }
+  ]
+}

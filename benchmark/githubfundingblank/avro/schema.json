@@ -1,0 +1,17 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "github", "type": "string" },
+    { "name": "patreon", "type": "null" },
+    { "name": "open_collective", "type": "null" },
+    { "name": "ko_fi", "type": "null" },
+    { "name": "tidelift", "type": "null" },
+    { "name": "community_bridge", "type": "null" },
+    { "name": "liberapay", "type": "null" },
+    { "name": "issuehunt", "type": "null" },
+    { "name": "otechie", "type": "null" },
+    { "name": "custom", "type": "null" }
+  ]
+}

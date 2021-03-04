@@ -1,0 +1,53 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "rules",
+      "type": {
+        "type": "record",
+        "name": "rules",
+        "fields": [
+          {
+            "name": "no-any",
+            "type": {
+              "type": "array",
+              "items": "boolean"
+            }
+          },
+          {
+            "name": "radix",
+            "type": {
+              "type": "array",
+              "items": "boolean"
+            }
+          },
+          {
+            "name": "ordered-imports",
+            "type": {
+              "type": "record",
+              "name": "orderedimports",
+              "fields": [
+                {
+                  "name": "options",
+                  "type": {
+                    "type": "record",
+                    "name": "options",
+                    "fields": [
+                      {
+                        "name": "grouped-imports",
+                        "type": "boolean"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+ƒ¤name¬Test on Pull¢on‘¤push¤jobs¥buildƒ§runs-on­ubuntu-latest£env¯build-suite-dir­./build-suite¥steps”¤uses³actions/checkout@v1‚¤usesµactions/setup-node@v1¤with¬node-version¤10.x‚¤name²starting directory£run¢lsƒ¤name¯build directory£run¢ls±working-directory¸${{env.build-suite-dir}}

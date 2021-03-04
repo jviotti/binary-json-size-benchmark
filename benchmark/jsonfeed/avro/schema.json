@@ -1,0 +1,40 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "version", "type": "string" },
+    { "name": "user_comment", "type": "string" },
+    { "name": "title", "type": "string" },
+    { "name": "home_page_url", "type": "string" },
+    { "name": "feed_url", "type": "string" },
+    {
+      "name": "author",
+      "type": {
+        "type": "record",
+        "name": "author",
+        "fields": [
+          { "name": "name", "type": "string" },
+          { "name": "url", "type": "string" },
+          { "name": "avatar", "type": "string" }
+        ]
+      }
+    },
+    {
+      "name": "items",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "item",
+          "fields": [
+            { "name": "id", "type": "string" },
+            { "name": "url", "type": "string" },
+            { "name": "content_text", "type": "string" },
+            { "name": "date_published", "type": "string" }
+          ]
+        }
+      }
+    }
+  ]
+}

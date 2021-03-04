@@ -1,0 +1,139 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "custom_commands_path", "type": "null" },
+    { "name": "custom_assertions_path", "type": "null" },
+    { "name": "page_objects_path", "type": "null" },
+    { "name": "globals_path", "type": "null" },
+    {
+      "name": "globals",
+      "type": {
+        "type": "record",
+        "name": "globals",
+        "fields": [
+          { "name": "abortOnAssertionFailure", "type": "boolean" },
+          { "name": "abortOnElementLocateError", "type": "boolean" },
+          { "name": "waitForConditionPollInterval", "type": "int" },
+          { "name": "waitForConditionTimeout", "type": "int" },
+          { "name": "throwOnMultipleElementsReturned", "type": "boolean" },
+          { "name": "suppressWarningsOnMultipleElementsReturned", "type": "boolean" },
+          { "name": "asyncHookTimeout", "type": "int" },
+          { "name": "unitTestsTimeout", "type": "int" },
+          { "name": "customReporterCallbackTimeout", "type": "int" },
+          { "name": "retryAssertionTimeout", "type": "int" }
+        ]
+      }
+    },
+    {
+      "name": "dotenv",
+      "type": {
+        "type": "record",
+        "name": "dotenv",
+        "fields": []
+      }
+    },
+    { "name": "persist_globals", "type": "boolean" },
+    { "name": "output_folder", "type": "string" },
+    { "name": "src_folders", "type": "null" },
+    { "name": "live_output", "type": "boolean" },
+    { "name": "disable_colors", "type": "boolean" },
+    { "name": "parallel_process_delay", "type": "int" },
+    {
+      "name": "selenium",
+      "type": {
+        "type": "record",
+        "name": "selenium",
+        "fields": [
+          { "name": "start_process", "type": "boolean" },
+          {
+            "name": "cli_args",
+            "type": {
+              "type": "record",
+              "name": "cliargs1",
+              "fields": []
+            }
+          },
+          { "name": "server_path", "type": "null" },
+          { "name": "log_path", "type": "string" },
+          { "name": "check_process_delay", "type": "int" },
+          { "name": "max_status_poll_tries", "type": "int" },
+          { "name": "status_poll_interval", "type": "int" }
+        ]
+      }
+    },
+    { "name": "start_session", "type": "boolean" },
+    { "name": "end_session_on_fail", "type": "boolean" },
+    { "name": "test_workers", "type": "boolean" },
+    { "name": "test_runner", "type": "string" },
+    {
+      "name": "webdriver",
+      "type": {
+        "type": "record",
+        "name": "webdriver",
+        "fields": [
+          { "name": "start_process", "type": "boolean" },
+          {
+            "name": "cli_args",
+            "type": {
+              "type": "record",
+              "name": "cliargs2",
+              "fields": []
+            }
+          },
+          { "name": "server_path", "type": "null" },
+          { "name": "log_path", "type": "string" },
+          { "name": "check_process_delay", "type": "int" },
+          { "name": "max_status_poll_tries", "type": "int" },
+          { "name": "status_poll_interval", "type": "int" },
+          { "name": "process_create_timeout", "type": "int" },
+          {
+            "name": "timeout_options",
+            "type": {
+              "type": "record",
+              "name": "timeout_options",
+              "fields": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "test_settings",
+      "type": {
+        "type": "record",
+        "name": "test_settings",
+        "fields": []
+      }
+    },
+    { "name": "launch_url", "type": "string" },
+    { "name": "silent", "type": "boolean" },
+    { "name": "output", "type": "boolean" },
+    { "name": "detailed_output", "type": "boolean" },
+    { "name": "output_timestamp", "type": "boolean" },
+    { "name": "disable_error_log", "type": "boolean" },
+    { "name": "screenshots", "type": "boolean" },
+    { "name": "log_screenshot_data", "type": "boolean" },
+    {
+      "name": "desiredCapabilities",
+      "type": {
+        "type": "record",
+        "name": "desiredCapabilities",
+        "fields": [
+          { "name": "browserName", "type": "string" }
+        ]
+      }
+    },
+    { "name": "exclude", "type": "null" },
+    { "name": "filter", "type": "null" },
+    { "name": "skipgroup", "type": "string" },
+    { "name": "sync_test_names", "type": "boolean" },
+    { "name": "skiptags", "type": "string" },
+    { "name": "use_xpath", "type": "boolean" },
+    { "name": "parallel_mode", "type": "boolean" },
+    { "name": "report_prefix", "type": "string" },
+    { "name": "unit_tests_mode", "type": "boolean" },
+    { "name": "default_reporter", "type": "string" }
+  ]
+}
