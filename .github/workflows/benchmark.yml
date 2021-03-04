@@ -26,6 +26,7 @@ jobs:
           .tmp
           /tmp/dependencies
           ~/.npm
+          ~/.cache/pip
         key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('.github/ci-dependencies.sh') }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-name }}-
