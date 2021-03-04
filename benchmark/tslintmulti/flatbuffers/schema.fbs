@@ -1,0 +1,21 @@
+namespace Benchmark;
+
+table Options {
+  groupedImports: bool;
+}
+
+table RuleDefinition {
+  options: Options;
+}
+
+table Rules {
+  noAny: [bool];
+  radix: [bool];
+  orderedImports: RuleDefinition;
+}
+
+table Main {
+  rules: Rules;
+}
+
+root_type Main;
