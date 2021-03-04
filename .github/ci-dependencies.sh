@@ -2,9 +2,9 @@
 
 set -eux
 
-apt install -y gnuplot python3-setuptools rlwrap
+apt-get install -y gnuplot python3-setuptools rlwrap
 
-mkdir /tmp/dependencies
+mkdir -p /tmp/dependencies
 
 # FlatBuffers
 cd /tmp/dependencies
