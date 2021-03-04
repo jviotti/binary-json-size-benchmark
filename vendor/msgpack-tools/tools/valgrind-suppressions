@@ -1,0 +1,10 @@
+{
+   # https://bugs.kde.org/show_bug.cgi?id=345307
+   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=65434
+   GCC-STL-pool-reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_GLOBAL__sub_I_eh_alloc.cc
+   ...
+}

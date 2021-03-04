@@ -2,4 +2,4 @@
 
 set -eu
 
-json2msgpack < "$1" > "$2"
+"$ROOT/.tmp/msgpack-tools/json2msgpack" < "$1" > "$2"
