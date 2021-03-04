@@ -1,9 +1,1 @@
-{
-  "rules": {
-    "ordered-imports": {
-      "options": {
-        "grouped-imports": true
-      }
-    }
-  }
-}
+{"rules":{"ordered-imports":{"options":{"grouped-imports":true}}}}
