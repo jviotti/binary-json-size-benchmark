@@ -17,6 +17,7 @@ fi
 # Reset output
 rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"
 
+ROOT="$PWD"
 DOCUMENT_PATH="$("$PWD/scripts/document-path.sh" "$DOCUMENT" "$FORMAT")"
 assert_file_exists "$DOCUMENT_PATH"
 
@@ -44,5 +45,6 @@ else
 fi
 
 cd "$(dirname "$SCRIPT")"
-FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" ./"$(basename "$SCRIPT")" "$FINAL_JSON_PATH" "$OUTPUT"
+ROOT="$ROOT" FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" \
+  ./"$(basename "$SCRIPT")" "$FINAL_JSON_PATH" "$OUTPUT"
 assert_file_exists "$OUTPUT"
