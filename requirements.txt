@@ -1,3 +1,4 @@
+avro == 1.10.0
 flake8 == 3.8.4
 cbor2 == 5.1.2
 py-ubjson == 0.16.1
