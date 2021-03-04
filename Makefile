@@ -1,15 +1,23 @@
-.PHONY: deps lint benchmark
+.PHONY: deps deps-flatbuffers lint benchmark
 .DEFAULT_GOAL = benchmark
 
-deps: requirements.txt package.json
+include vendor/vendorpull/targets.mk
+
+.tmp:
+	mkdir $@
+
+deps-flatbuffers: vendor/flatbuffers | .tmp
+	cmake -S $< -B .tmp/flatbuffers
+	make --directory=.tmp/flatbuffers
+	ls -l .tmp/flatbuffers
+
+deps: requirements.txt package.json deps-flatbuffers
 	pip3 install --requirement $<
 	npm install
 
-SHELL_SCRIPTS = $(shell find . -type f -name '*.sh' | grep -v node_modules)
-PYTHON_SCRIPTS = $(shell find . -type f -name '*.py' | grep -v node_modules)
-lint: $(SHELL_SCRIPTS) $(PYTHON_SCRIPTS)
-	shellcheck $(SHELL_SCRIPTS)
-	python3 -m flake8 $(PYTHON_SCRIPTS)
+lint:
+	shellcheck skeleton/*/*.sh scripts/*.sh
+	python3 -m flake8 skeleton/*/*.py scripts/*.py
 
 charts:
 	mkdir $@

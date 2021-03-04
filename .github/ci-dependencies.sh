@@ -6,19 +6,6 @@ apt-get install -y gnuplot python3-setuptools rlwrap
 
 mkdir -p /tmp/dependencies
 
-# FlatBuffers
-cd /tmp/dependencies
-if [ ! -d flatbuffers ]
-then
-  git clone https://github.com/google/flatbuffers.git
-fi
-
-cd flatbuffers
-git checkout v1.12.0
-cmake .
-make
-make install
-
 # Cap'n Proto
 cd /tmp/dependencies
 if [ ! -d capnproto-c++-0.8.0 ]

@@ -37,7 +37,7 @@ info "Using entrypoint: $SCRIPT"
 info "Output: $OUTPUT"
 
 cd "$(dirname "$SCRIPT")"
-FWD="$FWD" ./"$(basename "$SCRIPT")" "$FILE" "$OUTPUT"
+ROOT="$ROOT" FWD="$FWD" ./"$(basename "$SCRIPT")" "$FILE" "$OUTPUT"
 assert_file_exists "$OUTPUT"
 
 if [ -f "$PATCH_PATH" ]
