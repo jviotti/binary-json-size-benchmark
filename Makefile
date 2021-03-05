@@ -18,8 +18,12 @@ deps-msgpack-tools: vendor/msgpack-tools | .tmp
 	cmake -S $< -B .tmp/msgpack-tools
 	make --directory=.tmp/msgpack-tools
 
+deps-lz4: vendor/lz4 | .tmp
+	cmake -S $</build/cmake -B .tmp/lz4
+	make --directory=.tmp/lz4
+
 deps: requirements.txt package.json \
-	deps-flatbuffers deps-capnproto deps-msgpack-tools
+	deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
 	pip3 install --requirement $<
 	npm install
 

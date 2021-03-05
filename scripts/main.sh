@@ -76,14 +76,16 @@ do
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
-      COMPRESSED_FILE="$BINARY.gz"
-      rm -f "$COMPRESSED_FILE"
-      info "Compressing $BINARY with GZIP"
-      gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE"
+      COMPRESSED_FILE_GZIP="$BINARY.gz"
+      COMPRESSED_FILE_LZ4="$BINARY.lz4"
+      rm -f "$COMPRESSED_FILE_GZIP" "$COMPRESSED_FILE_LZ4"
+      info "Compressing $BINARY with GZIP and LZ4"
+      gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE_GZIP"
+      "$PWD/.tmp/lz4/lz4" -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
 
-      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE")" >> "$DATA_FILE"
+      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE_GZIP") $(byte_size "$COMPRESSED_FILE_LZ4")" >> "$DATA_FILE"
     else
-      echo "$INDEX \"$NAME\" 0 0" >> "$DATA_FILE"
+      echo "$INDEX \"$NAME\" 0 0 0" >> "$DATA_FILE"
     fi
 
     INDEX="$(echo "$INDEX + 1" | bc)"
