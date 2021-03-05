@@ -2,4 +2,4 @@
 
 set -eu
 
-"$ROOT/.tmp/capnproto/c++/src/capnp/capnp" convert json:packed "$FWD/schema.capnp" Main < "$1" > "$2"
+"$DEPSDIR/capnproto/c++/src/capnp/capnp" convert json:packed "$FWD/schema.capnp" Main < "$1" > "$2"

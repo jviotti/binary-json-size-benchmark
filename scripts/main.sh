@@ -58,9 +58,9 @@ do
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
-      ./scripts/encode.sh "$document" "$format" "$BINARY"
+      DEPSDIR="$DEPSDIR" ./scripts/encode.sh "$document" "$format" "$BINARY"
       xxd "$BINARY"
-      ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
+      DEPSDIR="$DEPSDIR" ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
       cat "$JSON"
 
       if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
@@ -81,7 +81,7 @@ do
       rm -f "$COMPRESSED_FILE_GZIP" "$COMPRESSED_FILE_LZ4"
       info "Compressing $BINARY with GZIP and LZ4"
       gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE_GZIP"
-      "$PWD/.tmp/lz4/lz4" -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
+      "$DEPSDIR/lz4/lz4" -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
 
       echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE_GZIP") $(byte_size "$COMPRESSED_FILE_LZ4")" >> "$DATA_FILE"
     else

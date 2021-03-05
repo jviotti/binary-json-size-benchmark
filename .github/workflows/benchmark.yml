@@ -26,21 +26,20 @@ jobs:
         cache-name: cache-dependencies
       with:
         path: |
-          .tmp
           /tmp/dependencies
           ~/.npm
           ~/.cache/pip
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('.github/ci-dependencies.sh') }}
+        key: ${{ runner.os }}-deps-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}
         restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
+          ${{ runner.os }}-deps-${{ env.cache-name }}-
+          ${{ runner.os }}-deps-
           ${{ runner.os }}-
 
     - name: Install dependencies
-      run: make deps
+      run: make deps DEPSDIR=/tmp/dependencies
 
     - name: Lint
       run: make lint
 
     - name: Benchmark
-      run: make benchmark
+      run: make benchmark DEPSDIR=/tmp/dependencies
