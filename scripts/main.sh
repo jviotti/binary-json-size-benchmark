@@ -78,14 +78,16 @@ do
     then
       COMPRESSED_FILE_GZIP="$BINARY.gz"
       COMPRESSED_FILE_LZ4="$BINARY.lz4"
-      rm -f "$COMPRESSED_FILE_GZIP" "$COMPRESSED_FILE_LZ4"
-      info "Compressing $BINARY with GZIP and LZ4"
+      COMPRESSED_FILE_LZMA="$BINARY.lzma"
+      rm -f "$COMPRESSED_FILE_GZIP" "$COMPRESSED_FILE_LZ4" "$COMPRESSED_FILE_LZMA"
+      info "Compressing $BINARY with GZIP, LZ4, and LZMA"
       gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE_GZIP"
       "$DEPSDIR/lz4/lz4" -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
+      lzma -9 --stdout < "$BINARY" > "$COMPRESSED_FILE_LZMA"
 
-      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE_GZIP") $(byte_size "$COMPRESSED_FILE_LZ4")" >> "$DATA_FILE"
+      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE_GZIP") $(byte_size "$COMPRESSED_FILE_LZ4") $(byte_size "$COMPRESSED_FILE_LZMA")" >> "$DATA_FILE"
     else
-      echo "$INDEX \"$NAME\" 0 0 0" >> "$DATA_FILE"
+      echo "$INDEX \"$NAME\" 0 0 0 0" >> "$DATA_FILE"
     fi
 
     INDEX="$(echo "$INDEX + 1" | bc)"
