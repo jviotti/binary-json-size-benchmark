@@ -81,7 +81,7 @@ do
       rm -f "$COMPRESSED_FILE_GZIP" "$COMPRESSED_FILE_LZ4"
       info "Compressing $BINARY with GZIP and LZ4"
       gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE_GZIP"
-      lz4 -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
+      "$PWD/.tmp/lz4/lz4" -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
 
       echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE_GZIP") $(byte_size "$COMPRESSED_FILE_LZ4")" >> "$DATA_FILE"
     else
