@@ -45,6 +45,6 @@ else
 fi
 
 cd "$(dirname "$SCRIPT")"
-ROOT="$ROOT" FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" \
+DEPSDIR="$DEPSDIR" ROOT="$ROOT" FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" \
   ./"$(basename "$SCRIPT")" "$FINAL_JSON_PATH" "$OUTPUT"
 assert_file_exists "$OUTPUT"

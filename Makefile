@@ -1,26 +1,28 @@
 .PHONY: deps deps-flatbuffers deps-capnproto lint benchmark
 .DEFAULT_GOAL = benchmark
 
+DEPSDIR ?= $(shell pwd)/.tmp
+
 include vendor/vendorpull/targets.mk
 
-.tmp:
-	mkdir $@
+$(DEPSDIR):
+	mkdir -p $@
 
-deps-flatbuffers: vendor/flatbuffers | .tmp
-	cmake -S $< -B .tmp/flatbuffers
-	make --directory=.tmp/flatbuffers
+deps-flatbuffers: vendor/flatbuffers | $(DEPSDIR)
+	cmake -S $< -B $(DEPSDIR)/flatbuffers
+	make --directory=$(DEPSDIR)/flatbuffers
 
-deps-capnproto: vendor/capnproto | .tmp
-	cmake -S $< -B .tmp/capnproto
-	make --directory=.tmp/capnproto
+deps-capnproto: vendor/capnproto | $(DEPSDIR)
+	cmake -S $< -B $(DEPSDIR)/capnproto
+	make --directory=$(DEPSDIR)/capnproto
 
-deps-msgpack-tools: vendor/msgpack-tools | .tmp
-	cmake -S $< -B .tmp/msgpack-tools
-	make --directory=.tmp/msgpack-tools
+deps-msgpack-tools: vendor/msgpack-tools | $(DEPSDIR)
+	cmake -S $< -B $(DEPSDIR)/msgpack-tools
+	make --directory=$(DEPSDIR)/msgpack-tools
 
-deps-lz4: vendor/lz4 | .tmp
-	cmake -S $</build/cmake -B .tmp/lz4
-	make --directory=.tmp/lz4
+deps-lz4: vendor/lz4 | $(DEPSDIR)
+	cmake -S $</build/cmake -B $(DEPSDIR)/lz4
+	make --directory=$(DEPSDIR)/lz4
 
 deps: requirements.txt package.json \
 	deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
@@ -41,9 +43,9 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		$< > $@
 
 benchmark:
-	./scripts/main.sh
+	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh
 
 benchmark-%:
-	./scripts/main.sh \
+	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh \
 		$(word 1,$(subst -, ,$(subst benchmark-,,$@))) \
 		$(word 2,$(subst -, ,$(subst benchmark-,,$@)))
