@@ -11,4 +11,5 @@ set lmargin 9
 
 plot filename using 3:xtic(2) title 'Uncompressed',\
 filename using 4:xtic(2) title 'GZIP',\
-filename using 5:xtic(2) title 'LZ4'
+filename using 5:xtic(2) title 'LZ4',\
+filename using 6:xtic(2) title 'LZMA'
