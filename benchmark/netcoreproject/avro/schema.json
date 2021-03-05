@@ -1,0 +1,98 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "version", "type": "string" },
+    {
+      "name": "compilationOptions",
+      "type": {
+        "type": "record",
+        "name": "compilationOptions",
+        "fields": [
+          { "name": "warningsAsErrors", "type": "boolean" }
+        ]
+      }
+    },
+    {
+      "name": "dependencies",
+      "type": {
+        "type": "record",
+        "name": "dependencies1",
+        "fields": [
+          { "name": "Microsoft.Bcl.Immutable", "type": "string" },
+          { "name": "Microsoft.AspNet.ConfigurationModel", "type": "string" },
+          { "name": "Microsoft.AspNet.DependencyInjection", "type": "string" },
+          { "name": "Microsoft.AspNet.Logging", "type": "string" },
+          { "name": "System.Data.Common", "type": "string" }
+        ]
+      }
+    },
+    { "name": "code", "type": "string" },
+    {
+      "name": "frameworks",
+      "type": {
+        "type": "record",
+        "name": "frameworks",
+        "fields": [
+          {
+            "name": "net45",
+            "type": {
+              "type": "record",
+              "name": "net45",
+              "fields": [
+                {
+                  "name": "dependencies",
+                  "type": {
+                    "type": "record",
+                    "name": "dependencies2",
+                    "fields": [
+                      { "name": "System.Runtime", "type": "string" },
+                      { "name": "System.Collections", "type": "string" }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "name": "k10",
+            "type": {
+              "type": "record",
+              "name": "k10",
+              "fields": [
+                {
+                  "name": "dependencies",
+                  "type": {
+                    "type": "record",
+                    "name": "dependencies3",
+                    "fields": [
+                      { "name": "System.Collections", "type": "string" },
+                      { "name": "System.Collections.Concurrent", "type": "string" },
+                      { "name": "System.ComponentModel", "type": "string" },
+                      { "name": "System.Console", "type": "string" },
+                      { "name": "System.Diagnostics.Contracts", "type": "string" },
+                      { "name": "System.Diagnostics.Debug", "type": "string" },
+                      { "name": "System.Globalization", "type": "string" },
+                      { "name": "System.Linq", "type": "string" },
+                      { "name": "System.Linq.Expressions", "type": "string" },
+                      { "name": "System.Linq.Queryable", "type": "string" },
+                      { "name": "System.Reflection", "type": "string" },
+                      { "name": "System.Reflection.Extensions", "type": "string" },
+                      { "name": "System.Resources.ResourceManager", "type": "string" },
+                      { "name": "System.Runtime", "type": "string" },
+                      { "name": "System.Runtime.Extensions", "type": "string" },
+                      { "name": "System.Threading", "type": "string" },
+                      { "name": "System.Threading.Tasks", "type": "string" }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+
+    }
+  ]
+}

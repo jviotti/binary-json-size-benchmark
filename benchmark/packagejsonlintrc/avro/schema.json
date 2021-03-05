@@ -1,0 +1,358 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "rules",
+      "type": {
+        "type": "record",
+        "name": "rules",
+        "fields": [
+          {
+            "name": "require-author",
+            "type": {
+              "type": "enum",
+              "name": "ruletype1",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-description",
+            "type": {
+              "type": "enum",
+              "name": "ruletype2",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-engines",
+            "type": {
+              "type": "enum",
+              "name": "ruletype3",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-license",
+            "type": {
+              "type": "enum",
+              "name": "ruletype4",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-name",
+            "type": {
+              "type": "enum",
+              "name": "ruletype5",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-repository",
+            "type": {
+              "type": "enum",
+              "name": "ruletype6",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-version",
+            "type": {
+              "type": "enum",
+              "name": "ruletype7",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-bugs",
+            "type": {
+              "type": "enum",
+              "name": "ruletype8",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-homepage",
+            "type": {
+              "type": "enum",
+              "name": "ruletype9",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "require-keywords",
+            "type": {
+              "type": "enum",
+              "name": "ruletype10",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "bin-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype11",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "config-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype12",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "description-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype13",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "devDependencies-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype14",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "directories-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype15",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "engines-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype16",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "files-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype17",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "homepage-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype18",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "keywords-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype19",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "license-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype20",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "main-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype21",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "man-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype22",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "name-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype23",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "preferGlobal-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype24",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "private-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype25",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "repository-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype26",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "scripts-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype27",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "version-type",
+            "type": {
+              "type": "enum",
+              "name": "ruletype28",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "valid-values-author",
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "enum",
+                  "name": "ruletype29",
+                  "symbols": [ "off", "warning", "error" ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "valid-values-private",
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "enum",
+                  "name": "ruletype30",
+                  "symbols": [ "off", "warning", "error" ]
+                },
+                {
+                  "type": "array",
+                  "items": "boolean"
+                }
+              ]
+            }
+          },
+          {
+            "name": "no-restricted-dependencies",
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "enum",
+                  "name": "ruletype31",
+                  "symbols": [ "off", "warning", "error" ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "no-restricted-pre-release-dependencies",
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "enum",
+                  "name": "ruletype32",
+                  "symbols": [ "off", "warning", "error" ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "no-restricted-invalid-devDependencies",
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "enum",
+                  "name": "ruletype33",
+                  "symbols": [ "off", "warning", "error" ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "no-restricted-pre-release-devDependencies",
+            "type": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "enum",
+                  "name": "ruletype34",
+                  "symbols": [ "off", "warning", "error" ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "name-format",
+            "type": {
+              "type": "enum",
+              "name": "ruletype35",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          },
+          {
+            "name": "version-format",
+            "type": {
+              "type": "enum",
+              "name": "ruletype36",
+              "symbols": [ "off", "warning", "error" ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "basics",
+      "type": {
+        "type": "record",
+        "name": "basics",
+        "fields": [
+          { "name": "name", "type": "string" },
+          { "name": "label", "type": "string" },
+          { "name": "picture", "type": "string" },
+          { "name": "email", "type": "string" },
+          { "name": "phone", "type": "string" },
+          { "name": "website", "type": "string" },
+          { "name": "summary", "type": "string" },
+          {
+            "name": "location",
+            "type": {
+              "type": "record",
+              "name": "location",
+              "fields": [
+                { "name": "address", "type": "string" },
+                { "name": "postalCode", "type": "string" },
+                { "name": "city", "type": "string" },
+                { "name": "countryCode", "type": "string" },
+                { "name": "region", "type": "string" }
+              ]
+            }
+          },
+          {
+            "name": "profiles",
+            "type": {
+              "type": "array",
+              "items": {
+                "type": "record",
+                "name": "profile",
+                "fields": [
+                  { "name": "network", "type": "string" },
+                  { "name": "username", "type": "string" },
+                  { "name": "url", "type": "string" }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "work",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "work",
+          "fields": [
+            { "name": "company", "type": "string" },
+            { "name": "position", "type": "string" },
+            { "name": "website", "type": "string" },
+            { "name": "startDate", "type": "string" },
+            { "name": "endDate", "type": "string" },
+            { "name": "summary", "type": "string" },
+            {
+              "name": "highlights",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "volunteer",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "volunteer",
+          "fields": [
+            { "name": "organization", "type": "string" },
+            { "name": "position", "type": "string" },
+            { "name": "website", "type": "string" },
+            { "name": "startDate", "type": "string" },
+            { "name": "endDate", "type": "string" },
+            { "name": "summary", "type": "string" },
+            {
+              "name": "highlights",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "education",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "education",
+          "fields": [
+            { "name": "institution", "type": "string" },
+            { "name": "area", "type": "string" },
+            { "name": "studyType", "type": "string" },
+            { "name": "startDate", "type": "string" },
+            { "name": "endDate", "type": "string" },
+            { "name": "gpa", "type": "string" },
+            {
+              "name": "courses",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "awards",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "award",
+          "fields": [
+            { "name": "title", "type": "string" },
+            { "name": "date", "type": "string" },
+            { "name": "awarder", "type": "string" },
+            { "name": "summary", "type": "string" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "publications",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "publication",
+          "fields": [
+            { "name": "name", "type": "string" },
+            { "name": "publisher", "type": "string" },
+            { "name": "releaseDate", "type": "string" },
+            { "name": "website", "type": "string" },
+            { "name": "summary", "type": "string" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "skills",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "skill",
+          "fields": [
+            { "name": "name", "type": "string" },
+            { "name": "level", "type": "string" },
+            {
+              "name": "keywords",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "languages",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "language",
+          "fields": [
+            { "name": "language", "type": "string" },
+            { "name": "fluency", "type": "string" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "interests",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "interest",
+          "fields": [
+            { "name": "name", "type": "string" },
+            {
+              "name": "keywords",
+              "type": {
+                "type": "array",
+                "items": "string"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "references",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "reference",
+          "fields": [
+            { "name": "name", "type": "string" },
+            { "name": "reference", "type": "string" }
+          ]
+        }
+      }
+    }
+  ]
+}

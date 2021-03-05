@@ -1,0 +1,58 @@
+{
+  "type": "array",
+  "items": {
+    "type": "record",
+    "name": "roadrisk",
+    "fields": [
+      { "name": "dt", "type": "int" },
+      {
+        "name": "coord",
+        "type": {
+          "type": "array",
+          "items": "double"
+        }
+      },
+      {
+        "name": "weather",
+        "type": [
+          {
+            "type": "record",
+            "name": "weather1",
+            "fields": [
+              { "name": "temp", "type": "double" },
+              { "name": "wind_speed", "type": "double" },
+              { "name": "wind_deg", "type": "int" },
+              { "name": "precipitation_intensity", "type": "double" },
+              { "name": "dew_point", "type": "double" }
+            ]
+          },
+          {
+            "type": "record",
+            "name": "weather2",
+            "fields": [
+              { "name": "temp", "type": "double" },
+              { "name": "wind_speed", "type": "double" },
+              { "name": "wind_deg", "type": "int" },
+              { "name": "dew_point", "type": "double" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "alerts",
+        "type": {
+          "type": "array",
+          "items": {
+            "type": "record",
+            "name": "alert",
+            "fields": [
+              { "name": "sender_name", "type": "string" },
+              { "name": "event", "type": "string" },
+              { "name": "event_level", "type": "int" }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

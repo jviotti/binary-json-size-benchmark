@@ -1,0 +1,93 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "name", "type": "string" },
+    {
+      "name": "on",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "jobs",
+      "type": {
+        "type": "record",
+        "name": "jobs",
+        "fields": [
+          {
+            "name": "build",
+            "type": {
+              "type": "record",
+              "name": "build",
+              "fields": [
+                { "name": "runs-on", "type": "string" },
+                {
+                  "name": "env",
+                  "type": {
+                    "type": "record",
+                    "name": "env",
+                    "fields": [
+                      { "name": "build-suite-dir", "type": "string" }
+                    ]
+                  }
+                },
+                {
+                  "name": "steps",
+                  "type": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "record",
+                        "name": "step1",
+                        "fields": [
+                          { "name": "uses", "type": "string" }
+                        ]
+                      },
+                      {
+                        "type": "record",
+                        "name": "step2",
+                        "fields": [
+                          { "name": "uses", "type": "string" },
+                          {
+                            "name": "with",
+                            "type": {
+                              "type": "record",
+                              "name": "with",
+                              "fields": [
+                                { "name": "node-version", "type": "string" }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      {
+                        "type": "record",
+                        "name": "step3",
+                        "fields": [
+                          { "name": "name", "type": "string" },
+                          { "name": "run", "type": "string" }
+                        ]
+                      },
+                      {
+                        "type": "record",
+                        "name": "step4",
+                        "fields": [
+                          { "name": "name", "type": "string" },
+                          { "name": "run", "type": "string" },
+                          { "name": "working-directory", "type": "string" }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

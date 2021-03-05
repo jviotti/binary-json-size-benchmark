@@ -1,0 +1,92 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "coord",
+      "type": {
+        "type": "record",
+        "name": "coord",
+        "fields": [
+          { "name": "lon", "type": "double" },
+          { "name": "lat", "type": "double" }
+        ]
+      }
+    },
+    {
+      "name": "weather",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "weather",
+          "fields": [
+            { "name": "id", "type": "int" },
+            { "name": "main", "type": "string" },
+            { "name": "description", "type": "string" },
+            { "name": "icon", "type": "string" }
+          ]
+        }
+      }
+    },
+    { "name": "base", "type": "string" },
+    {
+      "name": "main",
+      "type": {
+        "type": "record",
+        "name": "main",
+        "fields": [
+          { "name": "temp", "type": "double" },
+          { "name": "feels_like", "type": "double" },
+          { "name": "temp_min", "type": "double" },
+          { "name": "temp_max", "type": "double" },
+          { "name": "pressure", "type": "int" },
+          { "name": "humidity", "type": "int" }
+        ]
+      }
+    },
+    { "name": "visibility", "type": "int" },
+    {
+      "name": "wind",
+      "type": {
+        "type": "record",
+        "name": "wind",
+        "fields": [
+          { "name": "speed", "type": "float" },
+          { "name": "deg", "type": "int" }
+        ]
+      }
+    },
+    {
+      "name": "clouds",
+      "type": {
+        "type": "record",
+        "name": "clouds",
+        "fields": [
+          { "name": "all", "type": "int" }
+        ]
+      }
+    },
+    { "name": "dt", "type": "int" },
+    {
+      "name": "sys",
+      "type": {
+        "type": "record",
+        "name": "sys",
+        "fields": [
+          { "name": "type", "type": "int" },
+          { "name": "id", "type": "int" },
+          { "name": "message", "type": "double" },
+          { "name": "country", "type": "string" },
+          { "name": "sunrise", "type": "int" },
+          { "name": "sunset", "type": "int" }
+        ]
+      }
+    },
+    { "name": "timezone", "type": "int" },
+    { "name": "id", "type": "int" },
+    { "name": "name", "type": "string" },
+    { "name": "cod", "type": "int" }
+  ]
+}

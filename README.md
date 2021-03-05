@@ -125,12 +125,12 @@ Results
 - [**Input Document**](benchmark/jsonresume/document.json)
 - [**Benchmark Numbers**](output/jsonresume/data.dat)
   
-### Netlify CMS Configuration
+### .NET Core project.json
 
-![Netlify CMS Configuration chart](./charts/netlifycms.png)
+![.NET Core project.json chart](./charts/netcoreproject.png)
 
-- [**Input Document**](benchmark/netlifycms/document.json)
-- [**Benchmark Numbers**](output/netlifycms/data.dat)
+- [**Input Document**](benchmark/netcoreproject/document.json)
+- [**Benchmark Numbers**](output/netcoreproject/data.dat)
   
 ### Nightwatch.js Test Framework Configuration
 

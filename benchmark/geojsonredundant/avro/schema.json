@@ -1,0 +1,41 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "type",
+      "type": {
+        "type": "enum",
+        "name": "type",
+        "symbols": [
+          "Point",
+          "MultiPoint",
+          "LineString",
+          "MultiLineString",
+          "Polygon",
+          "MultiPolygon",
+          "GeometryCollection",
+          "Feature",
+          "FeatureCollection"
+        ]
+      }
+    },
+    {
+      "name": "coordinates",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": "double"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "foo",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "main",
+      "type": {
+        "type": "record",
+        "name": "main",
+        "fields": [
+          {
+            "name": "files",
+            "type": {
+              "type": "record",
+              "name": "files",
+              "fields": []
+            }
+          },
+          {
+            "name": "src",
+            "type": {
+              "type": "array",
+              "items": "string"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "options",
+      "type": {
+        "type": "record",
+        "name": "options",
+        "fields": [
+          { "name": "force", "type": "boolean" },
+          { "name": "no-write", "type": "boolean" }
+        ]
+      }
+    }
+  ]
+}

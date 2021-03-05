@@ -1,0 +1,133 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    { "name": "name", "type": "string" },
+    { "name": "description", "type": "string" },
+    { "name": "version", "type": "string" },
+    {
+      "name": "author",
+      "type": {
+        "type": "record",
+        "name": "author",
+        "fields": [
+          { "name": "name", "type": "string" },
+          { "name": "url", "type": "string" }
+        ]
+      }
+    },
+    { "name": "homepage", "type": "string" },
+    {
+      "name": "repository",
+      "type": {
+        "type": "record",
+        "name": "repository",
+        "fields": [
+          { "name": "type", "type": "string" },
+          { "name": "url", "type": "string" }
+        ]
+      }
+    },
+    {
+      "name": "bugs",
+      "type": {
+        "type": "record",
+        "name": "bugs",
+        "fields": [
+          { "name": "url", "type": "string" }
+        ]
+      }
+    },
+    {
+      "name": "licenses",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "license",
+          "fields": [
+            { "name": "type", "type": "string" },
+            { "name": "url", "type": "string" }
+          ]
+        }
+      }
+    },
+    { "name": "main", "type": "string" },
+    {
+      "name": "scripts",
+      "type": {
+        "type": "record",
+        "name": "scripts",
+        "fields": [
+          { "name": "test", "type": "string" }
+        ]
+      }
+    },
+    {
+      "name": "engines",
+      "type": {
+        "type": "record",
+        "name": "engines",
+        "fields": [
+          { "name": "node", "type": "string" }
+        ]
+      }
+    },
+    {
+      "name": "keywords",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "dependencies",
+      "type": {
+        "type": "record",
+        "name": "dependencies",
+        "fields": [
+          { "name": "async", "type": "string" },
+          { "name": "coffee-script", "type": "string" },
+          { "name": "colors", "type": "string" },
+          { "name": "dateformat", "type": "string" },
+          { "name": "eventemitter2", "type": "string" },
+          { "name": "findup-sync", "type": "string" },
+          { "name": "glob", "type": "string" },
+          { "name": "hooker", "type": "string" },
+          { "name": "iconv-lite", "type": "string" },
+          { "name": "minimatch", "type": "string" },
+          { "name": "nopt", "type": "string" },
+          { "name": "rimraf", "type": "string" },
+          { "name": "lodash", "type": "string" },
+          { "name": "underscore.string", "type": "string" },
+          { "name": "which", "type": "string" },
+          { "name": "js-yaml", "type": "string" },
+          { "name": "exit", "type": "string" },
+          { "name": "getobject", "type": "string" },
+          { "name": "grunt-legacy-util", "type": "string" },
+          { "name": "grunt-legacy-log", "type": "string" }
+        ]
+      }
+    },
+    {
+      "name": "devDependencies",
+      "type": {
+        "type": "record",
+        "name": "devDependencies",
+        "fields": [
+          { "name": "temporary", "type": "string" },
+          { "name": "grunt-contrib-jshint", "type": "string" },
+          { "name": "grunt-contrib-nodeunit", "type": "string" },
+          { "name": "grunt-contrib-watch", "type": "string" },
+          { "name": "difflet", "type": "string" },
+          { "name": "semver", "type": "string" },
+          { "name": "shelljs", "type": "string" }
+        ]
+      }
+    },
+    { "name": "readme", "type": "string" },
+    { "name": "_id", "type": "string" },
+    { "name": "_from", "type": "string" }
+  ]
+}

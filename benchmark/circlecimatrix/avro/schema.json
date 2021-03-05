@@ -1,0 +1,72 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "main",
+  "fields": [
+    { "name": "version", "type": "double" },
+    {
+      "name": "workflows",
+      "type": {
+        "type": "record",
+        "name": "workflows",
+        "fields": [
+          {
+            "name": "test",
+            "type": {
+              "type": "record",
+              "name": "test",
+              "fields": [
+                {
+                  "name": "jobs",
+                  "type": {
+                    "type": "array",
+                    "items": {
+                      "type": "record",
+                      "name": "Job",
+                      "fields": [
+                        {
+                          "name": "m1",
+                          "type": {
+                            "type": "record",
+                            "name": "m1",
+                            "fields": [
+                              {
+                                "name": "matrix",
+                                "type": {
+                                  "type": "record",
+                                  "name": "matrix",
+                                  "fields": [
+                                    {
+                                      "name": "parameters",
+                                      "type": {
+                                        "type": "record",
+                                        "name": "parameters",
+                                        "fields": [
+                                          {
+                                            "name": "a",
+                                            "type": {
+                                              "type": "array",
+                                              "items": "int"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

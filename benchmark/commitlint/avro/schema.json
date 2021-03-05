@@ -1,0 +1,58 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "rules",
+      "type": {
+        "type": "record",
+        "name": "rules",
+        "fields": [
+          {
+            "name": "scope-case",
+            "type": {
+              "type": "array",
+              "items": [
+                "int",
+                {
+                  "type": "enum",
+                  "name": "state1",
+                  "symbols": [
+                    "always",
+                    "never"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "subject-case",
+            "type": {
+              "type": "array",
+              "items": [
+                "int",
+                {
+                  "type": "enum",
+                  "name": "state2",
+                  "symbols": [
+                    "always",
+                    "never"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": "string"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "namespace": "schema.avro",
+  "type": "record",
+  "name": "benchmark",
+  "fields": [
+    {
+      "name": "$sort",
+      "type": {
+        "type": "array",
+        "items": "int"
+      }
+    },
+    { "name": "by(x)", "type": "string" }
+  ]
+}

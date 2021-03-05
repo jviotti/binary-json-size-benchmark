@@ -1,0 +1,59 @@
+table CompilationOptions {
+  warningsAsErrors: bool;
+}
+
+table Dependencies {
+  microsoftBclImmutable: string;
+  microsoftAspNetConfigurationModel: string;
+  microsoftAspNetDependencyInjection: string;
+  microsoftAspNetLogging: string;
+  systemDataCommon: string;
+}
+
+table Net45Dependencies {
+  systemRuntime: string;
+  systemCollections: string;
+}
+
+table K10Dependencies {
+  systemCollections: string;
+  systemCollectionsConcurrent: string;
+  systemComponentModel: string;
+  systemConsole: string;
+  systemDiagnosticsContracts: string;
+  systemDiagnosticsDebug: string;
+  systemGlobalization: string;
+  systemLinq: string;
+  systemLinqExpressions: string;
+  systemLinqQueryable: string;
+  systemReflection: string;
+  systemReflectionExtensions: string;
+  systemResourcesResourceManager: string;
+  systemRuntime: string;
+  systemRuntimeExtensions: string;
+  systemThreading: string;
+  systemThreadingTasks: string;
+}
+
+table Net45 {
+  dependencies: Net45Dependencies;
+}
+
+table K10 {
+  dependencies: K10Dependencies;
+}
+
+table Frameworks {
+  net45: Net45;
+  k10: K10;
+}
+
+table Main {
+  version: string;
+  compilationOptions: CompilationOptions;
+  dependencies: Dependencies;
+  code: string;
+  frameworks: Frameworks;
+}
+
+root_type Main;
