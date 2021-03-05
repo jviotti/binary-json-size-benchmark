@@ -22,21 +22,20 @@ jobs:
 
     - name: Cache Dependencies
       uses: actions/cache@v2
+      id: cache
       env:
-        cache-name: cache-dependencies
+        cache-name: dependencies
       with:
         path: |
           /tmp/dependencies
           ~/.npm
           ~/.cache/pip
-        key: ${{ runner.os }}-deps-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}
-        restore-keys: |
-          ${{ runner.os }}-deps-${{ env.cache-name }}-
-          ${{ runner.os }}-deps-
-          ${{ runner.os }}-
+          node_modules
+        key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}
 
     - name: Install dependencies
       run: make deps DEPSDIR=/tmp/dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
 
     - name: Lint
       run: make lint
