@@ -5,4 +5,8 @@ def encode(json, schema):
     return payload
 
 def decode(payload):
-    return payload.__dict__
+    return {
+        '$sort': payload.sort,
+        'by(x)': payload.byX
+    }
+
