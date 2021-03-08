@@ -1,0 +1,11 @@
+1 "Apache Avro (unframed)" 16 36 35 39
+2 "BSON" 96 101 115 105
+3 "Cap'n Proto (packed)" 35 55 54 59
+4 "CBOR" 64 81 83 82
+5 "FlatBuffers" 80 77 94 74
+6 "FlexBuffers" 91 107 110 109
+7 "JSON" 102 101 117 103
+8 "MessagePack" 64 82 83 85
+9 "Smile" 70 87 89 91
+10 "Apache Thrift (Compact Protocol)" 24 44 43 48
+11 "UBJSON" 78 93 97 94
