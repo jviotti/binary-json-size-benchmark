@@ -1,5 +1,5 @@
 struct Let {
-  1: required list<i8> x
+  1: required list<byte> x
 }
 
 struct Sort {

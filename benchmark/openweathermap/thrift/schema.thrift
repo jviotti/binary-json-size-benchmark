@@ -16,7 +16,7 @@ struct MainObject {
   3: double temp_min,
   4: double temp_max,
   5: i16 pressure,
-  6: i8 humidity
+  6: byte humidity
 }
 
 struct Wind {
@@ -25,11 +25,11 @@ struct Wind {
 }
 
 struct Clouds {
-  1: i8 all
+  1: byte all
 }
 
 struct Sys {
-  1: i8 type,
+  1: byte type,
   2: i16 id,
   3: double message,
   4: string country,

@@ -19,7 +19,7 @@ struct Selenium {
   3: optional string server_path,
   4: required string log_path,
   5: required i16 check_process_delay,
-  6: required i8 max_status_poll_tries,
+  6: required byte max_status_poll_tries,
   7: required i16 status_poll_interval
 }
 
@@ -28,8 +28,8 @@ struct WebDriver {
   2: required Empty cli_args,
   3: optional string server_path,
   4: required string log_path,
-  5: required i8 check_process_delay,
-  6: required i8 max_status_poll_tries,
+  5: required byte check_process_delay,
+  6: required byte max_status_poll_tries,
   7: required i16 status_poll_interval
   8: required i32 process_create_timeout,
   9: required Empty timeout_options
@@ -51,7 +51,7 @@ struct Main {
   9: optional string src_folders,
   10: required bool live_output,
   11: required bool disable_colors,
-  12: required i8 parallel_process_delay,
+  12: required byte parallel_process_delay,
   13: required Selenium selenium,
   14: required bool start_session,
   15: required bool end_session_on_fail,

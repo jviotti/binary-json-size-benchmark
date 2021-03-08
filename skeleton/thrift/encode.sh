@@ -3,7 +3,7 @@
 set -eu
 
 rm -rf "$FWD/schema" "$FWD/__init__.py" "$FWD/__pycache__"
-thrift --gen py -o "$FWD" -out "$FWD" "$FWD/schema.thrift"
+"$DEPSDIR/thrift/bin/thrift" --gen py -o "$FWD" -out "$FWD" "$FWD/schema.thrift"
 
 PYTHONPATH="$FWD" python3 -c "
 from thrift import Thrift

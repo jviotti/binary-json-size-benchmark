@@ -1,5 +1,5 @@
 struct Parameters {
-  1: required list<i8> a
+  1: required list<byte> a
 }
 
 struct Matrix {

@@ -18,7 +18,7 @@ jobs:
         cli: '1.10.2.796'
 
     - name: Prepare environment
-      run: sudo apt-get install -y gnuplot python3-setuptools rlwrap thrift-compiler python3-thrift
+      run: sudo apt-get install -y gnuplot python3-setuptools rlwrap
 
     - name: Cache Dependencies
       uses: actions/cache@v2
@@ -30,7 +30,7 @@ jobs:
           /tmp/dependencies
           /usr/lib/python3/dist-packages
           node_modules
-        key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}
+        key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('package.json') }}
 
     - name: Install dependencies
       run: make deps DEPSDIR=/tmp/dependencies

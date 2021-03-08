@@ -1,6 +1,6 @@
 union Rule {
   1: string textual,
-  2: i8 numeric,
+  2: byte numeric,
   3: list<string> multitextual
 }
 
