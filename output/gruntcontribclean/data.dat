@@ -7,4 +7,5 @@
 7 "JSON" 93 94 106 95
 8 "MessagePack" 60 76 79 78
 9 "Smile" 70 85 88 88
-10 "UBJSON" 77 88 92 89
+10 "Apache Thrift (Compact Protocol)" 23 38 39 41
+11 "UBJSON" 77 88 92 89

@@ -30,7 +30,7 @@ jobs:
           /tmp/dependencies
           /usr/lib/python3/dist-packages
           node_modules
-        key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}
+        key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('package.json') }}
 
     - name: Install dependencies
       run: make deps DEPSDIR=/tmp/dependencies
