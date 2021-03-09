@@ -10,8 +10,10 @@ $(DEPSDIR):
 	mkdir -p $@
 
 deps-flatbuffers: vendor/flatbuffers | $(DEPSDIR)
-	cmake -S $< -B $(DEPSDIR)/flatbuffers
-	make --directory=$(DEPSDIR)/flatbuffers
+	cmake -S $< -B $(DEPSDIR)/flatbuffers \
+		-DFLATBUFFERS_BUILD_TESTS=OFF -DFLATBUFFERS_BUILD_FLATHASH=OFF \
+		-DFLATBUFFERS_BUILD_GRPCTEST=OFF -DFLATBUFFERS_BUILD_FLATLIB=OFF
+	make --directory=$(DEPSDIR)/flatbuffers -j
 
 deps-capnproto: vendor/capnproto | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/capnproto
