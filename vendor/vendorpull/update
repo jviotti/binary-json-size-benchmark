@@ -8,6 +8,8 @@ DEPENDENCIES_FILE="$PWD/DEPENDENCIES"
 VENDOR_DIRECTORY="$PWD/vendor"
 mkdir -p "$VENDOR_DIRECTORY"
 
+GIT_FILES=".git .gitignore .github"
+
 if ! command -v git > /dev/null
 then
   echo "You must install git in order to use this tool" 1>&2
@@ -63,13 +65,16 @@ install_dependency() {
   OUTPUT_DIRECTORY="$VENDOR_DIRECTORY/$NAME"
   GIT_REPOSITORY_DIRECTORY="$TEMPORARY_DIRECTORY/$NAME"
 
-  git clone "$REPOSITORY" "$GIT_REPOSITORY_DIRECTORY"
+  git clone --recurse-submodules --jobs 8 "$REPOSITORY" "$GIT_REPOSITORY_DIRECTORY"
   git -C "$GIT_REPOSITORY_DIRECTORY" reset --hard "$REVISION"
 
-  # Un-git the repository
-  rm -rf "$GIT_REPOSITORY_DIRECTORY/.git"
-  rm -rf "$GIT_REPOSITORY_DIRECTORY/.gitignore"
-  rm -rf "$GIT_REPOSITORY_DIRECTORY/.github"
+  # Un-git the repository and its dependencies (if any)
+  git -C "$GIT_REPOSITORY_DIRECTORY" submodule foreach \
+    "rm -rf $GIT_FILES"
+  for file in $GIT_FILES
+  do
+    rm -rf "$GIT_REPOSITORY_DIRECTORY/${file:?}"
+  done
 
   MASK_FILE="$VENDOR_DIRECTORY/$NAME.mask"
   if [ -f "$MASK_FILE" ]
