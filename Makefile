@@ -1,6 +1,7 @@
 .PHONY: deps deps-flatbuffers deps-capnproto lint benchmark
 .DEFAULT_GOAL = benchmark
 
+OS = $(shell uname)
 DEPSDIR ?= $(shell pwd)/.tmp
 
 include vendor/vendorpull/targets.mk
@@ -23,6 +24,21 @@ deps-msgpack-tools: vendor/msgpack-tools | $(DEPSDIR)
 deps-lz4: vendor/lz4 | $(DEPSDIR)
 	cmake -S $</build/cmake -B $(DEPSDIR)/lz4
 	make --directory=$(DEPSDIR)/lz4
+
+# Allow Thrift to be compiled on macOS
+ifeq $(OS) Darwin
+LDFLAGS ?= -L/usr/local/opt/bison@2.7/lib -L/usr/local/opt/openssl@1.1/lib
+export LDFLAGS
+CPPFLAGS ?= -I/usr/local/opt/openssl@1.1/include
+export CPPFLAGS
+PKG ?= /usr/local/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
+NEW_PATH ?= /usr/local/opt/bison@2.7/bin:/usr/local/opt/openssl@1.1/bin:$(PATH)
+endif
+
+deps-thrift: vendor/thrift | $(DEPSDIR)
+	cd $< && PATH=$(NEW_PATH) PKG_CONFIG_PATH=$(PKG) ./bootstrap.sh
+	cd $< && PATH=$(NEW_PATH) PKG_CONFIG_PATH=$(PKG) ./configure --prefix=$(DEPSDIR)
+	PATH=$(NEW_PATH) PKG_CONFIG_PATH=$(PKG) make --directory=$<
 
 deps: requirements.txt package.json \
 	deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
