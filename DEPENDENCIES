@@ -3,3 +3,4 @@ flatbuffers https://github.com/google/flatbuffers.git v1.12.0
 capnproto https://github.com/capnproto/capnproto v0.8.0
 msgpack-tools https://github.com/ludocode/msgpack-tools v0.6
 lz4 https://github.com/lz4/lz4 v1.9.3
+thrift https://github.com/apache/thrift 65fb49bb41f852375b278c9057d52c9472f0cb3a
