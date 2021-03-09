@@ -13,18 +13,18 @@ deps-flatbuffers: vendor/flatbuffers | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/flatbuffers \
 		-DFLATBUFFERS_BUILD_TESTS=OFF -DFLATBUFFERS_BUILD_FLATHASH=OFF \
 		-DFLATBUFFERS_BUILD_GRPCTEST=OFF -DFLATBUFFERS_BUILD_FLATLIB=OFF
-	make --directory=$(DEPSDIR)/flatbuffers -j
+	make --directory=$(DEPSDIR)/flatbuffers --jobs
 
 deps-capnproto: vendor/capnproto | $(DEPSDIR)
-	cmake -S $< -B $(DEPSDIR)/capnproto
-	make --directory=$(DEPSDIR)/capnproto
+	cmake -S $< -B $(DEPSDIR)/capnproto -DBUILD_TESTING=OFF
+	make --directory=$(DEPSDIR)/capnproto --jobs
 
 deps-msgpack-tools: vendor/msgpack-tools | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/msgpack-tools
-	make --directory=$(DEPSDIR)/msgpack-tools
+	make --directory=$(DEPSDIR)/msgpack-tools --jobs
 
 deps-lz4: vendor/lz4 | $(DEPSDIR)
-	cmake -S $</build/cmake -B $(DEPSDIR)/lz4
+	cmake -S $</build/cmake -B $(DEPSDIR)/lz4 -DLZ4_BUILD_LEGACY_LZ4C=OFF
 	make --directory=$(DEPSDIR)/lz4
 
 # Allow Thrift to be compiled on macOS
@@ -45,7 +45,7 @@ deps-thrift: vendor/thrift | $(DEPSDIR)
 		--without-haskell --without-go --without-swift --without-rs --without-cl \
 		--without-haxe --without-netstd --without-d --without-as3 --without-python \
 		--without-py3 --without-cpp --without-c_glib
-	make --directory=$< build install clean
+	make --directory=$< build install clean --jobs
 	git clean --force -d $<
 
 deps: requirements.txt package.json \
