@@ -75,6 +75,7 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
+# TODO: Can we use "wildcard" for this?
 FORMATS = $(shell ls -1 skeleton)
 
 define RULE_ENCODE_PATCH
@@ -84,8 +85,17 @@ endef
 
 $(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
 
+define RULE_DECODE_PATCH
+output/%/$1/output.json: output/%/$1/decode.json benchmark/%/$1/post.patch.json
+	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@
+endef
+
+$(foreach format,$(FORMATS),$(eval $(call RULE_DECODE_PATCH,$(format))))
+
 # TODO: Declare input document directly for schema-less formats
 # in order to avoid the whole unnecessary JSON patching steps
+
+# Encoding
 
 output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benchmark/%/avro/schema.json
 	python3 $< $(word 2,$^) $(word 3,$^) $@
@@ -122,6 +132,43 @@ output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.jso
 
 output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json
 	python3 $< $(word 2,$^) $@
+
+# Decoding
+
+output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json
+	python3 $< $(word 2,$^) $(word 3,$^) > $@
+
+output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin
+	node $< $(word 2,$^) > $@
+
+output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp
+	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert packed:json $(word 2,$^) Main < $< > $@
+
+output/%/cbor/decode.json: skeleton/cbor/decode.py output/%/cbor/output.bin
+	python3 $< $(word 2,$^) > $@
+
+output/%/flatbuffers/decode.json: output/%/flatbuffers/output.bin benchmark/%/flatbuffers/schema.fbs
+	$(DEPSDIR)/flatbuffers/flatc --raw-binary -o $(dir $@) --strict-json --json $(word 2,$^) -- $<
+	mv $(dir $@)$(notdir $(basename $<)).json $@
+
+output/%/flexbuffers/decode.json: output/%/flexbuffers/output.bin
+	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --strict-json --json $<
+	mv $(dir $@)$(notdir $(basename $<)).json $@
+
+output/%/json/decode.json: output/%/json/output.bin
+	jq '.' < $< > $@
+
+output/%/messagepack/decode.json: output/%/messagepack/output.bin
+	$(DEPSDIR)/msgpack-tools/msgpack2json < $< > $@
+
+output/%/smile/decode.json: skeleton/smile/decode.clj output/%/smile/output.bin
+	cd $(dir $<) && INPUT_FILE="$(abspath $(word 2,$^))" clj -M $(notdir $<) > $(abspath $@)
+
+output/%/thrift/decode.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
+
+output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin
+	python3 $< $(word 2,$^) > $@
 
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
