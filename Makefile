@@ -75,6 +75,54 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
+FORMATS = $(shell ls -1 skeleton)
+
+define RULE_ENCODE_PATCH
+output/%/$1/encode.json: benchmark/%/document.json benchmark/%/$1/pre.patch.json
+	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@
+endef
+
+$(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
+
+# TODO: Declare input document directly for schema-less formats
+# in order to avoid the whole unnecessary JSON patching steps
+
+output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benchmark/%/avro/schema.json
+	python3 $< $(word 2,$^) $(word 3,$^) $@
+
+output/%/bson/output.bin: skeleton/bson/encode.js output/%/bson/encode.json
+	node $< $(word 2,$^) $@
+
+output/%/capnproto/output.bin: output/%/capnproto/encode.json benchmark/%/capnproto/schema.capnp
+	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert json:packed $(word 2,$^) Main < $< > $@
+
+output/%/cbor/output.bin: skeleton/cbor/encode.py output/%/cbor/encode.json
+	python3 $< $(word 2,$^) $@
+
+output/%/flatbuffers/output.bin: output/%/flatbuffers/encode.json benchmark/%/flatbuffers/schema.fbs
+	$(DEPSDIR)/flatbuffers/flatc --force-defaults --raw-binary -o $(dir $@) --binary $(word 2,$^) $<
+	mv $(dir $@)$(notdir $(basename $<)).bin $@
+
+output/%/flexbuffers/output.bin: output/%/flexbuffers/encode.json
+	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --binary $<
+	mv $(dir $@)$(notdir $(basename $<)).bin $@
+
+output/%/json/output.bin: output/%/json/encode.json
+	jq -c '.' < $< > $@
+
+output/%/messagepack/output.bin: output/%/messagepack/encode.json
+	$(DEPSDIR)/msgpack-tools/json2msgpack < $< > $@
+
+output/%/smile/output.bin: skeleton/smile/encode.clj output/%/smile/encode.json
+	cd $(dir $<) && JSON_FILE="$(abspath $(word 2,$^))" OUTPUT_FILE="$(abspath $@)" clj -M $(notdir $<)
+
+output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.json benchmark/%/thrift/schema.thrift
+	$(DEPSDIR)/thrift/bin/thrift --gen py -o $(dir $(word 3,$^)) -out $(dir $(word 3,$^)) $(word 3,$^)
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
+
+output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json
+	python3 $< $(word 2,$^) $@
+
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
@@ -88,4 +136,3 @@ benchmark-%:
 	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh \
 		$(word 1,$(subst -, ,$(subst benchmark-,,$@))) \
 		$(word 2,$(subst -, ,$(subst benchmark-,,$@)))
-# DO NOT DELETE
