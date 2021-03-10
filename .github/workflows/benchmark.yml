@@ -33,11 +33,11 @@ jobs:
         key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('package.json') }}
 
     - name: Install dependencies
-      run: make deps DEPSDIR=/tmp/dependencies
+      run: make --jobs deps DEPSDIR=/tmp/dependencies
       if: steps.cache.outputs.cache-hit != 'true'
 
     - name: Lint
       run: make lint
 
     - name: Benchmark
-      run: make benchmark DEPSDIR=/tmp/dependencies
+      run: make --jobs benchmark DEPSDIR=/tmp/dependencies

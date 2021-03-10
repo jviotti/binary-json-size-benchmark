@@ -42,14 +42,9 @@ do
       touch "output/$document/$format/output.bin" "output/$document/$format/output.json"
     fi
   done
-
-  if [ "$ALL" = "1" ]
-  then
-    make "charts/$document.png"
-  fi
 done
 
 if [ "$ALL" = "1" ]
 then
-  make README.md
+  make all
 fi
