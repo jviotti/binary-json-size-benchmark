@@ -1,5 +1,4 @@
 import sys
-from thrift import Thrift
 from thrift.protocol import TCompactProtocol
 from thrift.transport import TTransport
 
@@ -12,7 +11,7 @@ run = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(run)
 
 with open(sys.argv[1]) as json_data:
-  data = json.load(json_data)
+    data = json.load(json_data)
 
 result = run.encode(data, schema.ttypes)
 
