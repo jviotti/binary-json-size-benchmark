@@ -20,6 +20,12 @@ rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"
 
 assert_file_exists "$FILE"
 
+if [ "$FORMAT" = "avro" ]
+then
+  make "output/$DOCUMENT/$FORMAT/decode.json"
+  exit 0
+fi
+
 SCRIPT_NAME="decode.sh"
 ROOT="$PWD"
 SCRIPT="$PWD/skeleton/$FORMAT/$SCRIPT_NAME"

@@ -1,4 +1,3 @@
-import os
 import io
 import sys
 import json
@@ -8,9 +7,7 @@ import avro.io
 with open(sys.argv[1], mode='rb') as avro_data:
     data = avro_data.read()
 
-schema_file = os.path.join(os.getenv('FWD'), 'schema.json')
-schema = avro.schema.parse(open(schema_file, "rb").read())
-
+schema = avro.schema.parse(open(sys.argv[2], "rb").read())
 reader = avro.io.DatumReader(schema, schema)
 bytes_reader = io.BytesIO(data)
 decoder = avro.io.BinaryDecoder(bytes_reader)

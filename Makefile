@@ -84,6 +84,13 @@ endef
 
 $(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
 
+define RULE_DECODE_PATCH
+output/%/$1/decode.json: output/%/$1/output.json benchmark/%/$1/post.patch.json
+	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@
+endef
+
+$(foreach format,$(FORMATS),$(eval $(call RULE_DECODE_PATCH,$(format))))
+
 # TODO: Declare input document directly for schema-less formats
 # in order to avoid the whole unnecessary JSON patching steps
 
@@ -122,6 +129,9 @@ output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.jso
 
 output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json
 	python3 $< $(word 2,$^) $@
+
+output/%/avro/output.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json
+	python3 $< $(word 2,$^) $(word 3,$^) > $@
 
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
