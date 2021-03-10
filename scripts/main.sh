@@ -50,14 +50,17 @@ do
   for format in $FORMATS
   do
     NAME="$(cat "$PWD/skeleton/$format/NAME")"
-    SOURCE="$("$PWD/scripts/document-path.sh" "$document" "$format")"
+    SOURCE="$PWD/benchmark/$document/document.json"
     BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
     JSON="$OUTPUT_DIRECTORY/$document/$format/decode.json"
     IMPOSSIBLE_MARK="$(dirname "$SOURCE")/$format/IMPOSSIBLE"
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
-      DEPSDIR="$DEPSDIR" ./scripts/encode.sh "$document" "$format" "$BINARY"
+      rm -rf "$BINARY" && mkdir -p "$(dirname "$BINARY")"
+      make "output/$document/$format/output.bin"
+      assert_file_exists "$BINARY"
+
       xxd "$BINARY"
       DEPSDIR="$DEPSDIR" ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
       cat "$JSON"

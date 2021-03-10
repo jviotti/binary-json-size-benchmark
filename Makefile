@@ -116,6 +116,10 @@ output/%/messagepack/output.bin: output/%/messagepack/encode.json
 output/%/smile/output.bin: skeleton/smile/encode.clj output/%/smile/encode.json
 	cd $(dir $<) && JSON_FILE="$(abspath $(word 2,$^))" OUTPUT_FILE="$(abspath $@)" clj -M $(notdir $<)
 
+output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.json benchmark/%/thrift/schema.thrift
+	$(DEPSDIR)/thrift/bin/thrift --gen py -o $(dir $(word 3,$^)) -out $(dir $(word 3,$^)) $(word 3,$^)
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
+
 output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json
 	python3 $< $(word 2,$^) $@
 
