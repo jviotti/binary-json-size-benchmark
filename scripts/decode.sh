@@ -34,8 +34,5 @@ cd "$(dirname "$SCRIPT")"
 DEPSDIR="$DEPSDIR" ROOT="$ROOT" FWD="$FWD" ./"$(basename "$SCRIPT")" "$FILE" "$OUTPUT"
 assert_file_exists "$OUTPUT"
 
-if [ -f "$PATCH_PATH" ]
-then
-  node "$ROOT/scripts/jsonpatch.js" "$PATCH_PATH" < "$OUTPUT" > "$OUTPUT.final"
-  mv "$OUTPUT.final" "$OUTPUT"
-fi
+node "$ROOT/scripts/jsonpatch.js" "$PATCH_PATH" < "$OUTPUT" > "$OUTPUT.final"
+mv "$OUTPUT.final" "$OUTPUT"

@@ -1,7 +1,7 @@
 {
   "version": "https://jsonfeed.org/version/1",
   "user_comment": "This is a microblog feed. You can add this to your feed reader using the following URL: https://example.org/feed.json",
-  "title": "Brent Simmons\u2019s Microblog",
+  "title": "Brent Simmons’s Microblog",
   "home_page_url": "https://example.org/",
   "feed_url": "https://example.org/feed.json",
   "author": {

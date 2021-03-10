@@ -1,7 +1,13 @@
 {
-  "optimizations" : [ {
-    "includes" : [ "node_modules" ],
-    "excludes" : [ "ost" ],
-    "lossy" : true
-  } ]
+  "optimizations": [
+    {
+      "includes": [
+        "node_modules"
+      ],
+      "excludes": [
+        "ost"
+      ],
+      "lossy": true
+    }
+  ]
 }

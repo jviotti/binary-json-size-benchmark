@@ -1,11 +1,15 @@
 {
-  "foo" : [ "path" ],
-  "main" : {
-    "files" : { },
-    "src" : [ "path" ]
+  "foo": [
+    "path"
+  ],
+  "main": {
+    "files": {},
+    "src": [
+      "path"
+    ]
   },
-  "options" : {
-    "force" : true,
-    "no-write" : true
+  "options": {
+    "force": true,
+    "no-write": true
   }
 }

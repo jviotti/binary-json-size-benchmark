@@ -30,13 +30,7 @@ info "Output: $OUTPUT"
 
 FINAL_JSON_PATH="$(dirname "$OUTPUT")/encode.json"
 PATCH_PATH="$(dirname "$DOCUMENT_PATH")/$FORMAT/pre.patch.json"
-
-if [ -f "$PATCH_PATH" ]
-then
-  node scripts/jsonpatch.js "$PATCH_PATH" < "$DOCUMENT_PATH" > "$FINAL_JSON_PATH"
-else
-  cp "$DOCUMENT_PATH" "$FINAL_JSON_PATH"
-fi
+node scripts/jsonpatch.js "$PATCH_PATH" < "$DOCUMENT_PATH" > "$FINAL_JSON_PATH"
 
 cd "$(dirname "$SCRIPT")"
 DEPSDIR="$DEPSDIR" ROOT="$ROOT" FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" \

@@ -1,42 +1,44 @@
 {
-  "cod" : 200,
-  "coord" : {
-    "lon" : -122.08,
-    "lat" : 37.39
+  "cod": 200,
+  "coord": {
+    "lon": -122.08,
+    "lat": 37.39
   },
-  "dt" : 1560350645,
-  "timezone" : -25200,
-  "id" : 420006353,
-  "base" : "stations",
-  "visibility" : 16093,
-  "name" : "Mountain View",
-  "main" : {
-    "temp" : 282.55,
-    "feels_like" : 281.86,
-    "temp_min" : 280.37,
-    "temp_max" : 284.26,
-    "pressure" : 1023,
-    "humidity" : 100
+  "dt": 1560350645,
+  "timezone": -25200,
+  "id": 420006353,
+  "base": "stations",
+  "visibility": 16093,
+  "name": "Mountain View",
+  "main": {
+    "temp": 282.55,
+    "feels_like": 281.86,
+    "temp_min": 280.37,
+    "temp_max": 284.26,
+    "pressure": 1023,
+    "humidity": 100
   },
-  "sys" : {
-    "type" : 1,
-    "id" : 5122,
-    "message" : 0.0139,
-    "country" : "US",
-    "sunrise" : 1560343627,
-    "sunset" : 1560396563
+  "sys": {
+    "type": 1,
+    "id": 5122,
+    "message": 0.0139,
+    "country": "US",
+    "sunrise": 1560343627,
+    "sunset": 1560396563
   },
-  "wind" : {
-    "speed" : 1.5,
-    "deg" : 350
+  "wind": {
+    "speed": 1.5,
+    "deg": 350
   },
-  "clouds" : {
-    "all" : 1
+  "clouds": {
+    "all": 1
   },
-  "weather" : [ {
-    "id" : 800,
-    "main" : "Clear",
-    "description" : "clear sky",
-    "icon" : "01d"
-  } ]
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01d"
+    }
+  ]
 }

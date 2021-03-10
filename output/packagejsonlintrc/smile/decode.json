@@ -1,40 +1,70 @@
 {
-  "rules" : {
-    "devDependencies-type" : "error",
-    "files-type" : "error",
-    "no-restricted-dependencies" : [ "error", [ "gulping-npm-package-json-lint" ] ],
-    "keywords-type" : "error",
-    "man-type" : "error",
-    "config-type" : "error",
-    "require-author" : "error",
-    "require-license" : "error",
-    "description-type" : "error",
-    "no-restricted-pre-release-dependencies" : [ "error", [ "gulping-npm-package-json-lint" ] ],
-    "require-version" : "error",
-    "require-bugs" : "error",
-    "require-repository" : "error",
-    "name-format" : "error",
-    "name-type" : "error",
-    "license-type" : "error",
-    "require-engines" : "error",
-    "directories-type" : "error",
-    "require-description" : "error",
-    "repository-type" : "error",
-    "valid-values-private" : [ "error", [ false ] ],
-    "preferGlobal-type" : "error",
-    "scripts-type" : "error",
-    "homepage-type" : "error",
-    "private-type" : "error",
-    "bin-type" : "error",
-    "require-name" : "error",
-    "version-type" : "error",
-    "version-format" : "error",
-    "require-keywords" : "error",
-    "no-restricted-invalid-devDependencies" : [ "error", [ "gulping-npm-package-json-lint" ] ],
-    "no-restricted-pre-release-devDependencies" : [ "error", [ "gulping-npm-package-json-lint" ] ],
-    "main-type" : "error",
-    "engines-type" : "error",
-    "valid-values-author" : [ "error", [ "My name" ] ],
-    "require-homepage" : "error"
+  "rules": {
+    "devDependencies-type": "error",
+    "files-type": "error",
+    "no-restricted-dependencies": [
+      "error",
+      [
+        "gulping-npm-package-json-lint"
+      ]
+    ],
+    "keywords-type": "error",
+    "man-type": "error",
+    "config-type": "error",
+    "require-author": "error",
+    "require-license": "error",
+    "description-type": "error",
+    "no-restricted-pre-release-dependencies": [
+      "error",
+      [
+        "gulping-npm-package-json-lint"
+      ]
+    ],
+    "require-version": "error",
+    "require-bugs": "error",
+    "require-repository": "error",
+    "name-format": "error",
+    "name-type": "error",
+    "license-type": "error",
+    "require-engines": "error",
+    "directories-type": "error",
+    "require-description": "error",
+    "repository-type": "error",
+    "valid-values-private": [
+      "error",
+      [
+        false
+      ]
+    ],
+    "preferGlobal-type": "error",
+    "scripts-type": "error",
+    "homepage-type": "error",
+    "private-type": "error",
+    "bin-type": "error",
+    "require-name": "error",
+    "version-type": "error",
+    "version-format": "error",
+    "require-keywords": "error",
+    "no-restricted-invalid-devDependencies": [
+      "error",
+      [
+        "gulping-npm-package-json-lint"
+      ]
+    ],
+    "no-restricted-pre-release-devDependencies": [
+      "error",
+      [
+        "gulping-npm-package-json-lint"
+      ]
+    ],
+    "main-type": "error",
+    "engines-type": "error",
+    "valid-values-author": [
+      "error",
+      [
+        "My name"
+      ]
+    ],
+    "require-homepage": "error"
   }
 }
