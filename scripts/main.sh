@@ -66,7 +66,7 @@ do
     NAME="$(cat "$PWD/skeleton/$format/NAME")"
     SOURCE="$PWD/benchmark/$document/document.json"
     BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
-    JSON="$OUTPUT_DIRECTORY/$document/$format/decode.json"
+    JSON="$OUTPUT_DIRECTORY/$document/$format/output.json"
     IMPOSSIBLE_MARK="$(dirname "$SOURCE")/$format/IMPOSSIBLE"
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
@@ -76,7 +76,7 @@ do
       assert_file_exists "$BINARY"
       xxd "$BINARY"
 
-      make "output/$document/$format/decode.json"
+      make "output/$document/$format/output.json"
       assert_file_exists "$JSON"
       cat "$JSON"
 

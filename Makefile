@@ -86,7 +86,7 @@ endef
 $(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
 
 define RULE_DECODE_PATCH
-output/%/$1/decode.json: output/%/$1/output.json benchmark/%/$1/post.patch.json
+output/%/$1/output.json: output/%/$1/decode.json benchmark/%/$1/post.patch.json
 	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@
 endef
 
@@ -135,37 +135,39 @@ output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.jso
 
 # Decoding
 
-output/%/avro/output.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json
+output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json
 	python3 $< $(word 2,$^) $(word 3,$^) > $@
 
-output/%/bson/output.json: skeleton/bson/decode.js output/%/bson/output.bin
+output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin
 	node $< $(word 2,$^) > $@
 
-output/%/capnproto/output.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp
+output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp
 	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert packed:json $(word 2,$^) Main < $< > $@
 
-output/%/cbor/output.json: skeleton/cbor/decode.py output/%/cbor/output.bin
+output/%/cbor/decode.json: skeleton/cbor/decode.py output/%/cbor/output.bin
 	python3 $< $(word 2,$^) > $@
 
-output/%/flatbuffers/output.json: output/%/flatbuffers/output.bin benchmark/%/flatbuffers/schema.fbs
+output/%/flatbuffers/decode.json: output/%/flatbuffers/output.bin benchmark/%/flatbuffers/schema.fbs
 	$(DEPSDIR)/flatbuffers/flatc --raw-binary -o $(dir $@) --strict-json --json $(word 2,$^) -- $<
+	mv $(dir $@)$(notdir $(basename $<)).json $@
 
-output/%/flexbuffers/output.json: output/%/flexbuffers/output.bin
+output/%/flexbuffers/decode.json: output/%/flexbuffers/output.bin
 	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --strict-json --json $<
+	mv $(dir $@)$(notdir $(basename $<)).json $@
 
-output/%/json/output.json: output/%/json/output.bin
+output/%/json/decode.json: output/%/json/output.bin
 	jq '.' < $< > $@
 
-output/%/messagepack/output.json: output/%/messagepack/output.bin
+output/%/messagepack/decode.json: output/%/messagepack/output.bin
 	$(DEPSDIR)/msgpack-tools/msgpack2json < $< > $@
 
-output/%/smile/output.json: skeleton/smile/decode.clj output/%/smile/output.bin
+output/%/smile/decode.json: skeleton/smile/decode.clj output/%/smile/output.bin
 	cd $(dir $<) && INPUT_FILE="$(abspath $(word 2,$^))" clj -M $(notdir $<) > $(abspath $@)
 
-output/%/thrift/output.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift
+output/%/thrift/decode.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift
 	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
 
-output/%/ubjson/output.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin
+output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin
 	python3 $< $(word 2,$^) > $@
 
 README.md: scripts/readme.sh \
