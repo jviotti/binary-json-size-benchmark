@@ -17,7 +17,7 @@ fi
 # Reset output
 rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"
 
-if [ "$FORMAT" = "avro" ] || [ "$FORMAT" = "bson" ] || [ "$FORMAT" = "capnproto" ] || [ "$FORMAT" = "cbor" ]
+if [ "$FORMAT" = "avro" ] || [ "$FORMAT" = "bson" ] || [ "$FORMAT" = "capnproto" ] || [ "$FORMAT" = "cbor" ] || [ "$FORMAT" = "flatbuffers" ] || [ "$FORMAT" = "flexbuffers" ]
 then
   make "output/$DOCUMENT/$FORMAT/output.bin"
   exit 0
