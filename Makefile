@@ -152,6 +152,18 @@ output/%/flatbuffers/output.json: output/%/flatbuffers/output.bin benchmark/%/fl
 output/%/flexbuffers/output.json: output/%/flexbuffers/output.bin
 	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --strict-json --json $<
 
+output/%/json/output.json: output/%/json/output.bin
+	jq '.' < $< > $@
+
+output/%/messagepack/output.json: output/%/messagepack/output.bin
+	$(DEPSDIR)/msgpack-tools/msgpack2json < $< > $@
+
+output/%/smile/output.json: skeleton/smile/decode.clj output/%/smile/output.bin
+	cd $(dir $<) && INPUT_FILE="$(abspath $(word 2,$^))" clj -M $(notdir $<) > $(abspath $@)
+
+output/%/ubjson/output.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin
+	python3 $< $(word 2,$^) > $@
+
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
