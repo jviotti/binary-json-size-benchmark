@@ -84,6 +84,9 @@ endef
 
 $(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
 
+# TODO: Declare input document directly for schema-less formats
+# in order to avoid the whole unnecessary JSON patching steps
+
 output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benchmark/%/avro/schema.json
 	python3 $< $(word 2,$^) $(word 3,$^) $@
 
@@ -103,6 +106,18 @@ output/%/flatbuffers/output.bin: output/%/flatbuffers/encode.json benchmark/%/fl
 output/%/flexbuffers/output.bin: output/%/flexbuffers/encode.json
 	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --binary $<
 	mv $(dir $@)$(notdir $(basename $<)).bin $@
+
+output/%/json/output.bin: output/%/json/encode.json
+	jq -c '.' < $< > $@
+
+output/%/messagepack/output.bin: output/%/messagepack/encode.json
+	$(DEPSDIR)/msgpack-tools/json2msgpack < $< > $@
+
+output/%/smile/output.bin: skeleton/smile/encode.clj output/%/smile/encode.json
+	cd $(dir $<) && JSON_FILE="$(abspath $(word 2,$^))" OUTPUT_FILE="$(abspath $@)" clj -M $(notdir $<)
+
+output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json
+	python3 $< $(word 2,$^) $@
 
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
