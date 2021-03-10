@@ -75,8 +75,7 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
-# TODO: Can we use "wildcard" for this?
-FORMATS = $(shell ls -1 skeleton)
+FORMATS = $(notdir $(wildcard skeleton/*))
 
 define RULE_ENCODE_PATCH
 output/%/$1/encode.json: benchmark/%/document.json benchmark/%/$1/pre.patch.json
