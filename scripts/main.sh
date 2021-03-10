@@ -51,19 +51,14 @@ do
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
       make "output/$document/$format/output.bin" "output/$document/$format/output.json"
+    else
+      mkdir -p "output/$document/$format"
+      touch "output/$document/$format/output.bin" "output/$document/$format/output.json"
     fi
 
-    if [ "$ALL" = "0" ]
-    then
-      continue
-    fi
-
-    if [ ! -f "$IMPOSSIBLE_MARK" ]
+    if [ "$ALL" = "1" ]
     then
       make "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
-    else
-      mkdir -p "$(dirname "$BINARY")"
-      touch "$BINARY" "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
     fi
   done
 

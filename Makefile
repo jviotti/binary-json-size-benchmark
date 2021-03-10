@@ -69,17 +69,14 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		-e "filename=\"$(word 2,$^)\"" \
 		$< > $@
 
-# TODO: Just touch the file if the pre-requisite is empty
 %.gz: %
-	gzip --no-name -9 < $< > $@
+	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || gzip --no-name -9 < $< > $@
 
-# TODO: Just touch the file if the pre-requisite is empty
 %.lz4: %
-	$(DEPSDIR)/lz4/lz4 -9 $< $@
+	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || $(DEPSDIR)/lz4/lz4 -f -9 $< $@
 
-# TODO: Just touch the file if the pre-requisite is empty
 %.lzma: %
-	lzma -9 --stdout < $< > $@
+	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || lzma -9 --stdout < $< > $@
 
 FORMATS = $(notdir $(wildcard skeleton/*))
 DOCUMENTS = $(notdir $(wildcard benchmark/*))
@@ -218,7 +215,7 @@ output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bi
 	python3 $< $(word 2,$^) > $@
 
 define RULE_DOCUMENT_DAT
-output/$1/data.dat: scripts/summarize.sh \
+output/$1/data.dat: scripts/summarize.sh scripts/byte-size.sh \
 	$$(wildcard skeleton/*/NAME) \
 	$$(addsuffix /output.bin,$$(addprefix output/$1/,$(FORMATS))) \
 	$$(addsuffix /output.bin.gz,$$(addprefix output/$1/,$(FORMATS))) \
