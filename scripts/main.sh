@@ -39,7 +39,7 @@ do
       make "output/$document/$format/output.bin" "output/$document/$format/output.json"
     else
       mkdir -p "output/$document/$format"
-      touch -r "output/$document/$format/output.bin" "output/$document/$format/output.json"
+      touch "output/$document/$format/output.bin" "output/$document/$format/output.json"
     fi
   done
 done

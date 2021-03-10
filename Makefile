@@ -70,13 +70,13 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		$< > $@
 
 %.gz: %
-	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch -r $@ || gzip --no-name -9 < $< > $@
+	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || gzip --no-name -9 < $< > $@
 
 %.lz4: %
-	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch -r $@ || $(DEPSDIR)/lz4/lz4 -f -9 $< $@
+	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || $(DEPSDIR)/lz4/lz4 -f -9 $< $@
 
 %.lzma: %
-	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch -r $@ || lzma -9 --stdout < $< > $@
+	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || lzma -9 --stdout < $< > $@
 
 FORMATS = $(notdir $(wildcard skeleton/*))
 DOCUMENTS = $(notdir $(wildcard benchmark/*))
