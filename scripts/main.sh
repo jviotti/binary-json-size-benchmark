@@ -30,7 +30,6 @@ OUTPUT_DIRECTORY="$PWD/output"
 if [ "$ALL" = "1" ]
 then
   rm -rf "$OUTPUT_DIRECTORY"
-  rm -rf charts
 fi
 
 byte_size() {
@@ -76,16 +75,8 @@ do
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
-      COMPRESSED_FILE_GZIP="$BINARY.gz"
-      COMPRESSED_FILE_LZ4="$BINARY.lz4"
-      COMPRESSED_FILE_LZMA="$BINARY.lzma"
-      rm -f "$COMPRESSED_FILE_GZIP" "$COMPRESSED_FILE_LZ4" "$COMPRESSED_FILE_LZMA"
-      info "Compressing $BINARY with GZIP, LZ4, and LZMA"
-      gzip --no-name -9 < "$BINARY" > "$COMPRESSED_FILE_GZIP"
-      "$DEPSDIR/lz4/lz4" -9 "$BINARY" "$COMPRESSED_FILE_LZ4"
-      lzma -9 --stdout < "$BINARY" > "$COMPRESSED_FILE_LZMA"
-
-      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$COMPRESSED_FILE_GZIP") $(byte_size "$COMPRESSED_FILE_LZ4") $(byte_size "$COMPRESSED_FILE_LZMA")" >> "$DATA_FILE"
+      make "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
+      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$BINARY.gz") $(byte_size "$BINARY.lz4") $(byte_size "$BINARY.lzma")" >> "$DATA_FILE"
     else
       echo "$INDEX \"$NAME\" 0 0 0 0" >> "$DATA_FILE"
     fi
@@ -101,5 +92,5 @@ done
 
 if [ "$ALL" = "1" ]
 then
-  ./scripts/readme.sh > README.md
+  make README.md
 fi
