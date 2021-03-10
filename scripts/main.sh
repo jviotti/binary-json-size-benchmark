@@ -50,13 +50,11 @@ byte_size() {
 
 for document in $DOCUMENTS
 do
-  INDEX="1"
   DATA_FILE="$OUTPUT_DIRECTORY/$document/data.dat"
   rm -f "$DATA_FILE"
 
   for format in $FORMATS
   do
-    NAME="$(cat "$PWD/skeleton/$format/NAME")"
     BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
     IMPOSSIBLE_MARK="$PWD/benchmark/$document/$format/IMPOSSIBLE"
 
@@ -77,11 +75,9 @@ do
       mkdir -p "$(dirname "$BINARY")"
       touch "$BINARY" "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
     fi
-
-    echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$BINARY.gz") $(byte_size "$BINARY.lz4") $(byte_size "$BINARY.lzma")" >> "$DATA_FILE"
-
-    INDEX="$(echo "$INDEX + 1" | bc)"
   done
+
+  make "output/$document/data.dat"
 
   if [ "$ALL" = "1" ]
   then

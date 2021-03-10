@@ -69,12 +69,15 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		-e "filename=\"$(word 2,$^)\"" \
 		$< > $@
 
+# TODO: Just touch the file if the pre-requisite is empty
 %.gz: %
 	gzip --no-name -9 < $< > $@
 
+# TODO: Just touch the file if the pre-requisite is empty
 %.lz4: %
 	$(DEPSDIR)/lz4/lz4 -9 $< $@
 
+# TODO: Just touch the file if the pre-requisite is empty
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
@@ -213,6 +216,19 @@ output/%/thrift/decode.json: skeleton/thrift/decode.py output/%/thrift/output.bi
 output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin \
 	| output/%/ubjson
 	python3 $< $(word 2,$^) > $@
+
+define RULE_DOCUMENT_DAT
+output/$1/data.dat: scripts/summarize.sh \
+	$$(wildcard skeleton/*/NAME) \
+	$$(addsuffix /output.bin,$$(addprefix output/$1/,$(FORMATS))) \
+	$$(addsuffix /output.bin.gz,$$(addprefix output/$1/,$(FORMATS))) \
+	$$(addsuffix /output.bin.lz4,$$(addprefix output/$1/,$(FORMATS))) \
+	$$(addsuffix /output.bin.lzma,$$(addprefix output/$1/,$(FORMATS))) \
+	| output/$1
+	./$$< $$(dir $$@) > $$@
+endef
+
+$(foreach document,$(DOCUMENTS),$(eval $(call RULE_DOCUMENT_DAT,$(document))))
 
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
