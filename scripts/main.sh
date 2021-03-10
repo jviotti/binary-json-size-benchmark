@@ -94,10 +94,12 @@ do
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
       make "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
-      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$BINARY.gz") $(byte_size "$BINARY.lz4") $(byte_size "$BINARY.lzma")" >> "$DATA_FILE"
     else
-      echo "$INDEX \"$NAME\" 0 0 0 0" >> "$DATA_FILE"
+      mkdir -p "$(dirname "$BINARY")"
+      touch "$BINARY" "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
     fi
+
+    echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$BINARY.gz") $(byte_size "$BINARY.lz4") $(byte_size "$BINARY.lzma")" >> "$DATA_FILE"
 
     INDEX="$(echo "$INDEX + 1" | bc)"
   done
