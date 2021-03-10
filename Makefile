@@ -75,6 +75,15 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
+FORMATS = $(shell ls -1 skeleton)
+
+define RULE_ENCODE_PATCH
+output/%/$1/encode.json: benchmark/%/document.json benchmark/%/$1/pre.patch.json
+	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@
+endef
+
+$(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
+
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
@@ -88,4 +97,3 @@ benchmark-%:
 	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh \
 		$(word 1,$(subst -, ,$(subst benchmark-,,$@))) \
 		$(word 2,$(subst -, ,$(subst benchmark-,,$@)))
-# DO NOT DELETE

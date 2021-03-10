@@ -29,8 +29,7 @@ info "Using entrypoint: $SCRIPT"
 info "Output: $OUTPUT"
 
 FINAL_JSON_PATH="$(dirname "$OUTPUT")/encode.json"
-PATCH_PATH="$(dirname "$DOCUMENT_PATH")/$FORMAT/pre.patch.json"
-node scripts/jsonpatch.js "$PATCH_PATH" < "$DOCUMENT_PATH" > "$FINAL_JSON_PATH"
+make "output/$DOCUMENT/$FORMAT/encode.json"
 
 cd "$(dirname "$SCRIPT")"
 DEPSDIR="$DEPSDIR" ROOT="$ROOT" FWD="$(dirname "$DOCUMENT_PATH")/$FORMAT" \
