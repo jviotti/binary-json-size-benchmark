@@ -90,6 +90,12 @@ output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benc
 output/%/bson/output.bin: skeleton/bson/encode.js output/%/bson/encode.json
 	node $< $(word 2,$^) $@
 
+output/%/capnproto/output.bin: output/%/capnproto/encode.json benchmark/%/capnproto/schema.capnp
+	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert json:packed $(word 2,$^) Main < $< > $@
+
+output/%/cbor/output.bin: skeleton/cbor/encode.py output/%/cbor/encode.json
+	python3 $< $(word 2,$^) $@
+
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
