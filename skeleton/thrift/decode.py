@@ -1,5 +1,4 @@
 import sys
-from thrift import Thrift
 from thrift.protocol import TCompactProtocol
 from thrift.transport import TTransport
 
