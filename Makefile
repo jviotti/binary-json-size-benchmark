@@ -84,6 +84,9 @@ endef
 
 $(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
 
+output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benchmark/%/avro/schema.json
+	python3 $< $(word 2,$^) $(word 3,$^) $@
+
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \

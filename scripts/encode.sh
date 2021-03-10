@@ -17,6 +17,12 @@ fi
 # Reset output
 rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"
 
+if [ "$FORMAT" = "avro" ]
+then
+  make "output/$DOCUMENT/$FORMAT/output.bin"
+  exit 0
+fi
+
 ROOT="$PWD"
 DOCUMENT_PATH="$("$PWD/scripts/document-path.sh" "$DOCUMENT" "$FORMAT")"
 assert_file_exists "$DOCUMENT_PATH"
