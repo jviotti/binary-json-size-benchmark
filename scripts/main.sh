@@ -5,15 +5,6 @@ DOCUMENT="$1"
 FORMAT="$2"
 set -o nounset
 
-info() {
-  echo ">> $1" 1>&2
-}
-
-assert_fail() {
-  info "ERROR: $1"
-  exit 1
-}
-
 ALL="1"
 
 if [ -z "$DOCUMENT" ]
@@ -41,28 +32,16 @@ fi
 
 for document in $DOCUMENTS
 do
-  rm -f "$OUTPUT_DIRECTORY/$document/data.dat"
-
   for format in $FORMATS
   do
-    BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
-    IMPOSSIBLE_MARK="$PWD/benchmark/$document/$format/IMPOSSIBLE"
-
-    if [ ! -f "$IMPOSSIBLE_MARK" ]
+    if [ ! -f "$PWD/benchmark/$document/$format/IMPOSSIBLE" ]
     then
       make "output/$document/$format/output.bin" "output/$document/$format/output.json"
     else
       mkdir -p "output/$document/$format"
       touch "output/$document/$format/output.bin" "output/$document/$format/output.json"
     fi
-
-    if [ "$ALL" = "1" ]
-    then
-      make "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
-    fi
   done
-
-  make "output/$document/data.dat"
 
   if [ "$ALL" = "1" ]
   then
