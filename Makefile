@@ -75,6 +75,7 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
+# TODO: Can we use "wildcard" for this?
 FORMATS = $(shell ls -1 skeleton)
 
 define RULE_ENCODE_PATCH
@@ -160,6 +161,9 @@ output/%/messagepack/output.json: output/%/messagepack/output.bin
 
 output/%/smile/output.json: skeleton/smile/decode.clj output/%/smile/output.bin
 	cd $(dir $<) && INPUT_FILE="$(abspath $(word 2,$^))" clj -M $(notdir $<) > $(abspath $@)
+
+output/%/thrift/output.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
 
 output/%/ubjson/output.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin
 	python3 $< $(word 2,$^) > $@
