@@ -5,22 +5,6 @@ DOCUMENT="$1"
 FORMAT="$2"
 set -o nounset
 
-info() {
-  echo ">> $1" 1>&2
-}
-
-assert_fail() {
-  info "ERROR: $1"
-  exit 1
-}
-
-assert_file_exists() {
-  if [ ! -f "$1" ]
-  then
-    assert_fail "No such file: $1"
-  fi
-}
-
 ALL="1"
 
 if [ -z "$DOCUMENT" ]
@@ -46,60 +30,17 @@ then
   rm -rf "$OUTPUT_DIRECTORY"
 fi
 
-byte_size() {
-  if [ "$(uname)" = "Darwin" ]
-  then
-    stat -f '%z' "$1"
-  else
-    stat -c '%s' "$1"
-  fi
-}
-
 for document in $DOCUMENTS
 do
-  INDEX="1"
-  DATA_FILE="$OUTPUT_DIRECTORY/$document/data.dat"
-  rm -f "$DATA_FILE"
-
   for format in $FORMATS
   do
-    NAME="$(cat "$PWD/skeleton/$format/NAME")"
-    SOURCE="$PWD/benchmark/$document/document.json"
-    BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
-    JSON="$OUTPUT_DIRECTORY/$document/$format/output.json"
-    IMPOSSIBLE_MARK="$(dirname "$SOURCE")/$format/IMPOSSIBLE"
-
-    if [ ! -f "$IMPOSSIBLE_MARK" ]
+    if [ ! -f "$PWD/benchmark/$document/$format/IMPOSSIBLE" ]
     then
-      rm -rf "$BINARY" && mkdir -p "$(dirname "$BINARY")"
-      make "output/$document/$format/output.bin"
-      assert_file_exists "$BINARY"
-      xxd "$BINARY"
-
-      make "output/$document/$format/output.json"
-      assert_file_exists "$JSON"
-      cat "$JSON"
-
-      if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
-      then
-        assert_fail "Files are not equal"
-      fi
-    fi
-
-    if [ "$ALL" = "0" ]
-    then
-      continue
-    fi
-
-    if [ ! -f "$IMPOSSIBLE_MARK" ]
-    then
-      make "$BINARY.gz" "$BINARY.lz4" "$BINARY.lzma"
-      echo "$INDEX \"$NAME\" $(byte_size "$BINARY") $(byte_size "$BINARY.gz") $(byte_size "$BINARY.lz4") $(byte_size "$BINARY.lzma")" >> "$DATA_FILE"
+      make "output/$document/$format/output.bin" "output/$document/$format/output.json"
     else
-      echo "$INDEX \"$NAME\" 0 0 0 0" >> "$DATA_FILE"
+      mkdir -p "output/$document/$format"
+      touch "output/$document/$format/output.bin" "output/$document/$format/output.json"
     fi
-
-    INDEX="$(echo "$INDEX + 1" | bc)"
   done
 
   if [ "$ALL" = "1" ]
