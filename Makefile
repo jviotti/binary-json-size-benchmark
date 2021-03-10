@@ -146,6 +146,12 @@ output/%/capnproto/output.json: output/%/capnproto/output.bin benchmark/%/capnpr
 output/%/cbor/output.json: skeleton/cbor/decode.py output/%/cbor/output.bin
 	python3 $< $(word 2,$^) > $@
 
+output/%/flatbuffers/output.json: output/%/flatbuffers/output.bin benchmark/%/flatbuffers/schema.fbs
+	$(DEPSDIR)/flatbuffers/flatc --raw-binary -o $(dir $@) --strict-json --json $(word 2,$^) -- $<
+
+output/%/flexbuffers/output.json: output/%/flexbuffers/output.bin
+	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --strict-json --json $<
+
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
