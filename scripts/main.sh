@@ -57,10 +57,8 @@ do
   for format in $FORMATS
   do
     NAME="$(cat "$PWD/skeleton/$format/NAME")"
-    SOURCE="$PWD/benchmark/$document/document.json"
     BINARY="$OUTPUT_DIRECTORY/$document/$format/output.bin"
-    JSON="$OUTPUT_DIRECTORY/$document/$format/output.json"
-    IMPOSSIBLE_MARK="$(dirname "$SOURCE")/$format/IMPOSSIBLE"
+    IMPOSSIBLE_MARK="$PWD/benchmark/$document/$format/IMPOSSIBLE"
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
