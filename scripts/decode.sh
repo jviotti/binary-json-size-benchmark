@@ -20,7 +20,7 @@ rm -rf "$OUTPUT" && mkdir -p "$(dirname "$OUTPUT")"
 
 assert_file_exists "$FILE"
 
-if [ "$FORMAT" = "avro" ]
+if [ "$FORMAT" = "avro" ] || [ "$FORMAT" = "bson" ] || [ "$FORMAT" = "capnproto" ] || [ "$FORMAT" = "cbor" ]
 then
   make "output/$DOCUMENT/$FORMAT/decode.json"
   exit 0

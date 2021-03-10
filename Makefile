@@ -94,6 +94,8 @@ $(foreach format,$(FORMATS),$(eval $(call RULE_DECODE_PATCH,$(format))))
 # TODO: Declare input document directly for schema-less formats
 # in order to avoid the whole unnecessary JSON patching steps
 
+# Encoding
+
 output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benchmark/%/avro/schema.json
 	python3 $< $(word 2,$^) $(word 3,$^) $@
 
@@ -130,8 +132,19 @@ output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.jso
 output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json
 	python3 $< $(word 2,$^) $@
 
+# Decoding
+
 output/%/avro/output.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json
 	python3 $< $(word 2,$^) $(word 3,$^) > $@
+
+output/%/bson/output.json: skeleton/bson/decode.js output/%/bson/output.bin
+	node $< $(word 2,$^) > $@
+
+output/%/capnproto/output.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp
+	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert packed:json $(word 2,$^) Main < $< > $@
+
+output/%/cbor/output.json: skeleton/cbor/decode.py output/%/cbor/output.bin
+	python3 $< $(word 2,$^) > $@
 
 README.md: scripts/readme.sh \
 	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
