@@ -22,13 +22,7 @@ DOCUMENT_PATH="$("$PWD/scripts/document-path.sh" "$DOCUMENT" "$FORMAT")"
 assert_file_exists "$DOCUMENT_PATH"
 
 SCRIPT_NAME="encode.sh"
-SCRIPT="$(dirname "$DOCUMENT_PATH")/$FORMAT/$SCRIPT_NAME"
-
-# Generic fallback
-if [ ! -f "$SCRIPT" ]
-then
-  SCRIPT="$PWD/skeleton/$FORMAT/$SCRIPT_NAME"
-fi
+SCRIPT="$PWD/skeleton/$FORMAT/$SCRIPT_NAME"
 
 assert_file_exists "$SCRIPT"
 info "Using entrypoint: $SCRIPT"

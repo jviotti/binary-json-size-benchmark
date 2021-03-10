@@ -22,15 +22,9 @@ assert_file_exists "$FILE"
 
 SCRIPT_NAME="decode.sh"
 ROOT="$PWD"
-SCRIPT="$PWD/benchmark/$DOCUMENT/$FORMAT/$SCRIPT_NAME"
-FWD="$(dirname "$SCRIPT")"
+SCRIPT="$PWD/skeleton/$FORMAT/$SCRIPT_NAME"
+FWD="$PWD/benchmark/$DOCUMENT/$FORMAT"
 PATCH_PATH="$FWD/post.patch.json"
-
-# Generic fallback
-if [ ! -f "$SCRIPT" ]
-then
-  SCRIPT="$PWD/skeleton/$FORMAT/$SCRIPT_NAME"
-fi
 
 assert_file_exists "$SCRIPT"
 info "Using entrypoint: $SCRIPT"

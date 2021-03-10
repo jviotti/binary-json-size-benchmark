@@ -66,6 +66,21 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		-e "filename=\"$(word 2,$^)\"" \
 		$< > $@
 
+%.gz: %
+	gzip --no-name -9 < $< > $@
+
+%.lz4: %
+	$(DEPSDIR)/lz4/lz4 -9 $< $@
+
+%.lzma: %
+	lzma -9 --stdout < $< > $@
+
+README.md: scripts/readme.sh \
+	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
+	$(wildcard benchmark/*/document.json) \
+	$(wildcard benchmark/*/data.dat)
+	./$< > $@
+
 benchmark:
 	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh
 
