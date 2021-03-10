@@ -14,13 +14,6 @@ assert_fail() {
   exit 1
 }
 
-assert_file_exists() {
-  if [ ! -f "$1" ]
-  then
-    assert_fail "No such file: $1"
-  fi
-}
-
 ALL="1"
 
 if [ -z "$DOCUMENT" ]
@@ -71,14 +64,7 @@ do
 
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
-      rm -rf "$BINARY" && mkdir -p "$(dirname "$BINARY")"
-      make "output/$document/$format/output.bin"
-      assert_file_exists "$BINARY"
-      xxd "$BINARY"
-
-      make "output/$document/$format/output.json"
-      assert_file_exists "$JSON"
-      cat "$JSON"
+      make "output/$document/$format/output.bin" "output/$document/$format/output.json"
 
       if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
       then
