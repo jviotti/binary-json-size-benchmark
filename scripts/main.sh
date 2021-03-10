@@ -5,7 +5,21 @@ DOCUMENT="$1"
 FORMAT="$2"
 set -o nounset
 
-. "scripts/_utils.sh"
+info() {
+  echo ">> $1" 1>&2
+}
+
+assert_fail() {
+  info "ERROR: $1"
+  exit 1
+}
+
+assert_file_exists() {
+  if [ ! -f "$1" ]
+  then
+    assert_fail "No such file: $1"
+  fi
+}
 
 ALL="1"
 
@@ -60,9 +74,10 @@ do
       rm -rf "$BINARY" && mkdir -p "$(dirname "$BINARY")"
       make "output/$document/$format/output.bin"
       assert_file_exists "$BINARY"
-
       xxd "$BINARY"
-      DEPSDIR="$DEPSDIR" ./scripts/decode.sh "$BINARY" "$document" "$format" "$JSON"
+
+      make "output/$document/$format/decode.json"
+      assert_file_exists "$JSON"
       cat "$JSON"
 
       if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
