@@ -39,19 +39,9 @@ then
   rm -rf "$OUTPUT_DIRECTORY"
 fi
 
-byte_size() {
-  if [ "$(uname)" = "Darwin" ]
-  then
-    stat -f '%z' "$1"
-  else
-    stat -c '%s' "$1"
-  fi
-}
-
 for document in $DOCUMENTS
 do
-  DATA_FILE="$OUTPUT_DIRECTORY/$document/data.dat"
-  rm -f "$DATA_FILE"
+  rm -f "$OUTPUT_DIRECTORY/$document/data.dat"
 
   for format in $FORMATS
   do
