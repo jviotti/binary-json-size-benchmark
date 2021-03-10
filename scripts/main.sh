@@ -65,11 +65,6 @@ do
     if [ ! -f "$IMPOSSIBLE_MARK" ]
     then
       make "output/$document/$format/output.bin" "output/$document/$format/output.json"
-
-      if ! python3 scripts/json-equals.py "$SOURCE" "$JSON"
-      then
-        assert_fail "Files are not equal"
-      fi
     fi
 
     if [ "$ALL" = "0" ]

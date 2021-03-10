@@ -96,15 +96,15 @@ endef
 $(foreach format,$(FORMATS),$(eval $(call RULE_ENCODE_PATCH,$(format))))
 
 define RULE_DECODE_PATCH
-output/%/$1/output.json: output/%/$1/decode.json benchmark/%/$1/post.patch.json | output/%/$1
-	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@
-	cat $$@
+output/%/$1/output.json: output/%/$1/decode.json benchmark/%/$1/post.patch.json \
+	scripts/json-equals.py benchmark/%/document.json | output/%/$1
+	node scripts/jsonpatch.js $$(word 2,$$^) < $$< > $$@.tmp
+	cat $$@.tmp
+	python3 $$(word 3,$$^) $$@.tmp $$(word 4,$$^)
+	mv $$@.tmp $$@
 endef
 
 $(foreach format,$(FORMATS),$(eval $(call RULE_DECODE_PATCH,$(format))))
-
-# TODO: Declare input document directly for schema-less formats
-# in order to avoid the whole unnecessary JSON patching steps
 
 # Encoding
 
