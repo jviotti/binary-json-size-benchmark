@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+message Parameters {
+  repeated uint32 a = 1;
+}
+
+message Matrix {
+  Parameters parameters = 1;
+}
+
+message M1 {
+  Matrix matrix = 1;
+}
+
+message Job {
+  M1 m1 = 1;
+}
+
+message TestWorkflow {
+  repeated Job jobs = 1;
+}
+
+message Workflows {
+  TestWorkflow test = 1;
+}
+
+message Main {
+  double version = 1;
+  Workflows workflows = 2;
+}

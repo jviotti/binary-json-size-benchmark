@@ -155,6 +155,12 @@ output/%/messagepack/output.bin: output/%/messagepack/encode.json \
 	$(DEPSDIR)/msgpack-tools/json2msgpack < $< > $@
 	xxd $@
 
+output/%/protobuf/output.bin: skeleton/protobuf/encode.py output/%/protobuf/encode.json benchmark/%/protobuf/schema.proto \
+	| output/%/thrift
+	protoc --experimental_allow_proto3_optional -I=$(dir $(word 3,$^)) --python_out=$(dir $(word 3,$^)) $(word 3,$^)
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
+	xxd $@
+
 output/%/smile/output.bin: skeleton/smile/encode.clj output/%/smile/encode.json \
 	| output/%/smile
 	cd $(dir $<) && JSON_FILE="$(abspath $(word 2,$^))" OUTPUT_FILE="$(abspath $@)" clj -M $(notdir $<)
@@ -206,6 +212,10 @@ output/%/json/decode.json: output/%/json/output.bin \
 output/%/messagepack/decode.json: output/%/messagepack/output.bin \
 	| output/%/messagepack
 	$(DEPSDIR)/msgpack-tools/msgpack2json < $< > $@
+
+output/%/protobuf/decode.json: skeleton/protobuf/decode.py output/%/protobuf/output.bin benchmark/%/protobuf/schema.proto \
+	| output/%/thrift
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
 
 output/%/smile/decode.json: skeleton/smile/decode.clj output/%/smile/output.bin \
 	| output/%/smile
