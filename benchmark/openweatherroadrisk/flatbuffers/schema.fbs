@@ -1,0 +1,28 @@
+namespace Benchmark;
+
+table Alert {
+  sender_name: string;
+  event: string;
+  event_level: uint;
+}
+
+table Weather {
+  temp: double;
+  wind_speed: double;
+  wind_deg: uint;
+  precipitation_intensity: double;
+  dew_point: double;
+}
+
+table RoadRisk {
+  dt: uint;
+  coord: [double];
+  weather: Weather;
+  alerts: [Alert];
+}
+
+table Main {
+  risks: [RoadRisk];
+}
+
+root_type Main;
