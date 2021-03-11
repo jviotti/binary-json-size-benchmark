@@ -1,4 +1,8 @@
 {
+  "custom_commands_path": "NULL",
+  "custom_assertions_path": "NULL",
+  "page_objects_path": "NULL",
+  "globals_path": "NULL",
   "globals": {
     "abortOnAssertionFailure": true,
     "abortOnElementLocateError": false,
@@ -11,20 +15,23 @@
     "customReporterCallbackTimeout": 20000,
     "retryAssertionTimeout": 5000
   },
-  "dotenv": {},
+  "dotenv": {
+  },
   "persist_globals": false,
   "output_folder": "tests_output",
+  "src_folders": "NULL",
   "live_output": false,
   "disable_colors": false,
   "parallel_process_delay": 10,
   "selenium": {
     "start_process": false,
-    "cli_args": {},
+    "cli_args": {
+    },
+    "server_path": "NULL",
     "log_path": "",
     "check_process_delay": 500,
     "max_status_poll_tries": 15,
-    "status_poll_interval": 200,
-    "server_path": null
+    "status_poll_interval": 200
   },
   "start_session": true,
   "end_session_on_fail": true,
@@ -32,16 +39,19 @@
   "test_runner": "default",
   "webdriver": {
     "start_process": false,
-    "cli_args": {},
+    "cli_args": {
+    },
+    "server_path": "NULL",
     "log_path": "",
     "check_process_delay": 100,
     "max_status_poll_tries": 10,
     "status_poll_interval": 200,
     "process_create_timeout": 120000,
-    "timeout_options": {},
-    "server_path": null
+    "timeout_options": {
+    }
   },
-  "test_settings": {},
+  "test_settings": {
+  },
   "launch_url": "",
   "silent": true,
   "output": true,
@@ -53,6 +63,8 @@
   "desiredCapabilities": {
     "browserName": "firefox"
   },
+  "exclude": "NULL",
+  "filter": "NULL",
   "skipgroup": "",
   "sync_test_names": true,
   "skiptags": "",
@@ -60,12 +72,5 @@
   "parallel_mode": false,
   "report_prefix": "",
   "unit_tests_mode": false,
-  "default_reporter": "junit",
-  "custom_commands_path": null,
-  "custom_assertions_path": null,
-  "page_objects_path": null,
-  "globals_path": null,
-  "src_folders": null,
-  "exclude": null,
-  "filter": null
+  "default_reporter": "junit"
 }

@@ -1,0 +1,20 @@
+namespace Benchmark;
+
+enum Null:byte {
+  NULL = 0
+}
+
+table Main {
+  github: string;
+  patreon: Null;
+  open_collective: Null;
+  ko_fi: Null;
+  tidelift: Null;
+  community_bridge: Null;
+  liberapay: Null;
+  issuehunt: Null;
+  otechie: Null;
+  custom: Null;
+}
+
+root_type Main;

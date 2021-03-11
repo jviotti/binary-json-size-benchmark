@@ -1,1 +1,20 @@
-[]
+[
+  { "op": "remove", "path": "/custom_commands_path" },
+  { "op": "add", "path": "/custom_commands_path", "value": 0 },
+  { "op": "remove", "path": "/custom_assertions_path" },
+  { "op": "add", "path": "/custom_assertions_path", "value": 0 },
+  { "op": "remove", "path": "/page_objects_path" },
+  { "op": "add", "path": "/page_objects_path", "value": 0 },
+  { "op": "remove", "path": "/globals_path" },
+  { "op": "add", "path": "/globals_path", "value": 0 },
+  { "op": "remove", "path": "/src_folders" },
+  { "op": "add", "path": "/src_folders", "value": 0 },
+  { "op": "remove", "path": "/selenium/server_path" },
+  { "op": "add", "path": "/selenium/server_path", "value": 0 },
+  { "op": "remove", "path": "/webdriver/server_path" },
+  { "op": "add", "path": "/webdriver/server_path", "value": 0 },
+  { "op": "remove", "path": "/exclude" },
+  { "op": "add", "path": "/exclude", "value": 0 },
+  { "op": "remove", "path": "/filter" },
+  { "op": "add", "path": "/filter", "value": 0 }
+]

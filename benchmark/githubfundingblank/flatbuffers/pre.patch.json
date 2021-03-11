@@ -1,1 +1,28 @@
-[]
+[
+  { "op": "remove", "path": "/patreon" },
+  { "op": "add", "path": "/patreon", "value": 0 },
+
+  { "op": "remove", "path": "/open_collective" },
+  { "op": "add", "path": "/open_collective", "value": 0 },
+
+  { "op": "remove", "path": "/ko_fi" },
+  { "op": "add", "path": "/ko_fi", "value": 0 },
+
+  { "op": "remove", "path": "/tidelift" },
+  { "op": "add", "path": "/tidelift", "value": 0 },
+
+  { "op": "remove", "path": "/community_bridge" },
+  { "op": "add", "path": "/community_bridge", "value": 0 },
+
+  { "op": "remove", "path": "/liberapay" },
+  { "op": "add", "path": "/liberapay", "value": 0 },
+
+  { "op": "remove", "path": "/issuehunt" },
+  { "op": "add", "path": "/issuehunt", "value": 0 },
+
+  { "op": "remove", "path": "/otechie" },
+  { "op": "add", "path": "/otechie", "value": 0 },
+
+  { "op": "remove", "path": "/custom" },
+  { "op": "add", "path": "/custom", "value": 0 }
+]
