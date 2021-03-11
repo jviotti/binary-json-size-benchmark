@@ -1,0 +1,73 @@
+namespace Benchmark;
+
+table EcmaFeatures {
+  jsx: bool;
+}
+
+table Environment {
+  browser: bool;
+  node: bool;
+  es6: bool;
+}
+
+table JSDocOptions {
+  requireReturn: bool;
+}
+
+table JSDoc {
+  level: byte;
+  options: JSDocOptions;
+}
+
+table Rules {
+  eqeqeq: byte;
+  commaDangle: byte;
+  noConsole: byte;
+  noDebugger: byte;
+  noExtraSemi: byte;
+  noExtraParens: byte;
+  noIrregularWhitespace: byte;
+  noUndef: byte;
+  noUnusedVars: byte;
+  semi: byte;
+  semiSpacing: byte;
+  validJsdoc: JSDoc;
+  reactDisplayName: byte;
+  reactForbidPropTypes: byte;
+  reactJsxBooleanValue: byte;
+  reactJsxClosingBracketLocation: byte;
+  reactJsxCurlySpacing: byte;
+  reactJsxIndentProps: byte;
+  reactJsxMaxPropsPerLine: byte;
+  reactJsxNoDuplicateProps: byte;
+  reactJsxNoLiterals: byte;
+  reactJsxNoUndef: byte;
+  reactJsxSortPropTypes: byte;
+  reactJsxSortProps: byte;
+  reactJsxUsesReact: byte;
+  reactJsxUsesVars: byte;
+  reactNoDanger: byte;
+  reactNoDidMountSetState: byte;
+  reactNoDidUpdateSetState: byte;
+  reactNoDirectMutationState: byte;
+  reactNoMultiComp: byte;
+  reactNoSetState: byte;
+  reactNoUnknownProperty: byte;
+  reactPropTypes: byte;
+  reactReactInJsxScope: byte;
+  reactRequireExtension: byte;
+  reactSelfClosingComp: byte;
+  reactSortComp: byte;
+  reactWrapMultilines: byte;
+}
+
+table Main {
+  extends: string;
+  parser: string;
+  ecmaFeatures: EcmaFeatures;
+  plugins: [string];
+  env: Environment;
+  rules: Rules;
+}
+
+root_type Main;

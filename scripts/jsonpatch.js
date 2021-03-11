@@ -32,9 +32,7 @@ const applyPatch = (document, patch) => {
       }
     }
 
-    return jsonpatch.applyPatch(document, patch, {
-      mutateDocument: false
-    }).newDocument
+    return jsonpatch.applyPatch(document, patch, false, false).newDocument
   }
 
   return applyPatch(applyPatch(document, [ patch[0] ]), patch.slice(1))
