@@ -1,0 +1,8 @@
+
+Test on Pullpush¦
+£
+ubuntu-latest
+./build-suite
+actions/checkout@v1
+actions/setup-node@v1"
+10.xls*starting directory/ls${{env.build-suite-dir}}*build directory
