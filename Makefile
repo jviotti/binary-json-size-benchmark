@@ -1,4 +1,4 @@
-.PHONY: deps deps-flatbuffers deps-capnproto lint benchmark
+.PHONY: deps deps-flatbuffers deps-capnproto lint benchmark all
 .DEFAULT_GOAL = benchmark
 
 # Don't remove intermediary files
@@ -57,7 +57,7 @@ deps: requirements.txt package.json \
 	npm install
 
 lint:
-	shellcheck skeleton/*/*.sh scripts/*.sh
+	shellcheck scripts/*.sh
 	python3 -m flake8 skeleton/*/*.py scripts/*.py
 
 charts:
@@ -240,3 +240,5 @@ benchmark-%:
 	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh \
 		$(word 1,$(subst -, ,$(subst benchmark-,,$@))) \
 		$(word 2,$(subst -, ,$(subst benchmark-,,$@)))
+
+all: $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS))) README.md
