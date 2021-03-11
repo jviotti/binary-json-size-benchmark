@@ -1,1 +1,10 @@
-[]
+[
+  { "op": "remove", "path": "/general" },
+  { "op": "add", "path": "/general", "value": null },
+
+  { "op": "remove", "path": "/stages" },
+  { "op": "add", "path": "/stages", "value": null },
+
+  { "op": "remove", "path": "/steps" },
+  { "op": "add", "path": "/steps", "value": null }
+]

@@ -24,7 +24,7 @@
     "check_process_delay": 500,
     "max_status_poll_tries": 15,
     "status_poll_interval": 200,
-    "server_path": null
+    "server_path": 0
   },
   "start_session": true,
   "end_session_on_fail": true,
@@ -39,7 +39,7 @@
     "status_poll_interval": 200,
     "process_create_timeout": 120000,
     "timeout_options": {},
-    "server_path": null
+    "server_path": 0
   },
   "test_settings": {},
   "launch_url": "",
@@ -61,11 +61,11 @@
   "report_prefix": "",
   "unit_tests_mode": false,
   "default_reporter": "junit",
-  "custom_commands_path": null,
-  "custom_assertions_path": null,
-  "page_objects_path": null,
-  "globals_path": null,
-  "src_folders": null,
-  "exclude": null,
-  "filter": null
+  "custom_commands_path": 0,
+  "custom_assertions_path": 0,
+  "page_objects_path": 0,
+  "globals_path": 0,
+  "src_folders": 0,
+  "exclude": 0,
+  "filter": 0
 }

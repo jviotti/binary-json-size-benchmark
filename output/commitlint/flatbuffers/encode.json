@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "scopeCase": {
+      "level": 2,
+      "when": "always",
+      "options": [
+        "lower-case"
+      ]
+    },
+    "subjectCase": {
+      "level": 2,
+      "when": "always",
+      "options": [
+        "lower-case"
+      ]
+    }
+  }
+}

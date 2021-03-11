@@ -1,0 +1,18 @@
+namespace Benchmark;
+
+table Rule {
+  level: byte;
+  when: string;
+  options: [string];
+}
+
+table Rules {
+  scopeCase: Rule;
+  subjectCase: Rule;
+}
+
+table Main {
+  rules: Rules;
+}
+
+root_type Main;

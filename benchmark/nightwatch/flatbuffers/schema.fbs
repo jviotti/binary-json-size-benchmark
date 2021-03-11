@@ -1,0 +1,89 @@
+namespace Benchmark;
+
+enum Null:byte {
+  NULL = 0
+}
+
+table Globals {
+  abortOnAssertionFailure: bool;
+  abortOnElementLocateError: bool;
+  waitForConditionPollInterval: uint;
+  waitForConditionTimeout: uint;
+  throwOnMultipleElementsReturned: bool;
+  suppressWarningsOnMultipleElementsReturned: bool;
+  asyncHookTimeout: uint;
+  unitTestsTimeout: uint;
+  customReporterCallbackTimeout: uint;
+  retryAssertionTimeout: uint;
+}
+
+table Empty {}
+
+table Selenium {
+  start_process: bool;
+  cli_args: Empty;
+  server_path: Null;
+  log_path: string;
+  check_process_delay: uint;
+  max_status_poll_tries: byte;
+  status_poll_interval: uint;
+}
+
+table WebDriver {
+  start_process: bool;
+  cli_args: Empty;
+  server_path: Null;
+  log_path: string;
+  check_process_delay: byte;
+  max_status_poll_tries: byte;
+  status_poll_interval: uint;
+  process_create_timeout: uint;
+  timeout_options: Empty;
+}
+
+table DesiredCapabilities {
+  browserName: string;
+}
+
+table Main {
+  custom_commands_path: Null;
+  custom_assertions_path: Null;
+  page_objects_path: Null;
+  globals_path: Null;
+  globals: Globals;
+  dotenv: Empty;
+  persist_globals: bool;
+  output_folder: string;
+  src_folders: Null;
+  live_output: bool;
+  disable_colors: bool;
+  parallel_process_delay: byte;
+  selenium: Selenium;
+  start_session: bool;
+  end_session_on_fail: bool;
+  test_workers: bool;
+  test_runner: string;
+  webdriver: WebDriver;
+  test_settings: Empty;
+  launch_url: string;
+  silent: bool;
+  output: bool;
+  detailed_output: bool;
+  output_timestamp: bool;
+  disable_error_log: bool;
+  screenshots: bool;
+  log_screenshot_data: bool;
+  desiredCapabilities: DesiredCapabilities;
+  exclude: Null;
+  filter: Null;
+  skipgroup: string;
+  sync_test_names: bool;
+  skiptags: string;
+  use_xpath: bool;
+  parallel_mode: bool;
+  report_prefix: string;
+  unit_tests_mode: bool;
+  default_reporter: string;
+}
+
+root_type Main;

@@ -1,0 +1,13 @@
+namespace Benchmark;
+
+enum Null:byte {
+  NULL = 0
+}
+
+table Main {
+  general: Null;
+  stages: Null;
+  steps: Null;
+}
+
+root_type Main;

@@ -2,7 +2,7 @@
 2 "BSON" 147 97 112 97
 3 "Cap'n Proto (packed)" 0 0 0 0
 4 "CBOR" 74 67 76 70
-5 "FlatBuffers" 0 0 0 0
+5 "FlatBuffers" 156 95 122 91
 6 "FlexBuffers" 90 97 105 99
 7 "JSON" 96 80 86 83
 8 "MessagePack" 74 68 76 71
