@@ -6,6 +6,17 @@
 6 "FlexBuffers" 488 376 420 357
 7 "JSON" 375 250 302 252
 8 "MessagePack" 339 276 297 259
+<<<<<<< HEAD
 9 "Smile" 326 299 324 290
 10 "Apache Thrift (Compact Protocol)" 177 171 184 173
 11 "UBJSON" 375 295 318 278
+||||||| constructed merge base
+9 "Smile" 326 299 324 290
+10 "Apache Thrift (Compact Protocol)" 0 0 0 0
+11 "UBJSON" 375 295 318 278
+=======
+9 "Protocol Buffers" 173 171 183 172
+10 "Smile" 326 299 324 290
+11 "Apache Thrift (Compact Protocol)" 0 0 0 0
+12 "UBJSON" 375 295 318 278
+>>>>>>> Re-generate benchmark
