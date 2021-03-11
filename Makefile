@@ -12,6 +12,11 @@ include vendor/vendorpull/targets.mk
 $(DEPSDIR):
 	mkdir -p $@
 
+deps-protobuf: vendor/protobuf | $(DEPSDIR)
+	cmake -S $</cmake -B $(DEPSDIR)/protobuf \
+		-Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=OFF
+	make --directory=$(DEPSDIR)/protobuf --jobs
+
 deps-flatbuffers: vendor/flatbuffers | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/flatbuffers \
 		-DFLATBUFFERS_BUILD_TESTS=OFF -DFLATBUFFERS_BUILD_FLATHASH=OFF \
@@ -52,7 +57,7 @@ deps-thrift: vendor/thrift | $(DEPSDIR)
 	git clean --force -d $<
 
 deps: requirements.txt package.json \
-	deps-thrift deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
+	deps-protobuf deps-thrift deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
 	pip3 install --requirement $<
 	npm install
 
