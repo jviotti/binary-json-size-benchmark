@@ -157,7 +157,8 @@ output/%/messagepack/output.bin: output/%/messagepack/encode.json \
 
 output/%/protobuf/output.bin: skeleton/protobuf/encode.py output/%/protobuf/encode.json benchmark/%/protobuf/schema.proto benchmark/%/protobuf/run.py \
 	| output/%/thrift
-	protoc --experimental_allow_proto3_optional -I=$(dir $(word 3,$^)) --python_out=$(dir $(word 3,$^)) $(word 3,$^)
+	$(DEPSDIR)/protobuf/protoc --experimental_allow_proto3_optional \
+		-I=vendor/protobuf/src -I=$(dir $(word 3,$^)) --python_out=$(dir $(word 3,$^)) $(word 3,$^)
 	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
 	xxd $@
 
