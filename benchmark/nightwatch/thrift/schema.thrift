@@ -30,7 +30,7 @@ struct WebDriver {
   4: required string log_path,
   5: required byte check_process_delay,
   6: required byte max_status_poll_tries,
-  7: required i16 status_poll_interval
+  7: required i16 status_poll_interval,
   8: required i32 process_create_timeout,
   9: required Empty timeout_options
 }
@@ -55,7 +55,7 @@ struct Main {
   13: required Selenium selenium,
   14: required bool start_session,
   15: required bool end_session_on_fail,
-  16: required bool test_workers
+  16: required bool test_workers,
   17: required string test_runner,
   18: required WebDriver webdriver,
   19: required Empty test_settings,
