@@ -1,0 +1,56 @@
+namespace Benchmark;
+
+table BooleanRule {
+  level: string;
+  options: [bool];
+}
+
+table StringRule {
+  level: string;
+  options: [string];
+}
+
+table Rules {
+  requireAuthor: string;
+  requireDescription: string;
+  requireEngines: string;
+  requireLicense: string;
+  requireName: string;
+  requireRepository: string;
+  requireVersion: string;
+  requireBugs: string;
+  requireHomepage: string;
+  requireKeywords: string;
+  binType: string;
+  configType: string;
+  descriptionType: string;
+  devDependenciesType: string;
+  directoriesType: string;
+  enginesType: string;
+  filesType: string;
+  homepageType: string;
+  keywordsType: string;
+  licenseType: string;
+  mainType: string;
+  manType: string;
+  nameType: string;
+  preferGlobalType: string;
+  privateType: string;
+  repositoryType: string;
+  scriptsType: string;
+  versionType: string;
+  nameFormat: string;
+  versionFormat: string;
+  validValuesAuthor: StringRule;
+  validValuesPrivate: BooleanRule;
+  noRestrictedDependencies: StringRule;
+  noRestrictedPreReleaseDependencies: StringRule;
+  noRestrictedPreReleaseDevDependencies: StringRule;
+  noRestrictedInvalidDevDependencies: StringRule;
+}
+
+table Main {
+  rules: Rules;
+}
+
+root_type Main;
