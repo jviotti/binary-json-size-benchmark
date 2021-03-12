@@ -16,7 +16,6 @@ deps-protobuf: vendor/protobuf | $(DEPSDIR)
 	cmake -S $</cmake -B $(DEPSDIR)/protobuf \
 		-Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=OFF
 	make --directory=$(DEPSDIR)/protobuf --jobs
-	cd $</python && python3 setup.py install
 
 deps-flatbuffers: vendor/flatbuffers | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/flatbuffers \
