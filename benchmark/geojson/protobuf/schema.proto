@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+message Coordinates3 {
+  repeated double coordinates = 1;
+}
+
+message Coordinates2 {
+  repeated Coordinates3 coordinates = 1;
+}
+
+message Coordinates1 {
+  repeated Coordinates2 coordinates = 1;
+}
+
+message Main {
+  string type = 1;
+  repeated Coordinates1 coordinates = 2;
+}

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message Optimization {
+  repeated string includes = 1;
+  repeated string excludes = 2;
+  bool lossy = 3;
+}
+
+message Main {
+  repeated Optimization optimizations = 1;
+}

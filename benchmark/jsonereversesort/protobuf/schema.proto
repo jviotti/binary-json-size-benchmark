@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message Let {
+  repeated uint32 x = 1;
+}
+
+message Sort {
+  string eval = 1;
+}
+
+message Reverse {
+  Sort sort = 1;
+  string byX = 2;
+}
+
+message In {
+  Reverse reverse = 1;
+}
+
+message Main {
+  Let let = 1;
+  In in1 = 2;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message Rule {
+  string path = 1;
+  string regex = 2;
+  repeated string types = 3;
+  bool allowData = 4;
+}
+
+message Main {
+  string site = 1;
+  uint32 maxAge = 2;
+  string reportUrl = 3;
+  string defaultNavBehavior = 4;
+  string defaultResBehavior = 5;
+  repeated Rule rules = 6;
+}

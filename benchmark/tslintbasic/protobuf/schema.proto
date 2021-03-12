@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message Options {
+  bool groupedImports = 1;
+}
+
+message OrderedImports {
+  Options options = 1;
+}
+
+message Rules {
+  OrderedImports orderedImports = 1;
+}
+
+message Main {
+  Rules rules = 1;
+}

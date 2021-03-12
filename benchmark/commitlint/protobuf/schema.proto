@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message Options {
+  repeated string values = 1;
+}
+
+message Rule {
+  oneof kind {
+    uint32 level = 1;
+    string when = 2;
+    Options options = 3;
+  }
+}
+
+message Rules {
+  repeated Rule scopeCase = 1;
+  repeated Rule subjectCase = 2;
+}
+
+message Main {
+  Rules rules = 1;
+}

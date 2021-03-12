@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message Options {
+  bool force = 1;
+  bool noWrite = 2;
+}
+
+message Files {}
+
+message MainOptions {
+  Files files = 1;
+  repeated string src = 2;
+}
+
+message Main {
+  repeated string foo = 1;
+  MainOptions main = 2;
+  Options options = 3;
+}

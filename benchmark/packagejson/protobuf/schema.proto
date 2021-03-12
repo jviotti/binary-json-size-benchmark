@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+message Author {
+  string name = 1;
+  string url = 2;
+}
+
+message Repository {
+  string type = 1;
+  string url = 2;
+}
+
+message Bugs {
+  string url = 1;
+}
+
+message License {
+  string type = 1;
+  string url = 2;
+}
+
+message Scripts {
+  string test = 1;
+}
+
+message Engines {
+  string node = 1;
+}
+
+message Dependencies {
+  string async1 = 1;
+  string coffeeScript = 2;
+  string colors = 3;
+  string dateformat = 4;
+  string eventemitter2 = 5;
+  string findupSync = 6;
+  string glob = 7;
+  string hooker = 8;
+  string iconvLite = 9;
+  string minimatch = 10;
+  string nopt = 11;
+  string rimraf = 12;
+  string lodash = 13;
+  string underscoreString = 14;
+  string which = 15;
+  string jsYaml = 16;
+  string exit = 17;
+  string getobject = 18;
+  string gruntLegacyUtil = 19;
+  string gruntLegacyLog = 20;
+}
+
+message DevDependencies {
+  string temporary = 1;
+  string gruntContribJshint = 2;
+  string gruntContribNodeunit = 3;
+  string gruntContribWatch = 4;
+  string difflet = 5;
+  string semver = 6;
+  string shelljs = 7;
+}
+
+message Main {
+  string name = 1;
+  string description = 2;
+  string version = 3;
+  Author author = 4;
+  string homepage = 5;
+  Repository repository = 6;
+  Bugs bugs = 7;
+  repeated License licenses = 8;
+  string main = 9;
+  Scripts scripts = 10;
+  Engines engines = 11;
+  repeated string keywords = 12;
+  Dependencies dependencies = 13;
+  DevDependencies devDependencies = 14;
+  string readme = 15;
+  string _id = 16;
+  string _from = 17;
+}

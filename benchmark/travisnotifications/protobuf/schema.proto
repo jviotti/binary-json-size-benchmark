@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message Notification {
+  string secure = 1;
+}
+
+message Notifications {
+  Notification campfire = 1;
+  Notification irc = 2;
+  Notification flowdock = 3;
+  Notification hipchat = 4;
+  Notification slack = 5;
+  Notification webhooks = 6;
+  Notification email = 7;
+}
+
+message Main {
+  Notifications notifications = 1;
+}

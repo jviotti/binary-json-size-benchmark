@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+message EcmaFeatures {
+  bool jsx = 1;
+}
+
+message Environment {
+  bool browser = 1;
+  bool node = 2;
+  bool es6 = 3;
+}
+
+message JSDocOptions {
+  bool requireReturn = 1;
+}
+
+message JSDocRule {
+  oneof kind {
+    uint32 numeric = 1;
+    JSDocOptions options = 2;
+  }
+}
+
+message Rules {
+  uint32 eqeqeq = 1;
+  uint32 commaDangle = 2;
+  uint32 noConsole = 3;
+  uint32 noDebugger = 4;
+  uint32 noExtraSemi = 5;
+  uint32 noExtraParens = 6;
+  uint32 noIrregularWhitespace = 7;
+  uint32 noUndef = 8;
+  uint32 noUnusedVars = 9;
+  uint32 semi = 10;
+  uint32 semiSpacing = 11;
+  repeated JSDocRule validJsdoc = 12;
+  uint32 reactDisplayName = 13;
+  uint32 reactForbidPropTypes = 14;
+  uint32 reactJsxBooleanValue = 15;
+  uint32 reactJsxClosingBracketLocation = 16;
+  uint32 reactJsxCurlySpacing = 17;
+  uint32 reactJsxIndentProps = 18;
+  uint32 reactJsxMaxPropsPerLine = 19;
+  uint32 reactJsxNoDuplicateProps = 20;
+  uint32 reactJsxNoLiterals = 21;
+  uint32 reactJsxNoUndef = 22;
+  uint32 reactJsxSortPropTypes = 23;
+  uint32 reactJsxSortProps = 24;
+  uint32 reactJsxUsesReact = 25;
+  uint32 reactJsxUsesVars = 26;
+  uint32 reactNoDanger = 27;
+  uint32 reactNoDidMountSetState = 28;
+  uint32 reactNoDidUpdateSetState = 29;
+  uint32 reactNoDirectMutationState = 30;
+  uint32 reactNoMultiComp = 31;
+  uint32 reactNoSetState = 32;
+  uint32 reactNoUnknownProperty = 33;
+  uint32 reactPropTypes = 34;
+  uint32 reactReactInJsxScope = 35;
+  uint32 reactRequireExtension = 36;
+  uint32 reactSelfClosingComp = 37;
+  uint32 reactSortComp = 38;
+  uint32 reactWrapMultilines = 39;
+}
+
+message Main {
+  string extension = 1;
+  string parser = 2;
+  EcmaFeatures ecmaFeatures = 3;
+  repeated string plugins = 4;
+  Environment env = 5;
+  Rules rules = 6;
+}

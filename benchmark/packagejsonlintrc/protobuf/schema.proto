@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+message Options {
+  repeated string items = 1;
+}
+
+message BooleanOptions {
+  repeated bool items = 1;
+}
+
+message ComplexRule {
+  oneof kind {
+    string textual = 1;
+    Options options = 2;
+    BooleanOptions booleanOptions = 3;
+  }
+}
+
+message Rules {
+  string requireAuthor = 1;
+  string requireDescription = 2;
+  string requireEngines = 3;
+  string requireLicense = 4;
+  string requireName = 5;
+  string requireRepository = 6;
+  string requireVersion = 7;
+  string requireBugs = 8;
+  string requireHomepage = 9;
+  string requireKeywords = 10;
+  string binType = 11;
+  string configType = 12;
+  string descriptionType = 13;
+  string devDependenciesType = 14;
+  string directoriesType = 15;
+  string enginesType = 16;
+  string filesType = 17;
+  string homepageType = 18;
+  string keywordsType = 19;
+  string licenseType = 20;
+  string mainType = 21;
+  string manType = 22;
+  string nameType = 23;
+  string preferGlobalType = 24;
+  string privateType = 25;
+  string repositoryType = 26;
+  string scriptsType = 27;
+  string versionType = 28;
+  repeated ComplexRule validValuesAuthor = 29;
+  repeated ComplexRule validValuesPrivate = 30;
+  repeated ComplexRule noRestrictedDependencies = 31;
+  repeated ComplexRule noRestrictedPreReleaseDependencies = 32;
+  repeated ComplexRule noRestrictedInvalidDevDependencies = 33;
+  repeated ComplexRule noRestrictedPreReleaseDevDependencies = 34;
+  string nameFormat = 35;
+  string versionFormat = 36;
+}
+
+message Main {
+  Rules rules = 1;
+}

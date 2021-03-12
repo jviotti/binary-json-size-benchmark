@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "google/protobuf/struct.proto";
+
+message Main {
+  string github = 1;
+  google.protobuf.NullValue patreon = 2;
+  google.protobuf.NullValue open_collective = 3;
+  google.protobuf.NullValue ko_fi = 4;
+  google.protobuf.NullValue tidelift = 5;
+  google.protobuf.NullValue community_bridge = 6;
+  google.protobuf.NullValue liberapay = 7;
+  google.protobuf.NullValue issuehunt = 8;
+  google.protobuf.NullValue otechie = 9;
+  google.protobuf.NullValue custom = 10;
+}

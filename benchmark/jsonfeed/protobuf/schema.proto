@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+message Author {
+  string name = 1;
+  string url = 2;
+  string avatar = 3;
+}
+
+message Item {
+  string id = 1;
+  string url = 2;
+  string content_text = 3;
+  string date_published = 4;
+}
+
+message Main {
+  string version = 1;
+  string user_comment = 2;
+  string title = 3;
+  string home_page_url = 4;
+  string feed_url = 5;
+  Author author = 6;
+  repeated Item items = 7;
+}

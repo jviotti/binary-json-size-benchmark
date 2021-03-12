@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+message Alert {
+  string sender_name = 1;
+  string event = 2;
+  uint32 event_level = 3;
+}
+
+message Weather {
+  double temp = 1;
+  double wind_speed = 2;
+  uint32 wind_deg = 3;
+  double precipitation_intensity = 4;
+  double dew_point = 5;
+}
+
+message RoadRisk {
+  uint32 dt = 1;
+  repeated double coord = 2;
+  Weather weather = 3;
+  repeated Alert alerts = 4;
+}
+
+message Main {
+  repeated RoadRisk risks = 1;
+}

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+message Main {
+  bool cjs = 1;
+  repeated string mainFields = 2;
+  string mode = 3;
+  bool force = 4;
+  bool cache = 5;
+  bool sourceMap = 6;
+}

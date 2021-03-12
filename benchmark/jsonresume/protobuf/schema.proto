@@ -1,0 +1,106 @@
+syntax = "proto3";
+
+message Location {
+  string address = 1;
+  string postalCode = 2;
+  string city = 3;
+  string countryCode = 4;
+  string region = 5;
+}
+
+message Profile {
+  string network = 1;
+  string username = 2;
+  string url = 3;
+}
+
+message Basics {
+  string name = 1;
+  string label = 2;
+  string picture = 3;
+  string email = 4;
+  string phone = 5;
+  string website = 6;
+  string summary = 7;
+  Location location = 8;
+  repeated Profile profiles = 9;
+}
+
+message Work {
+  string company = 1;
+  string position = 2;
+  string website = 3;
+  string startDate = 4;
+  string endDate = 5;
+  string summary = 6;
+  repeated string highlights = 7;
+}
+
+message Volunteer {
+  string organization = 1;
+  string position = 2;
+  string website = 3;
+  string startDate = 4;
+  string endDate = 5;
+  string summary = 6;
+  repeated string highlights = 7;
+}
+
+message Education {
+  string institution = 1;
+  string area = 2;
+  string studyType = 3;
+  string startDate = 4;
+  string endDate = 5;
+  string gpa = 6;
+  repeated string courses = 7;
+}
+
+message Award {
+  string title = 1;
+  string date = 2;
+  string awarder = 3;
+  string summary = 4;
+}
+
+message Publication {
+  string name = 1;
+  string publisher = 2;
+  string releaseDate = 3;
+  string website = 4;
+  string summary = 5;
+}
+
+message Skill {
+  string name = 1;
+  string level = 2;
+  repeated string keywords = 3;
+}
+
+message Language {
+  string language = 1;
+  string fluency = 2;
+}
+
+message Interest {
+  string name = 1;
+  repeated string keywords = 2;
+}
+
+message Reference {
+  string name = 1;
+  string reference = 2;
+}
+
+message Main {
+  Basics basics = 1;
+  repeated Work work = 2;
+  repeated Volunteer volunteer = 3;
+  repeated Education education = 4;
+  repeated Award awards = 5;
+  repeated Publication publications = 6;
+  repeated Skill skills = 7;
+  repeated Language languages = 8;
+  repeated Interest interests = 9;
+  repeated Reference references = 10;
+}

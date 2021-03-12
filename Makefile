@@ -155,15 +155,22 @@ output/%/messagepack/output.bin: output/%/messagepack/encode.json \
 	$(DEPSDIR)/msgpack-tools/json2msgpack < $< > $@
 	xxd $@
 
+output/%/protobuf/output.bin: skeleton/protobuf/encode.py output/%/protobuf/encode.json benchmark/%/protobuf/schema.proto benchmark/%/protobuf/run.py \
+	| output/%/thrift
+	$(DEPSDIR)/protobuf/protoc --experimental_allow_proto3_optional \
+		-I=vendor/protobuf/src -I=$(dir $(word 3,$^)) --python_out=$(dir $(word 3,$^)) $(word 3,$^)
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
+	xxd $@
+
 output/%/smile/output.bin: skeleton/smile/encode.clj output/%/smile/encode.json \
 	| output/%/smile
 	cd $(dir $<) && JSON_FILE="$(abspath $(word 2,$^))" OUTPUT_FILE="$(abspath $@)" clj -M $(notdir $<)
 	xxd $@
 
-output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.json benchmark/%/thrift/schema.thrift \
+output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.json benchmark/%/thrift/schema.thrift benchmark/%/thrift/run.py \
 	| output/%/thrift
 	$(DEPSDIR)/thrift/bin/thrift --gen py -o $(dir $(word 3,$^)) -out $(dir $(word 3,$^)) $(word 3,$^)
-	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
 	xxd $@
 
 output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json \
@@ -207,13 +214,17 @@ output/%/messagepack/decode.json: output/%/messagepack/output.bin \
 	| output/%/messagepack
 	$(DEPSDIR)/msgpack-tools/msgpack2json < $< > $@
 
+output/%/protobuf/decode.json: skeleton/protobuf/decode.py output/%/protobuf/output.bin benchmark/%/protobuf/schema.proto benchmark/%/protobuf/run.py \
+	| output/%/thrift
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
+
 output/%/smile/decode.json: skeleton/smile/decode.clj output/%/smile/output.bin \
 	| output/%/smile
 	cd $(dir $<) && INPUT_FILE="$(abspath $(word 2,$^))" clj -M $(notdir $<) > $(abspath $@)
 
-output/%/thrift/decode.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift \
+output/%/thrift/decode.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift benchmark/%/thrift/run.py \
 	| output/%/thrift
-	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(dir $(word 3,$^))run.py $@
+	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
 
 output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bin \
 	| output/%/ubjson

@@ -6,6 +6,7 @@
 6 "FlexBuffers" 152 143 168 148
 7 "JSON" 183 134 167 144
 8 "MessagePack" 124 124 143 136
-9 "Smile" 129 134 148 139
-10 "Apache Thrift (Compact Protocol)" 18 38 37 42
-11 "UBJSON" 137 135 156 144
+9 "Protocol Buffers" 17 37 36 41
+10 "Smile" 129 134 148 139
+11 "Apache Thrift (Compact Protocol)" 18 38 37 42
+12 "UBJSON" 137 135 156 144

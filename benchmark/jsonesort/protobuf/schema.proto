@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message Main {
+  repeated uint32 sort = 1;
+  string byX = 2;
+}

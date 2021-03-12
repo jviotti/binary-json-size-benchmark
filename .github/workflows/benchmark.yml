@@ -28,13 +28,11 @@ jobs:
       with:
         path: |
           /tmp/dependencies
-          /usr/lib/python3/dist-packages
           node_modules
         key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('package.json') }}
 
     - name: Install dependencies
       run: make --jobs deps DEPSDIR=/tmp/dependencies
-      if: steps.cache.outputs.cache-hit != 'true'
 
     - name: Lint
       run: make lint

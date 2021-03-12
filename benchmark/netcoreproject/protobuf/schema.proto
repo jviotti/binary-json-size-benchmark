@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+message CompilationOptions {
+  bool warningsAsErrors = 1;
+}
+
+message Dependencies {
+  string microsoftBclImmutable = 1;
+  string microsoftAspNetConfigurationModel = 2;
+  string microsoftAspNetDependencyInjection = 3;
+  string microsoftAspNetLogging = 4;
+  string systemDataCommon = 5;
+}
+
+message Net45Dependencies {
+  string systemRuntime = 1;
+  string systemCollections = 2;
+}
+
+message K10Dependencies {
+  string systemCollections = 1;
+  string systemCollectionsConcurrent = 2;
+  string systemComponentModel = 3;
+  string systemConsole = 4;
+  string systemDiagnosticsContracts = 5;
+  string systemDiagnosticsDebug = 6;
+  string systemGlobalization = 7;
+  string systemLinq = 8;
+  string systemLinqExpressions = 9;
+  string systemLinqQueryable = 10;
+  string systemReflection = 11;
+  string systemReflectionExtensions = 12;
+  string systemResourcesResourceManager = 13;
+  string systemRuntime = 14;
+  string systemRuntimeExtensions = 15;
+  string systemThreading = 16;
+  string systemThreadingTasks = 17;
+}
+
+message Net45 {
+  Net45Dependencies dependencies = 1;
+}
+
+message K10 {
+  K10Dependencies dependencies = 1;
+}
+
+message Frameworks {
+  Net45 net45 = 1;
+  K10 k10 = 2;
+}
+
+message Main {
+  string version = 1;
+  CompilationOptions compilationOptions = 2;
+  Dependencies dependencies = 3;
+  string code = 4;
+  Frameworks frameworks = 5;
+}

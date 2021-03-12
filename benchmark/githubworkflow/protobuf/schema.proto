@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+message Environment {
+  string buildSuiteDir = 1;
+}
+
+message With {
+  string nodeVersion = 1;
+}
+
+message Step {
+  string uses = 1;
+  string run = 2;
+  string workingDirectory = 3;
+  With with1 = 4;
+  string name = 5;
+}
+
+message Build {
+  string runsOn = 1;
+  Environment env = 2;
+  repeated Step steps = 3;
+}
+
+message Jobs {
+  Build build = 1;
+}
+
+message Main {
+  string name = 1;
+  repeated string on = 2;
+  Jobs jobs = 3;
+}
