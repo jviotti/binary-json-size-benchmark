@@ -28,7 +28,7 @@ def encode(json, schema):
 def decode(payload):
     return {
         'name': payload.name,
-        'on': payload.on._values,
+        'on': list(payload.on),
         'jobs': {
             'build': {
                 'runs-on': payload.jobs.build.runsOn,

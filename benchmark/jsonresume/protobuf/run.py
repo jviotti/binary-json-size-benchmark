@@ -127,7 +127,7 @@ def decode(payload):
           'startDate': payload.work[0].startDate,
           'endDate': payload.work[0].endDate,
           'summary': payload.work[0].summary,
-          'highlights': payload.work[0].highlights._values
+          'highlights': list(payload.work[0].highlights)
         }
       ],
       'volunteer': [
@@ -138,7 +138,7 @@ def decode(payload):
           'startDate': payload.volunteer[0].startDate,
           'endDate': payload.volunteer[0].endDate,
           'summary': payload.volunteer[0].summary,
-          'highlights': payload.volunteer[0].highlights._values
+          'highlights': list(payload.volunteer[0].highlights)
         }
       ],
       'education': [
@@ -149,7 +149,7 @@ def decode(payload):
           'startDate': payload.education[0].startDate,
           'endDate': payload.education[0].endDate,
           'gpa': payload.education[0].gpa,
-          'courses': payload.education[0].courses._values
+          'courses': list(payload.education[0].courses)
         }
       ],
       'awards': [
@@ -173,12 +173,12 @@ def decode(payload):
         {
           'name': payload.skills[0].name,
           'level': payload.skills[0].level,
-          'keywords': payload.skills[0].keywords._values
+          'keywords': list(payload.skills[0].keywords)
         },
         {
           'name': payload.skills[1].name,
           'level': payload.skills[1].level,
-          'keywords': payload.skills[1].keywords._values
+          'keywords': list(payload.skills[1].keywords)
         }
       ],
       'languages': [
@@ -190,7 +190,7 @@ def decode(payload):
       'interests': [
         {
           'name': payload.interests[0].name,
-          'keywords': payload.interests[0].keywords._values,
+          'keywords': list(payload.interests[0].keywords)
         }
       ],
       'references': [

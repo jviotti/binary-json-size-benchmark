@@ -10,8 +10,8 @@ def decode(payload):
     return {
         'optimizations': [
             {
-              'includes': payload.optimizations[0].includes._values,
-              'excludes': payload.optimizations[0].excludes._values,
+              'includes': list(payload.optimizations[0].includes),
+              'excludes': list(payload.optimizations[0].excludes),
               'lossy': payload.optimizations[0].lossy
             }
         ]

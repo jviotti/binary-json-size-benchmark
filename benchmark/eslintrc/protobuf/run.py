@@ -65,7 +65,7 @@ def decode(payload):
         'ecmaFeatures': {
             'jsx': payload.ecmaFeatures.jsx
         },
-        'plugins': payload.plugins._values,
+        'plugins': list(payload.plugins),
         'env': {
             'browser': payload.env.browser,
             'node': payload.env.node,

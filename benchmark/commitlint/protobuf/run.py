@@ -25,12 +25,12 @@ def decode(payload):
             'scope-case': [
                 payload.rules.scopeCase[0].level,
                 payload.rules.scopeCase[1].when,
-                payload.rules.scopeCase[2].options.values._values
+                list(payload.rules.scopeCase[2].options.values)
             ],
             'subject-case': [
                 payload.rules.subjectCase[0].level,
                 payload.rules.subjectCase[1].when,
-                payload.rules.subjectCase[2].options.values._values
+                list(payload.rules.subjectCase[2].options.values)
             ]
         }
     }

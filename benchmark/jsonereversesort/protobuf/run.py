@@ -8,7 +8,7 @@ def encode(json, schema):
 def decode(payload):
     return {
       '$let': {
-        'x': payload.let.x._values
+        'x': list(payload.let.x)
       },
       'in': {
         '$reverse': {

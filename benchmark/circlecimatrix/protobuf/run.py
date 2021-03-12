@@ -15,7 +15,7 @@ def decode(payload):
                         'm1': {
                             'matrix': {
                                 'parameters': {
-                                    'a': payload.workflows.test.jobs[0].m1.matrix.parameters.a._values
+                                    'a': list(payload.workflows.test.jobs[0].m1.matrix.parameters.a)
                                 }
                             }
                         }

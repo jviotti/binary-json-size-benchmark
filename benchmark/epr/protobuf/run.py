@@ -45,27 +45,27 @@ def decode(payload):
         'rules': [
             {
                 'path': payload.rules[0].path,
-                'types': payload.rules[0].types._values,
+                'types': list(payload.rules[0].types),
                 'allowData': payload.rules[0].allowData,
             },
             {
                 'regex': payload.rules[1].regex,
-                'types': payload.rules[1].types._values,
+                'types': list(payload.rules[1].types),
                 'allowData': payload.rules[1].allowData,
             },
             {
                 'path': payload.rules[2].path,
-                'types': payload.rules[2].types._values,
+                'types': list(payload.rules[2].types),
                 'allowData': payload.rules[2].allowData,
             },
             {
                 'regex': payload.rules[3].regex,
-                'types': payload.rules[3].types._values,
+                'types': list(payload.rules[3].types),
                 'allowData': payload.rules[3].allowData,
             },
             {
                 'regex': payload.rules[4].regex,
-                'types': payload.rules[4].types._values,
+                'types': list(payload.rules[4].types),
                 'allowData': payload.rules[4].allowData,
             }
         ]

@@ -32,7 +32,7 @@ jobs:
         key: ${{ runner.os }}-local-${{ env.cache-name }}-${{ hashFiles('DEPENDENCIES') }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('package.json') }}
 
     - name: Install dependencies
-      run: make --jobs deps DEPSDIR=/tmp/dependencies && pip3 install -U protobuf==3.8.0
+      run: make --jobs deps DEPSDIR=/tmp/dependencies
 
     - name: Lint
       run: make lint

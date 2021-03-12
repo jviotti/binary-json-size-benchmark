@@ -8,10 +8,10 @@ def encode(json, schema):
 
 def decode(payload):
     return {
-        'foo': payload.foo._values,
+        'foo': list(payload.foo),
         'main': {
             'files': dict(zip(payload.main.files.ListFields(), [])),
-            'src': payload.main.src._values
+            'src': list(payload.main.src)
         },
         'options': {
             'force': payload.options.force,

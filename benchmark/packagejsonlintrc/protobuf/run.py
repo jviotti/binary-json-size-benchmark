@@ -104,27 +104,27 @@ def decode(payload):
         'version-type': payload.rules.versionType,
         'valid-values-author': [
             payload.rules.validValuesAuthor[0].textual,
-            payload.rules.validValuesAuthor[1].options.items._values
+            list(payload.rules.validValuesAuthor[1].options.items)
         ],
         'valid-values-private': [
             payload.rules.validValuesPrivate[0].textual,
-            payload.rules.validValuesPrivate[1].booleanOptions.items._values
+            list(payload.rules.validValuesPrivate[1].booleanOptions.items)
         ],
         'no-restricted-dependencies': [
             payload.rules.noRestrictedDependencies[0].textual,
-            payload.rules.noRestrictedDependencies[1].options.items._values
+            list(payload.rules.noRestrictedDependencies[1].options.items)
         ],
         'no-restricted-pre-release-dependencies': [
             payload.rules.noRestrictedPreReleaseDependencies[0].textual,
-            payload.rules.noRestrictedPreReleaseDependencies[1].options.items._values
+            list(payload.rules.noRestrictedPreReleaseDependencies[1].options.items)
         ],
         'no-restricted-invalid-devDependencies': [
             payload.rules.noRestrictedInvalidDevDependencies[0].textual,
-            payload.rules.noRestrictedInvalidDevDependencies[1].options.items._values
+            list(payload.rules.noRestrictedInvalidDevDependencies[1].options.items)
         ],
         'no-restricted-pre-release-devDependencies': [
             payload.rules.noRestrictedPreReleaseDevDependencies[0].textual,
-            payload.rules.noRestrictedPreReleaseDevDependencies[1].options.items._values
+            list(payload.rules.noRestrictedPreReleaseDevDependencies[1].options.items)
         ],
         'name-format': payload.rules.nameFormat,
         'version-format': payload.rules.versionFormat

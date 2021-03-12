@@ -11,7 +11,7 @@ def encode(json, schema):
 def decode(payload):
     return {
       'cjs': payload.cjs,
-      'mainFields': payload.mainFields._values,
+      'mainFields': list(payload.mainFields),
       'mode': payload.mode,
       'force': payload.force,
       'cache': payload.cache,

@@ -5,5 +5,5 @@ def encode(json, schema):
 
 def decode(payload):
     return {
-        'extends': payload.extensions._values
+        'extends': list(payload.extensions)
     }

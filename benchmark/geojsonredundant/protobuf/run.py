@@ -51,27 +51,27 @@ def decode(payload):
       'coordinates': [
         [
           [
-            payload.coordinates[0].coordinates[0].coordinates[0].coordinates._values,
-            payload.coordinates[0].coordinates[0].coordinates[1].coordinates._values,
-            payload.coordinates[0].coordinates[0].coordinates[2].coordinates._values,
-            payload.coordinates[0].coordinates[0].coordinates[3].coordinates._values,
-            payload.coordinates[0].coordinates[0].coordinates[4].coordinates._values
+            list(payload.coordinates[0].coordinates[0].coordinates[0].coordinates),
+            list(payload.coordinates[0].coordinates[0].coordinates[1].coordinates),
+            list(payload.coordinates[0].coordinates[0].coordinates[2].coordinates),
+            list(payload.coordinates[0].coordinates[0].coordinates[3].coordinates),
+            list(payload.coordinates[0].coordinates[0].coordinates[4].coordinates)
           ]
         ],
         [
           [
-            payload.coordinates[1].coordinates[0].coordinates[0].coordinates._values,
-            payload.coordinates[1].coordinates[0].coordinates[1].coordinates._values,
-            payload.coordinates[1].coordinates[0].coordinates[2].coordinates._values,
-            payload.coordinates[1].coordinates[0].coordinates[3].coordinates._values,
-            payload.coordinates[1].coordinates[0].coordinates[4].coordinates._values
+            list(payload.coordinates[1].coordinates[0].coordinates[0].coordinates),
+            list(payload.coordinates[1].coordinates[0].coordinates[1].coordinates),
+            list(payload.coordinates[1].coordinates[0].coordinates[2].coordinates),
+            list(payload.coordinates[1].coordinates[0].coordinates[3].coordinates),
+            list(payload.coordinates[1].coordinates[0].coordinates[4].coordinates)
           ],
           [
-            payload.coordinates[1].coordinates[1].coordinates[0].coordinates._values,
-            payload.coordinates[1].coordinates[1].coordinates[1].coordinates._values,
-            payload.coordinates[1].coordinates[1].coordinates[2].coordinates._values,
-            payload.coordinates[1].coordinates[1].coordinates[3].coordinates._values,
-            payload.coordinates[1].coordinates[1].coordinates[4].coordinates._values
+            list(payload.coordinates[1].coordinates[1].coordinates[0].coordinates),
+            list(payload.coordinates[1].coordinates[1].coordinates[1].coordinates),
+            list(payload.coordinates[1].coordinates[1].coordinates[2].coordinates),
+            list(payload.coordinates[1].coordinates[1].coordinates[3].coordinates),
+            list(payload.coordinates[1].coordinates[1].coordinates[4].coordinates)
           ]
         ]
       ]

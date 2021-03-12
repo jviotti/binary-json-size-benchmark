@@ -6,7 +6,7 @@ def encode(json, schema):
 
 def decode(payload):
     return {
-        '$sort': payload.sort._values,
+        '$sort': list(payload.sort),
         'by(x)': payload.byX
     }
 

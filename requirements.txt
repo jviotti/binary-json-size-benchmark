@@ -3,4 +3,3 @@ flake8 == 3.8.4
 cbor2 == 5.1.2
 py-ubjson == 0.16.1
 thrift == 0.13.0
-protobuf == 3.13.0

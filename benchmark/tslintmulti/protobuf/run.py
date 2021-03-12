@@ -9,8 +9,8 @@ def encode(json, schema):
 def decode(payload):
     return {
       'rules': {
-        'no-any': payload.rules.noAny._values,
-        'radix': payload.rules.radix._values,
+        'no-any': list(payload.rules.noAny),
+        'radix': list(payload.rules.radix),
         'ordered-imports': {
           'options': {
             'grouped-imports': payload.rules.orderedImports.options.groupedImports

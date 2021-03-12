@@ -31,7 +31,7 @@ def decode(payload):
   return [
     {
       'dt': payload.risks[0].dt,
-      'coord': payload.risks[0].coord._values,
+      'coord': list(payload.risks[0].coord),
       'weather': {
         'temp': payload.risks[0].weather.temp,
         'wind_speed': payload.risks[0].weather.wind_speed,
@@ -50,13 +50,13 @@ def decode(payload):
     },
     {
       'dt': payload.risks[1].dt,
-      'coord': payload.risks[1].coord._values,
+      'coord': list(payload.risks[1].coord),
       'weather': {
         'temp': payload.risks[1].weather.temp,
         'wind_speed': payload.risks[1].weather.wind_speed,
         'wind_deg': payload.risks[1].weather.wind_deg,
         'dew_point': payload.risks[1].weather.dew_point
       },
-      'alerts': payload.risks[1].alerts._values
+      'alerts': list(payload.risks[1].alerts)
     }
   ]

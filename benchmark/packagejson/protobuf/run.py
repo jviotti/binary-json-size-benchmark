@@ -83,7 +83,7 @@ def decode(payload):
         'engines': {
             'node': payload.engines.node
         },
-        'keywords': payload.keywords._values,
+        'keywords': list(payload.keywords),
         'dependencies': {
             'async': payload.dependencies.async1,
             'coffee-script': payload.dependencies.coffeeScript,
