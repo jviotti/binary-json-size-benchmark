@@ -1,0 +1,9 @@
+{"risks": [
+  { "dt": 1602702000,
+    "coord": [7.27, 44.04],
+    "weather": {"temp": 278.44, "windSpeed": 2.27, "windDeg": 7, "precipitationIntensity": 0.38, "dewPoint": 276.13},
+    "alerts": [{"senderName": "METEO-FRANCE", "event": "Moderate thunderstorm warning", "eventLevel": 2}] },
+  { "dt": 1602702400,
+    "coord": [7.37, 45.04],
+    "weather": {"temp": 282.44, "windSpeed": 1.84, "windDeg": 316, "precipitationIntensity": 0, "dewPoint": 275.99},
+    "alerts": [] } ]}
