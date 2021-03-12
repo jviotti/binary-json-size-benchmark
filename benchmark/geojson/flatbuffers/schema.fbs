@@ -1,0 +1,20 @@
+namespace Benchmark;
+
+table Coords {
+  coordinates: [double];
+}
+
+table Bar {
+  items: [Coords];
+}
+
+table Foo {
+  items: [Bar];
+}
+
+table Main {
+  type: string;
+  coordinates: [Foo];
+}
+
+root_type Main;

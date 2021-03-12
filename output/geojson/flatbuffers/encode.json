@@ -1,0 +1,115 @@
+{
+  "type": "MultiPolygon",
+  "coordinates": [
+    {
+      "items": [
+        {
+          "items": [
+            {
+              "coordinates": [
+                102,
+                2
+              ]
+            },
+            {
+              "coordinates": [
+                103,
+                2
+              ]
+            },
+            {
+              "coordinates": [
+                103,
+                3
+              ]
+            },
+            {
+              "coordinates": [
+                102,
+                3
+              ]
+            },
+            {
+              "coordinates": [
+                102,
+                2
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "items": [
+        {
+          "items": [
+            {
+              "coordinates": [
+                100,
+                0
+              ]
+            },
+            {
+              "coordinates": [
+                101,
+                0
+              ]
+            },
+            {
+              "coordinates": [
+                101,
+                1
+              ]
+            },
+            {
+              "coordinates": [
+                100,
+                1
+              ]
+            },
+            {
+              "coordinates": [
+                100,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "items": [
+            {
+              "coordinates": [
+                100.2,
+                0.2
+              ]
+            },
+            {
+              "coordinates": [
+                100.2,
+                0.8
+              ]
+            },
+            {
+              "coordinates": [
+                100.8,
+                0.8
+              ]
+            },
+            {
+              "coordinates": [
+                100.8,
+                0.2
+              ]
+            },
+            {
+              "coordinates": [
+                100.2,
+                0.2
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
