@@ -75,13 +75,13 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 		$< > $@
 
 %.gz: %
-	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || gzip --no-name -9 < $< > $@
+	gzip --no-name -9 < $< > $@
 
 %.lz4: %
-	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || $(DEPSDIR)/lz4/lz4 -f -9 $< $@
+	$(DEPSDIR)/lz4/lz4 -f -9 $< $@
 
 %.lzma: %
-	[ "$(shell scripts/byte-size.sh $<)" = "0" ] && touch $@ || lzma -9 --stdout < $< > $@
+	lzma -9 --stdout < $< > $@
 
 FORMATS = $(notdir $(wildcard skeleton/*))
 DOCUMENTS = $(notdir $(wildcard benchmark/*))
@@ -233,11 +233,11 @@ output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bi
 define RULE_DOCUMENT_DAT
 output/$1/data.dat: scripts/summarize.sh scripts/byte-size.sh \
 	$$(wildcard skeleton/*/NAME) \
+	$$(addsuffix /output.json,$$(addprefix output/$1/,$(FORMATS))) \
 	$$(addsuffix /output.bin,$$(addprefix output/$1/,$(FORMATS))) \
 	$$(addsuffix /output.bin.gz,$$(addprefix output/$1/,$(FORMATS))) \
 	$$(addsuffix /output.bin.lz4,$$(addprefix output/$1/,$(FORMATS))) \
-	$$(addsuffix /output.bin.lzma,$$(addprefix output/$1/,$(FORMATS))) \
-	| output/$1
+	$$(addsuffix /output.bin.lzma,$$(addprefix output/$1/,$(FORMATS)))
 	./$$< $$(dir $$@) > $$@
 endef
 
@@ -249,12 +249,9 @@ README.md: scripts/readme.sh \
 	$(wildcard benchmark/*/data.dat)
 	./$< > $@
 
-benchmark:
-	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh
+benchmark: all
 
 benchmark-%:
-	DEPSDIR="$(DEPSDIR)" ./scripts/main.sh \
-		$(word 1,$(subst -, ,$(subst benchmark-,,$@))) \
-		$(word 2,$(subst -, ,$(subst benchmark-,,$@)))
+	DEPSDIR="$(DEPSDIR)" make output/$(subst -,/,$(subst benchmark-,,$@))/output.json
 
 all: $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS))) README.md

@@ -38,4 +38,4 @@ jobs:
       run: make lint
 
     - name: Benchmark
-      run: make --jobs benchmark DEPSDIR=/tmp/dependencies
+      run: make benchmark DEPSDIR=/tmp/dependencies

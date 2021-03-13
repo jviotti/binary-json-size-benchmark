@@ -1,6 +1,6 @@
 1 "Apache Avro (unframed)" 156 156 168 156
 2 "BSON" 422 315 354 303
-3 "Cap'n Proto (packed)" 0 0 0 0
+3 "Cap'n Proto (packed)" 204 204 214 205
 4 "CBOR" 340 275 298 256
 5 "FlatBuffers" 328 251 297 235
 6 "FlexBuffers" 488 376 420 357
