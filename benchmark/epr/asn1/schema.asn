@@ -1,7 +1,7 @@
 GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
 Rule ::= SEQUENCE {
-    path UTF8String,
-    regex UTF8String,
+    path UTF8String OPTIONAL,
+    regex UTF8String OPTIONAL,
     types SEQUENCE OF UTF8String,
     allowData BOOLEAN
 }
