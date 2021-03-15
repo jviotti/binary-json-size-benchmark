@@ -1,18 +1,13 @@
 GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
-Options ::= SEQUENCE {
-    items SEQUENCE OF UTF8String
-}
-BooleanOptions ::= SEQUENCE {
-    items SEQUENCE OF BOOLEAN
-}
 ComplexRule ::= SEQUENCE {
     kind CHOICE {
         textual UTF8String,
-        options Options,
-        booleanOptions BooleanOptions
+        options SEQUENCE OF UTF8String,
+        booleanOptions SEQUENCE OF BOOLEAN
     }
 }
 Rules ::= SEQUENCE {
+    -- TODO: Use ENUMERATED for these string values
     requireAuthor UTF8String,
     requireDescription UTF8String,
     requireEngines UTF8String,

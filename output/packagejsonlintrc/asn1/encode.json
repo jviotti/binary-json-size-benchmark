@@ -1,0 +1,118 @@
+{
+  "rules": {
+    "requireAuthor": "error",
+    "requireDescription": "error",
+    "requireEngines": "error",
+    "requireLicense": "error",
+    "requireName": "error",
+    "requireRepository": "error",
+    "requireVersion": "error",
+    "requireBugs": "error",
+    "requireHomepage": "error",
+    "requireKeywords": "error",
+    "binType": "error",
+    "configType": "error",
+    "descriptionType": "error",
+    "devDependenciesType": "error",
+    "directoriesType": "error",
+    "enginesType": "error",
+    "filesType": "error",
+    "homepageType": "error",
+    "keywordsType": "error",
+    "licenseType": "error",
+    "mainType": "error",
+    "manType": "error",
+    "nameType": "error",
+    "preferGlobalType": "error",
+    "privateType": "error",
+    "repositoryType": "error",
+    "scriptsType": "error",
+    "versionType": "error",
+    "nameFormat": "error",
+    "versionFormat": "error",
+    "validValuesAuthor": [
+      {
+        "kind": {
+          "textual": "error"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "My name"
+          ]
+        }
+      }
+    ],
+    "validValuesPrivate": [
+      {
+        "kind": {
+          "textual": "error"
+        }
+      },
+      {
+        "kind": {
+          "booleanOptions": [
+            false
+          ]
+        }
+      }
+    ],
+    "noRestrictedDependencies": [
+      {
+        "kind": {
+          "textual": "error"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "gulping-npm-package-json-lint"
+          ]
+        }
+      }
+    ],
+    "noRestrictedPreReleaseDependencies": [
+      {
+        "kind": {
+          "textual": "error"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "gulping-npm-package-json-lint"
+          ]
+        }
+      }
+    ],
+    "noRestrictedInvalidDevDependencies": [
+      {
+        "kind": {
+          "textual": "error"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "gulping-npm-package-json-lint"
+          ]
+        }
+      }
+    ],
+    "noRestrictedPreReleaseDevDependencies": [
+      {
+        "kind": {
+          "textual": "error"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "gulping-npm-package-json-lint"
+          ]
+        }
+      }
+    ]
+  }
+}
