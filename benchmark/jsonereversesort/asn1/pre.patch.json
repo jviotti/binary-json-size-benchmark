@@ -1,0 +1,27 @@
+[
+  {
+    "op": "move",
+    "from": "/$let",
+    "path": "/let"
+  },
+  {
+    "op": "move",
+    "from": "/in/$reverse",
+    "path": "/in/reverse"
+  },
+  {
+    "op": "move",
+    "from": "/in/reverse/$sort",
+    "path": "/in/reverse/sort"
+  },
+  {
+    "op": "move",
+    "from": "/in/reverse/by(x)",
+    "path": "/in/reverse/byX"
+  },
+  {
+    "op": "move",
+    "from": "/in/reverse/sort/$eval",
+    "path": "/in/reverse/sort/eval"
+  }
+]

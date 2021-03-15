@@ -1,0 +1,14 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Main ::= SEQUENCE {
+    github UTF8String,
+    patreon NULL,
+    open_collective NULL,
+    ko_fi NULL,
+    tidelift NULL,
+    community_bridge NULL,
+    liberapay NULL,
+    issuehunt NULL,
+    otechie NULL,
+    custom NULL
+}
+END

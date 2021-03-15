@@ -1,0 +1,7 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Main ::= SEQUENCE {
+    general NULL,
+    stages NULL,
+    steps NULL
+}
+END

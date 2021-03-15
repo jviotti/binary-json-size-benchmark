@@ -1,0 +1,9 @@
+{
+  "rules":{
+    "orderedImports":{
+      "options":{
+        "groupedImports":true
+      }
+    }
+  }
+}

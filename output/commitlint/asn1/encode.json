@@ -1,0 +1,42 @@
+{
+  "rules": {
+    "scopeCase": [
+      {
+        "kind": {
+          "level": 2
+        }
+      },
+      {
+        "kind": {
+          "when": "always"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "lower-case"
+          ]
+        }
+      }
+    ],
+    "subjectCase": [
+      {
+        "kind": {
+          "level": 2
+        }
+      },
+      {
+        "kind": {
+          "when": "always"
+        }
+      },
+      {
+        "kind": {
+          "options": [
+            "lower-case"
+          ]
+        }
+      }
+    ]
+  }
+}

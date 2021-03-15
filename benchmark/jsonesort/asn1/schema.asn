@@ -1,0 +1,6 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Main ::= SEQUENCE {
+    sort SEQUENCE OF INTEGER (0..MAX),
+    byX UTF8String
+}
+END

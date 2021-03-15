@@ -1,0 +1,5 @@
+https://eample.comá3€https://example.comblockblock€/
+navigation ^/\d+$
+navigation@/imageimage 4^/(scoreboard|random|favorites|recentvisits|create)$
+navigation +^/(recent|popular|metrics|template|search)$
+navigation€

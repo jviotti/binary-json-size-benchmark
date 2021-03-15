@@ -1,0 +1,79 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Globals ::= SEQUENCE {
+    abortOnAssertionFailure BOOLEAN,
+    abortOnElementLocateError BOOLEAN,
+    waitForConditionPollInterval INTEGER (0..MAX),
+    waitForConditionTimeout INTEGER (0..MAX),
+    throwOnMultipleElementsReturned BOOLEAN,
+    suppressWarningsOnMultipleElementsReturned BOOLEAN,
+    asyncHookTimeout INTEGER (0..MAX),
+    unitTestsTimeout INTEGER (0..MAX),
+    customReporterCallbackTimeout INTEGER (0..MAX),
+    retryAssertionTimeout INTEGER (0..MAX)
+}
+Empty ::= SEQUENCE {
+}
+Selenium ::= SEQUENCE {
+    start_process BOOLEAN,
+    cli_args Empty,
+    server_path NULL,
+    log_path UTF8String,
+    check_process_delay INTEGER (0..MAX),
+    max_status_poll_tries INTEGER (0..MAX),
+    status_poll_interval INTEGER (0..MAX)
+}
+WebDriver ::= SEQUENCE {
+    start_process BOOLEAN,
+    cli_args Empty,
+    server_path NULL,
+    log_path UTF8String,
+    check_process_delay INTEGER (0..MAX),
+    max_status_poll_tries INTEGER (0..MAX),
+    status_poll_interval INTEGER (0..MAX),
+    process_create_timeout INTEGER (0..MAX),
+    timeout_options Empty
+}
+DesiredCapabilities ::= SEQUENCE {
+    browserName UTF8String
+}
+Main ::= SEQUENCE {
+    custom_commands_path NULL,
+    custom_assertions_path NULL,
+    page_objects_path NULL,
+    globals_path NULL,
+    globals Globals,
+    dotenv Empty,
+    persist_globals BOOLEAN,
+    output_folder UTF8String,
+    src_folders NULL,
+    live_output BOOLEAN,
+    disable_colors BOOLEAN,
+    parallel_process_delay INTEGER (0..MAX),
+    selenium Selenium,
+    start_session BOOLEAN,
+    end_session_on_fail BOOLEAN,
+    test_workers BOOLEAN,
+    test_runner UTF8String,
+    webdriver WebDriver,
+    test_settings Empty,
+    launch_url UTF8String,
+    silent BOOLEAN,
+    output BOOLEAN,
+    detailed_output BOOLEAN,
+    output_timestamp BOOLEAN,
+    disable_error_log BOOLEAN,
+    screenshots BOOLEAN,
+    log_screenshot_data BOOLEAN,
+    desiredCapabilities DesiredCapabilities,
+    exclude NULL,
+    filter NULL,
+    skipgroup UTF8String,
+    sync_test_names BOOLEAN,
+    skiptags UTF8String,
+    use_xpath BOOLEAN,
+    parallel_mode BOOLEAN,
+    report_prefix UTF8String,
+    unit_tests_mode BOOLEAN,
+    default_reporter UTF8String
+}
+END

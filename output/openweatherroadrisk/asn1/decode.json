@@ -1,0 +1,37 @@
+[
+  {
+    "dt":1602702000,
+    "coord":[
+      7.27E0,
+      4.404E1
+    ],
+    "weather":{
+      "temp":2.7844E2,
+      "wind_speed":2.27E0,
+      "wind_deg":7,
+      "precipitation_intensity":3.8E-1,
+      "dew_point":2.7613E2
+    },
+    "alerts":[
+      {
+        "sender_name":"METEO-FRANCE",
+        "event":"Moderate thunderstorm warning",
+        "event_level":2
+      }
+    ]
+  },
+  {
+    "dt":1602702400,
+    "coord":[
+      7.37E0,
+      4.504E1
+    ],
+    "weather":{
+      "temp":2.8244E2,
+      "wind_speed":1.84E0,
+      "wind_deg":316,
+      "dew_point":2.7599E2
+    },
+    "alerts":[]
+  }
+]

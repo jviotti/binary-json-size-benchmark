@@ -1,0 +1,68 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+EcmaFeatures ::= SEQUENCE {
+    jsx BOOLEAN
+}
+Environment ::= SEQUENCE {
+    browser BOOLEAN,
+    node BOOLEAN,
+    es6 BOOLEAN
+}
+JSDocOptions ::= SEQUENCE {
+    requireReturn BOOLEAN
+}
+JSDocRule ::= SEQUENCE {
+    kind CHOICE {
+        numeric INTEGER (0..2),
+        options JSDocOptions
+    }
+}
+Rules ::= SEQUENCE {
+    eqeqeq INTEGER (0..2),
+    commaDangle INTEGER (0..2),
+    noConsole INTEGER (0..2),
+    noDebugger INTEGER (0..2),
+    noExtraSemi INTEGER (0..2),
+    noExtraParens INTEGER (0..2),
+    noIrregularWhitespace INTEGER (0..2),
+    noUndef INTEGER (0..2),
+    noUnusedVars INTEGER (0..2),
+    semi INTEGER (0..2),
+    semiSpacing INTEGER (0..2),
+    validJsdoc SEQUENCE OF JSDocRule,
+    reactDisplayName INTEGER (0..2),
+    reactForbidPropTypes INTEGER (0..2),
+    reactJsxBooleanValue INTEGER (0..2),
+    reactJsxClosingBracketLocation INTEGER (0..2),
+    reactJsxCurlySpacing INTEGER (0..2),
+    reactJsxIndentProps INTEGER (0..2),
+    reactJsxMaxPropsPerLine INTEGER (0..2),
+    reactJsxNoDuplicateProps INTEGER (0..2),
+    reactJsxNoLiterals INTEGER (0..2),
+    reactJsxNoUndef INTEGER (0..2),
+    reactJsxSortPropTypes INTEGER (0..2),
+    reactJsxSortProps INTEGER (0..2),
+    reactJsxUsesReact INTEGER (0..2),
+    reactJsxUsesVars INTEGER (0..2),
+    reactNoDanger INTEGER (0..2),
+    reactNoDidMountSetState INTEGER (0..2),
+    reactNoDidUpdateSetState INTEGER (0..2),
+    reactNoDirectMutationState INTEGER (0..2),
+    reactNoMultiComp INTEGER (0..2),
+    reactNoSetState INTEGER (0..2),
+    reactNoUnknownProperty INTEGER (0..2),
+    reactPropTypes INTEGER (0..2),
+    reactReactInJsxScope INTEGER (0..2),
+    reactRequireExtension INTEGER (0..2),
+    reactSelfClosingComp INTEGER (0..2),
+    reactSortComp INTEGER (0..2),
+    reactWrapMultilines INTEGER (0..2)
+}
+Main ::= SEQUENCE {
+    extends UTF8String,
+    parser UTF8String,
+    ecmaFeatures EcmaFeatures,
+    plugins SEQUENCE OF UTF8String,
+    env Environment,
+    rules Rules
+}
+END

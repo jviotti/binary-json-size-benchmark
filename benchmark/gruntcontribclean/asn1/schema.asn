@@ -1,0 +1,17 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Options ::= SEQUENCE {
+    force BOOLEAN,
+    noWrite BOOLEAN
+}
+Files ::= SEQUENCE {
+}
+MainOptions ::= SEQUENCE {
+    files Files,
+    src SEQUENCE OF UTF8String
+}
+Main ::= SEQUENCE {
+    foo SEQUENCE OF UTF8String,
+    main MainOptions,
+    options Options
+}
+END

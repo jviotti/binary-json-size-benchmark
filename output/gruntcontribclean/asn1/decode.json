@@ -1,0 +1,15 @@
+{
+  "foo":[
+    "path"
+  ],
+  "main":{
+    "files":{},
+    "src":[
+      "path"
+    ]
+  },
+  "options":{
+    "force":true,
+    "noWrite":true
+  }
+}

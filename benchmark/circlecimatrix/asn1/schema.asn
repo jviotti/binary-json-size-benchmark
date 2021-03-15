@@ -1,0 +1,24 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Parameters ::= SEQUENCE {
+    a SEQUENCE OF INTEGER (0..MAX)
+}
+Matrix ::= SEQUENCE {
+    parameters Parameters
+}
+M1 ::= SEQUENCE {
+    matrix Matrix
+}
+Job ::= SEQUENCE {
+    m1 M1
+}
+TestWorkflow ::= SEQUENCE {
+    jobs SEQUENCE OF Job
+}
+Workflows ::= SEQUENCE {
+    test TestWorkflow
+}
+Main ::= SEQUENCE {
+    version REAL,
+    workflows Workflows
+}
+END

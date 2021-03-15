@@ -1,0 +1,17 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Notification ::= SEQUENCE {
+    secure UTF8String
+}
+Notifications ::= SEQUENCE {
+    campfire Notification,
+    irc Notification,
+    flowdock Notification,
+    hipchat Notification,
+    slack Notification,
+    webhooks Notification,
+    email Notification
+}
+Main ::= SEQUENCE {
+    notifications Notifications
+}
+END

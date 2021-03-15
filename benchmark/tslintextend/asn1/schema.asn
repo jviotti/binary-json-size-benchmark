@@ -1,0 +1,5 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Main ::= SEQUENCE {
+    extends SEQUENCE OF UTF8String
+}
+END

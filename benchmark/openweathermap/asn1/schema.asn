@@ -1,0 +1,50 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Coord ::= SEQUENCE {
+    lon REAL,
+    lat REAL
+}
+Weather ::= SEQUENCE {
+    id INTEGER (0..MAX),
+    main UTF8String,
+    description UTF8String,
+    icon UTF8String
+}
+MainObject ::= SEQUENCE {
+    temp REAL,
+    feels_like REAL,
+    temp_min REAL,
+    temp_max REAL,
+    pressure INTEGER (0..MAX),
+    humidity INTEGER (0..100)
+}
+Wind ::= SEQUENCE {
+    speed REAL,
+    deg INTEGER (1..360)
+}
+Clouds ::= SEQUENCE {
+    all INTEGER (0..MAX)
+}
+Sys ::= SEQUENCE {
+    type INTEGER (0..MAX),
+    id INTEGER (0..MAX),
+    message REAL,
+    country UTF8String,
+    sunrise INTEGER (0..MAX),
+    sunset INTEGER (0..MAX)
+}
+Main ::= SEQUENCE {
+    coord Coord,
+    weather SEQUENCE OF Weather,
+    base UTF8String,
+    main MainObject,
+    visibility INTEGER (0..MAX),
+    wind Wind,
+    clouds Clouds,
+    dt INTEGER (0..MAX),
+    sys Sys,
+    timezone INTEGER,
+    id INTEGER (0..MAX),
+    name UTF8String,
+    cod INTEGER (0..MAX)
+}
+END

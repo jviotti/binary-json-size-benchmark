@@ -1,0 +1,22 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Author ::= SEQUENCE {
+    name UTF8String,
+    url UTF8String,
+    avatar UTF8String
+}
+Item ::= SEQUENCE {
+    id UTF8String,
+    url UTF8String,
+    content_text UTF8String,
+    date_published UTF8String
+}
+Main ::= SEQUENCE {
+    version UTF8String,
+    user_comment UTF8String,
+    title UTF8String,
+    home_page_url UTF8String,
+    feed_url UTF8String,
+    author Author,
+    items SEQUENCE OF Item
+}
+END

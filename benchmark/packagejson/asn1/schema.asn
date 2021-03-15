@@ -1,0 +1,73 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Author ::= SEQUENCE {
+    name UTF8String,
+    url UTF8String
+}
+Repository ::= SEQUENCE {
+    type UTF8String,
+    url UTF8String
+}
+Bugs ::= SEQUENCE {
+    url UTF8String
+}
+License ::= SEQUENCE {
+    type UTF8String,
+    url UTF8String
+}
+Scripts ::= SEQUENCE {
+    test UTF8String
+}
+Engines ::= SEQUENCE {
+    node UTF8String
+}
+Dependencies ::= SEQUENCE {
+    async UTF8String,
+    coffeeScript UTF8String,
+    colors UTF8String,
+    dateformat UTF8String,
+    eventemitter2 UTF8String,
+    findupSync UTF8String,
+    glob UTF8String,
+    hooker UTF8String,
+    iconvLite UTF8String,
+    minimatch UTF8String,
+    nopt UTF8String,
+    rimraf UTF8String,
+    lodash UTF8String,
+    underscoreString UTF8String,
+    which UTF8String,
+    jsYaml UTF8String,
+    exit UTF8String,
+    getobject UTF8String,
+    gruntLegacyUtil UTF8String,
+    gruntLegacyLog UTF8String
+}
+DevDependencies ::= SEQUENCE {
+    temporary UTF8String,
+    gruntContribJshint UTF8String,
+    gruntContribNodeunit UTF8String,
+    gruntContribWatch UTF8String,
+    difflet UTF8String,
+    semver UTF8String,
+    shelljs UTF8String
+}
+Main ::= SEQUENCE {
+    name UTF8String,
+    description UTF8String,
+    version UTF8String,
+    author Author,
+    homepage UTF8String,
+    repository Repository,
+    bugs Bugs,
+    licenses SEQUENCE OF License,
+    main UTF8String,
+    scripts Scripts,
+    engines Engines,
+    keywords SEQUENCE OF UTF8String,
+    dependencies Dependencies,
+    devDependencies DevDependencies,
+    readme UTF8String,
+    id UTF8String,
+    from UTF8String
+}
+END
