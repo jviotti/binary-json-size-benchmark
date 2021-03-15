@@ -2,7 +2,7 @@ GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
 Main ::= SEQUENCE {
     cjs BOOLEAN,
     mainFields SEQUENCE OF UTF8String,
-    mode UTF8String,
+    mode ENUMERATED { auto, all, strict },
     force BOOLEAN,
     cache BOOLEAN,
     sourceMap BOOLEAN
