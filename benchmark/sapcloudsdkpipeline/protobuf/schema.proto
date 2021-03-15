@@ -1,8 +1,12 @@
 syntax = "proto3";
-import "google/protobuf/struct.proto";
+
+enum NullValue {
+  // Null value.
+  NULL_VALUE = 0;
+}
 
 message Main {
-  google.protobuf.NullValue general = 1;
-  google.protobuf.NullValue stages = 2;
-  google.protobuf.NullValue steps = 3;
+  NullValue general = 1;
+  NullValue stages = 2;
+  NullValue steps = 3;
 }

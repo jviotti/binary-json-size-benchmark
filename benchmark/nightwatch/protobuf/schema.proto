@@ -1,5 +1,9 @@
 syntax = "proto3";
-import "google/protobuf/struct.proto";
+
+enum NullValue {
+  // Null value.
+  NULL_VALUE = 0;
+}
 
 message Globals {
   bool abortOnAssertionFailure = 1;
@@ -19,7 +23,7 @@ message Empty {}
 message Selenium {
   bool start_process = 1;
   Empty cli_args = 2;
-  google.protobuf.NullValue server_path = 3;
+  NullValue server_path = 3;
   string log_path = 4;
   uint32 check_process_delay = 5;
   uint32 max_status_poll_tries = 6;
@@ -29,7 +33,7 @@ message Selenium {
 message WebDriver {
   bool start_process = 1;
   Empty cli_args = 2;
-  google.protobuf.NullValue server_path = 3;
+  NullValue server_path = 3;
   string log_path = 4;
   uint32 check_process_delay = 5;
   uint32 max_status_poll_tries = 6;
@@ -43,15 +47,15 @@ message DesiredCapabilities {
 }
 
 message Main {
-  google.protobuf.NullValue custom_commands_path = 1;
-  google.protobuf.NullValue custom_assertions_path = 2;
-  google.protobuf.NullValue page_objects_path = 3;
-  google.protobuf.NullValue globals_path = 4;
+  NullValue custom_commands_path = 1;
+  NullValue custom_assertions_path = 2;
+  NullValue page_objects_path = 3;
+  NullValue globals_path = 4;
   Globals globals = 5;
   Empty dotenv = 6;
   bool persist_globals = 7;
   string output_folder = 8;
-  google.protobuf.NullValue src_folders = 9;
+  NullValue src_folders = 9;
   bool live_output = 10;
   bool disable_colors = 11;
   uint32 parallel_process_delay = 12;
@@ -71,8 +75,8 @@ message Main {
   bool screenshots = 26;
   bool log_screenshot_data = 27;
   DesiredCapabilities desiredCapabilities = 28;
-  google.protobuf.NullValue exclude = 29;
-  google.protobuf.NullValue filter = 30;
+  NullValue exclude = 29;
+  NullValue filter = 30;
   string skipgroup = 31;
   bool sync_test_names = 32;
   string skiptags = 33;
