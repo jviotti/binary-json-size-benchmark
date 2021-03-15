@@ -21,7 +21,7 @@ Engines ::= SEQUENCE {
     node UTF8String
 }
 Dependencies ::= SEQUENCE {
-    async1 UTF8String,
+    async UTF8String,
     coffeeScript UTF8String,
     colors UTF8String,
     dateformat UTF8String,
