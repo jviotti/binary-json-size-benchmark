@@ -1,58 +1,54 @@
 GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
-NullValue ::= ENUMERATED {
-    --  Null value. --
-    nULL_VALUE(0)
-}
 Globals ::= SEQUENCE {
     abortOnAssertionFailure BOOLEAN,
     abortOnElementLocateError BOOLEAN,
-    waitForConditionPollInterval INTEGER,
-    waitForConditionTimeout INTEGER,
+    waitForConditionPollInterval INTEGER (0..MAX),
+    waitForConditionTimeout INTEGER (0..MAX),
     throwOnMultipleElementsReturned BOOLEAN,
     suppressWarningsOnMultipleElementsReturned BOOLEAN,
-    asyncHookTimeout INTEGER,
-    unitTestsTimeout INTEGER,
-    customReporterCallbackTimeout INTEGER,
-    retryAssertionTimeout INTEGER
+    asyncHookTimeout INTEGER (0..MAX),
+    unitTestsTimeout INTEGER (0..MAX),
+    customReporterCallbackTimeout INTEGER (0..MAX),
+    retryAssertionTimeout INTEGER (0..MAX)
 }
 Empty ::= SEQUENCE {
 }
 Selenium ::= SEQUENCE {
     start_process BOOLEAN,
     cli_args Empty,
-    server_path NullValue,
+    server_path NULL,
     log_path UTF8String,
-    check_process_delay INTEGER,
-    max_status_poll_tries INTEGER,
-    status_poll_interval INTEGER
+    check_process_delay INTEGER (0..MAX),
+    max_status_poll_tries INTEGER (0..MAX),
+    status_poll_interval INTEGER (0..MAX)
 }
 WebDriver ::= SEQUENCE {
     start_process BOOLEAN,
     cli_args Empty,
-    server_path NullValue,
+    server_path NULL,
     log_path UTF8String,
-    check_process_delay INTEGER,
-    max_status_poll_tries INTEGER,
-    status_poll_interval INTEGER,
-    process_create_timeout INTEGER,
+    check_process_delay INTEGER (0..MAX),
+    max_status_poll_tries INTEGER (0..MAX),
+    status_poll_interval INTEGER (0..MAX),
+    process_create_timeout INTEGER (0..MAX),
     timeout_options Empty
 }
 DesiredCapabilities ::= SEQUENCE {
     browserName UTF8String
 }
 Main ::= SEQUENCE {
-    custom_commands_path NullValue,
-    custom_assertions_path NullValue,
-    page_objects_path NullValue,
-    globals_path NullValue,
+    custom_commands_path NULL,
+    custom_assertions_path NULL,
+    page_objects_path NULL,
+    globals_path NULL,
     globals Globals,
     dotenv Empty,
     persist_globals BOOLEAN,
     output_folder UTF8String,
-    src_folders NullValue,
+    src_folders NULL,
     live_output BOOLEAN,
     disable_colors BOOLEAN,
-    parallel_process_delay INTEGER,
+    parallel_process_delay INTEGER (0..MAX),
     selenium Selenium,
     start_session BOOLEAN,
     end_session_on_fail BOOLEAN,
@@ -69,8 +65,8 @@ Main ::= SEQUENCE {
     screenshots BOOLEAN,
     log_screenshot_data BOOLEAN,
     desiredCapabilities DesiredCapabilities,
-    exclude NullValue,
-    filter NullValue,
+    exclude NULL,
+    filter NULL,
     skipgroup UTF8String,
     sync_test_names BOOLEAN,
     skiptags UTF8String,
