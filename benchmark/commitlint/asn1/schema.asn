@@ -1,12 +1,9 @@
 GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
-Options ::= SEQUENCE {
-    values SEQUENCE OF UTF8String
-}
 Rule ::= SEQUENCE {
     kind CHOICE {
         level INTEGER,
         when UTF8String,
-        options Options
+        options SEQUENCE OF UTF8String
     }
 }
 Rules ::= SEQUENCE {

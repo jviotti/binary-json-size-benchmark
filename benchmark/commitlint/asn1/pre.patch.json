@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "op": "move",
+    "from": "/rules/scope-case",
+    "path": "/rules/scopeCase"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subject-case",
+    "path": "/rules/subjectCase"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/scopeCase/0",
+    "value": { "kind": {} }
+  },
+  {
+    "op": "add",
+    "path": "/rules/scopeCase/0",
+    "value": { "kind": {} }
+  },
+  {
+    "op": "add",
+    "path": "/rules/scopeCase/0",
+    "value": { "kind": {} }
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/3",
+    "path": "/rules/scopeCase/0/kind/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/3",
+    "path": "/rules/scopeCase/1/kind/when"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/3",
+    "path": "/rules/scopeCase/2/kind/options"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/subjectCase/0",
+    "value": { "kind": {} }
+  },
+  {
+    "op": "add",
+    "path": "/rules/subjectCase/0",
+    "value": { "kind": {} }
+  },
+  {
+    "op": "add",
+    "path": "/rules/subjectCase/0",
+    "value": { "kind": {} }
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/3",
+    "path": "/rules/subjectCase/0/kind/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/3",
+    "path": "/rules/subjectCase/1/kind/when"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/3",
+    "path": "/rules/subjectCase/2/kind/options"
+  }
+]

@@ -1,1 +1,68 @@
-[]
+[
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/0/kind/level",
+    "path": "/rules/scopeCase/0"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/2/kind/when",
+    "path": "/rules/scopeCase/1"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/4/kind/options",
+    "path": "/rules/scopeCase/2"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/scopeCase/3"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/scopeCase/3"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/scopeCase/3"
+  },
+
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/0/kind/level",
+    "path": "/rules/subjectCase/0"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/2/kind/when",
+    "path": "/rules/subjectCase/1"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/4/kind/options",
+    "path": "/rules/subjectCase/2"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/subjectCase/3"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/subjectCase/3"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/subjectCase/3"
+  },
+
+  {
+    "op": "move",
+    "from": "/rules/scopeCase",
+    "path": "/rules/scope-case"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase",
+    "path": "/rules/subject-case"
+  }
+]
