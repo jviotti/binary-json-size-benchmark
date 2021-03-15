@@ -122,7 +122,7 @@ $(foreach format,$(FORMATS),$(eval $(call RULE_DECODE_PATCH,$(format))))
 ifdef ASN1STEP
 output/%/asn1/output.bin: output/%/asn1/encode.json benchmark/%/asn1/schema.asn \
 	| output/%/asn1
-	$(ASN1STEP) $^ -per -noRelaxedMode -decodePdu 0 -out $(basename $@)
+	$(ASN1STEP) $^ -per -noRelaxedMode -allow UnderscoresInAsn1Names -decodePdu 0 -out $(basename $@)
 	mv $(basename $@).per $@
 	xxd $@
 endif
@@ -198,7 +198,7 @@ ifdef ASN1STEP
 output/%/asn1/decode.json: output/%/asn1/output.bin benchmark/%/asn1/schema.asn \
 	| output/%/asn1
 	cp $< $(basename $<).per
-	$(ASN1STEP) $(basename $<).per $(word 2,$^) -json -noRelaxedMode -decodePdu 0 -out $(basename $@)
+	$(ASN1STEP) $(basename $<).per $(word 2,$^) -json -noRelaxedMode -allow UnderscoresInAsn1Names -decodePdu 0 -out $(basename $@)
 	rm $(basename $<).per
 	mv $(basename $@).json $@
 endif
