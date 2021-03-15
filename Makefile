@@ -216,9 +216,9 @@ output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin \
 	| output/%/bson
 	node $< $(word 2,$^) > $@
 
-output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp \
+output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp skeleton/capnproto/decode.sh \
 	| output/%/capnproto
-	DEPSDIR=$(DEPSDIR) ./skeleton/capnproto/decode.sh $(word 2,$^) $< $@
+	DEPSDIR=$(DEPSDIR) ./$(word 3,$^) $(word 2,$^) $< $@
 
 output/%/capnproto-packed/decode.json: output/%/capnproto-packed/output.bin benchmark/%/capnproto-packed/schema.capnp \
 	| output/%/capnproto-packed
