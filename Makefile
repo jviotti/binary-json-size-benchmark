@@ -218,7 +218,7 @@ output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin \
 
 output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp \
 	| output/%/capnproto
-	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert binary:json $(word 2,$^) Main < $< > $@
+	DEPSDIR=$(DEPSDIR) ./skeleton/capnproto/decode.sh $(word 2,$^) $< $@
 
 output/%/capnproto-packed/decode.json: output/%/capnproto-packed/output.bin benchmark/%/capnproto-packed/schema.capnp \
 	| output/%/capnproto-packed
