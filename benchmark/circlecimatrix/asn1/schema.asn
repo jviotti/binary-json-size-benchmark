@@ -1,6 +1,6 @@
 GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
 Parameters ::= SEQUENCE {
-    a SEQUENCE OF INTEGER
+    a SEQUENCE OF INTEGER (0..MAX)
 }
 Matrix ::= SEQUENCE {
     parameters Parameters
