@@ -275,10 +275,13 @@ endef
 
 $(foreach document,$(DOCUMENTS),$(eval $(call RULE_DOCUMENT_DAT,$(document))))
 
+CHARTS = $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS)))
+DATA = $(addsuffix /data.dat,$(addprefix output/,$(DOCUMENTS)))
+
 README.md: scripts/readme.sh \
-	$(wildcard charts/*.png) $(wildcard benchmark/*/NAME) \
+	$(CHARTS) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
-	$(wildcard benchmark/*/data.dat)
+	$(DATA)
 	./$< > $@
 
 benchmark: all
@@ -286,4 +289,4 @@ benchmark: all
 benchmark-%:
 	DEPSDIR="$(DEPSDIR)" make output/$(subst -,/,$(subst benchmark-,,$@))/output.json
 
-all: $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS))) README.md
+all: $(CHARTS) README.md
