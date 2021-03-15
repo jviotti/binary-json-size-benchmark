@@ -1,0 +1,6 @@
+{
+  "extends":[
+    "tslint-config-unional",
+    "tslint-config-standard"
+  ]
+}
