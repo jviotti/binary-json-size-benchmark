@@ -83,7 +83,13 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
 %.lzma: %
 	lzma -9 --stdout < $< > $@
 
-FORMATS = $(notdir $(wildcard skeleton/*))
+ALL_FORMATS = $(notdir $(wildcard skeleton/*))
+ifdef ASN1STEP
+FORMATS = $(ALL_FORMATS)
+else
+FORMATS = $(filter-out asn1,$(ALL_FORMATS))
+endif
+
 DOCUMENTS = $(notdir $(wildcard benchmark/*))
 
 define RULE_OUTPUT_DIRECTORY
@@ -112,6 +118,14 @@ endef
 $(foreach format,$(FORMATS),$(eval $(call RULE_DECODE_PATCH,$(format))))
 
 # Encoding
+
+ifdef ASN1STEP
+output/%/asn1/output.bin: output/%/asn1/encode.json benchmark/%/asn1/schema.asn \
+	| output/%/asn1
+	$(ASN1STEP) $^ -per -noRelaxedMode -decodePdu 0 -out $(basename $@)
+	mv $(basename $@).per $@
+	xxd $@
+endif
 
 output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benchmark/%/avro/schema.json \
 	| output/%/avro
@@ -179,6 +193,15 @@ output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.jso
 	xxd $@
 
 # Decoding
+
+ifdef ASN1STEP
+output/%/asn1/decode.json: output/%/asn1/output.bin benchmark/%/asn1/schema.asn \
+	| output/%/asn1
+	cp $< $(basename $<).per
+	$(ASN1STEP) $(basename $<).per $(word 2,$^) -json -noRelaxedMode -decodePdu 0 -out $(basename $@)
+	rm $(basename $<).per
+	mv $(basename $@).json $@
+endif
 
 output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json \
 	| output/%/avro
