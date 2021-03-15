@@ -1,0 +1,10 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Optimization ::= SEQUENCE {
+    includes SEQUENCE OF UTF8String,
+    excludes SEQUENCE OF UTF8String,
+    lossy BOOLEAN
+}
+Main ::= SEQUENCE {
+    optimizations SEQUENCE OF Optimization
+}
+END

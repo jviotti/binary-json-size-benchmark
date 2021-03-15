@@ -1,0 +1,19 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Options ::= SEQUENCE {
+    values SEQUENCE OF UTF8String
+}
+Rule ::= SEQUENCE {
+    kind CHOICE {
+        level INTEGER,
+        when UTF8String,
+        options Options
+    }
+}
+Rules ::= SEQUENCE {
+    scopeCase SEQUENCE OF Rule,
+    subjectCase SEQUENCE OF Rule
+}
+Main ::= SEQUENCE {
+    rules Rules
+}
+END

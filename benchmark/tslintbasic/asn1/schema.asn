@@ -1,0 +1,14 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Options ::= SEQUENCE {
+    groupedImports BOOLEAN
+}
+OrderedImports ::= SEQUENCE {
+    options Options
+}
+Rules ::= SEQUENCE {
+    orderedImports OrderedImports
+}
+Main ::= SEQUENCE {
+    rules Rules
+}
+END

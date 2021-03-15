@@ -1,0 +1,19 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Let ::= SEQUENCE {
+    x SEQUENCE OF INTEGER
+}
+Sort ::= SEQUENCE {
+    eval UTF8String
+}
+Reverse ::= SEQUENCE {
+    sort Sort,
+    byX UTF8String
+}
+In ::= SEQUENCE {
+    reverse Reverse
+}
+Main ::= SEQUENCE {
+    let Let,
+    in1 In
+}
+END

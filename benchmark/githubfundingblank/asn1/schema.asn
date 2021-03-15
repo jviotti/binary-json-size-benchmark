@@ -1,0 +1,18 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+NullValue ::= ENUMERATED {
+    --  Null value. --
+    nULL_VALUE(0)
+}
+Main ::= SEQUENCE {
+    github UTF8String,
+    patreon NullValue,
+    open_collective NullValue,
+    ko_fi NullValue,
+    tidelift NullValue,
+    community_bridge NullValue,
+    liberapay NullValue,
+    issuehunt NullValue,
+    otechie NullValue,
+    custom NullValue
+}
+END

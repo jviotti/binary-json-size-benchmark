@@ -1,0 +1,28 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Environment ::= SEQUENCE {
+    buildSuiteDir UTF8String
+}
+With ::= SEQUENCE {
+    nodeVersion UTF8String
+}
+Step ::= SEQUENCE {
+    uses UTF8String,
+    run UTF8String,
+    workingDirectory UTF8String,
+    with1 With,
+    name UTF8String
+}
+Build ::= SEQUENCE {
+    runsOn UTF8String,
+    env Environment,
+    steps SEQUENCE OF Step
+}
+Jobs ::= SEQUENCE {
+    build Build
+}
+Main ::= SEQUENCE {
+    name UTF8String,
+    on SEQUENCE OF UTF8String,
+    jobs Jobs
+}
+END

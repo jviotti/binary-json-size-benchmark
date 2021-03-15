@@ -1,0 +1,16 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Rule ::= SEQUENCE {
+    path UTF8String,
+    regex UTF8String,
+    types SEQUENCE OF UTF8String,
+    allowData BOOLEAN
+}
+Main ::= SEQUENCE {
+    site UTF8String,
+    maxAge INTEGER,
+    reportUrl UTF8String,
+    defaultNavBehavior UTF8String,
+    defaultResBehavior UTF8String,
+    rules SEQUENCE OF Rule
+}
+END

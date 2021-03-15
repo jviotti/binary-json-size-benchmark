@@ -1,0 +1,68 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+EcmaFeatures ::= SEQUENCE {
+    jsx BOOLEAN
+}
+Environment ::= SEQUENCE {
+    browser BOOLEAN,
+    node BOOLEAN,
+    es6 BOOLEAN
+}
+JSDocOptions ::= SEQUENCE {
+    requireReturn BOOLEAN
+}
+JSDocRule ::= SEQUENCE {
+    kind CHOICE {
+        numeric INTEGER,
+        options JSDocOptions
+    }
+}
+Rules ::= SEQUENCE {
+    eqeqeq INTEGER,
+    commaDangle INTEGER,
+    noConsole INTEGER,
+    noDebugger INTEGER,
+    noExtraSemi INTEGER,
+    noExtraParens INTEGER,
+    noIrregularWhitespace INTEGER,
+    noUndef INTEGER,
+    noUnusedVars INTEGER,
+    semi INTEGER,
+    semiSpacing INTEGER,
+    validJsdoc SEQUENCE OF JSDocRule,
+    reactDisplayName INTEGER,
+    reactForbidPropTypes INTEGER,
+    reactJsxBooleanValue INTEGER,
+    reactJsxClosingBracketLocation INTEGER,
+    reactJsxCurlySpacing INTEGER,
+    reactJsxIndentProps INTEGER,
+    reactJsxMaxPropsPerLine INTEGER,
+    reactJsxNoDuplicateProps INTEGER,
+    reactJsxNoLiterals INTEGER,
+    reactJsxNoUndef INTEGER,
+    reactJsxSortPropTypes INTEGER,
+    reactJsxSortProps INTEGER,
+    reactJsxUsesReact INTEGER,
+    reactJsxUsesVars INTEGER,
+    reactNoDanger INTEGER,
+    reactNoDidMountSetState INTEGER,
+    reactNoDidUpdateSetState INTEGER,
+    reactNoDirectMutationState INTEGER,
+    reactNoMultiComp INTEGER,
+    reactNoSetState INTEGER,
+    reactNoUnknownProperty INTEGER,
+    reactPropTypes INTEGER,
+    reactReactInJsxScope INTEGER,
+    reactRequireExtension INTEGER,
+    reactSelfClosingComp INTEGER,
+    reactSortComp INTEGER,
+    reactWrapMultilines INTEGER
+}
+Main ::= SEQUENCE {
+    extension UTF8String,
+    parser UTF8String,
+    ecmaFeatures EcmaFeatures,
+    plugins SEQUENCE OF UTF8String,
+    env Environment,
+    rules Rules
+}
+END

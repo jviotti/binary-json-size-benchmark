@@ -1,0 +1,23 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Alert ::= SEQUENCE {
+    sender_name UTF8String,
+    event UTF8String,
+    event_level INTEGER
+}
+Weather ::= SEQUENCE {
+    temp REAL,
+    wind_speed REAL,
+    wind_deg INTEGER,
+    precipitation_intensity REAL,
+    dew_point REAL
+}
+RoadRisk ::= SEQUENCE {
+    dt INTEGER,
+    coord SEQUENCE OF REAL,
+    weather Weather,
+    alerts SEQUENCE OF Alert
+}
+Main ::= SEQUENCE {
+    risks SEQUENCE OF RoadRisk
+}
+END

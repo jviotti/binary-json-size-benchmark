@@ -1,0 +1,52 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+CompilationOptions ::= SEQUENCE {
+    warningsAsErrors BOOLEAN
+}
+Dependencies ::= SEQUENCE {
+    microsoftBclImmutable UTF8String,
+    microsoftAspNetConfigurationModel UTF8String,
+    microsoftAspNetDependencyInjection UTF8String,
+    microsoftAspNetLogging UTF8String,
+    systemDataCommon UTF8String
+}
+Net45Dependencies ::= SEQUENCE {
+    systemRuntime UTF8String,
+    systemCollections UTF8String
+}
+K10Dependencies ::= SEQUENCE {
+    systemCollections UTF8String,
+    systemCollectionsConcurrent UTF8String,
+    systemComponentModel UTF8String,
+    systemConsole UTF8String,
+    systemDiagnosticsContracts UTF8String,
+    systemDiagnosticsDebug UTF8String,
+    systemGlobalization UTF8String,
+    systemLinq UTF8String,
+    systemLinqExpressions UTF8String,
+    systemLinqQueryable UTF8String,
+    systemReflection UTF8String,
+    systemReflectionExtensions UTF8String,
+    systemResourcesResourceManager UTF8String,
+    systemRuntime UTF8String,
+    systemRuntimeExtensions UTF8String,
+    systemThreading UTF8String,
+    systemThreadingTasks UTF8String
+}
+Net45 ::= SEQUENCE {
+    dependencies Net45Dependencies
+}
+K10 ::= SEQUENCE {
+    dependencies K10Dependencies
+}
+Frameworks ::= SEQUENCE {
+    net45 Net45,
+    k10 K10
+}
+Main ::= SEQUENCE {
+    version UTF8String,
+    compilationOptions CompilationOptions,
+    dependencies Dependencies,
+    code UTF8String,
+    frameworks Frameworks
+}
+END

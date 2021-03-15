@@ -1,0 +1,11 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+NullValue ::= ENUMERATED {
+    --  Null value. --
+    nULL_VALUE(0)
+}
+Main ::= SEQUENCE {
+    general NullValue,
+    stages NullValue,
+    steps NullValue
+}
+END

@@ -1,0 +1,94 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+Location ::= SEQUENCE {
+    address UTF8String,
+    postalCode UTF8String,
+    city UTF8String,
+    countryCode UTF8String,
+    region UTF8String
+}
+Profile ::= SEQUENCE {
+    network UTF8String,
+    username UTF8String,
+    url UTF8String
+}
+Basics ::= SEQUENCE {
+    name UTF8String,
+    label UTF8String,
+    picture UTF8String,
+    email UTF8String,
+    phone UTF8String,
+    website UTF8String,
+    summary UTF8String,
+    location Location,
+    profiles SEQUENCE OF Profile
+}
+Work ::= SEQUENCE {
+    company UTF8String,
+    position UTF8String,
+    website UTF8String,
+    startDate UTF8String,
+    endDate UTF8String,
+    summary UTF8String,
+    highlights SEQUENCE OF UTF8String
+}
+Volunteer ::= SEQUENCE {
+    organization UTF8String,
+    position UTF8String,
+    website UTF8String,
+    startDate UTF8String,
+    endDate UTF8String,
+    summary UTF8String,
+    highlights SEQUENCE OF UTF8String
+}
+Education ::= SEQUENCE {
+    institution UTF8String,
+    area UTF8String,
+    studyType UTF8String,
+    startDate UTF8String,
+    endDate UTF8String,
+    gpa UTF8String,
+    courses SEQUENCE OF UTF8String
+}
+Award ::= SEQUENCE {
+    title UTF8String,
+    date UTF8String,
+    awarder UTF8String,
+    summary UTF8String
+}
+Publication ::= SEQUENCE {
+    name UTF8String,
+    publisher UTF8String,
+    releaseDate UTF8String,
+    website UTF8String,
+    summary UTF8String
+}
+Skill ::= SEQUENCE {
+    name UTF8String,
+    level UTF8String,
+    keywords SEQUENCE OF UTF8String
+}
+Language ::= SEQUENCE {
+    language UTF8String,
+    fluency UTF8String
+}
+Interest ::= SEQUENCE {
+    name UTF8String,
+    keywords SEQUENCE OF UTF8String
+}
+Reference ::= SEQUENCE {
+    name UTF8String,
+    reference UTF8String
+}
+Main ::= SEQUENCE {
+    basics Basics,
+    work SEQUENCE OF Work,
+    volunteer SEQUENCE OF Volunteer,
+    education SEQUENCE OF Education,
+    awards SEQUENCE OF Award,
+    publications SEQUENCE OF Publication,
+    skills SEQUENCE OF Skill,
+    languages SEQUENCE OF Language,
+    interests SEQUENCE OF Interest,
+    references SEQUENCE OF Reference
+}
+END
