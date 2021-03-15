@@ -1,0 +1,27 @@
+[
+  {
+    "op": "move",
+    "from": "/user_comment",
+    "path": "/userComment"
+  },
+  {
+    "op": "move",
+    "from": "/home_page_url",
+    "path": "/homePageUrl"
+  },
+  {
+    "op": "move",
+    "from": "/feed_url",
+    "path": "/feedUrl"
+  },
+  {
+    "op": "move",
+    "from": "/items/0/content_text",
+    "path": "/items/0/contentText"
+  },
+  {
+    "op": "move",
+    "from": "/items/0/date_published",
+    "path": "/items/0/datePublished"
+  }
+]

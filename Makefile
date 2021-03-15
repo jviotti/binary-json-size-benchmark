@@ -137,6 +137,11 @@ output/%/bson/output.bin: skeleton/bson/encode.js output/%/bson/encode.json \
 	node $< $(word 2,$^) $@
 	xxd $@
 
+output/%/capnproto/output.bin: output/%/capnproto/encode.json benchmark/%/capnproto/schema.capnp \
+	| output/%/capnproto
+	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert json:binary $(word 2,$^) Main < $< > $@
+	xxd $@
+
 output/%/capnproto-packed/output.bin: output/%/capnproto-packed/encode.json benchmark/%/capnproto-packed/schema.capnp \
 	| output/%/capnproto-packed
 	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert json:packed $(word 2,$^) Main < $< > $@
@@ -210,6 +215,10 @@ output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benc
 output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin \
 	| output/%/bson
 	node $< $(word 2,$^) > $@
+
+output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp \
+	| output/%/capnproto
+	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert binary:json $(word 2,$^) Main < $< > $@
 
 output/%/capnproto-packed/decode.json: output/%/capnproto-packed/output.bin benchmark/%/capnproto-packed/schema.capnp \
 	| output/%/capnproto-packed

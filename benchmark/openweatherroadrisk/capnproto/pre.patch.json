@@ -1,0 +1,15 @@
+[
+  { "op": "move", "from": "/", "path": "/risks" },
+
+  { "op": "move", "from": "/risks/0/weather/wind_speed", "path": "/risks/0/weather/windSpeed" },
+  { "op": "move", "from": "/risks/0/weather/wind_deg", "path": "/risks/0/weather/windDeg" },
+  { "op": "move", "from": "/risks/0/weather/precipitation_intensity", "path": "/risks/0/weather/precipitationIntensity" },
+  { "op": "move", "from": "/risks/0/weather/dew_point", "path": "/risks/0/weather/dewPoint" },
+
+  { "op": "move", "from": "/risks/0/alerts/0/sender_name", "path": "/risks/0/alerts/0/senderName" },
+  { "op": "move", "from": "/risks/0/alerts/0/event_level", "path": "/risks/0/alerts/0/eventLevel" },
+
+  { "op": "move", "from": "/risks/1/weather/wind_speed", "path": "/risks/1/weather/windSpeed" },
+  { "op": "move", "from": "/risks/1/weather/wind_deg", "path": "/risks/1/weather/windDeg" },
+  { "op": "move", "from": "/risks/1/weather/dew_point", "path": "/risks/1/weather/dewPoint" }
+]

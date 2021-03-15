@@ -1,0 +1,181 @@
+[
+  {
+    "op": "move",
+    "path": "/rules/require-author",
+    "from": "/rules/requireAuthor"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-description",
+    "from": "/rules/requireDescription"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-engines",
+    "from": "/rules/requireEngines"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-license",
+    "from": "/rules/requireLicense"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-name",
+    "from": "/rules/requireName"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-repository",
+    "from": "/rules/requireRepository"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-version",
+    "from": "/rules/requireVersion"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-bugs",
+    "from": "/rules/requireBugs"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-homepage",
+    "from": "/rules/requireHomepage"
+  },
+  {
+    "op": "move",
+    "path": "/rules/require-keywords",
+    "from": "/rules/requireKeywords"
+  },
+  {
+    "op": "move",
+    "path": "/rules/bin-type",
+    "from": "/rules/binType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/config-type",
+    "from": "/rules/configType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/description-type",
+    "from": "/rules/descriptionType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/devDependencies-type",
+    "from": "/rules/devDependenciesType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/directories-type",
+    "from": "/rules/directoriesType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/engines-type",
+    "from": "/rules/enginesType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/files-type",
+    "from": "/rules/filesType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/homepage-type",
+    "from": "/rules/homepageType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/keywords-type",
+    "from": "/rules/keywordsType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/license-type",
+    "from": "/rules/licenseType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/main-type",
+    "from": "/rules/mainType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/man-type",
+    "from": "/rules/manType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/name-type",
+    "from": "/rules/nameType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/preferGlobal-type",
+    "from": "/rules/preferGlobalType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/private-type",
+    "from": "/rules/privateType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/repository-type",
+    "from": "/rules/repositoryType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/scripts-type",
+    "from": "/rules/scriptsType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/version-type",
+    "from": "/rules/versionType"
+  },
+  {
+    "op": "move",
+    "path": "/rules/name-format",
+    "from": "/rules/nameFormat"
+  },
+  {
+    "op": "move",
+    "path": "/rules/version-format",
+    "from": "/rules/versionFormat"
+  },
+
+
+  { "op": "add", "path": "/rules/valid-values-author", "value": [] },
+  { "op": "add", "path": "/rules/valid-values-private", "value": [] },
+  { "op": "add", "path": "/rules/no-restricted-dependencies", "value": [] },
+  { "op": "add", "path": "/rules/no-restricted-pre-release-dependencies", "value": [] },
+  { "op": "add", "path": "/rules/no-restricted-pre-release-devDependencies", "value": [] },
+  { "op": "add", "path": "/rules/no-restricted-invalid-devDependencies", "value": [] },
+
+  { "op": "move", "from": "/rules/validValuesAuthor/level", "path": "/rules/valid-values-author/0" },
+  { "op": "move", "from": "/rules/validValuesPrivate/level", "path": "/rules/valid-values-private/0" },
+  { "op": "move", "from": "/rules/noRestrictedDependencies/level", "path": "/rules/no-restricted-dependencies/0" },
+  { "op": "move", "from": "/rules/noRestrictedPreReleaseDependencies/level", "path": "/rules/no-restricted-pre-release-dependencies/0" },
+  { "op": "move", "from": "/rules/noRestrictedPreReleaseDevDependencies/level", "path": "/rules/no-restricted-pre-release-devDependencies/0" },
+  { "op": "move", "from": "/rules/noRestrictedInvalidDevDependencies/level", "path": "/rules/no-restricted-invalid-devDependencies/0" },
+
+  { "op": "move", "from": "/rules/validValuesAuthor/options", "path": "/rules/valid-values-author/1" },
+  { "op": "move", "from": "/rules/validValuesPrivate/options", "path": "/rules/valid-values-private/1" },
+  { "op": "move", "from": "/rules/noRestrictedDependencies/options", "path": "/rules/no-restricted-dependencies/1" },
+  { "op": "move", "from": "/rules/noRestrictedPreReleaseDependencies/options", "path": "/rules/no-restricted-pre-release-dependencies/1" },
+  { "op": "move", "from": "/rules/noRestrictedPreReleaseDevDependencies/options", "path": "/rules/no-restricted-pre-release-devDependencies/1" },
+  { "op": "move", "from": "/rules/noRestrictedInvalidDevDependencies/options", "path": "/rules/no-restricted-invalid-devDependencies/1" },
+
+  { "op": "remove", "path": "/rules/validValuesAuthor" },
+  { "op": "remove", "path": "/rules/validValuesPrivate" },
+  { "op": "remove", "path": "/rules/noRestrictedDependencies" },
+  { "op": "remove", "path": "/rules/noRestrictedPreReleaseDependencies" },
+  { "op": "remove", "path": "/rules/noRestrictedPreReleaseDevDependencies" },
+  { "op": "remove", "path": "/rules/noRestrictedInvalidDevDependencies" }
+]

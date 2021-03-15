@@ -1,0 +1,202 @@
+[
+  {
+    "op": "add",
+    "path": "/rules/valid-jsdoc",
+    "value": []
+  },
+  {
+    "op": "move",
+    "from": "/rules/validJsdoc/level",
+    "path": "/rules/valid-jsdoc/-"
+  },
+  {
+    "op": "move",
+    "from": "/rules/validJsdoc/options",
+    "path": "/rules/valid-jsdoc/-"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/validJsdoc"
+  },
+
+  {
+    "op": "move",
+    "path": "/rules/comma-dangle",
+    "from": "/rules/commaDangle"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-console",
+    "from": "/rules/noConsole"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-debugger",
+    "from": "/rules/noDebugger"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-extra-semi",
+    "from": "/rules/noExtraSemi"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-extra-parens",
+    "from": "/rules/noExtraParens"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-irregular-whitespace",
+    "from": "/rules/noIrregularWhitespace"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-undef",
+    "from": "/rules/noUndef"
+  },
+  {
+    "op": "move",
+    "path": "/rules/no-unused-vars",
+    "from": "/rules/noUnusedVars"
+  },
+  {
+    "op": "move",
+    "path": "/rules/semi-spacing",
+    "from": "/rules/semiSpacing"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1display-name",
+    "from": "/rules/reactDisplayName"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1forbid-prop-types",
+    "from": "/rules/reactForbidPropTypes"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-boolean-value",
+    "from": "/rules/reactJsxBooleanValue"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-closing-bracket-location",
+    "from": "/rules/reactJsxClosingBracketLocation"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-curly-spacing",
+    "from": "/rules/reactJsxCurlySpacing"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-indent-props",
+    "from": "/rules/reactJsxIndentProps"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-max-props-per-line",
+    "from": "/rules/reactJsxMaxPropsPerLine"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-no-duplicate-props",
+    "from": "/rules/reactJsxNoDuplicateProps"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-no-literals",
+    "from": "/rules/reactJsxNoLiterals"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-no-undef",
+    "from": "/rules/reactJsxNoUndef"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-sort-prop-types",
+    "from": "/rules/reactJsxSortPropTypes"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-sort-props",
+    "from": "/rules/reactJsxSortProps"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-uses-react",
+    "from": "/rules/reactJsxUsesReact"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1jsx-uses-vars",
+    "from": "/rules/reactJsxUsesVars"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-danger",
+    "from": "/rules/reactNoDanger"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-did-mount-set-state",
+    "from": "/rules/reactNoDidMountSetState"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-did-update-set-state",
+    "from": "/rules/reactNoDidUpdateSetState"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-direct-mutation-state",
+    "from": "/rules/reactNoDirectMutationState"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-multi-comp",
+    "from": "/rules/reactNoMultiComp"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-set-state",
+    "from": "/rules/reactNoSetState"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1no-unknown-property",
+    "from": "/rules/reactNoUnknownProperty"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1prop-types",
+    "from": "/rules/reactPropTypes"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1react-in-jsx-scope",
+    "from": "/rules/reactReactInJsxScope"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1require-extension",
+    "from": "/rules/reactRequireExtension"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1self-closing-comp",
+    "from": "/rules/reactSelfClosingComp"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1sort-comp",
+    "from": "/rules/reactSortComp"
+  },
+  {
+    "op": "move",
+    "path": "/rules/react~1wrap-multilines",
+    "from": "/rules/reactWrapMultilines"
+  }
+]
