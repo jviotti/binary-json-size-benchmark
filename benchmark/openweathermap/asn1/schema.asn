@@ -4,7 +4,7 @@ Coord ::= SEQUENCE {
     lat REAL
 }
 Weather ::= SEQUENCE {
-    id INTEGER,
+    id INTEGER (0..MAX),
     main UTF8String,
     description UTF8String,
     icon UTF8String
@@ -14,37 +14,37 @@ MainObject ::= SEQUENCE {
     feels_like REAL,
     temp_min REAL,
     temp_max REAL,
-    pressure INTEGER,
-    humidity INTEGER
+    pressure INTEGER (0..MAX),
+    humidity INTEGER (0..100)
 }
 Wind ::= SEQUENCE {
     speed REAL,
-    deg INTEGER
+    deg INTEGER (1..360)
 }
 Clouds ::= SEQUENCE {
-    all INTEGER
+    all INTEGER (0..MAX)
 }
 Sys ::= SEQUENCE {
-    type INTEGER,
-    id INTEGER,
+    type INTEGER (0..MAX),
+    id INTEGER (0..MAX),
     message REAL,
     country UTF8String,
-    sunrise INTEGER,
-    sunset INTEGER
+    sunrise INTEGER (0..MAX),
+    sunset INTEGER (0..MAX)
 }
 Main ::= SEQUENCE {
     coord Coord,
     weather SEQUENCE OF Weather,
     base UTF8String,
     main MainObject,
-    visibility INTEGER,
+    visibility INTEGER (0..MAX),
     wind Wind,
     clouds Clouds,
-    dt INTEGER,
+    dt INTEGER (0..MAX),
     sys Sys,
     timezone INTEGER,
-    id INTEGER,
+    id INTEGER (0..MAX),
     name UTF8String,
-    cod INTEGER
+    cod INTEGER (0..MAX)
 }
 END
