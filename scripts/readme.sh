@@ -7,6 +7,13 @@ echo "======================================="
 echo "
 A size benchmark of JSON-compatible binary serialization formats.
 
+Serialization Formats
+---------------------
+"
+
+cat docs/versions.markdown
+
+echo "
 Results
 -------
 "

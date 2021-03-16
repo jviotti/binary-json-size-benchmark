@@ -307,7 +307,7 @@ $(foreach document,$(DOCUMENTS),$(eval $(call RULE_DOCUMENT_DAT,$(document))))
 CHARTS = $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS)))
 DATA = $(addsuffix /data.dat,$(addprefix output/,$(DOCUMENTS)))
 
-README.md: scripts/readme.sh \
+README.md: scripts/readme.sh docs/versions.markdown \
 	$(CHARTS) $(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/document.json) \
 	$(DATA)
