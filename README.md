@@ -28,7 +28,7 @@ encodings described in the table below.
 Results
 -------
 
-### CircleCI definition (blank)
+<h3 id="circleciblank">CircleCI definition (blank)</h3>
 
 ![CircleCI definition (blank) chart](./charts/circleciblank.png)
 
@@ -52,7 +52,7 @@ Results
 | Apache Thrift (Compact Protocol) | 10 | 25 | 29 | 28 |
 | UBJSON | 13 | 33 | 32 | 37 |
 
-### CircleCI matrix definition
+<h3 id="circlecimatrix">CircleCI matrix definition</h3>
 
 ![CircleCI matrix definition chart](./charts/circlecimatrix.png)
 
@@ -76,7 +76,7 @@ Results
 | Apache Thrift (Compact Protocol) | 28 | 39 | 47 | 42 |
 | UBJSON | 92 | 103 | 111 | 104 |
 
-### CommitLint configuration
+<h3 id="commitlint">CommitLint configuration</h3>
 
 ![CommitLint configuration chart](./charts/commitlint.png)
 
@@ -100,7 +100,7 @@ Results
 | Apache Thrift (Compact Protocol) | 59 | 53 | 59 | 57 |
 | UBJSON | 93 | 79 | 86 | 83 |
 
-### CommitLint configuration (basic)
+<h3 id="commitlintbasic">CommitLint configuration (basic)</h3>
 
 ![CommitLint configuration (basic) chart](./charts/commitlintbasic.png)
 
@@ -124,7 +124,7 @@ Results
 | Apache Thrift (Compact Protocol) | 2 | 22 | 21 | 25 |
 | UBJSON | 19 | 39 | 38 | 43 |
 
-### Entry Point Regulation manifest
+<h3 id="epr">Entry Point Regulation manifest</h3>
 
 ![Entry Point Regulation manifest chart](./charts/epr.png)
 
@@ -148,7 +148,7 @@ Results
 | Apache Thrift (Compact Protocol) | 251 | 192 | 220 | 186 |
 | UBJSON | 469 | 272 | 326 | 265 |
 
-### ESLint configuration document
+<h3 id="eslintrc">ESLint configuration document</h3>
 
 ![ESLint configuration document chart](./charts/eslintrc.png)
 
@@ -172,7 +172,7 @@ Results
 | Apache Thrift (Compact Protocol) | 150 | 110 | 132 | 109 |
 | UBJSON | 1070 | 550 | 771 | 563 |
 
-###  ECMAScript module loader definition
+<h3 id="esmrc"> ECMAScript module loader definition</h3>
 
 ![ ECMAScript module loader definition chart](./charts/esmrc.png)
 
@@ -196,7 +196,7 @@ Results
 | Apache Thrift (Compact Protocol) | 24 | 44 | 43 | 48 |
 | UBJSON | 78 | 93 | 97 | 94 |
 
-### GeoJSON example JSON document
+<h3 id="geojson">GeoJSON example JSON document</h3>
 
 ![GeoJSON example JSON document chart](./charts/geojson.png)
 
@@ -220,7 +220,7 @@ Results
 | Apache Thrift (Compact Protocol) | 277 | 110 | 136 | 104 |
 | UBJSON | 208 | 126 | 153 | 120 |
 
-### GeoJSON example JSON document with redundant coordinates
+<h3 id="geojsonredundant">GeoJSON example JSON document with redundant coordinates</h3>
 
 ![GeoJSON example JSON document with redundant coordinates chart](./charts/geojsonredundant.png)
 
@@ -244,7 +244,7 @@ Results
 | Apache Thrift (Compact Protocol) | 277 | 110 | 136 | 104 |
 | UBJSON | 208 | 126 | 153 | 120 |
 
-### GitHub FUNDING sponsorship definition (empty)
+<h3 id="githubfundingblank">GitHub FUNDING sponsorship definition (empty)</h3>
 
 ![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
 
@@ -268,7 +268,7 @@ Results
 | Apache Thrift (Compact Protocol) | 18 | 38 | 37 | 42 |
 | UBJSON | 137 | 135 | 156 | 144 |
 
-### GitHub Workflow Definition
+<h3 id="githubworkflow">GitHub Workflow Definition</h3>
 
 ![GitHub Workflow Definition chart](./charts/githubworkflow.png)
 
@@ -292,7 +292,7 @@ Results
 | Apache Thrift (Compact Protocol) | 187 | 170 | 186 | 170 |
 | UBJSON | 339 | 243 | 291 | 249 |
 
-### Grunt.js "clean" task definition
+<h3 id="gruntcontribclean">Grunt.js "clean" task definition</h3>
 
 ![Grunt.js "clean" task definition chart](./charts/gruntcontribclean.png)
 
@@ -316,7 +316,7 @@ Results
 | Apache Thrift (Compact Protocol) | 23 | 38 | 39 | 41 |
 | UBJSON | 77 | 88 | 92 | 89 |
 
-### ImageOptimizer Azure Webjob configuration
+<h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob configuration</h3>
 
 ![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizerwebjob.png)
 
@@ -340,7 +340,7 @@ Results
 | Apache Thrift (Compact Protocol) | 26 | 46 | 45 | 50 |
 | UBJSON | 74 | 87 | 90 | 87 |
 
-### JSON-e templating engine reverse sort example
+<h3 id="jsonereversesort">JSON-e templating engine reverse sort example</h3>
 
 ![JSON-e templating engine reverse sort example chart](./charts/jsonereversesort.png)
 
@@ -364,7 +364,7 @@ Results
 | Apache Thrift (Compact Protocol) | 22 | 39 | 41 | 40 |
 | UBJSON | 70 | 83 | 89 | 87 |
 
-### JSON-e templating engine sort example
+<h3 id="jsonesort">JSON-e templating engine sort example</h3>
 
 ![JSON-e templating engine sort example chart](./charts/jsonesort.png)
 
@@ -388,7 +388,7 @@ Results
 | Apache Thrift (Compact Protocol) | 11 | 31 | 30 | 35 |
 | UBJSON | 30 | 48 | 49 | 53 |
 
-### JSON Feed example document
+<h3 id="jsonfeed">JSON Feed example document</h3>
 
 ![JSON Feed example document chart](./charts/jsonfeed.png)
 
@@ -412,7 +412,7 @@ Results
 | Apache Thrift (Compact Protocol) | 415 | 259 | 302 | 261 |
 | UBJSON | 557 | 348 | 428 | 354 |
 
-### JSON Resume
+<h3 id="jsonresume">JSON Resume</h3>
 
 ![JSON Resume chart](./charts/jsonresume.png)
 
@@ -436,7 +436,7 @@ Results
 | Apache Thrift (Compact Protocol) | 2230 | 1337 | 1815 | 1352 |
 | UBJSON | 2977 | 1658 | 2277 | 1665 |
 
-### .NET Core project.json
+<h3 id="netcoreproject">.NET Core project.json</h3>
 
 ![.NET Core project.json chart](./charts/netcoreproject.png)
 
@@ -460,7 +460,7 @@ Results
 | Apache Thrift (Compact Protocol) | 283 | 113 | 137 | 115 |
 | UBJSON | 1008 | 464 | 582 | 458 |
 
-### Nightwatch.js Test Framework Configuration
+<h3 id="nightwatch">Nightwatch.js Test Framework Configuration</h3>
 
 ![Nightwatch.js Test Framework Configuration chart](./charts/nightwatch.png)
 
@@ -484,7 +484,7 @@ Results
 | Apache Thrift (Compact Protocol) | 134 | 142 | 153 | 142 |
 | UBJSON | 1268 | 692 | 936 | 710 |
 
-### OpenWeatherMap API example JSON document
+<h3 id="openweathermap">OpenWeatherMap API example JSON document</h3>
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
 
@@ -508,7 +508,7 @@ Results
 | Apache Thrift (Compact Protocol) | 191 | 199 | 209 | 202 |
 | UBJSON | 439 | 382 | 446 | 379 |
 
-### OpenWeather Road Risk API example
+<h3 id="openweatherroadrisk">OpenWeather Road Risk API example</h3>
 
 ![OpenWeather Road Risk API example chart](./charts/openweatherroadrisk.png)
 
@@ -532,7 +532,7 @@ Results
 | Apache Thrift (Compact Protocol) | 177 | 171 | 184 | 173 |
 | UBJSON | 375 | 295 | 318 | 278 |
 
-### NPM Package.json example manifest
+<h3 id="packagejson">NPM Package.json example manifest</h3>
 
 ![NPM Package.json example manifest chart](./charts/packagejson.png)
 
@@ -556,7 +556,7 @@ Results
 | Apache Thrift (Compact Protocol) | 1561 | 848 | 1108 | 860 |
 | UBJSON | 2171 | 1173 | 1572 | 1178 |
 
-### NPM Package.json Linter configuration manifest
+<h3 id="packagejsonlintrc">NPM Package.json Linter configuration manifest</h3>
 
 ![NPM Package.json Linter configuration manifest chart](./charts/packagejsonlintrc.png)
 
@@ -580,7 +580,7 @@ Results
 | Apache Thrift (Compact Protocol) | 420 | 91 | 102 | 95 |
 | UBJSON | 1117 | 374 | 489 | 377 |
 
-### SAP Cloud SDK Continuous Delivery Toolkit configuration
+<h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit configuration</h3>
 
 ![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sapcloudsdkpipeline.png)
 
@@ -604,7 +604,7 @@ Results
 | Apache Thrift (Compact Protocol) | 1 | 21 | 20 | 24 |
 | UBJSON | 29 | 49 | 48 | 52 |
 
-### TravisCI notifications configuration
+<h3 id="travisnotifications">TravisCI notifications configuration</h3>
 
 ![TravisCI notifications configuration chart](./charts/travisnotifications.png)
 
@@ -628,7 +628,7 @@ Results
 | Apache Thrift (Compact Protocol) | 521 | 95 | 106 | 96 |
 | UBJSON | 658 | 163 | 198 | 169 |
 
-### TSLint linter definition (basic)
+<h3 id="tslintbasic">TSLint linter definition (basic)</h3>
 
 ![TSLint linter definition (basic) chart](./charts/tslintbasic.png)
 
@@ -652,7 +652,7 @@ Results
 | Apache Thrift (Compact Protocol) | 8 | 26 | 27 | 28 |
 | UBJSON | 59 | 66 | 72 | 67 |
 
-### TSLint linter definition (extends only)
+<h3 id="tslintextend">TSLint linter definition (extends only)</h3>
 
 ![TSLint linter definition (extends only) chart](./charts/tslintextend.png)
 
@@ -676,7 +676,7 @@ Results
 | Apache Thrift (Compact Protocol) | 48 | 56 | 58 | 59 |
 | UBJSON | 62 | 70 | 72 | 72 |
 
-### TSLint linter definition (multi-rule)
+<h3 id="tslintmulti">TSLint linter definition (multi-rule)</h3>
 
 ![TSLint linter definition (multi-rule) chart](./charts/tslintmulti.png)
 

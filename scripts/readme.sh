@@ -22,7 +22,7 @@ for document in output/*
 do
   DOCUMENT_ID="$(basename "$document")"
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
-  echo "### $TITLE"
+  echo "<h3 id=\"$DOCUMENT_ID\">$TITLE</h3>"
   echo ""
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
   echo "
