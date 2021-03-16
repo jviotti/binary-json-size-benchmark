@@ -40,3 +40,10 @@ Running locally
 "
 
 cat docs/reproducibility.markdown
+
+echo "
+License
+-------
+
+This work is released under the Apache-1.0 license.
+"

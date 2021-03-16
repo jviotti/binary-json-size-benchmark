@@ -739,3 +739,9 @@ instance. For example:
 ```sh
 make all ASN1STEP=/Applications/asn1step/asn1step/macosx-x86-64.trial/10.0.2/bin/asn1step
 ```
+
+License
+-------
+
+This work is released under the Apache-1.0 license.
+
