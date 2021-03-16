@@ -1,0 +1,212 @@
+[
+  {
+    "op": "move",
+    "from": "/custom_commands_path",
+    "path": "/customCommandsPath"
+  },
+  {
+    "op": "move",
+    "from": "/custom_assertions_path",
+    "path": "/customAssertionsPath"
+  },
+  {
+    "op": "move",
+    "from": "/page_objects_path",
+    "path": "/pageObjectsPath"
+  },
+  {
+    "op": "move",
+    "from": "/globals_path",
+    "path": "/globalsPath"
+  },
+  {
+    "op": "move",
+    "from": "/persist_globals",
+    "path": "/persistGlobals"
+  },
+  {
+    "op": "move",
+    "from": "/output_folder",
+    "path": "/outputFolder"
+  },
+  {
+    "op": "move",
+    "from": "/src_folders",
+    "path": "/srcFolders"
+  },
+  {
+    "op": "move",
+    "from": "/live_output",
+    "path": "/liveOutput"
+  },
+  {
+    "op": "move",
+    "from": "/disable_colors",
+    "path": "/disableColors"
+  },
+  {
+    "op": "move",
+    "from": "/parallel_process_delay",
+    "path": "/parallelProcessDelay"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/start_process",
+    "path": "/selenium/startProcess"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/cli_args",
+    "path": "/selenium/cliArgs"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/server_path",
+    "path": "/selenium/serverPath"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/log_path",
+    "path": "/selenium/logPath"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/check_process_delay",
+    "path": "/selenium/checkProcessDelay"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/max_status_poll_tries",
+    "path": "/selenium/maxStatusPollTries"
+  },
+  {
+    "op": "move",
+    "from": "/selenium/status_poll_interval",
+    "path": "/selenium/statusPollInterval"
+  },
+  {
+    "op": "move",
+    "from": "/start_session",
+    "path": "/startSession"
+  },
+  {
+    "op": "move",
+    "from": "/end_session_on_fail",
+    "path": "/endSessionOnFail"
+  },
+  {
+    "op": "move",
+    "from": "/test_workers",
+    "path": "/testWorkers"
+  },
+  {
+    "op": "move",
+    "from": "/test_runner",
+    "path": "/testRunner"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/start_process",
+    "path": "/webdriver/startProcess"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/cli_args",
+    "path": "/webdriver/cliArgs"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/server_path",
+    "path": "/webdriver/serverPath"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/log_path",
+    "path": "/webdriver/logPath"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/check_process_delay",
+    "path": "/webdriver/checkProcessDelay"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/max_status_poll_tries",
+    "path": "/webdriver/maxStatusPollTries"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/status_poll_interval",
+    "path": "/webdriver/statusPollInterval"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/process_create_timeout",
+    "path": "/webdriver/processCreateTimeout"
+  },
+  {
+    "op": "move",
+    "from": "/webdriver/timeout_options",
+    "path": "/webdriver/timeoutOptions"
+  },
+  {
+    "op": "move",
+    "from": "/test_settings",
+    "path": "/testSettings"
+  },
+  {
+    "op": "move",
+    "from": "/launch_url",
+    "path": "/launchUrl"
+  },
+  {
+    "op": "move",
+    "from": "/detailed_output",
+    "path": "/detailedOutput"
+  },
+  {
+    "op": "move",
+    "from": "/output_timestamp",
+    "path": "/outputTimestamp"
+  },
+  {
+    "op": "move",
+    "from": "/disable_error_log",
+    "path": "/disableErrorLog"
+  },
+  {
+    "op": "move",
+    "from": "/log_screenshot_data",
+    "path": "/logScreenshotData"
+  },
+  {
+    "op": "move",
+    "from": "/sync_test_names",
+    "path": "/syncTestNames"
+  },
+  {
+    "op": "move",
+    "from": "/use_xpath",
+    "path": "/useXpath"
+  },
+  {
+    "op": "move",
+    "from": "/parallel_mode",
+    "path": "/parallelMode"
+  },
+  {
+    "op": "move",
+    "from": "/report_prefix",
+    "path": "/reportPrefix"
+  },
+  {
+    "op": "move",
+    "from": "/unit_tests_mode",
+    "path": "/unitTestsMode"
+  },
+  {
+    "op": "move",
+    "from": "/default_reporter",
+    "path": "/defaultReporter"
+  }
+]

@@ -1,0 +1,15 @@
+{ "site": "https://eample.com",
+  "maxAge": 31536000,
+  "reportUrl": "https://example.com",
+  "defaultNavBehavior": "block",
+  "defaultResBehavior": "block",
+  "rules": [
+    {"path": "/", "types": ["navigation"], "allowData": false},
+    {"types": ["navigation"], "allowData": false, "regex": "^/\\d+$"},
+    {"path": "/image", "types": ["image"], "allowData": true},
+    { "types": ["navigation"],
+      "allowData": false,
+      "regex": "^/(scoreboard|random|favorites|recentvisits|create)$" },
+    { "types": ["navigation"],
+      "allowData": true,
+      "regex": "^/(recent|popular|metrics|template|search)$" } ] }

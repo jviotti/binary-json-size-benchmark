@@ -1,0 +1,276 @@
+[
+  {
+    "op": "move",
+    "from": "/rules/require-author",
+    "path": "/rules/requireAuthor"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-description",
+    "path": "/rules/requireDescription"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-engines",
+    "path": "/rules/requireEngines"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-license",
+    "path": "/rules/requireLicense"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-name",
+    "path": "/rules/requireName"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-repository",
+    "path": "/rules/requireRepository"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-version",
+    "path": "/rules/requireVersion"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-bugs",
+    "path": "/rules/requireBugs"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-homepage",
+    "path": "/rules/requireHomepage"
+  },
+  {
+    "op": "move",
+    "from": "/rules/require-keywords",
+    "path": "/rules/requireKeywords"
+  },
+  {
+    "op": "move",
+    "from": "/rules/bin-type",
+    "path": "/rules/binType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/config-type",
+    "path": "/rules/configType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/description-type",
+    "path": "/rules/descriptionType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/devDependencies-type",
+    "path": "/rules/devDependenciesType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/directories-type",
+    "path": "/rules/directoriesType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/engines-type",
+    "path": "/rules/enginesType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/files-type",
+    "path": "/rules/filesType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/homepage-type",
+    "path": "/rules/homepageType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/keywords-type",
+    "path": "/rules/keywordsType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/license-type",
+    "path": "/rules/licenseType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/main-type",
+    "path": "/rules/mainType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/man-type",
+    "path": "/rules/manType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/name-type",
+    "path": "/rules/nameType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/preferGlobal-type",
+    "path": "/rules/preferGlobalType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/private-type",
+    "path": "/rules/privateType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/repository-type",
+    "path": "/rules/repositoryType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scripts-type",
+    "path": "/rules/scriptsType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/version-type",
+    "path": "/rules/versionType"
+  },
+  {
+    "op": "move",
+    "from": "/rules/name-format",
+    "path": "/rules/nameFormat"
+  },
+  {
+    "op": "move",
+    "from": "/rules/version-format",
+    "path": "/rules/versionFormat"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/validValuesAuthor",
+    "value": {}
+  },
+  {
+    "op": "move",
+    "from": "/rules/valid-values-author/0",
+    "path": "/rules/validValuesAuthor/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/valid-values-author/0",
+    "path": "/rules/validValuesAuthor/options"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/valid-values-author"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/validValuesPrivate",
+    "value": {}
+  },
+  {
+    "op": "move",
+    "from": "/rules/valid-values-private/0",
+    "path": "/rules/validValuesPrivate/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/valid-values-private/0",
+    "path": "/rules/validValuesPrivate/options"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/valid-values-private"
+  },
+
+
+  {
+    "op": "add",
+    "path": "/rules/noRestrictedDependencies",
+    "value": {}
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-dependencies/0",
+    "path": "/rules/noRestrictedDependencies/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-dependencies/0",
+    "path": "/rules/noRestrictedDependencies/options"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/no-restricted-dependencies"
+  },
+
+
+
+
+  {
+    "op": "add",
+    "path": "/rules/noRestrictedPreReleaseDependencies",
+    "value": {}
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-pre-release-dependencies/0",
+    "path": "/rules/noRestrictedPreReleaseDependencies/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-pre-release-dependencies/0",
+    "path": "/rules/noRestrictedPreReleaseDependencies/options"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/no-restricted-pre-release-dependencies"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/noRestrictedPreReleaseDevDependencies",
+    "value": {}
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-pre-release-devDependencies/0",
+    "path": "/rules/noRestrictedPreReleaseDevDependencies/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-pre-release-devDependencies/0",
+    "path": "/rules/noRestrictedPreReleaseDevDependencies/options"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/no-restricted-pre-release-devDependencies"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/noRestrictedInvalidDevDependencies",
+    "value": {}
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-invalid-devDependencies/0",
+    "path": "/rules/noRestrictedInvalidDevDependencies/level"
+  },
+  {
+    "op": "move",
+    "from": "/rules/no-restricted-invalid-devDependencies/0",
+    "path": "/rules/noRestrictedInvalidDevDependencies/options"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/no-restricted-invalid-devDependencies"
+  }
+]

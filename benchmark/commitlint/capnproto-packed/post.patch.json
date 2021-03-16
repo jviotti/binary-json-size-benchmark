@@ -1,0 +1,51 @@
+[
+  {
+    "op": "add",
+    "path": "/rules/scope-case",
+    "value": []
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/level",
+    "path": "/rules/scope-case/-"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/when",
+    "path": "/rules/scope-case/-"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/options",
+    "path": "/rules/scope-case/-"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/scopeCase"
+  },
+
+  {
+    "op": "add",
+    "path": "/rules/subject-case",
+    "value": []
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/level",
+    "path": "/rules/subject-case/-"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/when",
+    "path": "/rules/subject-case/-"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/options",
+    "path": "/rules/subject-case/-"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/subjectCase"
+  }
+]

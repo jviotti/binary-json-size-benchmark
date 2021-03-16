@@ -1,13 +1,14 @@
 1 "ASN.1\n(PER Unaligned)" 1 21 20 24
 2 "Apache Avro\n(unframed)" 1 21 20 24
 3 "BSON" 22 41 41 44
-4 "Cap'n Proto\n(packed)" 6 26 25 29
-5 "CBOR" 17 37 36 41
-6 "FlatBuffers" 20 31 39 34
-7 "FlexBuffers" 25 45 44 49
-8 "JSON" 25 45 44 49
-9 "MessagePack" 17 37 36 41
-10 "Protocol Buffers" 0 20 15 23
-11 "Smile" 22 42 41 47
-12 "Apache Thrift\n(Compact Protocol)" 2 22 21 25
-13 "UBJSON" 19 39 38 43
+4 "Cap'n Proto" 24 31 41 31
+5 "Cap'n Proto\n(packed)" 6 26 25 29
+6 "CBOR" 17 37 36 41
+7 "FlatBuffers" 20 31 39 34
+8 "FlexBuffers" 25 45 44 49
+9 "JSON" 25 45 44 49
+10 "MessagePack" 17 37 36 41
+11 "Protocol Buffers" 0 20 15 23
+12 "Smile" 22 42 41 47
+13 "Apache Thrift\n(Compact Protocol)" 2 22 21 25
+14 "UBJSON" 19 39 38 43
