@@ -1,0 +1,5 @@
+namespace benchmark
+
+struct Main {
+  0: required list<string> extends;
+}
