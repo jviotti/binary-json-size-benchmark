@@ -21,13 +21,13 @@ namespace benchmark
         = Rule::Schema::GetMetadata();
     
     const ::bond::Metadata Rule::Schema::s_textual_metadata
-        = ::bond::reflection::MetadataInit("textual");
+        = ::bond::reflection::MetadataInit(::bond::nothing, "textual");
     
     const ::bond::Metadata Rule::Schema::s_numeric_metadata
-        = ::bond::reflection::MetadataInit("numeric");
+        = ::bond::reflection::MetadataInit(::bond::nothing, "numeric");
     
     const ::bond::Metadata Rule::Schema::s_multitextual_metadata
-        = ::bond::reflection::MetadataInit("multitextual");
+        = ::bond::reflection::MetadataInit(::bond::nothing, "multitextual");
 
     
     const ::bond::Metadata Rules::Schema::metadata

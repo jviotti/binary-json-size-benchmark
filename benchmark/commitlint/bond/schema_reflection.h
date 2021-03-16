@@ -38,7 +38,7 @@ namespace benchmark
                 0,
                 ::bond::reflection::optional_field_modifier,
                 Rule,
-                std::string,
+                ::bond::maybe<std::string>,
                 &Rule::textual,
                 &s_textual_metadata
             > {} textual;
@@ -48,7 +48,7 @@ namespace benchmark
                 1,
                 ::bond::reflection::optional_field_modifier,
                 Rule,
-                uint8_t,
+                ::bond::maybe<uint8_t>,
                 &Rule::numeric,
                 &s_numeric_metadata
             > {} numeric;
@@ -58,7 +58,7 @@ namespace benchmark
                 2,
                 ::bond::reflection::optional_field_modifier,
                 Rule,
-                std::list<std::string>,
+                ::bond::maybe<std::list<std::string> >,
                 &Rule::multitextual,
                 &s_multitextual_metadata
             > {} multitextual;

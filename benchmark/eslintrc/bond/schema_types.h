@@ -194,11 +194,10 @@ namespace benchmark
     
     struct JSDocRule
     {
-        uint8_t numeric;
+        ::bond::maybe<uint8_t> numeric;
         ::benchmark::JSDocOptions options;
         
         JSDocRule()
-          : numeric()
         {
         }
 

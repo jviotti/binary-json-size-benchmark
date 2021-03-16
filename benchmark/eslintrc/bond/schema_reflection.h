@@ -178,7 +178,7 @@ namespace benchmark
                 0,
                 ::bond::reflection::optional_field_modifier,
                 JSDocRule,
-                uint8_t,
+                ::bond::maybe<uint8_t>,
                 &JSDocRule::numeric,
                 &s_numeric_metadata
             > {} numeric;

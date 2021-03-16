@@ -33,12 +33,11 @@ namespace benchmark
     
     struct Rule
     {
-        std::string textual;
-        uint8_t numeric;
-        std::list<std::string> multitextual;
+        ::bond::maybe<std::string> textual;
+        ::bond::maybe<uint8_t> numeric;
+        ::bond::maybe<std::list<std::string> > multitextual;
         
         Rule()
-          : numeric()
         {
         }
 

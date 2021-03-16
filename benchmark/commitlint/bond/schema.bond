@@ -1,9 +1,9 @@
 namespace benchmark;
 
 struct Rule {
-  0: optional string textual;
-  1: optional uint8 numeric;
-  2: optional list<string> multitextual;
+  0: optional string textual = nothing;
+  1: optional uint8 numeric = nothing;
+  2: optional list<string> multitextual = nothing;
 }
 
 struct Rules {

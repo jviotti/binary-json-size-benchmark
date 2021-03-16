@@ -53,7 +53,7 @@ namespace benchmark
         = JSDocRule::Schema::GetMetadata();
     
     const ::bond::Metadata JSDocRule::Schema::s_numeric_metadata
-        = ::bond::reflection::MetadataInit("numeric");
+        = ::bond::reflection::MetadataInit(::bond::nothing, "numeric");
     
     const ::bond::Metadata JSDocRule::Schema::s_options_metadata
         = ::bond::reflection::MetadataInit("options");

@@ -15,7 +15,7 @@ struct JSDocOptions {
 }
 
 struct JSDocRule {
-  0: optional uint8 numeric;
+  0: optional uint8 numeric = nothing;
   1: optional JSDocOptions options;
 }
 

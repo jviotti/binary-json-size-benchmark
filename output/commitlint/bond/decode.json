@@ -1,1 +1,1 @@
-{"rules":{"scopeCase":[{"textual":"","numeric":2,"multitextual":[]},{"textual":"always","numeric":0,"multitextual":[]},{"textual":"","numeric":0,"multitextual":["lower-case"]}],"subjectCase":[{"textual":"","numeric":2,"multitextual":[]},{"textual":"always","numeric":0,"multitextual":[]},{"textual":"","numeric":0,"multitextual":["lower-case"]}]}}
+{"rules":{"scopeCase":[{"numeric":2},{"textual":"always"},{"multitextual":["lower-case"]}],"subjectCase":[{"numeric":2},{"textual":"always"},{"multitextual":["lower-case"]}]}}
