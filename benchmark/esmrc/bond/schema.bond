@@ -1,0 +1,10 @@
+namespace benchmark
+
+struct Main {
+  0: required bool cjs;
+  1: required list<string> mainFields;
+  2: required string mode;
+  3: required bool force;
+  4: required bool cache;
+  5: required bool sourceMap;
+}
