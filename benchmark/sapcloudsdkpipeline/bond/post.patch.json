@@ -1,1 +1,5 @@
-[]
+[
+  { "op": "add", "path": "/general", "value": null },
+  { "op": "add", "path": "/stages", "value": null },
+  { "op": "add", "path": "/steps", "value": null }
+]
