@@ -27,8 +27,10 @@ do
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
   echo "
 - [**Input Document**](benchmark/$DOCUMENT_ID/document.json)
-- [**Benchmark Numbers**](output/$DOCUMENT_ID/data.dat)
   "
+
+./data.awk output/$DOCUMENT_ID/data.dat
+
 done
 
 echo "

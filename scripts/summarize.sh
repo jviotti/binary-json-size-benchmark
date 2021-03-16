@@ -14,7 +14,7 @@ do
 
   NAME="$(cat "skeleton/$(basename "$format")/NAME")"
 
-  printf "%s \"%s\" %s %s %s %s\n" \
+  printf "%s  \"%s\"  %s  %s  %s  %s\n" \
     "$INDEX" \
     "$NAME" \
     "$(./scripts/byte-size.sh "$format/output.bin")" \

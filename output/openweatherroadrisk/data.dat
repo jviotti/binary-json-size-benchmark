@@ -1,15 +1,15 @@
-1 "ASN.1\n(PER Unaligned)" 176 168 184 163
-2 "Apache Avro\n(unframed)" 156 156 168 156
-3 "Microsoft Bond\n(Compact Binary v1)" 182 174 188 176
-4 "BSON" 422 315 354 303
-5 "Cap'n Proto" 296 216 265 203
-6 "Cap'n Proto\n(packed)" 204 204 214 205
-7 "CBOR" 340 275 298 256
-8 "FlatBuffers" 328 251 297 235
-9 "FlexBuffers" 488 376 420 357
-10 "JSON" 375 250 302 252
-11 "MessagePack" 339 276 297 259
-12 "Protocol Buffers" 173 171 183 172
-13 "Smile" 326 299 324 290
-14 "Apache Thrift\n(Compact Protocol)" 177 171 184 173
-15 "UBJSON" 375 295 318 278
+1  "ASN.1\n(PER Unaligned)"  176  168  184  163
+2  "Apache Avro\n(unframed)"  156  156  168  156
+3  "Microsoft Bond\n(Compact Binary v1)"  182  174  188  176
+4  "BSON"  422  315  354  303
+5  "Cap'n Proto"  296  216  265  203
+6  "Cap'n Proto\n(packed)"  204  204  214  205
+7  "CBOR"  340  275  298  256
+8  "FlatBuffers"  328  251  297  235
+9  "FlexBuffers"  488  376  420  357
+10  "JSON"  375  250  302  252
+11  "MessagePack"  339  276  297  259
+12  "Protocol Buffers"  173  171  183  172
+13  "Smile"  326  299  324  290
+14  "Apache Thrift\n(Compact Protocol)"  177  171  184  173
+15  "UBJSON"  375  295  318  278
