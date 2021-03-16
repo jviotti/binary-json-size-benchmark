@@ -1,0 +1,19 @@
+namespace benchmark
+
+struct Options {
+  0: required bool groupedImports;
+}
+
+struct OrderedImports {
+  0: required Options options;
+}
+
+struct Rules {
+  0: required list<bool> noAny;
+  1: required list<bool> radix;
+  2: required OrderedImports orderedImports;
+}
+
+struct Main {
+  0: required Rules rules;
+}
