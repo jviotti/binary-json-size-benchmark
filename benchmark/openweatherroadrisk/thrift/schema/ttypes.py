@@ -81,6 +81,12 @@ class Alert(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.sender_name is None:
+            raise TProtocolException(message='Required field sender_name is unset!')
+        if self.event is None:
+            raise TProtocolException(message='Required field event is unset!')
+        if self.event_level is None:
+            raise TProtocolException(message='Required field event_level is unset!')
         return
 
     def __repr__(self):
@@ -182,6 +188,14 @@ class Weather(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.temp is None:
+            raise TProtocolException(message='Required field temp is unset!')
+        if self.wind_speed is None:
+            raise TProtocolException(message='Required field wind_speed is unset!')
+        if self.wind_deg is None:
+            raise TProtocolException(message='Required field wind_deg is unset!')
+        if self.dew_point is None:
+            raise TProtocolException(message='Required field dew_point is unset!')
         return
 
     def __repr__(self):
@@ -290,6 +304,14 @@ class RoadRisk(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.dt is None:
+            raise TProtocolException(message='Required field dt is unset!')
+        if self.coord is None:
+            raise TProtocolException(message='Required field coord is unset!')
+        if self.weather is None:
+            raise TProtocolException(message='Required field weather is unset!')
+        if self.alerts is None:
+            raise TProtocolException(message='Required field alerts is unset!')
         return
 
     def __repr__(self):
@@ -356,6 +378,8 @@ class Main(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.risks is None:
+            raise TProtocolException(message='Required field risks is unset!')
         return
 
     def __repr__(self):
