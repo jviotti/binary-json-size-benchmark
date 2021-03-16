@@ -30,3 +30,10 @@ do
 - [**Benchmark Numbers**](output/$DOCUMENT_ID/data.dat)
   "
 done
+
+echo "
+Running locally
+---------------
+"
+
+cat docs/reproducibility.markdown
