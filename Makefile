@@ -7,6 +7,23 @@
 OS = $(shell uname)
 DEPSDIR ?= $(shell pwd)/.tmp
 
+CPPFLAGS_BOND ?= -lboost_thread-mt -lbond -std=c++11
+
+ifeq ($(OS),Darwin)
+# Allow Thrift to be compiled on macOS
+LDFLAGS += -L/usr/local/opt/bison@2.7/lib
+LDFLAGS += -L/usr/local/opt/openssl@1.1/lib
+LDFLAGS += -L/usr/local/Cellar/boost/1.75.0_2/lib
+CPPFLAGS += -I/usr/local/opt/openssl@1.1/include
+CPPFLAGS += -I/usr/local/Cellar/boost/1.75.0_2/include
+export PKG_CONFIG_PATH := /usr/local/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
+export PATH := /usr/local/opt/openjdk/bin:/usr/local/opt/bison@2.7/bin:/usr/local/opt/openssl@1.1/bin:$(PATH)
+
+# Link to Microsoft Bond
+# TODO: Vendor Microsoft Bond in order to get rid of this
+CPPFLAGS_BOND += -L/usr/local/Cellar/bond/9.0.4/lib/bond
+endif
+
 include vendor/vendorpull/targets.mk
 
 $(DEPSDIR):
@@ -38,17 +55,6 @@ deps-msgpack-tools: vendor/msgpack-tools | $(DEPSDIR)
 deps-lz4: vendor/lz4 | $(DEPSDIR)
 	cmake -S $</build/cmake -B $(DEPSDIR)/lz4 -DLZ4_BUILD_LEGACY_LZ4C=OFF
 	make --directory=$(DEPSDIR)/lz4
-
-# Allow Thrift to be compiled on macOS
-ifeq ($(OS),Darwin)
-LDFLAGS += -L/usr/local/opt/bison@2.7/lib
-LDFLAGS += -L/usr/local/opt/openssl@1.1/lib
-LDFLAGS += -L/usr/local/Cellar/boost/1.75.0_2/lib
-CPPFLAGS += -I/usr/local/opt/openssl@1.1/include
-CPPFLAGS += -I/usr/local/Cellar/boost/1.75.0_2/include
-export PKG_CONFIG_PATH := /usr/local/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
-export PATH := /usr/local/opt/openjdk/bin:/usr/local/opt/bison@2.7/bin:/usr/local/opt/openssl@1.1/bin:$(PATH)
-endif
 
 deps-thrift: vendor/thrift | $(DEPSDIR)
 	cd $< && ./bootstrap.sh && ./configure --prefix=$(DEPSDIR)/thrift \
@@ -140,9 +146,9 @@ output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benc
 output/%/bond/output.bin: output/%/bond/encode.json benchmark/%/bond/schema.bond skeleton/bond/encode.cpp \
 	| output/%/bond
 	gbc c++ $(word 2,$^) --output-dir=$(dir $(word 2,$^))
-	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) -lboost_thread-mt -L/usr/local/Cellar/bond/9.0.4/lib/bond -lbond \
+	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) $(CPPFLAGS_BOND) \
 		$(dir $(word 2,$^))schema_apply.cpp $(dir $(word 2,$^))schema_types.cpp \
-		-o $(dir $@)encode -std=c++11 -Wall
+		-o $(dir $@)encode -Wall
 	$(dir $@)encode $< $@
 	rm $(dir $@)encode
 	xxd $@
@@ -227,13 +233,11 @@ output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benc
 	| output/%/avro
 	python3 $< $(word 2,$^) $(word 3,$^) > $@
 
-# TODO: Correctly link to Bond with an OS-independent path
-# Maybe we will fix this once we vendor bond?
 output/%/bond/decode.json: output/%/bond/output.bin benchmark/%/bond/schema.bond skeleton/bond/decode.cpp \
 	| output/%/bond
-	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) -lboost_thread-mt -L/usr/local/Cellar/bond/9.0.4/lib/bond -lbond \
+	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) $(CPPFLAGS_BOND) \
 		$(dir $(word 2,$^))schema_apply.cpp $(dir $(word 2,$^))schema_types.cpp \
-		-o $(dir $@)decode -std=c++11 -Wall
+		-o $(dir $@)decode -Wall
 	$(dir $@)decode $< $@
 	rm $(dir $@)decode
 
