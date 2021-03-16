@@ -3,12 +3,11 @@ set style data histogram
 set style histogram cluster gap 1
 set style fill solid border -1
 set terminal pngcairo size 1000, 500
-set xlabel "Serialization Formats"
 set xtics rotate by 90 right
 set ylabel "Byte Size"
 set grid
 set key above height 1.5
-set bmargin 13.5
+set bmargin 11
 set lmargin 9
 
 plot filename using 3:xtic(2) title 'Uncompressed',\
