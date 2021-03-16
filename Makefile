@@ -137,6 +137,16 @@ output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benc
 	python3 $< $(word 2,$^) $(word 3,$^) $@
 	xxd $@
 
+output/%/bond/output.bin: output/%/bond/encode.json benchmark/%/bond/schema.bond skeleton/bond/encode.cpp \
+	| output/%/bond
+	gbc c++ $(word 2,$^) --output-dir=$(dir $(word 2,$^))
+	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) -lboost_thread-mt -L/usr/local/Cellar/bond/9.0.4/lib/bond -lbond \
+		$(dir $(word 2,$^))schema_apply.cpp $(dir $(word 2,$^))schema_types.cpp \
+		-o $(dir $@)encode -std=c++11 -Wall
+	$(dir $@)encode $< $@
+	rm $(dir $@)encode
+	xxd $@
+
 output/%/bson/output.bin: skeleton/bson/encode.js output/%/bson/encode.json \
 	| output/%/bson
 	node $< $(word 2,$^) $@
@@ -216,6 +226,16 @@ endif
 output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benchmark/%/avro/schema.json \
 	| output/%/avro
 	python3 $< $(word 2,$^) $(word 3,$^) > $@
+
+# TODO: Correctly link to Bond with an OS-independent path
+# Maybe we will fix this once we vendor bond?
+output/%/bond/decode.json: output/%/bond/output.bin benchmark/%/bond/schema.bond skeleton/bond/decode.cpp \
+	| output/%/bond
+	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) -lboost_thread-mt -L/usr/local/Cellar/bond/9.0.4/lib/bond -lbond \
+		$(dir $(word 2,$^))schema_apply.cpp $(dir $(word 2,$^))schema_types.cpp \
+		-o $(dir $@)decode -std=c++11 -Wall
+	$(dir $@)decode $< $@
+	rm $(dir $@)decode
 
 output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin \
 	| output/%/bson
