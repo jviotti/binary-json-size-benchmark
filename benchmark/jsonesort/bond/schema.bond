@@ -1,0 +1,6 @@
+namespace benchmark
+
+struct Main {
+  0: required list<uint8> sort;
+  1: required string byX;
+}
