@@ -1,1 +1,11 @@
-[]
+[
+  { "op": "add", "path": "/patreon", "value": null },
+  { "op": "add", "path": "/open_collective", "value": null },
+  { "op": "add", "path": "/ko_fi", "value": null },
+  { "op": "add", "path": "/tidelift", "value": null },
+  { "op": "add", "path": "/community_bridge", "value": null },
+  { "op": "add", "path": "/liberapay", "value": null },
+  { "op": "add", "path": "/issuehunt", "value": null },
+  { "op": "add", "path": "/otechie", "value": null },
+  { "op": "add", "path": "/custom", "value": null }
+]
