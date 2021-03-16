@@ -1,1 +1,7 @@
-[]
+[
+  { "op": "remove", "path": "/rules/0/regex" },
+  { "op": "remove", "path": "/rules/1/path" },
+  { "op": "remove", "path": "/rules/2/regex" },
+  { "op": "remove", "path": "/rules/3/path" },
+  { "op": "remove", "path": "/rules/4/path" }
+]
