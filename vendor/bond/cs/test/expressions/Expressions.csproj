@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath32)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\build\internal\Common.Internal.props" />
+  <PropertyGroup>
+    <ProjectGuid>{73688AC6-AFA5-4D1A-80B8-F621D8FF5749}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ExpressionsTest</RootNamespace>
+    <AssemblyName>Bond.ExpressionsTest</AssemblyName>
+    <BondOptions>--using="reference=ExpressionsTest.RefObject" --using="decimal=decimal" --using="DateTime=System.DateTime"</BondOptions>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="properties\AssemblyInfo.cs" />
+    <BondCodegen Include="schemas.bond" />
+    <!-- Resharper Workaround -->
+    <Compile Include="$(IntermediateOutputPath)\schemas_types.cs" Condition="False" />
+    <!-- End Resharper Workaround -->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\attributes\Attributes.csproj" />
+    <ProjectReference Include="..\..\src\core\Bond.csproj" />
+    <ProjectReference Include="..\..\src\io\IO.csproj" />
+    <ProjectReference Include="..\..\src\json\JSON.csproj" />
+    <ProjectReference Include="..\..\src\reflection\reflection.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\build\internal\Common.Internal.targets" />
+</Project>

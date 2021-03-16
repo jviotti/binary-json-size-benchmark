@@ -1,0 +1,60 @@
+﻿import "bond/core/bond.bond"
+
+namespace ExpressionsTest
+
+struct Base
+{
+    0: vector<vector<uint64>> vvb;
+}
+
+struct Nested
+{
+    0: double _double;
+}
+
+struct Generic<T : value>
+{
+    0: T value;
+}
+
+struct GenericNothing<T : value>
+{
+    0: T value = nothing;
+}
+
+using DateTime = int64;
+using decimal = blob;
+using reference = blob;
+
+struct Example : Base
+{
+     0: bool _bool;
+     2: string _str;
+    14: int8 _int8;
+    17: required int64 _int64;
+    [JsonName("JsonUint32")]
+    12: uint32 _uint32;
+    18: double _double;
+    20: bond.GUID guid;
+    30: vector<int32> _int32Vector;
+    40: list<Nested> _nestedVector;
+    50: blob b;
+    51: list<blob> _blobList;
+    52: vector<blob> _blobVector;
+    53: map<int32, blob> _blobMap;
+    54: nullable<blob> _blobNullable;
+    60: map<int32, double> _map;
+    70: decimal _decimal;
+    71: list<decimal> _decList;
+    72: vector<decimal> _decVector;
+    73: map<int32, decimal> _decMap;
+    74: nullable<decimal> _decNullable;
+    75: required decimal _decimal_req;
+    80: reference _reference;
+    81: list<reference> _refList;
+    82: vector<reference> _refVector;
+    83: map<int32, reference> _refMap;
+    84: nullable<reference> _refNullable;
+    85: Generic<DateTime> _dt;
+    86: GenericNothing<DateTime> _dt2;
+};

@@ -1,0 +1,55 @@
+{
+  "structs": [
+    {
+      "base_def": [
+        {
+          "struct_def": 1
+        }
+      ],
+      "fields": [],
+      "metadata": {
+        "name": "AliasBase",
+        "qualified_name": "tests.AliasBase"
+      }
+    },
+    {
+      "base_def": [
+        {
+          "struct_def": 2
+        }
+      ],
+      "fields": [
+        {
+          "id": 0,
+          "metadata": {
+            "name": "l"
+          },
+          "type": {
+            "element": [
+              {
+                "element": [
+                  {
+                    "struct_def": 2
+                  }
+                ],
+                "id": 11
+              }
+            ],
+            "id": 11
+          }
+        }
+      ],
+      "metadata": {
+        "name": "Generic<tests.Foo>",
+        "qualified_name": "tests.Generic<tests.Foo>"
+      }
+    },
+    {
+      "fields": [],
+      "metadata": {
+        "name": "Foo",
+        "qualified_name": "tests.Foo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+# Build and test artifacts
+bin/
+obj/
+TestResults/
+tools/
+Debug/
+Release/
+
+# Nuget packages 
+packages/
+
+# Profiler artifacts
+*.exe.manifest
+*.vsp
+
+# Resharper cache
+_ReSharper.*
+
+# Visual Studio
+*.sdf
+*.suo
+*.user
+*.opendb
+*.opensdf
+*.psess
+*.VC.db
+
+# MSBuild binary log
+msbuild.binlog

@@ -1,0 +1,40 @@
+group 'org.bondlib'
+version '1.0'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.bondlib:bond-gradle:+'
+    }
+}
+
+apply plugin: 'application'
+apply plugin: 'org.bondlib.gradle'
+
+sourceCompatibility = 1.8
+mainClassName = 'org.bondlib.examples.GenericTree'
+applicationDefaultJvmArgs = ['-ea']
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.bondlib:bond:+'
+}
+
+compileBond {
+    bondfiles 'src/main/bond/generic_tree.bond'
+    options '--namespace', 'examples.generic_tree=org.bondlib.examples.generictree'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}

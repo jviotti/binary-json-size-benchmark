@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Bond.Runtime.CSharp</id>
+        <title>Bond C# runtime</title>
+        <version>$version$</version>
+        <authors>Microsoft</authors>
+        <owners>Microsoft</owners>
+        <projectUrl>https://github.com/microsoft/bond/</projectUrl>
+        <license type="expression">MIT</license>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <icon>images\bond-logo-64x64-transparent.png</icon>
+        <iconUrl>https://raw.githubusercontent.com/microsoft/bond/master/doc/src/logos/bond-logo-64x64-transparent.png</iconUrl>
+        <summary>Bond is an open source, cross-platform, cross-language framework for working with schematized data.</summary>
+        <description>
+            Bond is an open source, cross-platform framework for working with schematized data. It supports cross-language serialization/deserialization and powerful generic mechanisms for efficiently manipulating data.
+
+            Bond is published on GitHub at https://github.com/microsoft/bond/
+
+            The C# documentation is available at https://microsoft.github.io/bond/manual/bond_cs.html
+
+            This package contains Bond runtime assemblies and can be specified as a dependency for other NuGet packages using Bond. The full Bond C# distribution is in the Bond.CSharp package.
+        </description>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <tags>Bond .NET C# serialization</tags>
+        <dependencies>
+            <dependency id="Newtonsoft.Json" version="9.0.1" />
+            <dependency id="Bond.Core.CSharp" version ="[$version$] "/>
+        </dependencies>
+    </metadata>
+    <files>
+        <file target="images\" src="doc\src\logos\bond-logo-64x64-transparent.png" />
+
+        <file target="lib\net45" src="cs\bin\retail\net45\Bond.JSON.dll" />
+        <file target="lib\net45" src="cs\bin\retail\net45\Bond.JSON.pdb" />
+        <file target="lib\net45" src="cs\bin\retail\net45\Bond.JSON.xml" />
+
+        <file target="lib\netstandard1.0" src="cs\bin\retail\netstandard1.0\Bond.JSON.dll" />
+        <file target="lib\netstandard1.0" src="cs\bin\retail\netstandard1.0\Bond.JSON.pdb" />
+        <file target="lib\netstandard1.0" src="cs\bin\retail\netstandard1.0\Bond.JSON.xml" />
+
+        <file target="lib\netstandard1.3" src="cs\bin\retail\netstandard1.0\Bond.JSON.dll" />
+        <file target="lib\netstandard1.3" src="cs\bin\retail\netstandard1.0\Bond.JSON.pdb" />
+        <file target="lib\netstandard1.3" src="cs\bin\retail\netstandard1.0\Bond.JSON.xml" />
+
+        <file target="lib\netstandard1.6" src="cs\bin\retail\netstandard1.6\Bond.JSON.dll" />
+        <file target="lib\netstandard1.6" src="cs\bin\retail\netstandard1.6\Bond.JSON.pdb" />
+        <file target="lib\netstandard1.6" src="cs\bin\retail\netstandard1.6\Bond.JSON.xml" />
+    </files>
+</package>

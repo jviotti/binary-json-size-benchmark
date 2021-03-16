@@ -1,0 +1,57 @@
+{
+  "structs": [
+    {
+      "fields": [
+        {
+          "id": 0,
+          "metadata": {
+            "name": "root"
+          },
+          "type": {
+            "struct_def": 1
+          }
+        }
+      ],
+      "metadata": {
+        "name": "StringTree",
+        "qualified_name": "tests.StringTree"
+      }
+    },
+    {
+      "fields": [
+        {
+          "id": 0,
+          "metadata": {
+            "name": "left"
+          },
+          "type": {
+            "element": [
+              {
+                "struct_def": 1
+              }
+            ],
+            "id": 11
+          }
+        },
+        {
+          "id": 1,
+          "metadata": {
+            "name": "right"
+          },
+          "type": {
+            "element": [
+              {
+                "struct_def": 1
+              }
+            ],
+            "id": 11
+          }
+        }
+      ],
+      "metadata": {
+        "name": "Node<string>",
+        "qualified_name": "tests.Node<string>"
+      }
+    }
+  ]
+}

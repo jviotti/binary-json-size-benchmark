@@ -1,0 +1,167 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 5f829cf187d9630385924b752fae193c51da82b2d9bfc0ef8f38f23a638fc604
+
+name:           bond
+version:        0.12.1.0
+synopsis:       Bond schema compiler and code generator
+description:    Bond is a cross-platform framework for handling schematized data. It supports cross-language de/serialization and powerful generic mechanisms for efficiently manipulating data. . This package contains a library for parsing the Bond schema definition language and performing template-based code generation. The library includes built-in templates for generating standard Bond C++ and C# code, as well as utilities for writing custom codegen templates. . The package also contains a command-line compiler/codegen tool, named gbc, which is primarily used to generate code for C++ and C# programs using Bond.
+category:       Language, Compiler, Code Generation
+homepage:       https://github.com/microsoft/bond#readme
+bug-reports:    https://github.com/microsoft/bond/issues
+author:         Adam Sapek <adamsap@microsoft.com>
+maintainer:     Bond Development Team <bond-dev@microsoft.com>
+copyright:      Copyright (c) Microsoft. All rights reserved.
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/microsoft/bond
+
+flag warningsAsErrors
+  description: Treat warnings as errors for building bond
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Language.Bond.Codegen.Cpp.Apply_cpp
+      Language.Bond.Codegen.Cpp.Apply_h
+      Language.Bond.Codegen.Cpp.ApplyOverloads
+      Language.Bond.Codegen.Cpp.Enum_h
+      Language.Bond.Codegen.Cpp.Grpc_cpp
+      Language.Bond.Codegen.Cpp.Grpc_h
+      Language.Bond.Codegen.Cpp.Reflection_h
+      Language.Bond.Codegen.Cpp.Types_cpp
+      Language.Bond.Codegen.Cpp.Types_h
+      Language.Bond.Codegen.Cpp.Util
+      Language.Bond.Codegen.Cs.Grpc_cs
+      Language.Bond.Codegen.Cs.Types_cs
+      Language.Bond.Codegen.Cs.Util
+      Language.Bond.Codegen.CustomMapping
+      Language.Bond.Codegen.Java.Class_java
+      Language.Bond.Codegen.Java.Enum_java
+      Language.Bond.Codegen.Java.Util
+      Language.Bond.Codegen.Templates
+      Language.Bond.Codegen.TypeMapping
+      Language.Bond.Codegen.Util
+      Language.Bond.Lexer
+      Language.Bond.Parser
+      Language.Bond.Syntax.Internal
+      Language.Bond.Syntax.JSON
+      Language.Bond.Syntax.SchemaDef
+      Language.Bond.Syntax.Types
+      Language.Bond.Syntax.Util
+      Language.Bond.Util
+  other-modules:
+      Paths_bond
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , filepath
+    , megaparsec
+    , mtl
+    , scientific
+    , shakespeare
+    , text
+    , unordered-containers
+  if os(windows) && arch(i386)
+    ld-options: -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
+  if os(windows) && arch(x86_64)
+    ld-options: -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va
+  if flag(warningsAsErrors)
+    ghc-options: -Wall -Werror
+  default-language: Haskell2010
+
+executable gbc
+  main-is: Main.hs
+  other-modules:
+      IO
+      Options
+      Paths_bond
+  hs-source-dirs:
+      ./.
+  build-depends:
+      aeson
+    , async
+    , base
+    , bond
+    , bytestring
+    , cmdargs
+    , directory
+    , filepath
+    , megaparsec
+    , monad-loops
+    , mtl
+    , process
+    , scientific
+    , shakespeare
+    , text
+    , unordered-containers
+  if os(windows) && arch(i386)
+    ld-options: -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
+  if os(windows) && arch(x86_64)
+    ld-options: -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va
+  if flag(warningsAsErrors)
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Werror
+  else
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  default-language: Haskell2010
+
+test-suite gbc-tests
+  type: exitcode-stdio-1.0
+  main-is: TestMain.hs
+  other-modules:
+      Tests.Codegen
+      Tests.Codegen.Util
+      Tests.Syntax
+      Tests.Syntax.JSON
+      Paths_bond
+      IO
+      Options
+  hs-source-dirs:
+      tests
+      ./.
+  build-depends:
+      Diff
+    , HUnit
+    , QuickCheck
+    , aeson
+    , aeson-pretty
+    , base
+    , bond
+    , bytestring
+    , cmdargs
+    , directory
+    , filepath
+    , megaparsec
+    , monad-loops
+    , mtl
+    , pretty
+    , quickcheck-arbitrary-template
+    , scientific
+    , shakespeare
+    , tasty
+    , tasty-golden
+    , tasty-hunit
+    , tasty-quickcheck
+    , text
+    , unordered-containers
+  if os(windows) && arch(i386)
+    ld-options: -Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware
+  if os(windows) && arch(x86_64)
+    ld-options: -Wl,--dynamicbase -Wl,--nxcompat -Wl,--high-entropy-va
+  if flag(warningsAsErrors)
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall -Werror
+  else
+    ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  default-language: Haskell2010

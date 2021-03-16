@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Bond.Compiler</id>
+        <title>Bond Compiler (gbc)</title>
+        <version>$version$</version>
+        <authors>Microsoft</authors>
+        <owners>Microsoft</owners>
+        <projectUrl>https://github.com/microsoft/bond/</projectUrl>
+        <license type="expression">MIT</license>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <icon>images\bond-logo-64x64-transparent.png</icon>
+        <iconUrl>https://raw.githubusercontent.com/microsoft/bond/master/doc/src/logos/bond-logo-64x64-transparent.png</iconUrl>
+        <summary>The Bond project's code generator</summary>
+        <description>
+            Includes the GBC Compiler in charge of code generation from Bond IDL files. This is a tools-only package. For MSBuild targets to integrate automatically into your C# build, use the Bond.Compiler.CSharp package.
+
+            Bond is an open source, cross-platform framework for working with schematized data. It supports cross-language serialization/deserialization and powerful generic mechanisms for efficiently manipulating data.
+
+            Bond is published on GitHub at https://github.com/microsoft/bond/
+
+            The Compiler documentation is available at https://microsoft.github.io/bond/manual/compiler.html
+        </description>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <tags>Bond .NET C# serialization</tags>
+    </metadata>
+    <files>
+        <file target="images\" src="doc\src\logos\bond-logo-64x64-transparent.png" />
+
+        <file target="tools" src="cs\tools\gbc.exe" />
+        <file target="tools\inc\bond\core" src="idl\bond\core\bond.bond" />
+        <file target="tools\inc\bond\core" src="idl\bond\core\bond_const.bond" />
+    </files>
+</package>

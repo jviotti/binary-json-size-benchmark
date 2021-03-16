@@ -1,0 +1,20 @@
+namespace examples.dll
+
+enum Color
+{
+    Red = 1;
+    Blue = 2;
+}
+
+struct Item<T>
+{
+    0: string  str = "default string value";
+    1: list<T> numbers;
+    3: Color color = Blue;
+}
+
+struct MyStruct
+{
+    0: vector<Item<uint32>> items;
+    1: bonded<Item<uint32>> item;
+}
