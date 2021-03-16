@@ -1,1 +1,11 @@
-[]
+[
+  { "op": "add", "path": "/custom_commands_path", "value": null },
+  { "op": "add", "path": "/custom_assertions_path", "value": null },
+  { "op": "add", "path": "/page_objects_path", "value": null },
+  { "op": "add", "path": "/globals_path", "value": null },
+  { "op": "add", "path": "/src_folders", "value": null },
+  { "op": "add", "path": "/selenium/server_path", "value": null },
+  { "op": "add", "path": "/webdriver/server_path", "value": null },
+  { "op": "add", "path": "/exclude", "value": null },
+  { "op": "add", "path": "/filter", "value": null }
+]
