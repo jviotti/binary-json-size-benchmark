@@ -1,0 +1,23 @@
+namespace benchmark
+
+struct Let {
+  0: required list<uint8> x;
+}
+
+struct Sort {
+  0: required string eval;
+}
+
+struct Reverse {
+  0: required Sort sort;
+  1: required string byX;
+}
+
+struct In {
+  0: required Reverse reverse;
+}
+
+struct Main {
+  0: required Let let;
+  1: required In in;
+}
