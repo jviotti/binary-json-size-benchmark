@@ -30,6 +30,7 @@ do
   "
 
 ./data.awk output/$DOCUMENT_ID/data.dat
+echo ""
 
 done
 

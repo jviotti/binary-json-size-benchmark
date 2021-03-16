@@ -51,6 +51,7 @@ Results
 | Smile | 15 | 35 | 34 | 39 |
 | Apache Thrift (Compact Protocol) | 10 | 25 | 29 | 28 |
 | UBJSON | 13 | 33 | 32 | 37 |
+
 ### CircleCI matrix definition
 
 ![CircleCI matrix definition chart](./charts/circlecimatrix.png)
@@ -74,6 +75,7 @@ Results
 | Smile | 87 | 104 | 106 | 105 |
 | Apache Thrift (Compact Protocol) | 28 | 39 | 47 | 42 |
 | UBJSON | 92 | 103 | 111 | 104 |
+
 ### CommitLint configuration
 
 ![CommitLint configuration chart](./charts/commitlint.png)
@@ -97,6 +99,7 @@ Results
 | Smile | 84 | 76 | 82 | 80 |
 | Apache Thrift (Compact Protocol) | 59 | 53 | 59 | 57 |
 | UBJSON | 93 | 79 | 86 | 83 |
+
 ### CommitLint configuration (basic)
 
 ![CommitLint configuration (basic) chart](./charts/commitlintbasic.png)
@@ -120,6 +123,7 @@ Results
 | Smile | 22 | 42 | 41 | 47 |
 | Apache Thrift (Compact Protocol) | 2 | 22 | 21 | 25 |
 | UBJSON | 19 | 39 | 38 | 43 |
+
 ### Entry Point Regulation manifest
 
 ![Entry Point Regulation manifest chart](./charts/epr.png)
@@ -143,6 +147,7 @@ Results
 | Smile | 356 | 266 | 311 | 261 |
 | Apache Thrift (Compact Protocol) | 251 | 192 | 220 | 186 |
 | UBJSON | 469 | 272 | 326 | 265 |
+
 ### ESLint configuration document
 
 ![ESLint configuration document chart](./charts/eslintrc.png)
@@ -166,6 +171,7 @@ Results
 | Smile | 979 | 544 | 724 | 565 |
 | Apache Thrift (Compact Protocol) | 150 | 110 | 132 | 109 |
 | UBJSON | 1070 | 550 | 771 | 563 |
+
 ###  ECMAScript module loader definition
 
 ![ ECMAScript module loader definition chart](./charts/esmrc.png)
@@ -189,6 +195,7 @@ Results
 | Smile | 70 | 87 | 89 | 91 |
 | Apache Thrift (Compact Protocol) | 24 | 44 | 43 | 48 |
 | UBJSON | 78 | 93 | 97 | 94 |
+
 ### GeoJSON example JSON document
 
 ![GeoJSON example JSON document chart](./charts/geojson.png)
@@ -212,6 +219,7 @@ Results
 | Smile | 228 | 131 | 158 | 128 |
 | Apache Thrift (Compact Protocol) | 277 | 110 | 136 | 104 |
 | UBJSON | 208 | 126 | 153 | 120 |
+
 ### GeoJSON example JSON document with redundant coordinates
 
 ![GeoJSON example JSON document with redundant coordinates chart](./charts/geojsonredundant.png)
@@ -235,6 +243,7 @@ Results
 | Smile | 228 | 131 | 158 | 128 |
 | Apache Thrift (Compact Protocol) | 277 | 110 | 136 | 104 |
 | UBJSON | 208 | 126 | 153 | 120 |
+
 ### GitHub FUNDING sponsorship definition (empty)
 
 ![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
@@ -258,6 +267,7 @@ Results
 | Smile | 129 | 134 | 148 | 139 |
 | Apache Thrift (Compact Protocol) | 18 | 38 | 37 | 42 |
 | UBJSON | 137 | 135 | 156 | 144 |
+
 ### GitHub Workflow Definition
 
 ![GitHub Workflow Definition chart](./charts/githubworkflow.png)
@@ -281,6 +291,7 @@ Results
 | Smile | 287 | 235 | 268 | 240 |
 | Apache Thrift (Compact Protocol) | 187 | 170 | 186 | 170 |
 | UBJSON | 339 | 243 | 291 | 249 |
+
 ### Grunt.js "clean" task definition
 
 ![Grunt.js "clean" task definition chart](./charts/gruntcontribclean.png)
@@ -304,6 +315,7 @@ Results
 | Smile | 70 | 85 | 88 | 88 |
 | Apache Thrift (Compact Protocol) | 23 | 38 | 39 | 41 |
 | UBJSON | 77 | 88 | 92 | 89 |
+
 ### ImageOptimizer Azure Webjob configuration
 
 ![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizerwebjob.png)
@@ -327,6 +339,7 @@ Results
 | Smile | 70 | 86 | 88 | 88 |
 | Apache Thrift (Compact Protocol) | 26 | 46 | 45 | 50 |
 | UBJSON | 74 | 87 | 90 | 87 |
+
 ### JSON-e templating engine reverse sort example
 
 ![JSON-e templating engine reverse sort example chart](./charts/jsonereversesort.png)
@@ -350,6 +363,7 @@ Results
 | Smile | 63 | 82 | 82 | 84 |
 | Apache Thrift (Compact Protocol) | 22 | 39 | 41 | 40 |
 | UBJSON | 70 | 83 | 89 | 87 |
+
 ### JSON-e templating engine sort example
 
 ![JSON-e templating engine sort example chart](./charts/jsonesort.png)
@@ -373,6 +387,7 @@ Results
 | Smile | 27 | 48 | 46 | 52 |
 | Apache Thrift (Compact Protocol) | 11 | 31 | 30 | 35 |
 | UBJSON | 30 | 48 | 49 | 53 |
+
 ### JSON Feed example document
 
 ![JSON Feed example document chart](./charts/jsonfeed.png)
@@ -396,6 +411,7 @@ Results
 | Smile | 521 | 335 | 403 | 341 |
 | Apache Thrift (Compact Protocol) | 415 | 259 | 302 | 261 |
 | UBJSON | 557 | 348 | 428 | 354 |
+
 ### JSON Resume
 
 ![JSON Resume chart](./charts/jsonresume.png)
@@ -419,6 +435,7 @@ Results
 | Smile | 2620 | 1581 | 2169 | 1621 |
 | Apache Thrift (Compact Protocol) | 2230 | 1337 | 1815 | 1352 |
 | UBJSON | 2977 | 1658 | 2277 | 1665 |
+
 ### .NET Core project.json
 
 ![.NET Core project.json chart](./charts/netcoreproject.png)
@@ -442,6 +459,7 @@ Results
 | Smile | 870 | 453 | 558 | 450 |
 | Apache Thrift (Compact Protocol) | 283 | 113 | 137 | 115 |
 | UBJSON | 1008 | 464 | 582 | 458 |
+
 ### Nightwatch.js Test Framework Configuration
 
 ![Nightwatch.js Test Framework Configuration chart](./charts/nightwatch.png)
@@ -465,6 +483,7 @@ Results
 | Smile | 1090 | 683 | 886 | 701 |
 | Apache Thrift (Compact Protocol) | 134 | 142 | 153 | 142 |
 | UBJSON | 1268 | 692 | 936 | 710 |
+
 ### OpenWeatherMap API example JSON document
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
@@ -488,6 +507,7 @@ Results
 | Smile | 412 | 389 | 418 | 372 |
 | Apache Thrift (Compact Protocol) | 191 | 199 | 209 | 202 |
 | UBJSON | 439 | 382 | 446 | 379 |
+
 ### OpenWeather Road Risk API example
 
 ![OpenWeather Road Risk API example chart](./charts/openweatherroadrisk.png)
@@ -511,6 +531,7 @@ Results
 | Smile | 326 | 299 | 324 | 290 |
 | Apache Thrift (Compact Protocol) | 177 | 171 | 184 | 173 |
 | UBJSON | 375 | 295 | 318 | 278 |
+
 ### NPM Package.json example manifest
 
 ![NPM Package.json example manifest chart](./charts/packagejson.png)
@@ -534,6 +555,7 @@ Results
 | Smile | 1983 | 1119 | 1473 | 1138 |
 | Apache Thrift (Compact Protocol) | 1561 | 848 | 1108 | 860 |
 | UBJSON | 2171 | 1173 | 1572 | 1178 |
+
 ### NPM Package.json Linter configuration manifest
 
 ![NPM Package.json Linter configuration manifest chart](./charts/packagejsonlintrc.png)
@@ -557,6 +579,7 @@ Results
 | Smile | 1002 | 380 | 499 | 388 |
 | Apache Thrift (Compact Protocol) | 420 | 91 | 102 | 95 |
 | UBJSON | 1117 | 374 | 489 | 377 |
+
 ### SAP Cloud SDK Continuous Delivery Toolkit configuration
 
 ![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sapcloudsdkpipeline.png)
@@ -580,6 +603,7 @@ Results
 | Smile | 30 | 50 | 49 | 54 |
 | Apache Thrift (Compact Protocol) | 1 | 21 | 20 | 24 |
 | UBJSON | 29 | 49 | 48 | 52 |
+
 ### TravisCI notifications configuration
 
 ![TravisCI notifications configuration chart](./charts/travisnotifications.png)
@@ -603,6 +627,7 @@ Results
 | Smile | 604 | 168 | 199 | 173 |
 | Apache Thrift (Compact Protocol) | 521 | 95 | 106 | 96 |
 | UBJSON | 658 | 163 | 198 | 169 |
+
 ### TSLint linter definition (basic)
 
 ![TSLint linter definition (basic) chart](./charts/tslintbasic.png)
@@ -626,6 +651,7 @@ Results
 | Smile | 59 | 68 | 73 | 71 |
 | Apache Thrift (Compact Protocol) | 8 | 26 | 27 | 28 |
 | UBJSON | 59 | 66 | 72 | 67 |
+
 ### TSLint linter definition (extends only)
 
 ![TSLint linter definition (extends only) chart](./charts/tslintextend.png)
@@ -649,6 +675,7 @@ Results
 | Smile | 61 | 69 | 71 | 72 |
 | Apache Thrift (Compact Protocol) | 48 | 56 | 58 | 59 |
 | UBJSON | 62 | 70 | 72 | 72 |
+
 ### TSLint linter definition (multi-rule)
 
 ![TSLint linter definition (multi-rule) chart](./charts/tslintmulti.png)
@@ -672,6 +699,7 @@ Results
 | Smile | 78 | 88 | 92 | 92 |
 | Apache Thrift (Compact Protocol) | 14 | 31 | 33 | 34 |
 | UBJSON | 80 | 84 | 94 | 89 |
+
 
 Running locally
 ---------------
