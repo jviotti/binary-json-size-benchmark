@@ -1,1 +1,43 @@
-[]
+[
+  { "op": "add", "path": "/rules/scope-case", "value": [] },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/0/numeric",
+    "path": "/rules/scope-case/0"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/1/textual",
+    "path": "/rules/scope-case/1"
+  },
+  {
+    "op": "move",
+    "from": "/rules/scopeCase/2/multitextual",
+    "path": "/rules/scope-case/2"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/scopeCase"
+  },
+
+  { "op": "add", "path": "/rules/subject-case", "value": [] },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/0/numeric",
+    "path": "/rules/subject-case/0"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/1/textual",
+    "path": "/rules/subject-case/1"
+  },
+  {
+    "op": "move",
+    "from": "/rules/subjectCase/2/multitextual",
+    "path": "/rules/subject-case/2"
+  },
+  {
+    "op": "remove",
+    "path": "/rules/subjectCase"
+  }
+]
