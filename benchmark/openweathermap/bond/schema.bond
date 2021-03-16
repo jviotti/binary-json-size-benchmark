@@ -1,0 +1,56 @@
+namespace benchmark
+
+struct Coord {
+  0: double lon;
+  1: double lat;
+}
+
+struct Weather {
+  0: uint16 id;
+  1: string main;
+  2: string description;
+  3: string icon;
+}
+
+struct MainObject {
+  0: double temp;
+  1: double feels_like;
+  2: double temp_min;
+  3: double temp_max;
+  4: uint16 pressure;
+  5: uint8 humidity;
+}
+
+struct Wind {
+  0: double speed;
+  1: uint16 deg;
+}
+
+struct Clouds {
+  0: uint8 all;
+}
+
+struct Sys {
+  0: uint8 type;
+  1: uint16 id;
+  2: double message;
+  3: string country;
+  4: uint32 sunrise;
+  5: uint32 sunset;
+}
+
+struct Main {
+  0: Coord coord;
+  1: list<Weather> weather;
+  2: string base;
+  3: MainObject main;
+  4: uint16 visibility;
+  5: Wind wind;
+  6: Clouds clouds;
+  7: uint32 dt;
+  8: Sys sys;
+  9: int32 timezone;
+  10: uint32 id;
+  11: string name;
+  12: uint8 cod;
+}
