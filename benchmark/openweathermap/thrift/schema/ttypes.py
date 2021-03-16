@@ -70,6 +70,10 @@ class Coord(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.lon is None:
+            raise TProtocolException(message='Required field lon is unset!')
+        if self.lat is None:
+            raise TProtocolException(message='Required field lat is unset!')
         return
 
     def __repr__(self):
@@ -160,6 +164,14 @@ class Weather(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.id is None:
+            raise TProtocolException(message='Required field id is unset!')
+        if self.main is None:
+            raise TProtocolException(message='Required field main is unset!')
+        if self.description is None:
+            raise TProtocolException(message='Required field description is unset!')
+        if self.icon is None:
+            raise TProtocolException(message='Required field icon is unset!')
         return
 
     def __repr__(self):
@@ -272,6 +284,18 @@ class MainObject(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.temp is None:
+            raise TProtocolException(message='Required field temp is unset!')
+        if self.feels_like is None:
+            raise TProtocolException(message='Required field feels_like is unset!')
+        if self.temp_min is None:
+            raise TProtocolException(message='Required field temp_min is unset!')
+        if self.temp_max is None:
+            raise TProtocolException(message='Required field temp_max is unset!')
+        if self.pressure is None:
+            raise TProtocolException(message='Required field pressure is unset!')
+        if self.humidity is None:
+            raise TProtocolException(message='Required field humidity is unset!')
         return
 
     def __repr__(self):
@@ -340,6 +364,10 @@ class Wind(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.speed is None:
+            raise TProtocolException(message='Required field speed is unset!')
+        if self.deg is None:
+            raise TProtocolException(message='Required field deg is unset!')
         return
 
     def __repr__(self):
@@ -397,6 +425,8 @@ class Clouds(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.all is None:
+            raise TProtocolException(message='Required field all is unset!')
         return
 
     def __repr__(self):
@@ -509,6 +539,18 @@ class Sys(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.type is None:
+            raise TProtocolException(message='Required field type is unset!')
+        if self.id is None:
+            raise TProtocolException(message='Required field id is unset!')
+        if self.message is None:
+            raise TProtocolException(message='Required field message is unset!')
+        if self.country is None:
+            raise TProtocolException(message='Required field country is unset!')
+        if self.sunrise is None:
+            raise TProtocolException(message='Required field sunrise is unset!')
+        if self.sunset is None:
+            raise TProtocolException(message='Required field sunset is unset!')
         return
 
     def __repr__(self):
@@ -712,6 +754,32 @@ class Main(object):
         oprot.writeStructEnd()
 
     def validate(self):
+        if self.coord is None:
+            raise TProtocolException(message='Required field coord is unset!')
+        if self.weather is None:
+            raise TProtocolException(message='Required field weather is unset!')
+        if self.base is None:
+            raise TProtocolException(message='Required field base is unset!')
+        if self.main is None:
+            raise TProtocolException(message='Required field main is unset!')
+        if self.visibility is None:
+            raise TProtocolException(message='Required field visibility is unset!')
+        if self.wind is None:
+            raise TProtocolException(message='Required field wind is unset!')
+        if self.clouds is None:
+            raise TProtocolException(message='Required field clouds is unset!')
+        if self.dt is None:
+            raise TProtocolException(message='Required field dt is unset!')
+        if self.sys is None:
+            raise TProtocolException(message='Required field sys is unset!')
+        if self.timezone is None:
+            raise TProtocolException(message='Required field timezone is unset!')
+        if self.id is None:
+            raise TProtocolException(message='Required field id is unset!')
+        if self.name is None:
+            raise TProtocolException(message='Required field name is unset!')
+        if self.cod is None:
+            raise TProtocolException(message='Required field cod is unset!')
         return
 
     def __repr__(self):
