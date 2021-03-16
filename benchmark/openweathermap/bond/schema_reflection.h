@@ -35,7 +35,7 @@ namespace benchmark
             // lon
             typedef struct lon_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Coord,
                 double,
                 &Coord::lon,
@@ -45,7 +45,7 @@ namespace benchmark
             // lat
             typedef struct lat_type : ::bond::reflection::FieldTemplate<
                 1,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Coord,
                 double,
                 &Coord::lat,
@@ -88,7 +88,7 @@ namespace benchmark
             // id
             typedef struct id_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Weather,
                 uint16_t,
                 &Weather::id,
@@ -98,7 +98,7 @@ namespace benchmark
             // main
             typedef struct main_type : ::bond::reflection::FieldTemplate<
                 1,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Weather,
                 std::string,
                 &Weather::main,
@@ -108,7 +108,7 @@ namespace benchmark
             // description
             typedef struct description_type : ::bond::reflection::FieldTemplate<
                 2,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Weather,
                 std::string,
                 &Weather::description,
@@ -118,7 +118,7 @@ namespace benchmark
             // icon
             typedef struct icon_type : ::bond::reflection::FieldTemplate<
                 3,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Weather,
                 std::string,
                 &Weather::icon,
@@ -165,7 +165,7 @@ namespace benchmark
             // temp
             typedef struct temp_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 MainObject,
                 double,
                 &MainObject::temp,
@@ -175,7 +175,7 @@ namespace benchmark
             // feels_like
             typedef struct feels_like_type : ::bond::reflection::FieldTemplate<
                 1,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 MainObject,
                 double,
                 &MainObject::feels_like,
@@ -185,7 +185,7 @@ namespace benchmark
             // temp_min
             typedef struct temp_min_type : ::bond::reflection::FieldTemplate<
                 2,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 MainObject,
                 double,
                 &MainObject::temp_min,
@@ -195,7 +195,7 @@ namespace benchmark
             // temp_max
             typedef struct temp_max_type : ::bond::reflection::FieldTemplate<
                 3,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 MainObject,
                 double,
                 &MainObject::temp_max,
@@ -205,7 +205,7 @@ namespace benchmark
             // pressure
             typedef struct pressure_type : ::bond::reflection::FieldTemplate<
                 4,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 MainObject,
                 uint16_t,
                 &MainObject::pressure,
@@ -215,7 +215,7 @@ namespace benchmark
             // humidity
             typedef struct humidity_type : ::bond::reflection::FieldTemplate<
                 5,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 MainObject,
                 uint8_t,
                 &MainObject::humidity,
@@ -260,7 +260,7 @@ namespace benchmark
             // speed
             typedef struct speed_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Wind,
                 double,
                 &Wind::speed,
@@ -270,7 +270,7 @@ namespace benchmark
             // deg
             typedef struct deg_type : ::bond::reflection::FieldTemplate<
                 1,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Wind,
                 uint16_t,
                 &Wind::deg,
@@ -310,7 +310,7 @@ namespace benchmark
             // all
             typedef struct all_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Clouds,
                 uint8_t,
                 &Clouds::all,
@@ -354,7 +354,7 @@ namespace benchmark
             // type
             typedef struct type_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Sys,
                 uint8_t,
                 &Sys::type,
@@ -364,7 +364,7 @@ namespace benchmark
             // id
             typedef struct id_type : ::bond::reflection::FieldTemplate<
                 1,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Sys,
                 uint16_t,
                 &Sys::id,
@@ -374,7 +374,7 @@ namespace benchmark
             // message
             typedef struct message_type : ::bond::reflection::FieldTemplate<
                 2,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Sys,
                 double,
                 &Sys::message,
@@ -384,7 +384,7 @@ namespace benchmark
             // country
             typedef struct country_type : ::bond::reflection::FieldTemplate<
                 3,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Sys,
                 std::string,
                 &Sys::country,
@@ -394,7 +394,7 @@ namespace benchmark
             // sunrise
             typedef struct sunrise_type : ::bond::reflection::FieldTemplate<
                 4,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Sys,
                 uint32_t,
                 &Sys::sunrise,
@@ -404,7 +404,7 @@ namespace benchmark
             // sunset
             typedef struct sunset_type : ::bond::reflection::FieldTemplate<
                 5,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Sys,
                 uint32_t,
                 &Sys::sunset,
@@ -460,7 +460,7 @@ namespace benchmark
             // coord
             typedef struct coord_type : ::bond::reflection::FieldTemplate<
                 0,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 ::benchmark::Coord,
                 &Main::coord,
@@ -470,7 +470,7 @@ namespace benchmark
             // weather
             typedef struct weather_type : ::bond::reflection::FieldTemplate<
                 1,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 std::list< ::benchmark::Weather>,
                 &Main::weather,
@@ -480,7 +480,7 @@ namespace benchmark
             // base
             typedef struct base_type : ::bond::reflection::FieldTemplate<
                 2,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 std::string,
                 &Main::base,
@@ -490,7 +490,7 @@ namespace benchmark
             // main
             typedef struct main_type : ::bond::reflection::FieldTemplate<
                 3,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 ::benchmark::MainObject,
                 &Main::main,
@@ -500,7 +500,7 @@ namespace benchmark
             // visibility
             typedef struct visibility_type : ::bond::reflection::FieldTemplate<
                 4,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 uint16_t,
                 &Main::visibility,
@@ -510,7 +510,7 @@ namespace benchmark
             // wind
             typedef struct wind_type : ::bond::reflection::FieldTemplate<
                 5,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 ::benchmark::Wind,
                 &Main::wind,
@@ -520,7 +520,7 @@ namespace benchmark
             // clouds
             typedef struct clouds_type : ::bond::reflection::FieldTemplate<
                 6,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 ::benchmark::Clouds,
                 &Main::clouds,
@@ -530,7 +530,7 @@ namespace benchmark
             // dt
             typedef struct dt_type : ::bond::reflection::FieldTemplate<
                 7,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 uint32_t,
                 &Main::dt,
@@ -540,7 +540,7 @@ namespace benchmark
             // sys
             typedef struct sys_type : ::bond::reflection::FieldTemplate<
                 8,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 ::benchmark::Sys,
                 &Main::sys,
@@ -550,7 +550,7 @@ namespace benchmark
             // timezone
             typedef struct timezone_type : ::bond::reflection::FieldTemplate<
                 9,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 int32_t,
                 &Main::timezone,
@@ -560,7 +560,7 @@ namespace benchmark
             // id
             typedef struct id_type : ::bond::reflection::FieldTemplate<
                 10,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 uint32_t,
                 &Main::id,
@@ -570,7 +570,7 @@ namespace benchmark
             // name
             typedef struct name_type : ::bond::reflection::FieldTemplate<
                 11,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 std::string,
                 &Main::name,
@@ -580,7 +580,7 @@ namespace benchmark
             // cod
             typedef struct cod_type : ::bond::reflection::FieldTemplate<
                 12,
-                ::bond::reflection::optional_field_modifier,
+                ::bond::reflection::required_field_modifier,
                 Main,
                 uint8_t,
                 &Main::cod,

@@ -21,130 +21,164 @@ namespace benchmark
         = Coord::Schema::GetMetadata();
     
     const ::bond::Metadata Coord::Schema::s_lon_metadata
-        = ::bond::reflection::MetadataInit("lon");
+        = ::bond::reflection::MetadataInit("lon", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Coord::Schema::s_lat_metadata
-        = ::bond::reflection::MetadataInit("lat");
+        = ::bond::reflection::MetadataInit("lat", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
     const ::bond::Metadata Weather::Schema::metadata
         = Weather::Schema::GetMetadata();
     
     const ::bond::Metadata Weather::Schema::s_id_metadata
-        = ::bond::reflection::MetadataInit("id");
+        = ::bond::reflection::MetadataInit("id", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Weather::Schema::s_main_metadata
-        = ::bond::reflection::MetadataInit("main");
+        = ::bond::reflection::MetadataInit("main", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Weather::Schema::s_description_metadata
-        = ::bond::reflection::MetadataInit("description");
+        = ::bond::reflection::MetadataInit("description", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Weather::Schema::s_icon_metadata
-        = ::bond::reflection::MetadataInit("icon");
+        = ::bond::reflection::MetadataInit("icon", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
     const ::bond::Metadata MainObject::Schema::metadata
         = MainObject::Schema::GetMetadata();
     
     const ::bond::Metadata MainObject::Schema::s_temp_metadata
-        = ::bond::reflection::MetadataInit("temp");
+        = ::bond::reflection::MetadataInit("temp", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata MainObject::Schema::s_feels_like_metadata
-        = ::bond::reflection::MetadataInit("feels_like");
+        = ::bond::reflection::MetadataInit("feels_like", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata MainObject::Schema::s_temp_min_metadata
-        = ::bond::reflection::MetadataInit("temp_min");
+        = ::bond::reflection::MetadataInit("temp_min", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata MainObject::Schema::s_temp_max_metadata
-        = ::bond::reflection::MetadataInit("temp_max");
+        = ::bond::reflection::MetadataInit("temp_max", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata MainObject::Schema::s_pressure_metadata
-        = ::bond::reflection::MetadataInit("pressure");
+        = ::bond::reflection::MetadataInit("pressure", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata MainObject::Schema::s_humidity_metadata
-        = ::bond::reflection::MetadataInit("humidity");
+        = ::bond::reflection::MetadataInit("humidity", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
     const ::bond::Metadata Wind::Schema::metadata
         = Wind::Schema::GetMetadata();
     
     const ::bond::Metadata Wind::Schema::s_speed_metadata
-        = ::bond::reflection::MetadataInit("speed");
+        = ::bond::reflection::MetadataInit("speed", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Wind::Schema::s_deg_metadata
-        = ::bond::reflection::MetadataInit("deg");
+        = ::bond::reflection::MetadataInit("deg", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
     const ::bond::Metadata Clouds::Schema::metadata
         = Clouds::Schema::GetMetadata();
     
     const ::bond::Metadata Clouds::Schema::s_all_metadata
-        = ::bond::reflection::MetadataInit("all");
+        = ::bond::reflection::MetadataInit("all", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
     const ::bond::Metadata Sys::Schema::metadata
         = Sys::Schema::GetMetadata();
     
     const ::bond::Metadata Sys::Schema::s_type_metadata
-        = ::bond::reflection::MetadataInit("type");
+        = ::bond::reflection::MetadataInit("type", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Sys::Schema::s_id_metadata
-        = ::bond::reflection::MetadataInit("id");
+        = ::bond::reflection::MetadataInit("id", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Sys::Schema::s_message_metadata
-        = ::bond::reflection::MetadataInit("message");
+        = ::bond::reflection::MetadataInit("message", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Sys::Schema::s_country_metadata
-        = ::bond::reflection::MetadataInit("country");
+        = ::bond::reflection::MetadataInit("country", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Sys::Schema::s_sunrise_metadata
-        = ::bond::reflection::MetadataInit("sunrise");
+        = ::bond::reflection::MetadataInit("sunrise", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Sys::Schema::s_sunset_metadata
-        = ::bond::reflection::MetadataInit("sunset");
+        = ::bond::reflection::MetadataInit("sunset", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
     const ::bond::Metadata Main::Schema::metadata
         = Main::Schema::GetMetadata();
     
     const ::bond::Metadata Main::Schema::s_coord_metadata
-        = ::bond::reflection::MetadataInit("coord");
+        = ::bond::reflection::MetadataInit("coord", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_weather_metadata
-        = ::bond::reflection::MetadataInit("weather");
+        = ::bond::reflection::MetadataInit("weather", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_base_metadata
-        = ::bond::reflection::MetadataInit("base");
+        = ::bond::reflection::MetadataInit("base", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_main_metadata
-        = ::bond::reflection::MetadataInit("main");
+        = ::bond::reflection::MetadataInit("main", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_visibility_metadata
-        = ::bond::reflection::MetadataInit("visibility");
+        = ::bond::reflection::MetadataInit("visibility", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_wind_metadata
-        = ::bond::reflection::MetadataInit("wind");
+        = ::bond::reflection::MetadataInit("wind", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_clouds_metadata
-        = ::bond::reflection::MetadataInit("clouds");
+        = ::bond::reflection::MetadataInit("clouds", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_dt_metadata
-        = ::bond::reflection::MetadataInit("dt");
+        = ::bond::reflection::MetadataInit("dt", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_sys_metadata
-        = ::bond::reflection::MetadataInit("sys");
+        = ::bond::reflection::MetadataInit("sys", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_timezone_metadata
-        = ::bond::reflection::MetadataInit("timezone");
+        = ::bond::reflection::MetadataInit("timezone", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_id_metadata
-        = ::bond::reflection::MetadataInit("id");
+        = ::bond::reflection::MetadataInit("id", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_name_metadata
-        = ::bond::reflection::MetadataInit("name");
+        = ::bond::reflection::MetadataInit("name", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
     
     const ::bond::Metadata Main::Schema::s_cod_metadata
-        = ::bond::reflection::MetadataInit("cod");
+        = ::bond::reflection::MetadataInit("cod", ::bond::reflection::required_field_modifier::value,
+                ::bond::reflection::Attributes());
 
     
 } // namespace benchmark
