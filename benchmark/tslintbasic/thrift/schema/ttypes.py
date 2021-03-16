@@ -155,7 +155,7 @@ class Rules(object):
             (fname, ftype, fid) = iprot.readFieldBegin()
             if ftype == TType.STOP:
                 break
-            if fid == 3:
+            if fid == 1:
                 if ftype == TType.STRUCT:
                     self.orderedImports = OrderedImports()
                     self.orderedImports.read(iprot)
@@ -172,7 +172,7 @@ class Rules(object):
             return
         oprot.writeStructBegin('Rules')
         if self.orderedImports is not None:
-            oprot.writeFieldBegin('orderedImports', TType.STRUCT, 3)
+            oprot.writeFieldBegin('orderedImports', TType.STRUCT, 1)
             self.orderedImports.write(oprot)
             oprot.writeFieldEnd()
         oprot.writeFieldStop()
@@ -266,9 +266,7 @@ OrderedImports.thrift_spec = (
 all_structs.append(Rules)
 Rules.thrift_spec = (
     None,  # 0
-    None,  # 1
-    None,  # 2
-    (3, TType.STRUCT, 'orderedImports', [OrderedImports, None], None, ),  # 3
+    (1, TType.STRUCT, 'orderedImports', [OrderedImports, None], None, ),  # 1
 )
 all_structs.append(Main)
 Main.thrift_spec = (
