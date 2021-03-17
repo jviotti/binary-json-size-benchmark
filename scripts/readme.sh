@@ -24,15 +24,19 @@ echo "
 JSON documents
 --------------
 
-| Name | Taxonomy | Link | SchemaStore |
-|------|----------|------|-------------|"
+| Name | Type | Link | SchemaStore |
+|------|------|------|-------------|"
 
 for document in output/*
 do
   DOCUMENT_ID="$(basename "$document")"
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
   SCHEMASTORE_URL="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/SOURCE")"
-  echo "| $TITLE | XXX | [:arrow_upper_right:](benchmark/$DOCUMENT_ID/document.json) | [:arrow_upper_right:]($SCHEMASTORE_URL) |"
+  printf "| %s | %s | %s | %s |\n" \
+    "[$TITLE](#$DOCUMENT_ID)" \
+    "$(cat "benchmark/$DOCUMENT_ID/TAXONOMY")" \
+    "[:arrow_upper_right:](benchmark/$DOCUMENT_ID/document.json)" \
+    "[:arrow_upper_right:]($SCHEMASTORE_URL)"
 done
 
 echo "
@@ -54,9 +58,7 @@ do
   echo "<h3 id=\"$DOCUMENT_ID\">$TITLE</h3>"
   echo ""
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
-  echo "
-- [**Input Document**](benchmark/$DOCUMENT_ID/document.json)
-  "
+  echo ""
 
 awk -f data.awk "output/$DOCUMENT_ID/data.dat"
 echo ""
