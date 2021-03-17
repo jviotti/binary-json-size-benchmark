@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\build\internal\Common.Internal.props" />
+
+  <PropertyGroup>
+    <ProjectGuid>{2E6E238C-9017-445C-9611-66DA780609BE}</ProjectGuid>
+    <TargetFrameworks>net45;net46;netstandard1.3;netstandard1.6</TargetFrameworks>
+    <Configurations>Debug;Release</Configurations>
+    <RootNamespace>Bond.IO</RootNamespace>
+    <AssemblyName>Bond.IO</AssemblyName>
+    <BondRedistributable>true</BondRedistributable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\core\Bond.csproj" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\build\internal\Common.Internal.targets" />
+</Project>

@@ -1,0 +1,24 @@
+{
+  "structs": [
+    {
+      "fields": [
+        {
+          "id": 0,
+          "metadata": {
+            "default_value": {
+              "int_value": 123
+            },
+            "name": "someField"
+          },
+          "type": {
+            "id": 16
+          }
+        }
+      ],
+      "metadata": {
+        "name": "SomeStruct",
+        "qualified_name": "example.some.SomeStruct"
+      }
+    }
+  ]
+}

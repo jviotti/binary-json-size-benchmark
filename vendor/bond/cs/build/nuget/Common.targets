@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+*   Consume .bond files and produce C# types
+*
+*   (Dependencies are defined by Bond.CSharp.props.  Be sure to import that first)
+*   Dependencies:
+*     $BOND_INCLUDE_PATH   : Bond provided imports
+*     $BOND_COMPILER_PATH  : Path to directory containing gbc.exe
+*
+*   User-Defines:
+*     @BondCodegen         : A Bond IDL file (usually with a .bond extension) to compile
+*       %Options           : Any gbc options unique to this file (prefer $BondOptions than per-file)
+*     @BondImportDirectory : Directory for other schemas imported within a .bond file
+*     $BondOutputDirectory : Output directory for the generated files, by default IntermediateOutputPath
+*     $BondOptions         : Additional options to pass to the gbc generator
+*     $BondCodegenMode     : Code generation mode for gbc.exe to use (default c#)
+*
+*   These targets understand the structs/grpc switches that can be passed
+*   to gbc and adjust the files that are added to the Compile item as
+*   needed.
+-->
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Set sensible defaults. -->
+  <PropertyGroup>
+    <BondOptions Condition=" '$(BondOptions)' == '' "></BondOptions>
+    <BondCodegenMode Condition="'$(BondCodegenMode)' == ''">c#</BondCodegenMode>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <!-- Hide these from the VS project view -->
+    <BondImportDirectory>
+      <Visible>false</Visible>
+    </BondImportDirectory>
+  </ItemDefinitionGroup>
+
+  <!-- Let Visual Studio up to 2015 know about the BondCodegen item so it can display
+       it in the UI as a potential action for files. -->
+  <ItemGroup>
+    <AvailableItemName Include="BondCodegen" />
+  </ItemGroup>
+
+  <!-- In Visual Studio 2017+, some .NET projects (e.g., .NET Core) use the
+       Common Project System (CPS) instead of AvailableItemName to make
+       items and actions visible in the UI. Tell Visual Studio where to find
+       these metadata definitions.-->
+  <ItemGroup>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)cps\ProjectItemsSchema.xaml">
+      <Context>File;BrowseObject;</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)cps\BondCodegen.xaml">
+      <Context>File;BrowseObject;</Context>
+    </PropertyPageSchema>
+    <PropertyPageSchema Include="$(MSBuildThisFileDirectory)cps\BondImportDirectory.xaml">
+      <Context>File;BrowseObject;</Context>
+    </PropertyPageSchema>
+  </ItemGroup>
+
+  <!-- Attempt to find gbc in a platform-agnostic way. -->
+  <PropertyGroup>
+    <_PreExistingBondExe></_PreExistingBondExe>
+    <_PreExistingBondExe Condition="Exists('$(BOND_COMPILER_PATH)\gbc.exe')">$(BOND_COMPILER_PATH)\gbc.exe</_PreExistingBondExe>
+    <_PreExistingBondExe Condition="Exists('$(BOND_COMPILER_PATH)\gbc')">$(BOND_COMPILER_PATH)\gbc</_PreExistingBondExe>
+  </PropertyGroup>
+
+  <!-- Some versions of Visual Studio have an additional up-to-date check
+       that is performed on a subset of files before invoking MSBuild. We
+       need to add gbc as an input to the Visual Studio up-to-date check as
+       well. -->
+  <ItemGroup>
+    <UpToDateCheckInput Include="$(_PreExistingBondExe)" />
+  </ItemGroup>
+
+  <Target Name="SetBondOutputDirectory"
+          BeforeTargets="BondCodegenCs"
+          Condition="'@(BondCodegen)' != ''">
+    <PropertyGroup>
+      <BondOutputDirectory Condition=" '$(BondOutputDirectory)' == '' ">$(IntermediateOutputPath)</BondOutputDirectory>
+      <!--Automatic directory separator translation doesn't work on
+           BondOutputDirectory, as sometimes it doesn't exist, so MSBuild
+           doesn't know it's a "path-like" thing. We unconditionally translate
+           to forward slashes, as they work Windows, macOS, and Linux. We also
+           ensure that this always has a trailing slash, which simplifies its
+           use later. -->
+      <_BondOutputDirectoryNormalized>$(BondOutputDirectory)</_BondOutputDirectoryNormalized>
+      <_BondOutputDirectoryNormalized Condition=" !HasTrailingSlash('$(_BondOutputDirectoryNormalized)') ">$(BondOutputDirectory)\</_BondOutputDirectoryNormalized>
+      <_BondOutputDirectoryNormalized>$(_BondOutputDirectoryNormalized.Replace('%5C', '%2F'))</_BondOutputDirectoryNormalized>
+    </PropertyGroup>
+  </Target>
+
+  <!-- Fail the build if there are duplicate items in @BondCodegen. This is
+       unlikely in classic project files, but is likely to be encountered
+       when migrating to .NET Core project files. Without a check like this,
+       gbc produces really abstruse file I/O error messages. -->
+  <Target Name="BondCheckDuplicateCodegen"
+          BeforeTargets="BondCodegenCs"
+          Condition="'@(BondCodegen)' != ''">
+    <RemoveDuplicates
+        Inputs="@(BondCodegen)">
+      <Output
+          TaskParameter="Filtered"
+          ItemName="_BondCodegenFiltered"/>
+    </RemoveDuplicates>
+
+    <PropertyGroup Condition=" '$(EnableDefaultCompileItems)' == 'true' ">
+      <_DefaultItemsMessage> The Bond package includes BondCodegen items for all .bond files from your project directory by default. You can either remove these items from your project file, or set the 'EnableDefaultCompileItems' property to 'false' if you want to explicitly include them in your project file. To set per-item metadata, use the item update syntax (https://docs.microsoft.com/en-us/visualstudio/msbuild/item-element-msbuild#examples).</_DefaultItemsMessage>
+    </PropertyGroup>
+
+    <!-- The RemoveDuplicates task preserves the input order, so this is an
+         OK way to check whether there were any duplicates. -->
+    <Error Condition=" '@(BondCodegen)' != '@(_BondCodegenFiltered)' "
+           Text="Duplicate BondCodegen items were included.$(_DefaultItemsMessage)" />
+  </Target>
+
+  <!-- BondCodegenCs - transform .bond files into .cs files
+
+       If we were to use an output transform from BondCodegen to the
+       resulting .cs files we could get partial/minimal rebuilds on changes,
+       but this behavior doesn't reflect the internal import logic of Bond.
+       A change to common.bond would only rebuild common*cs, not all the
+       other files that import common.bond. Without a Bond parser prepass we
+       must rebuild all .bond files when any of them change. We force that
+       by putting a non-transform output (bondcodegen.done) in the list so
+       if any input changes, then all inputs rebuild since MSBuild can't
+       know what should create the unmapped output item and so can't be
+       selective.
+
+       NOTE: This still won't catch changes to files imported outside the
+       BondCodegen item or metadata changes that require codegen to be
+       re-run. -->
+  <Target Name="BondCodegenCs"
+          Inputs="$(_PreExistingBondExe);@(BondCodegen)"
+          Outputs="$(_BondOutputDirectoryNormalized)bondcodegen.done"
+          BeforeTargets="CoreCompile"
+          Condition="'@(BondCodegen)' != ''">
+
+    <Error Text="Neither Bond.CSharp.props nor Bond.Compiler.CSharp.props was imported. Check that your NuGet package references are working properly."
+           Condition="'$(_bond_common_props_imported)' != 'true'" />
+
+    <MakeDir Directories="$(_BondOutputDirectoryNormalized)" />
+
+    <!-- just for a simpler commandline read -->
+    <PropertyGroup>
+      <_BondExe>gbc</_BondExe>
+      <_BondExe Condition="Exists('$(BOND_COMPILER_PATH)\gbc.exe')">$(BOND_COMPILER_PATH)\gbc.exe</_BondExe>
+      <_BondExe Condition="Exists('$(BOND_COMPILER_PATH)\gbc')">$(BOND_COMPILER_PATH)\gbc</_BondExe>
+      <_BondImportDirs>--import-dir="$(BOND_INCLUDE_PATH)" @(BondImportDirectory -> '--import-dir=&quot;%(Identity)\.&quot;',' ')</_BondImportDirs>
+      <_BondCommand>&quot;$(_BondExe)&quot; $(BondCodegenMode) $(_BondImportDirs) --jobs=-2 --namespace=bond=Bond --output-dir="$(_BondOutputDirectoryNormalized)"</_BondCommand>
+    </PropertyGroup>
+
+    <!-- We'll optimize to generate in a single command where possible -->
+    <!-- Workaround for xbuild. It does not support ItemDefinitionGroup, so use Options only with MSBuild -->
+    <ItemGroup>
+      <_BondCodegenWithDefaultOptions Include="@(BondCodegen)" Condition="'%(BondCodegen.Options)' == ''" />
+    </ItemGroup>
+
+    <WriteLinesToFile File="$(_BondOutputDirectoryNormalized)bonddefaultcodegen.in"
+                      Lines="@(_BondCodegenWithDefaultOptions)"
+                      Overwrite="true" />
+
+    <Exec Command="$(_BondCommand) $(BondOptions) @&quot;$(_BondOutputDirectoryNormalized)bonddefaultcodegen.in&quot;"
+          Condition="'@(_BondCodegenWithDefaultOptions)' != ''" />
+
+    <!-- And for any files needing custom options we'll have to generate one by one -->
+    <Exec Command="$(_BondCommand) %(BondCodegen.Options) &quot;%(BondCodegen.Identity)&quot;"
+          Condition="'%(BondCodegen.Options)' != ''" />
+
+    <!-- Record all that we successfully ran codegen on all the files. -->
+    <WriteLinesToFile File="$(_BondOutputDirectoryNormalized)bondcodegen.done"
+                      Lines="#Ran codegen on the following files:;@(BondCodegen)"
+                      Overwrite="true" />
+  </Target>
+
+  <!--
+    * BondCompileCs - whether or not we are rebuilding bond sources, we still need them compiled,
+    *                 so this target should always run.
+  -->
+  <Target Name="BondCompileCs"
+          BeforeTargets="CoreCompile"
+          DependsOnTargets="BondCodegenCs"
+          Condition="'@(BondCodegen)' != ''">
+
+    <ItemGroup>
+      <_BondGen_Structs_BondOptions
+          Include="@(BondCodegen -> '$(_BondOutputDirectoryNormalized)%(FileName)_types.cs')"
+          Condition="'%(BondCodegen.Options)' == ''
+                     AND !$(BondOptions.Contains('--structs=false'))">
+        <AutoGen>true</AutoGen>
+        <DependentUpon>%(BondCodegen.Identity)</DependentUpon>
+      </_BondGen_Structs_BondOptions>
+
+      <_BondGen_Structs_Options
+          Include="@(BondCodegen -> '$(_BondOutputDirectoryNormalized)%(FileName)_types.cs')"
+          Condition="'%(BondCodegen.Options)' != ''
+                     AND !$([System.String]::new('%(BondCodegen.Options)').Contains('--structs=false'))">
+        <AutoGen>true</AutoGen>
+        <DependentUpon>%(BondCodegen.Identity)</DependentUpon>
+      </_BondGen_Structs_Options>
+
+      <_BondGen_Grpc_BondOptions
+          Include="@(_BondCodegenWithDefaultOptions -> '$(_BondOutputDirectoryNormalized)%(FileName)_grpc.cs')"
+          Condition="$(BondOptions.Contains('--grpc'))
+                     AND !$(BondOptions.Contains('--grpc=false'))">
+        <AutoGen>true</AutoGen>
+        <DependentUpon>%(_BondCodegenWithDefaultOptions.Identity)</DependentUpon>
+      </_BondGen_Grpc_BondOptions>
+
+      <_BondGen_Grpc_Options
+          Include="@(BondCodegen -> '$(_BondOutputDirectoryNormalized)%(FileName)_grpc.cs')"
+          Condition="$([System.String]::new('%(BondCodegen.Options)').Contains('--grpc'))
+                     AND !$([System.String]::new('%(BondCodegen.Options)').Contains('--grpc=false'))">
+        <AutoGen>true</AutoGen>
+        <DependentUpon>%(BondCodegen.Identity)</DependentUpon>
+      </_BondGen_Grpc_Options>
+
+      <_BondGeneratedFileNames
+          Include="@(_BondGen_Structs_BondOptions);
+                   @(_BondGen_Structs_Options);
+                   @(_BondGen_Grpc_BondOptions);
+                   @(_BondGen_Grpc_Options)" />
+      <Compile Include="@(_BondGeneratedFileNames)" />
+
+      <!--
+        * MsBuild wants to keep track of all our outputs, to understand how to clean build.  It seems it
+        * needs to know all of them regardless of what we actually produced THIS build, so adding always.
+      -->
+      <FileWrites Include="$(_BondOutputDirectoryNormalized)bondcodegen.done;
+                           $(_BondOutputDirectoryNormalized)bonddefaultcodegen.in;
+                           @(_BondGeneratedFileNames)" />
+    </ItemGroup>
+  </Target>
+
+  <PropertyGroup>
+    <_bond_common_targets_imported>true</_bond_common_targets_imported>
+  </PropertyGroup>
+</Project>

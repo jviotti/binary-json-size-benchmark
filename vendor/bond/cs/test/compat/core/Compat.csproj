@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath32)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\..\build\internal\Common.Internal.props" />
+  <PropertyGroup>
+    <ProjectGuid>{01302DFD-8DB9-4204-AAA5-1AA0EBC52749}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CompatibilityTest</RootNamespace>
+    <AssemblyName>Bond.CompatibilityTest</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="properties\AssemblyInfo.cs" />
+    <BondCodegen Include="..\..\..\..\test\compat\core\schemas\compat.bond" />
+    <BondCodegen Include="..\..\..\..\test\compat\core\schemas\compat2.bond" />
+    <BondCodegen Include="..\..\..\..\test\compat\core\schemas\compat_common.bond" />
+    <!-- Resharper Workaround -->
+    <Compile Include="$(IntermediateOutputPath)\compat_types.cs" Condition="False" />
+    <Compile Include="$(IntermediateOutputPath)\compat2_types.cs" Condition="False" />
+    <Compile Include="$(IntermediateOutputPath)\compat_common_types.cs" Condition="False" />
+    <!-- End Resharper Workaround -->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\attributes\Attributes.csproj" />
+    <ProjectReference Include="..\..\..\src\core\Bond.csproj" />
+    <ProjectReference Include="..\..\..\src\io\IO.csproj" />
+    <ProjectReference Include="..\..\..\src\json\JSON.csproj" />
+  </ItemGroup>
+  <Import Project="$(MSBuildThisFileDirectory)\..\..\..\build\internal\Common.Internal.targets" />
+</Project>

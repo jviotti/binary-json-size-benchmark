@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\..\..\cs\build\nuget\Bond.CSharp.props" />
+  <PropertyGroup>
+    <ProjectGuid>{45E4032C-78E1-41dd-8E51-1CC5AD2AEE02}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>simple_json</RootNamespace>
+    <AssemblyName>simple_json</AssemblyName>
+    <TargetFrameworks>net45</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Resharper Workaround -->
+    <Compile Include="$(IntermediateOutputPath)\schema_types.cs" Condition="False" />
+    <!-- End Resharper Workaround -->
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\cs\src\attributes\Attributes.csproj" />
+    <ProjectReference Include="..\..\..\..\cs\src\core\Bond.csproj" />
+    <ProjectReference Include="..\..\..\..\cs\src\io\IO.csproj" />
+    <ProjectReference Include="..\..\..\..\cs\src\json\JSON.csproj" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+  <Import Project="$(BOND_PATH)\build\nuget\Bond.CSharp.targets" />
+</Project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Bond.CSharp</id>
+        <title>Bond C#</title>
+        <version>$version$</version>
+        <authors>Microsoft</authors>
+        <owners>Microsoft</owners>
+        <projectUrl>https://github.com/microsoft/bond/</projectUrl>
+        <license type="expression">MIT</license>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <icon>images\bond-logo-64x64-transparent.png</icon>
+        <iconUrl>https://raw.githubusercontent.com/microsoft/bond/master/doc/src/logos/bond-logo-64x64-transparent.png</iconUrl>
+        <summary>Bond is an open source, cross-platform, cross-language framework for working with schematized data.</summary>
+        <description>
+            Bond is an open source, cross-platform framework for working with schematized data. It supports cross-language serialization/deserialization and powerful generic mechanisms for efficiently manipulating data.
+
+            Bond is published on GitHub at https://github.com/microsoft/bond/
+
+            The C# documentation is available at https://microsoft.github.io/bond/manual/bond_cs.html
+
+            This package rolls up the other Bond C# packages and includes the code generator (gbc) and MSBuild targets. If you need finer control of dependencies (e.g., excluding Bond's JSON support to get rid of a NewtonSoft.JSON dependency), you'll need to add the smaller packages individually.
+        </description>
+        <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+        <tags>Bond .NET C# serialization</tags>
+        <dependencies>
+            <dependency id="Bond.Core.CSharp" version ="[$version$]" />
+            <dependency id="Bond.Runtime.CSharp" version ="[$version$]" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file target="build" src="cs\build\nuget\Bond.CSharp.props" />
+        <file target="build" src="cs\build\nuget\Bond.CSharp.targets" />
+        <file target="build" src="cs\build\nuget\Common.props" />
+        <file target="build" src="cs\build\nuget\Common.targets" />
+        <file target="build\cps" src="cs\build\nuget\cps\*.xaml" />
+
+        <file target="images\" src="doc\src\logos\bond-logo-64x64-transparent.png" />
+
+        <file target="readme.txt" src="cs\nuget\readme.txt" />
+
+        <file target="tools\" src="cs\tools\gbc.exe" />
+        <file target="tools\inc\bond\core" src="idl\bond\core\bond.bond" />
+        <file target="tools\inc\bond\core" src="idl\bond\core\bond_const.bond" />
+    </files>
+</package>

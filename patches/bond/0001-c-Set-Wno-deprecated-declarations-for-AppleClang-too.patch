@@ -1,0 +1,36 @@
+From 8cc4e724e9777897a4c05c0f70960b3220485406 Mon Sep 17 00:00:00 2001
+From: Juan Cruz Viotti <jv@jviotti.com>
+Date: Tue, 16 Mar 2021 17:58:17 -0400
+Subject: [PATCH] [c++] Set -Wno-deprecated-declarations for AppleClang too
+
+I cannot compile Microsoft Bond on macOS Big Sur 11.2.2 and Xcode 12.4
+with Apple clang version 12.0.0 (clang-1200.0.32.29) and Boost 1.75.0
+because of this flag:
+
+```
+In file included from /usr/local/include/boost/locale.hpp:24:
+/usr/local/include/boost/locale/util.hpp:203:59: error: 'auto_ptr<boost::locale::util::base_converter>' is deprecated [-Werror,-Wdeprecated-declarations]
+    std::locale create_codecvt(std::locale const &in,std::auto_ptr<base_converter> cvt,character_facet_type type);
+```
+
+Signed-off-by: Juan Cruz Viotti <jv@jviotti.com>
+---
+ cmake/Config.cmake | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/cmake/Config.cmake b/cmake/Config.cmake
+index f8ba5480..0231384f 100644
+--- a/cmake/Config.cmake
++++ b/cmake/Config.cmake
+@@ -163,6 +163,8 @@ cxx_add_compile_options(AppleClang
+     --std=c++11
+     -Wall
+     -Werror
++    # Suppress warnings in Boost about using deprecated types like std::auto_ptr
++    -Wno-deprecated-declarations
+     -Wno-null-dereference
+     -Wno-unknown-warning-option
+     -Wno-unused-local-typedefs)
+-- 
+2.24.3 (Apple Git-128)
+

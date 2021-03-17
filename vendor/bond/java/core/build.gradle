@@ -1,0 +1,69 @@
+// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.bondlib:bond-gradle:+'
+    }
+}
+
+plugins {
+    id 'com.palantir.git-version' version '0.9.1'
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'org.bondlib.gradle'
+
+group 'org.bondlib'
+version gitVersion(prefix:'java@')
+
+sourceCompatibility = 1.6
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+publishing {
+    repositories {
+        maven {
+            url 'https://msazure.pkgs.visualstudio.com/_packaging/Bond/maven/v1'
+                credentials {
+                    username "VSTS"
+                    password project.hasProperty('vstsMavenAccessToken') ? "${vstsMavenAccessToken}" : ''
+                }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+// Some tests have non-ASCII strings that are UTF-8 encoded. In environments
+// with system encodings other than UTF-8, javac will fail on those tests.
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
+compileBond {
+    bondfiles '../../idl/bond/core/bond.bond',
+              '../../idl/bond/core/bond_const.bond'
+    options '-n', 'bond=org.bondlib'
+}
+
+compileTestBond {
+    options '--import-dir', 'src/test/bond/imports/'
+}

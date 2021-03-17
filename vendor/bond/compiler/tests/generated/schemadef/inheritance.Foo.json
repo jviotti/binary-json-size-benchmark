@@ -1,0 +1,43 @@
+{
+  "structs": [
+    {
+      "base_def": [
+        {
+          "struct_def": 1
+        }
+      ],
+      "fields": [
+        {
+          "id": 0,
+          "metadata": {
+            "name": "x"
+          },
+          "type": {
+            "id": 16
+          }
+        }
+      ],
+      "metadata": {
+        "name": "Foo",
+        "qualified_name": "tests.Foo"
+      }
+    },
+    {
+      "fields": [
+        {
+          "id": 0,
+          "metadata": {
+            "name": "x"
+          },
+          "type": {
+            "id": 16
+          }
+        }
+      ],
+      "metadata": {
+        "name": "Base",
+        "qualified_name": "tests.Base"
+      }
+    }
+  ]
+}

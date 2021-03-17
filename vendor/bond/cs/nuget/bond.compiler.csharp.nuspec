@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Bond.Compiler.CSharp</id>
+    <title>Bond Compiler &amp; C# MSBuild targets</title>
+    <version>$version$</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <projectUrl>https://github.com/microsoft/bond/</projectUrl>
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <icon>images\bond-logo-64x64-transparent.png</icon>
+    <iconUrl>https://raw.githubusercontent.com/microsoft/bond/master/doc/src/logos/bond-logo-64x64-transparent.png</iconUrl>
+    <summary>The Bond project's code generation C# MSBuild targets</summary>
+    <description>
+      Includes the Bond compiler (gbc) and C# MSBuild targets for easy integration into project builds.
+
+      Bond is an open source, cross-platform framework for working with schematized data. It supports cross-language serialization/deserialization and powerful generic mechanisms for efficiently manipulating data.
+
+      Bond is published on GitHub at https://github.com/microsoft/bond/
+    </description>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <tags>Bond .NET C# serialization</tags>
+  </metadata>
+  <files>
+    <!-- Ideally we'd reference the Bond.Compiler package to get the gbc
+         files, but there doesn't seem to be a good way to reference
+         dependent packages from MSBuild targets. Instead, we duplicate the
+         files in this package. They're pretty small. -->
+    <file target="build\net45" src="cs\build\nuget\Bond.Compiler.CSharp.props" />
+    <file target="build\net45" src="cs\build\nuget\Bond.Compiler.CSharp.targets" />
+    <file target="build\net45" src="cs\build\nuget\Common.props" />
+    <file target="build\net45" src="cs\build\nuget\Common.targets" />
+    <file target="build\net45\cps" src="cs\build\nuget\cps\*.xaml" />
+
+    <file target="build\netstandard1.0" src="cs\build\nuget\Bond.Compiler.CSharp.props" />
+    <file target="build\netstandard1.0" src="cs\build\nuget\Bond.Compiler.CSharp.targets" />
+    <file target="build\netstandard1.0" src="cs\build\nuget\Common.props" />
+    <file target="build\netstandard1.0" src="cs\build\nuget\Common.targets" />
+    <file target="build\netstandard1.0\cps" src="cs\build\nuget\cps\*.xaml" />
+
+    <file target="build\netstandard1.3" src="cs\build\nuget\Bond.Compiler.CSharp.props" />
+    <file target="build\netstandard1.3" src="cs\build\nuget\Bond.Compiler.CSharp.targets" />
+    <file target="build\netstandard1.3" src="cs\build\nuget\Common.props" />
+    <file target="build\netstandard1.3" src="cs\build\nuget\Common.targets" />
+    <file target="build\netstandard1.3\cps" src="cs\build\nuget\cps\*.xaml" />
+
+    <file target="build\netstandard1.6" src="cs\build\nuget\Bond.Compiler.CSharp.props" />
+    <file target="build\netstandard1.6" src="cs\build\nuget\Bond.Compiler.CSharp.targets" />
+    <file target="build\netstandard1.6" src="cs\build\nuget\Common.props" />
+    <file target="build\netstandard1.6" src="cs\build\nuget\Common.targets" />
+    <file target="build\netstandard1.6\cps" src="cs\build\nuget\cps\*.xaml" />
+
+    <file target="images\" src="doc\src\logos\bond-logo-64x64-transparent.png" />
+
+    <file target="readme.txt" src="cs\nuget\readme.txt" />
+
+    <file target="tools" src="cs\tools\gbc.exe" />
+    <file target="tools\inc\bond\core" src="idl\bond\core\bond.bond" />
+    <file target="tools\inc\bond\core" src="idl\bond\core\bond_const.bond" />
+  </files>
+</package>
