@@ -811,5 +811,4 @@ make all ASN1STEP=/Applications/asn1step/asn1step/macosx-x86-64.trial/10.0.2/bin
 License
 -------
 
-This work is released under the Apache-1.0 license.
-
+This work is released under the Apache-2.0 license.

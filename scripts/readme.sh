@@ -74,5 +74,4 @@ echo "
 License
 -------
 
-This work is released under the Apache-1.0 license.
-"
+This work is released under the Apache-2.0 license."
