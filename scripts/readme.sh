@@ -2,23 +2,23 @@
 
 set -eu
 
-echo "Binary JSON-compatible Format Benchmark"
-echo "======================================="
+echo "Binary JSON-compatible Format Size Benchmark"
+echo "============================================"
 echo "
 A size benchmark of JSON-compatible binary serialization formats.
 "
 
-echo "- JSON documents"
-echo "- Serialization formats"
-echo "- Results"
+echo "- [JSON documents](#json-documents)"
+echo "- [Serialization formats](#serialization-formats)"
+echo "- [Results](#results)"
 for document in output/*
 do
   DOCUMENT_ID="$(basename "$document")"
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
   echo "    - [$TITLE](#$DOCUMENT_ID)"
 done
-echo "- Running locally"
-echo "- License"
+echo "- [Running locally](#running-locally)"
+echo "- [License](#license)"
 
 echo "
 JSON documents
@@ -56,12 +56,6 @@ do
   DOCUMENT_ID="$(basename "$document")"
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
   echo "<h3 id=\"$DOCUMENT_ID\">$TITLE</h3>"
-  echo ""
-  printf "[**%s**](%s) | [**%s**](%s)\n" \
-    "Input Document" \
-    "benchmark/$DOCUMENT_ID/document.json" \
-    "Encoded Results" \
-    "output/$DOCUMENT_ID"
   echo ""
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
   echo ""
