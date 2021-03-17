@@ -29,7 +29,7 @@ do
 - [**Input Document**](benchmark/$DOCUMENT_ID/document.json)
   "
 
-./data.awk "output/$DOCUMENT_ID/data.dat"
+awk -f data.awk "output/$DOCUMENT_ID/data.dat"
 echo ""
 
 done

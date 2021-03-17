@@ -18,7 +18,7 @@ jobs:
         cli: '1.10.2.796'
 
     - name: Prepare environment
-      run: sudo apt-get install -y gnuplot python3-setuptools rlwrap libboost-dev libboost-thread-dev
+      run: sudo apt-get install -y gnuplot python3-setuptools rlwrap libboost-dev libboost-thread-dev gawk
 
     - name: Cache Dependencies
       uses: actions/cache@v2
