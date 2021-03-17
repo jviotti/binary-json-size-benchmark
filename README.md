@@ -98,6 +98,8 @@ Results
 
 <h3 id="circleciblank">CircleCI definition (blank)</h3>
 
+[**Input Document**](benchmark/circleciblank/document.json) | [**Encoded Results**](output/circleciblank)
+
 ![CircleCI definition (blank) chart](./charts/circleciblank.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -119,6 +121,8 @@ Results
 | UBJSON | 13 | 33 | 32 | 37 |
 
 <h3 id="circlecimatrix">CircleCI matrix definition</h3>
+
+[**Input Document**](benchmark/circlecimatrix/document.json) | [**Encoded Results**](output/circlecimatrix)
 
 ![CircleCI matrix definition chart](./charts/circlecimatrix.png)
 
@@ -142,6 +146,8 @@ Results
 
 <h3 id="commitlint">CommitLint configuration</h3>
 
+[**Input Document**](benchmark/commitlint/document.json) | [**Encoded Results**](output/commitlint)
+
 ![CommitLint configuration chart](./charts/commitlint.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -163,6 +169,8 @@ Results
 | UBJSON | 93 | 79 | 86 | 83 |
 
 <h3 id="commitlintbasic">CommitLint configuration (basic)</h3>
+
+[**Input Document**](benchmark/commitlintbasic/document.json) | [**Encoded Results**](output/commitlintbasic)
 
 ![CommitLint configuration (basic) chart](./charts/commitlintbasic.png)
 
@@ -186,6 +194,8 @@ Results
 
 <h3 id="epr">Entry Point Regulation manifest</h3>
 
+[**Input Document**](benchmark/epr/document.json) | [**Encoded Results**](output/epr)
+
 ![Entry Point Regulation manifest chart](./charts/epr.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -207,6 +217,8 @@ Results
 | UBJSON | 469 | 272 | 326 | 265 |
 
 <h3 id="eslintrc">ESLint configuration document</h3>
+
+[**Input Document**](benchmark/eslintrc/document.json) | [**Encoded Results**](output/eslintrc)
 
 ![ESLint configuration document chart](./charts/eslintrc.png)
 
@@ -230,6 +242,8 @@ Results
 
 <h3 id="esmrc"> ECMAScript module loader definition</h3>
 
+[**Input Document**](benchmark/esmrc/document.json) | [**Encoded Results**](output/esmrc)
+
 ![ ECMAScript module loader definition chart](./charts/esmrc.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -251,6 +265,8 @@ Results
 | UBJSON | 78 | 93 | 97 | 94 |
 
 <h3 id="geojson">GeoJSON example JSON document</h3>
+
+[**Input Document**](benchmark/geojson/document.json) | [**Encoded Results**](output/geojson)
 
 ![GeoJSON example JSON document chart](./charts/geojson.png)
 
@@ -274,6 +290,8 @@ Results
 
 <h3 id="geojsonredundant">GeoJSON example JSON document with redundant coordinates</h3>
 
+[**Input Document**](benchmark/geojsonredundant/document.json) | [**Encoded Results**](output/geojsonredundant)
+
 ![GeoJSON example JSON document with redundant coordinates chart](./charts/geojsonredundant.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -295,6 +313,8 @@ Results
 | UBJSON | 208 | 126 | 153 | 120 |
 
 <h3 id="githubfundingblank">GitHub FUNDING sponsorship definition (empty)</h3>
+
+[**Input Document**](benchmark/githubfundingblank/document.json) | [**Encoded Results**](output/githubfundingblank)
 
 ![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
 
@@ -318,6 +338,8 @@ Results
 
 <h3 id="githubworkflow">GitHub Workflow Definition</h3>
 
+[**Input Document**](benchmark/githubworkflow/document.json) | [**Encoded Results**](output/githubworkflow)
+
 ![GitHub Workflow Definition chart](./charts/githubworkflow.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -339,6 +361,8 @@ Results
 | UBJSON | 339 | 243 | 291 | 249 |
 
 <h3 id="gruntcontribclean">Grunt.js "clean" task definition</h3>
+
+[**Input Document**](benchmark/gruntcontribclean/document.json) | [**Encoded Results**](output/gruntcontribclean)
 
 ![Grunt.js "clean" task definition chart](./charts/gruntcontribclean.png)
 
@@ -362,6 +386,8 @@ Results
 
 <h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob configuration</h3>
 
+[**Input Document**](benchmark/imageoptimizerwebjob/document.json) | [**Encoded Results**](output/imageoptimizerwebjob)
+
 ![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizerwebjob.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -383,6 +409,8 @@ Results
 | UBJSON | 74 | 87 | 90 | 87 |
 
 <h3 id="jsonereversesort">JSON-e templating engine reverse sort example</h3>
+
+[**Input Document**](benchmark/jsonereversesort/document.json) | [**Encoded Results**](output/jsonereversesort)
 
 ![JSON-e templating engine reverse sort example chart](./charts/jsonereversesort.png)
 
@@ -406,6 +434,8 @@ Results
 
 <h3 id="jsonesort">JSON-e templating engine sort example</h3>
 
+[**Input Document**](benchmark/jsonesort/document.json) | [**Encoded Results**](output/jsonesort)
+
 ![JSON-e templating engine sort example chart](./charts/jsonesort.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -427,6 +457,8 @@ Results
 | UBJSON | 30 | 48 | 49 | 53 |
 
 <h3 id="jsonfeed">JSON Feed example document</h3>
+
+[**Input Document**](benchmark/jsonfeed/document.json) | [**Encoded Results**](output/jsonfeed)
 
 ![JSON Feed example document chart](./charts/jsonfeed.png)
 
@@ -450,6 +482,8 @@ Results
 
 <h3 id="jsonresume">JSON Resume</h3>
 
+[**Input Document**](benchmark/jsonresume/document.json) | [**Encoded Results**](output/jsonresume)
+
 ![JSON Resume chart](./charts/jsonresume.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -471,6 +505,8 @@ Results
 | UBJSON | 2977 | 1658 | 2277 | 1665 |
 
 <h3 id="netcoreproject">.NET Core project.json</h3>
+
+[**Input Document**](benchmark/netcoreproject/document.json) | [**Encoded Results**](output/netcoreproject)
 
 ![.NET Core project.json chart](./charts/netcoreproject.png)
 
@@ -494,6 +530,8 @@ Results
 
 <h3 id="nightwatch">Nightwatch.js Test Framework Configuration</h3>
 
+[**Input Document**](benchmark/nightwatch/document.json) | [**Encoded Results**](output/nightwatch)
+
 ![Nightwatch.js Test Framework Configuration chart](./charts/nightwatch.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -515,6 +553,8 @@ Results
 | UBJSON | 1268 | 692 | 936 | 710 |
 
 <h3 id="openweathermap">OpenWeatherMap API example JSON document</h3>
+
+[**Input Document**](benchmark/openweathermap/document.json) | [**Encoded Results**](output/openweathermap)
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
 
@@ -538,6 +578,8 @@ Results
 
 <h3 id="openweatherroadrisk">OpenWeather Road Risk API example</h3>
 
+[**Input Document**](benchmark/openweatherroadrisk/document.json) | [**Encoded Results**](output/openweatherroadrisk)
+
 ![OpenWeather Road Risk API example chart](./charts/openweatherroadrisk.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -559,6 +601,8 @@ Results
 | UBJSON | 375 | 295 | 318 | 278 |
 
 <h3 id="packagejson">NPM Package.json example manifest</h3>
+
+[**Input Document**](benchmark/packagejson/document.json) | [**Encoded Results**](output/packagejson)
 
 ![NPM Package.json example manifest chart](./charts/packagejson.png)
 
@@ -582,6 +626,8 @@ Results
 
 <h3 id="packagejsonlintrc">NPM Package.json Linter configuration manifest</h3>
 
+[**Input Document**](benchmark/packagejsonlintrc/document.json) | [**Encoded Results**](output/packagejsonlintrc)
+
 ![NPM Package.json Linter configuration manifest chart](./charts/packagejsonlintrc.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -603,6 +649,8 @@ Results
 | UBJSON | 1117 | 374 | 489 | 377 |
 
 <h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit configuration</h3>
+
+[**Input Document**](benchmark/sapcloudsdkpipeline/document.json) | [**Encoded Results**](output/sapcloudsdkpipeline)
 
 ![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sapcloudsdkpipeline.png)
 
@@ -626,6 +674,8 @@ Results
 
 <h3 id="travisnotifications">TravisCI notifications configuration</h3>
 
+[**Input Document**](benchmark/travisnotifications/document.json) | [**Encoded Results**](output/travisnotifications)
+
 ![TravisCI notifications configuration chart](./charts/travisnotifications.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -647,6 +697,8 @@ Results
 | UBJSON | 658 | 163 | 198 | 169 |
 
 <h3 id="tslintbasic">TSLint linter definition (basic)</h3>
+
+[**Input Document**](benchmark/tslintbasic/document.json) | [**Encoded Results**](output/tslintbasic)
 
 ![TSLint linter definition (basic) chart](./charts/tslintbasic.png)
 
@@ -670,6 +722,8 @@ Results
 
 <h3 id="tslintextend">TSLint linter definition (extends only)</h3>
 
+[**Input Document**](benchmark/tslintextend/document.json) | [**Encoded Results**](output/tslintextend)
+
 ![TSLint linter definition (extends only) chart](./charts/tslintextend.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
@@ -691,6 +745,8 @@ Results
 | UBJSON | 62 | 70 | 72 | 72 |
 
 <h3 id="tslintmulti">TSLint linter definition (multi-rule)</h3>
+
+[**Input Document**](benchmark/tslintmulti/document.json) | [**Encoded Results**](output/tslintmulti)
 
 ![TSLint linter definition (multi-rule) chart](./charts/tslintmulti.png)
 

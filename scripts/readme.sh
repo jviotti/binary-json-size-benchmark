@@ -57,6 +57,12 @@ do
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
   echo "<h3 id=\"$DOCUMENT_ID\">$TITLE</h3>"
   echo ""
+  printf "[**%s**](%s) | [**%s**](%s)\n" \
+    "Input Document" \
+    "benchmark/$DOCUMENT_ID/document.json" \
+    "Encoded Results" \
+    "output/$DOCUMENT_ID"
+  echo ""
   echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
   echo ""
 
