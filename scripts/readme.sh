@@ -6,8 +6,37 @@ echo "Binary JSON-compatible Format Benchmark"
 echo "======================================="
 echo "
 A size benchmark of JSON-compatible binary serialization formats.
+"
 
-Serialization Formats
+echo "- JSON documents"
+echo "- Serialization formats"
+echo "- Results"
+for document in output/*
+do
+  DOCUMENT_ID="$(basename "$document")"
+  TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
+  echo "    - [$TITLE](#$DOCUMENT_ID)"
+done
+echo "- Running locally"
+echo "- License"
+
+echo "
+JSON documents
+--------------
+
+| Name | Taxonomy | Link | SchemaStore |
+|------|----------|------|-------------|"
+
+for document in output/*
+do
+  DOCUMENT_ID="$(basename "$document")"
+  TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
+  SCHEMASTORE_URL="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/SOURCE")"
+  echo "| $TITLE | XXX | [:arrow_upper_right:](benchmark/$DOCUMENT_ID/document.json) | [:arrow_upper_right:]($SCHEMASTORE_URL) |"
+done
+
+echo "
+Serialization formats
 ---------------------
 "
 

@@ -307,7 +307,7 @@ CHARTS = $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS)))
 DATA = $(addsuffix /data.dat,$(addprefix output/,$(DOCUMENTS)))
 
 README.md: scripts/readme.sh docs/versions.markdown docs/reproducibility.markdown data.awk \
-	$(CHARTS) $(wildcard benchmark/*/NAME) \
+	$(CHARTS) $(wildcard benchmark/*/NAME) $(wildcard benchmark/*/SOURCE) \
 	$(wildcard benchmark/*/document.json) \
 	$(DATA)
 	./$< > $@

@@ -3,7 +3,75 @@ Binary JSON-compatible Format Benchmark
 
 A size benchmark of JSON-compatible binary serialization formats.
 
-Serialization Formats
+- JSON documents
+- Serialization formats
+- Results
+    - [CircleCI definition (blank)](#circleciblank)
+    - [CircleCI matrix definition](#circlecimatrix)
+    - [CommitLint configuration](#commitlint)
+    - [CommitLint configuration (basic)](#commitlintbasic)
+    - [Entry Point Regulation manifest](#epr)
+    - [ESLint configuration document](#eslintrc)
+    - [ ECMAScript module loader definition](#esmrc)
+    - [GeoJSON example JSON document](#geojson)
+    - [GeoJSON example JSON document with redundant coordinates](#geojsonredundant)
+    - [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank)
+    - [GitHub Workflow Definition](#githubworkflow)
+    - [Grunt.js "clean" task definition](#gruntcontribclean)
+    - [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob)
+    - [JSON-e templating engine reverse sort example](#jsonereversesort)
+    - [JSON-e templating engine sort example](#jsonesort)
+    - [JSON Feed example document](#jsonfeed)
+    - [JSON Resume](#jsonresume)
+    - [.NET Core project.json](#netcoreproject)
+    - [Nightwatch.js Test Framework Configuration](#nightwatch)
+    - [OpenWeatherMap API example JSON document](#openweathermap)
+    - [OpenWeather Road Risk API example](#openweatherroadrisk)
+    - [NPM Package.json example manifest](#packagejson)
+    - [NPM Package.json Linter configuration manifest](#packagejsonlintrc)
+    - [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline)
+    - [TravisCI notifications configuration](#travisnotifications)
+    - [TSLint linter definition (basic)](#tslintbasic)
+    - [TSLint linter definition (extends only)](#tslintextend)
+    - [TSLint linter definition (multi-rule)](#tslintmulti)
+- Running locally
+- License
+
+JSON documents
+--------------
+
+| Name | Taxonomy | Link | SchemaStore |
+|------|----------|------|-------------|
+| CircleCI definition (blank) | XXX | [:arrow_upper_right:](benchmark/circleciblank/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/version-2.0.json) |
+| CircleCI matrix definition | XXX | [:arrow_upper_right:](benchmark/circlecimatrix/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/matrix-simple.json) |
+| CommitLint configuration | XXX | [:arrow_upper_right:](benchmark/commitlint/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test5.json) |
+| CommitLint configuration (basic) | XXX | [:arrow_upper_right:](benchmark/commitlintbasic/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
+| Entry Point Regulation manifest | XXX | [:arrow_upper_right:](benchmark/epr/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
+| ESLint configuration document | XXX | [:arrow_upper_right:](benchmark/eslintrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
+|  ECMAScript module loader definition | XXX | [:arrow_upper_right:](benchmark/esmrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
+| GeoJSON example JSON document | XXX | [:arrow_upper_right:](benchmark/geojson/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
+| GeoJSON example JSON document with redundant coordinates | XXX | [:arrow_upper_right:](benchmark/geojsonredundant/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
+| GitHub FUNDING sponsorship definition (empty) | XXX | [:arrow_upper_right:](benchmark/githubfundingblank/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
+| GitHub Workflow Definition | XXX | [:arrow_upper_right:](benchmark/githubworkflow/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
+| Grunt.js "clean" task definition | XXX | [:arrow_upper_right:](benchmark/gruntcontribclean/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
+| ImageOptimizer Azure Webjob configuration | XXX | [:arrow_upper_right:](benchmark/imageoptimizerwebjob/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
+| JSON-e templating engine reverse sort example | XXX | [:arrow_upper_right:](benchmark/jsonereversesort/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
+| JSON-e templating engine sort example | XXX | [:arrow_upper_right:](benchmark/jsonesort/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
+| JSON Feed example document | XXX | [:arrow_upper_right:](benchmark/jsonfeed/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/feed/microblog.json) |
+| JSON Resume | XXX | [:arrow_upper_right:](benchmark/jsonresume/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/resume/richardhendriks.json) |
+| .NET Core project.json | XXX | [:arrow_upper_right:](benchmark/netcoreproject/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/project/EF-project.json) |
+| Nightwatch.js Test Framework Configuration | XXX | [:arrow_upper_right:](benchmark/nightwatch/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/nightwatch/default.json) |
+| OpenWeatherMap API example JSON document | XXX | [:arrow_upper_right:](benchmark/openweathermap/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.current/example.json) |
+| OpenWeather Road Risk API example | XXX | [:arrow_upper_right:](benchmark/openweatherroadrisk/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.roadrisk/example.json) |
+| NPM Package.json example manifest | XXX | [:arrow_upper_right:](benchmark/packagejson/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/package/package-test.json) |
+| NPM Package.json Linter configuration manifest | XXX | [:arrow_upper_right:](benchmark/packagejsonlintrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/npmpackagejsonlintrc/npmpackagejsonlintrc-test.json) |
+| SAP Cloud SDK Continuous Delivery Toolkit configuration | XXX | [:arrow_upper_right:](benchmark/sapcloudsdkpipeline/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/cloud-sdk-pipeline-config-schema/empty.json) |
+| TravisCI notifications configuration | XXX | [:arrow_upper_right:](benchmark/travisnotifications/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/travis/notification-secure.json) |
+| TSLint linter definition (basic) | XXX | [:arrow_upper_right:](benchmark/tslintbasic/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test19.json) |
+| TSLint linter definition (extends only) | XXX | [:arrow_upper_right:](benchmark/tslintextend/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test5.json) |
+| TSLint linter definition (multi-rule) | XXX | [:arrow_upper_right:](benchmark/tslintmulti/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test25.json) |
+
+Serialization formats
 ---------------------
 
 This benchmark involves the serialization formats, implementations, and
