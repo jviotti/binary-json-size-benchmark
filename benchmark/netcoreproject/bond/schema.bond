@@ -1,0 +1,59 @@
+namespace benchmark
+
+struct CompilationOptions {
+  0: required bool warningsAsErrors;
+}
+
+struct Dependencies {
+  0: required string microsoftBclImmutable;
+  1: required string microsoftAspNetConfigurationModel;
+  2: required string microsoftAspNetDependencyInjection;
+  3: required string microsoftAspNetLogging;
+  4: required string systemDataCommon;
+}
+
+struct Net45Dependencies {
+  0: required string systemRuntime;
+  1: required string systemCollections;
+}
+
+struct K10Dependencies {
+  0: required string systemCollections;
+  1: required string systemCollectionsConcurrent;
+  2: required string systemComponentModel;
+  3: required string systemConsole;
+  4: required string systemDiagnosticsContracts;
+  5: required string systemDiagnosticsDebug;
+  6: required string systemGlobalization;
+  7: required string systemLinq;
+  8: required string systemLinqExpressions;
+  9: required string systemLinqQueryable;
+  10: required string systemReflection;
+  11: required string systemReflectionExtensions;
+  12: required string systemResourcesResourceManager;
+  13: required string systemRuntime;
+  14: required string systemRuntimeExtensions;
+  15: required string systemThreading;
+  16: required string systemThreadingTasks;
+}
+
+struct Net45 {
+  0: required Net45Dependencies dependencies;
+}
+
+struct K10 {
+  0: required K10Dependencies dependencies;
+}
+
+struct Frameworks {
+  0: required Net45 net45;
+  1: required K10 k10;
+}
+
+struct Main {
+  0: required string version;
+  1: required CompilationOptions compilationOptions;
+  2: required Dependencies dependencies;
+  3: required string code;
+  4: required Frameworks frameworks;
+}

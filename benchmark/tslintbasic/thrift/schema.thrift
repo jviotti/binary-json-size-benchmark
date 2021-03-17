@@ -7,7 +7,7 @@ struct OrderedImports {
 }
 
 struct Rules {
-  3: required OrderedImports orderedImports
+  1: required OrderedImports orderedImports
 }
 
 struct Main {

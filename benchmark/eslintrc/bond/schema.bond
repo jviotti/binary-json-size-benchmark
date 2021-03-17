@@ -1,0 +1,71 @@
+namespace benchmark
+
+struct EcmaFeatures {
+  0: required bool jsx;
+}
+
+struct Environment {
+  0: required bool browser;
+  1: required bool node;
+  2: required bool es6;
+}
+
+struct JSDocOptions {
+  0: required bool requireReturn;
+}
+
+struct JSDocRule {
+  0: optional uint8 numeric = nothing;
+  1: optional JSDocOptions options;
+}
+
+struct Rules {
+  0: required uint8 eqeqeq;
+  1: required uint8 commaDangle;
+  2: required uint8 noConsole;
+  3: required uint8 noDebugger;
+  4: required uint8 noExtraSemi;
+  5: required uint8 noExtraParens;
+  6: required uint8 noIrregularWhitespace;
+  7: required uint8 noUndef;
+  8: required uint8 noUnusedVars;
+  9: required uint8 semi;
+  10: required uint8 semiSpacing;
+  11: required list<JSDocRule> validJsdoc;
+  12: required uint8 reactDisplayName;
+  13: required uint8 reactForbidPropTypes;
+  14: required uint8 reactJsxBooleanValue;
+  15: required uint8 reactJsxClosingBracketLocation;
+  16: required uint8 reactJsxCurlySpacing;
+  17: required uint8 reactJsxIndentProps;
+  18: required uint8 reactJsxMaxPropsPerLine;
+  19: required uint8 reactJsxNoDuplicateProps;
+  20: required uint8 reactJsxNoLiterals;
+  21: required uint8 reactJsxNoUndef;
+  22: required uint8 reactJsxSortPropTypes;
+  23: required uint8 reactJsxSortProps;
+  24: required uint8 reactJsxUsesReact;
+  25: required uint8 reactJsxUsesVars;
+  26: required uint8 reactNoDanger;
+  27: required uint8 reactNoDidMountSetState;
+  28: required uint8 reactNoDidUpdateSetState;
+  29: required uint8 reactNoDirectMutationState;
+  30: required uint8 reactNoMultiComp;
+  31: required uint8 reactNoSetState;
+  32: required uint8 reactNoUnknownProperty;
+  33: required uint8 reactPropTypes;
+  34: required uint8 reactReactInJsxScope;
+  35: required uint8 reactRequireExtension;
+  36: required uint8 reactSelfClosingComp;
+  37: required uint8 reactSortComp;
+  38: required uint8 reactWrapMultilines;
+}
+
+struct Main {
+  0: required string extends;
+  1: required string parser;
+  2: required EcmaFeatures ecmaFeatures;
+  3: required list<string> plugins;
+  4: required Environment env;
+  5: required Rules rules;
+}

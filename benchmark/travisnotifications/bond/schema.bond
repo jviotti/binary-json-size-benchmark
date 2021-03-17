@@ -1,0 +1,19 @@
+namespace benchmark
+
+struct Notification {
+  0: required string secure;
+}
+
+struct Notifications {
+  0: required Notification campfire;
+  1: required Notification irc;
+  2: required Notification flowdock;
+  3: required Notification hipchat;
+  4: required Notification slack;
+  5: required Notification webhooks;
+  6: required Notification email;
+}
+
+struct Main {
+  0: required Notifications notifications;
+}

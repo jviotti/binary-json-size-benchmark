@@ -1,0 +1,14 @@
+namespace benchmark
+
+struct Main {
+  0: required string github;
+  1: required nullable<string> patreon;
+  2: required nullable<string> open_collective;
+  3: required nullable<string> ko_fi;
+  4: required nullable<string> tidelift;
+  5: required nullable<string> community_bridge;
+  6: required nullable<string> liberapay;
+  7: required nullable<string> issuehunt;
+  8: required nullable<string> otechie;
+  9: required nullable<string> custom;
+}

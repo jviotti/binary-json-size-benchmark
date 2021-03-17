@@ -5,6 +5,15 @@ DATA_DIRECTORY="$1"
 set -u
 
 INDEX="1"
+
+printf "\"%s\"  \"%s\"  \"%s\"  \"%s\"  \"%s\"  \"%s\"\n" \
+  "Index" \
+  "Serialization Format" \
+  "Uncompressed" \
+  "GZIP (-9)" \
+  "LZ4 (-9)" \
+  "LZMA (-9)"
+
 for format in "$DATA_DIRECTORY"/*
 do
   if [ ! -d "$format" ]
@@ -14,7 +23,7 @@ do
 
   NAME="$(cat "skeleton/$(basename "$format")/NAME")"
 
-  printf "%s \"%s\" %s %s %s %s\n" \
+  printf "%s  \"%s\"  %s  %s  %s  %s\n" \
     "$INDEX" \
     "$NAME" \
     "$(./scripts/byte-size.sh "$format/output.bin")" \

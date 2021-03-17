@@ -1,0 +1,30 @@
+namespace benchmark
+
+struct Parameters {
+  0: required list<uint8> a;
+}
+
+struct Matrix {
+  0: required Parameters parameters;
+}
+
+struct M1 {
+  0: required Matrix matrix;
+}
+
+struct Job {
+  0: required M1 m1;
+}
+
+struct TestWorkflow {
+  0: required list<Job> jobs;
+}
+
+struct Workflows {
+  0: required TestWorkflow test;
+}
+
+struct Main {
+  0: required double version;
+  1: required Workflows workflows;
+}

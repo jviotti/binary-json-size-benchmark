@@ -1,0 +1,33 @@
+namespace benchmark
+
+struct Environment {
+  0: required string buildSuiteDir;
+}
+
+struct With {
+  0: required string nodeVersion;
+}
+
+struct Step {
+  0: optional string uses = nothing;
+  1: optional string run = nothing;
+  2: optional string workingDirectory = nothing;
+  3: optional With with;
+  4: optional string name = nothing;
+}
+
+struct Build {
+  0: required string runsOn;
+  1: required Environment env;
+  2: required list<Step> steps;
+}
+
+struct Jobs {
+  0: required Build build;
+}
+
+struct Main {
+  0: required string name;
+  1: required list<string> on;
+  2: required Jobs jobs;
+}

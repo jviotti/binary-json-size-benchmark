@@ -1,0 +1,17 @@
+namespace benchmark
+
+struct Rule {
+  0: optional string path;
+  1: optional string regex;
+  2: required list<string> types;
+  3: required bool allowData;
+}
+
+struct Main {
+  0: required string site;
+  1: required uint32 maxAge;
+  2: required string reportUrl;
+  3: required string defaultNavBehavior;
+  4: required string defaultResBehavior;
+  5: required list<Rule> rules;
+}

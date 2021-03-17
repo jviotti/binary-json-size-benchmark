@@ -1,0 +1,83 @@
+namespace benchmark
+
+struct Globals {
+  0: required bool abortOnAssertionFailure;
+  1: required bool abortOnElementLocateError;
+  2: required uint16 waitForConditionPollInterval;
+  3: required uint16 waitForConditionTimeout;
+  4: required bool throwOnMultipleElementsReturned;
+  5: required bool suppressWarningsOnMultipleElementsReturned;
+  6: required uint16 asyncHookTimeout;
+  7: required uint16 unitTestsTimeout;
+  8: required uint16 customReporterCallbackTimeout;
+  9: required uint16 retryAssertionTimeout;
+}
+
+struct Empty {}
+
+struct Selenium {
+  0: required bool start_process;
+  1: required Empty cli_args;
+  2: required nullable<string> server_path;
+  3: required string log_path;
+  4: required uint16 check_process_delay;
+  5: required uint8 max_status_poll_tries;
+  6: required uint8 status_poll_interval;
+}
+
+struct WebDriver {
+  0: required bool start_process;
+  1: required Empty cli_args;
+  2: required nullable<string> server_path;
+  3: required string log_path;
+  4: required uint8 check_process_delay;
+  5: required uint8 max_status_poll_tries;
+  6: required uint8 status_poll_interval;
+  7: required uint32 process_create_timeout;
+  8: required Empty timeout_options;
+}
+
+struct DesiredCapabilities {
+  0: required string browserName;
+}
+
+struct Main {
+  0: required nullable<string> custom_commands_path;
+  1: required nullable<string> custom_assertions_path;
+  2: required nullable<string> page_objects_path;
+  3: required nullable<string> globals_path;
+  4: required Globals globals;
+  5: required Empty dotenv;
+  6: required bool persist_globals;
+  7: required string output_folder;
+  8: required nullable<string> src_folders;
+  9: required bool live_output;
+  10: required bool disable_colors;
+  11: required uint8 parallel_process_delay;
+  12: required Selenium selenium;
+  13: required bool start_session;
+  14: required bool end_session_on_fail;
+  15: required bool test_workers;
+  16: required string test_runner;
+  17: required WebDriver webdriver;
+  18: required Empty test_settings;
+  19: required string launch_url;
+  20: required bool silent;
+  21: required bool output;
+  22: required bool detailed_output;
+  23: required bool output_timestamp;
+  24: required bool disable_error_log;
+  25: required bool screenshots;
+  26: required bool log_screenshot_data;
+  27: required DesiredCapabilities desiredCapabilities;
+  28: required nullable<string> exclude;
+  29: required nullable<string> filter;
+  30: required string skipgroup;
+  31: required bool sync_test_names;
+  32: required string skiptags;
+  33: required bool use_xpath;
+  34: required bool parallel_mode;
+  35: required string report_prefix;
+  36: required bool unit_tests_mode;
+  37: required string default_reporter;
+}

@@ -1,0 +1,11 @@
+namespace benchmark
+
+struct Optimization {
+  0: required list<string> includes;
+  1: required list<string> excludes;
+  2: required bool lossy;
+}
+
+struct Main {
+  0: required list<Optimization> optimizations;
+}

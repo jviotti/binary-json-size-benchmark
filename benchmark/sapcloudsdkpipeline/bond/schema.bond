@@ -1,0 +1,7 @@
+namespace benchmark
+
+struct Main {
+  0: required nullable<string> general;
+  1: required nullable<string> stages;
+  2: required nullable<string> steps;
+}

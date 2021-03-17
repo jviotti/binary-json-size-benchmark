@@ -1,0 +1,26 @@
+namespace benchmark
+
+struct Alert {
+  0: required string sender_name;
+  1: required string event;
+  2: required uint8 event_level;
+}
+
+struct Weather {
+  0: required double temp;
+  1: required double wind_speed;
+  2: required uint16 wind_deg;
+  3: optional double precipitation_intensity = nothing;
+  4: required double dew_point;
+}
+
+struct RoadRisk {
+  0: required uint32 dt;
+  1: required list<double> coord;
+  2: required Weather weather;
+  3: required list<Alert> alerts;
+}
+
+struct Main {
+  0: required list<RoadRisk> risks;
+}

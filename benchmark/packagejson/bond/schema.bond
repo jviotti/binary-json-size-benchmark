@@ -1,0 +1,81 @@
+namespace benchmark
+
+struct Author {
+  0: required string name;
+  1: required string url;
+}
+
+struct Repository {
+  0: required string type;
+  1: required string url;
+}
+
+struct Bugs {
+  0: required string url;
+}
+
+struct License {
+  0: required string type;
+  1: required string url;
+}
+
+struct Scripts {
+  0: required string test;
+}
+
+struct Engines {
+  0: required string node;
+}
+
+struct Dependencies {
+  0: required string async;
+  1: required string coffeeScript;
+  2: required string colors;
+  3: required string dateformat;
+  4: required string eventemitter2;
+  5: required string findupSync;
+  6: required string glob;
+  7: required string hooker;
+  8: required string iconvLite;
+  9: required string minimatch;
+  10: required string nopt;
+  11: required string rimraf;
+  12: required string lodash;
+  13: required string underscoreString;
+  14: required string which;
+  15: required string jsYaml;
+  16: required string exit;
+  17: required string getobject;
+  18: required string gruntLegacyUtil;
+  19: required string gruntLegacyLog;
+}
+
+struct DevDependencies {
+  0: required string temporary;
+  1: required string gruntContribJshint;
+  2: required string gruntContribNodeunit;
+  3: required string gruntContribWatch;
+  4: required string difflet;
+  5: required string semver;
+  6: required string shelljs;
+}
+
+struct Main {
+  0: required string name;
+  1: required string description;
+  2: required string version;
+  3: required Author author;
+  4: required string homepage;
+  5: required Repository repository;
+  6: required Bugs bugs;
+  7: required list<License> licenses;
+  8: required string main;
+  9: required Scripts scripts;
+  10: required Engines engines;
+  11: required list<string> keywords;
+  12: required Dependencies dependencies;
+  13: required DevDependencies devDependencies;
+  14: required string readme;
+  15: required string _id;
+  16: required string _from;
+}

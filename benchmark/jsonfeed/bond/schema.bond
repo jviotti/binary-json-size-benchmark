@@ -1,0 +1,24 @@
+namespace benchmark
+
+struct Author {
+  0: required string name;
+  1: required string url;
+  2: required string avatar;
+}
+
+struct Item {
+  0: required string id;
+  1: required string url;
+  2: required string content_text;
+  3: required string date_published;
+}
+
+struct Main {
+  0: required string version;
+  1: required string user_comment;
+  2: required string title;
+  3: required string home_page_url;
+  4: required string feed_url;
+  5: required Author author;
+  6: required list<Item> items;
+}

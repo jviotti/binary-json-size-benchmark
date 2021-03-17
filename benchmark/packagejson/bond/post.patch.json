@@ -1,0 +1,52 @@
+[
+  {
+    "op": "move",
+    "path": "/dependencies/coffee-script",
+    "from": "/dependencies/coffeeScript"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/findup-sync",
+    "from": "/dependencies/findupSync"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/iconv-lite",
+    "from": "/dependencies/iconvLite"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/underscore.string",
+    "from": "/dependencies/underscoreString"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/js-yaml",
+    "from": "/dependencies/jsYaml"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/grunt-legacy-util",
+    "from": "/dependencies/gruntLegacyUtil"
+  },
+  {
+    "op": "move",
+    "path": "/dependencies/grunt-legacy-log",
+    "from": "/dependencies/gruntLegacyLog"
+  },
+  {
+    "op": "move",
+    "path": "/devDependencies/grunt-contrib-jshint",
+    "from": "/devDependencies/gruntContribJshint"
+  },
+  {
+    "op": "move",
+    "path": "/devDependencies/grunt-contrib-nodeunit",
+    "from": "/devDependencies/gruntContribNodeunit"
+  },
+  {
+    "op": "move",
+    "path": "/devDependencies/grunt-contrib-watch",
+    "from": "/devDependencies/gruntContribWatch"
+  }
+]

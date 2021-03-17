@@ -1,0 +1,16 @@
+namespace benchmark;
+
+struct Rule {
+  0: optional string textual = nothing;
+  1: optional uint8 numeric = nothing;
+  2: optional list<string> multitextual = nothing;
+}
+
+struct Rules {
+  0: required list<Rule> scopeCase;
+  1: required list<Rule> subjectCase;
+}
+
+struct Main {
+  0: required Rules rules;
+}

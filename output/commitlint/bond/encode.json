@@ -1,0 +1,30 @@
+{
+  "rules": {
+    "scopeCase": [
+      {
+        "numeric": 2
+      },
+      {
+        "textual": "always"
+      },
+      {
+        "multitextual": [
+          "lower-case"
+        ]
+      }
+    ],
+    "subjectCase": [
+      {
+        "numeric": 2
+      },
+      {
+        "textual": "always"
+      },
+      {
+        "multitextual": [
+          "lower-case"
+        ]
+      }
+    ]
+  }
+}

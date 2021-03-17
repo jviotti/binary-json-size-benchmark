@@ -1,0 +1,19 @@
+namespace benchmark
+
+struct Options {
+  0: required bool force;
+  1: required bool noWrite;
+}
+
+struct Files {}
+
+struct MainOptions {
+  0: required Files files;
+  1: required list<string> src;
+}
+
+struct Main {
+  0: required list<string> foo;
+  1: required MainOptions main;
+  2: required Options options;
+}

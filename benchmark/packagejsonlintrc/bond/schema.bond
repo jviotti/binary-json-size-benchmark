@@ -1,0 +1,50 @@
+namespace benchmark
+
+struct ComplexRule {
+  0: optional string level = nothing;
+  1: optional list<string> options = nothing;
+  2: optional list<bool> booleanOptions = nothing;
+}
+
+struct Rules {
+  0: required string requireAuthor;
+  1: required string requireDescription;
+  2: required string requireEngines;
+  3: required string requireLicense;
+  4: required string requireName;
+  5: required string requireRepository;
+  6: required string requireVersion;
+  7: required string requireBugs;
+  8: required string requireHomepage;
+  9: required string requireKeywords;
+  10: required string binType;
+  11: required string configType;
+  12: required string descriptionType;
+  13: required string devDependenciesType;
+  14: required string directoriesType;
+  15: required string enginesType;
+  16: required string filesType;
+  17: required string homepageType;
+  18: required string keywordsType;
+  19: required string licenseType;
+  20: required string mainType;
+  21: required string manType;
+  22: required string nameType;
+  23: required string preferGlobalType;
+  24: required string privateType;
+  25: required string repositoryType;
+  26: required string scriptsType;
+  27: required string versionType;
+  28: required list<ComplexRule> validValuesAuthor;
+  29: required list<ComplexRule> validValuesPrivate;
+  30: required list<ComplexRule> noRestrictedDependencies;
+  31: required list<ComplexRule> noRestrictedPreReleaseDependencies;
+  32: required list<ComplexRule> noRestrictedInvalidDevDependencies;
+  33: required list<ComplexRule> noRestrictedPreReleaseDevDependencies;
+  34: required string nameFormat;
+  35: required string versionFormat;
+}
+
+struct Main {
+  0: required Rules rules;
+}

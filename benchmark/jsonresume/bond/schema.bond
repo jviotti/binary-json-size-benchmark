@@ -1,0 +1,106 @@
+namespace benchmark
+
+struct Location {
+  0: required string address;
+  1: required string postalCode;
+  2: required string city;
+  3: required string countryCode;
+  4: required string region;
+}
+
+struct Profile {
+  0: required string network;
+  1: required string username;
+  2: required string url;
+}
+
+struct Basics {
+  0: required string name;
+  1: required string label;
+  2: required string picture;
+  3: required string email;
+  4: required string phone;
+  5: required string website;
+  6: required string summary;
+  7: required Location location;
+  8: required list<Profile> profiles;
+}
+
+struct Work {
+  0: required string company;
+  1: required string position;
+  2: required string website;
+  3: required string startDate;
+  4: required string endDate;
+  5: required string summary;
+  6: required list<string> highlights;
+}
+
+struct Volunteer {
+  0: required string organization;
+  1: required string position;
+  2: required string website;
+  3: required string startDate;
+  4: required string endDate;
+  5: required string summary;
+  6: required list<string> highlights;
+}
+
+struct Education {
+  0: required string institution;
+  1: required string area;
+  2: required string studyType;
+  3: required string startDate;
+  4: required string endDate;
+  5: required string gpa;
+  6: required list<string> courses;
+}
+
+struct Award {
+  0: required string title;
+  1: required string date;
+  2: required string awarder;
+  3: required string summary;
+}
+
+struct Publication {
+  0: required string name;
+  1: required string publisher;
+  2: required string releaseDate;
+  3: required string website;
+  4: required string summary;
+}
+
+struct Skill {
+  0: required string name;
+  1: required string level;
+  2: required list<string> keywords;
+}
+
+struct Language {
+  0: required string language;
+  1: required string fluency;
+}
+
+struct Interest {
+  0: required string name;
+  1: required list<string> keywords;
+}
+
+struct Reference {
+  0: required string name;
+  1: required string reference;
+}
+
+struct Main {
+  0: required Basics basics;
+  1: required list<Work> work;
+  2: required list<Volunteer> volunteer;
+  3: required list<Education> education;
+  4: required list<Award> awards;
+  5: required list<Publication> publications;
+  6: required list<Skill> skills;
+  7: required list<Language> languages;
+  8: required list<Interest> interests;
+  9: required list<Reference> references;
+}
