@@ -2,8 +2,6 @@
 
 BEGIN {
   FS = "  "
-  print "| Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |"
-  print "|----------------------|--------------|-----------|----------|-----------|"
 }
 
 function unquote(string) {
@@ -16,6 +14,11 @@ function unescape(string) {
   return string
 }
 
-{
+NR == 1 {
+  print "| " unquote($2) " | " unquote($3) " | " unquote($4) " | " unquote($5) " | " unquote($6) " |"
+  print "|----------------------|--------------|-----------|----------|-----------|"
+}
+
+NR != 1 {
   print "| " unescape(unquote($2)) " | " $3 " | " $4 " | " $5 " | " $6 " |"
 }

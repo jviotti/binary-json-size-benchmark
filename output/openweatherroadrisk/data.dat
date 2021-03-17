@@ -1,3 +1,4 @@
+"Index"  "Serialization Format"  "Uncompressed"  "GZIP (-9)"  "LZ4 (-9)"  "LZMA (-9)"
 1  "ASN.1\n(PER Unaligned)"  176  168  184  163
 2  "Apache Avro\n(unframed)"  156  156  168  156
 3  "Microsoft Bond\n(Compact Binary v1)"  182  174  188  176
