@@ -7,7 +7,7 @@
 OS = $(shell uname)
 DEPSDIR ?= $(shell pwd)/.tmp
 
-CPPFLAGS_BOND ?= -lboost_thread-mt -lbond -std=c++11
+CPPFLAGS_BOND ?= -I$(DEPSDIR)/bond/cpp -L$(DEPSDIR)/bond/cpp -lboost_thread-mt -lbond -std=c++11
 
 ifeq ($(OS),Darwin)
 # Allow Thrift to be compiled on macOS
@@ -18,10 +18,6 @@ CPPFLAGS += -I/usr/local/opt/openssl@1.1/include
 CPPFLAGS += -I/usr/local/Cellar/boost/1.75.0_2/include
 export PKG_CONFIG_PATH := /usr/local/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
 export PATH := /usr/local/opt/openjdk/bin:/usr/local/opt/bison@2.7/bin:/usr/local/opt/openssl@1.1/bin:$(PATH)
-
-# Link to Microsoft Bond
-# TODO: Vendor Microsoft Bond in order to get rid of this
-CPPFLAGS_BOND += -L/usr/local/Cellar/bond/9.0.4/lib/bond
 endif
 
 include vendor/vendorpull/targets.mk
@@ -145,7 +141,7 @@ output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benc
 
 output/%/bond/output.bin: output/%/bond/encode.json benchmark/%/bond/schema.bond skeleton/bond/encode.cpp \
 	| output/%/bond
-	gbc c++ $(word 2,$^) --output-dir=$(dir $(word 2,$^))
+	$(DEPSDIR)/bond/compiler/build/gbc/gbc c++ $(word 2,$^) --output-dir=$(dir $(word 2,$^))
 	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) $(CPPFLAGS_BOND) \
 		$(dir $(word 2,$^))schema_apply.cpp $(dir $(word 2,$^))schema_types.cpp \
 		-o $(dir $@)encode -Wall
