@@ -7,7 +7,7 @@
 OS = $(shell uname)
 DEPSDIR ?= $(shell pwd)/.tmp
 
-CPPFLAGS_BOND ?= -I$(DEPSDIR)/bond/cpp -L$(DEPSDIR)/bond/cpp -lboost_thread-mt -lbond -std=c++11
+CPPFLAGS_BOND ?= -Ivendor/bond/cpp/inc -I$(DEPSDIR)/bond/cpp -L$(DEPSDIR)/bond/cpp -lboost_thread-mt -lbond -std=c++11
 
 ifeq ($(OS),Darwin)
 # Allow Thrift to be compiled on macOS
