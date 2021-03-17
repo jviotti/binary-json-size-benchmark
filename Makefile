@@ -7,7 +7,7 @@
 OS = $(shell uname)
 DEPSDIR ?= $(shell pwd)/.tmp
 
-CPPFLAGS_BOND ?= -Ivendor/bond/cpp/inc -I$(DEPSDIR)/bond/cpp -Ivendor/bond/thirdparty/rapidjson/include -L$(DEPSDIR)/bond/cpp -lboost_thread-mt -lbond -std=c++11
+CPPFLAGS_BOND ?= -Ivendor/bond/cpp/inc -I$(DEPSDIR)/bond/cpp -Ivendor/bond/thirdparty/rapidjson/include -L$(DEPSDIR)/bond/cpp -lbond -std=c++11
 
 ifeq ($(OS),Darwin)
 # Allow Thrift to be compiled on macOS
@@ -18,6 +18,9 @@ CPPFLAGS += -I/usr/local/opt/openssl@1.1/include
 CPPFLAGS += -I/usr/local/Cellar/boost/1.75.0_2/include
 export PKG_CONFIG_PATH := /usr/local/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
 export PATH := /usr/local/opt/openjdk/bin:/usr/local/opt/bison@2.7/bin:/usr/local/opt/openssl@1.1/bin:$(PATH)
+CPPFLAGS_BOND += -lboost_thread-mt
+else
+CPPFLAGS_BOND += -lboost_thread
 endif
 
 include vendor/vendorpull/targets.mk
