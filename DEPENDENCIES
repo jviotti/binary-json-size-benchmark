@@ -1,4 +1,4 @@
-vendorpull https://github.com/jviotti/vendorpull 68e2080f53b03333cc91f8a69ce67d1d7c2f5dde
+vendorpull https://github.com/jviotti/vendorpull 82aa57d67b39a783b819aa19111d2b680a8d4ed4
 flatbuffers https://github.com/google/flatbuffers.git v1.12.0
 capnproto https://github.com/capnproto/capnproto v0.8.0
 msgpack-tools https://github.com/ludocode/msgpack-tools v0.6
