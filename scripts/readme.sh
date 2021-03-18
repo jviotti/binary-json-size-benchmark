@@ -1,14 +1,17 @@
 #!/bin/sh
 
+GITHUB_REPOSITORY="https://github.com/jviotti/binary-json-size-benchmark"
+
 set -eu
 
 echo "Binary JSON-compatible Format Size Benchmark"
 echo "============================================"
 echo ""
-echo "[**JSON documents**](#json-documents) | [**Serialization formats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)"
+echo "[**JSON documents**](#json-documents) - [**Serialization formats**](#serialization-formats) - [**Results**](#results) - [**Running locally**](#running-locally) - [**GitHub**]($GITHUB_REPOSITORY)"
 echo "
 A large-scale space-efficiency benchmark of JSON-compatible binary
-serialization formats involving representative real-world JSON documents.
+serialization formats (with and without compression) involving representative
+real-world JSON documents.
 "
 
 echo "
@@ -23,8 +26,8 @@ the JSON documents used in this benchmark are described in the table below.
 The *type* column is based on JSON BinPack's [JSON Stats online
 tool](https://www.jsonbinpack.org/stats/).
 
-| Name | Type | Link | SchemaStore |
-|------|------|------|-------------|"
+| Name | Type | Document | SchemaStore |
+|------|------|----------|-------------|"
 
 for document in output/*
 do
@@ -34,8 +37,8 @@ do
   printf "| %s | %s | %s | %s |\n" \
     "[$TITLE](#$DOCUMENT_ID)" \
     "$(cat "benchmark/$DOCUMENT_ID/TAXONOMY")" \
-    "[:arrow_upper_right:](benchmark/$DOCUMENT_ID/document.json)" \
-    "[:arrow_upper_right:]($SCHEMASTORE_URL)"
+    "[Link]($GITHUB_REPOSITORY/blob/main/benchmark/$DOCUMENT_ID/document.json)" \
+    "[Link]($SCHEMASTORE_URL)"
 done
 
 echo "
