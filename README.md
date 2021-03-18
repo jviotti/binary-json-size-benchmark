@@ -1,9 +1,88 @@
-Binary JSON-compatible Format Benchmark
-=======================================
+Binary JSON-compatible Format Size Benchmark
+============================================
 
-A size benchmark of JSON-compatible binary serialization formats.
+A large-scale space-efficiency benchmark of JSON-compatible binary
+serialization formats involving representative real-world JSON documents.
 
-Serialization Formats
+
+Table of contents
+-----------------
+
+- [JSON documents](#json-documents)
+- [Serialization formats](#serialization-formats)
+- [Results](#results)
+    - [CircleCI definition (blank)](#circleciblank)
+    - [CircleCI matrix definition](#circlecimatrix)
+    - [CommitLint configuration](#commitlint)
+    - [CommitLint configuration (basic)](#commitlintbasic)
+    - [Entry Point Regulation manifest](#epr)
+    - [ESLint configuration document](#eslintrc)
+    - [ ECMAScript module loader definition](#esmrc)
+    - [GeoJSON example JSON document](#geojson)
+    - [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank)
+    - [GitHub Workflow Definition](#githubworkflow)
+    - [Grunt.js "clean" task definition](#gruntcontribclean)
+    - [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob)
+    - [JSON-e templating engine reverse sort example](#jsonereversesort)
+    - [JSON-e templating engine sort example](#jsonesort)
+    - [JSON Feed example document](#jsonfeed)
+    - [JSON Resume](#jsonresume)
+    - [.NET Core project.json](#netcoreproject)
+    - [Nightwatch.js Test Framework Configuration](#nightwatch)
+    - [OpenWeatherMap API example JSON document](#openweathermap)
+    - [OpenWeather Road Risk API example](#openweatherroadrisk)
+    - [NPM Package.json example manifest](#packagejson)
+    - [NPM Package.json Linter configuration manifest](#packagejsonlintrc)
+    - [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline)
+    - [TravisCI notifications configuration](#travisnotifications)
+    - [TSLint linter definition (basic)](#tslintbasic)
+    - [TSLint linter definition (extends only)](#tslintextend)
+    - [TSLint linter definition (multi-rule)](#tslintmulti)
+- [Running locally](#running-locally)
+- [License](#license)
+
+JSON documents
+--------------
+
+This size benchmark utilizes representative real-world JSON documents adapted
+from the open-source Apache-2.0
+[SchemaStore](https://www.schemastore.org/json/)'s [test
+suite](https://github.com/SchemaStore/schemastore/tree/master/src/test). All
+the JSON documents used in this benchmark are described in the table below.
+The *type* column is based on JSON BinPack's [JSON Stats online
+tool](https://www.jsonbinpack.org/stats/).
+
+| Name | Type | Link | SchemaStore |
+|------|------|------|-------------|
+| [CircleCI definition (blank)](#circleciblank) | tiny numeric non-redundant flat  | [:arrow_upper_right:](benchmark/circleciblank/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/version-2.0.json) |
+| [CircleCI matrix definition](#circlecimatrix) | tiny numeric non-redundant nested  | [:arrow_upper_right:](benchmark/circlecimatrix/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/matrix-simple.json) |
+| [CommitLint configuration](#commitlint) | tiny textual redundant nested  | [:arrow_upper_right:](benchmark/commitlint/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test5.json) |
+| [CommitLint configuration (basic)](#commitlintbasic) | tiny boolean non-redundant flat  | [:arrow_upper_right:](benchmark/commitlintbasic/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
+| [Entry Point Regulation manifest](#epr) | small textual redundant nested  | [:arrow_upper_right:](benchmark/epr/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
+| [ESLint configuration document](#eslintrc) | large numeric redundant flat  | [:arrow_upper_right:](benchmark/eslintrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
+| [ ECMAScript module loader definition](#esmrc) | small boolean non-redundant flat  | [:arrow_upper_right:](benchmark/esmrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
+| [GeoJSON example JSON document](#geojson) | small numeric redundant nested  | [:arrow_upper_right:](benchmark/geojson/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
+| [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | small boolean redundant flat  | [:arrow_upper_right:](benchmark/githubfundingblank/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
+| [GitHub Workflow Definition](#githubworkflow) | small textual non-redundant nested  | [:arrow_upper_right:](benchmark/githubworkflow/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
+| [Grunt.js "clean" task definition](#gruntcontribclean) | tiny textual redundant flat  | [:arrow_upper_right:](benchmark/gruntcontribclean/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
+| [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob) | tiny textual non-redundant nested  | [:arrow_upper_right:](benchmark/imageoptimizerwebjob/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
+| [JSON-e templating engine reverse sort example](#jsonereversesort) | tiny numeric redundant nested  | [:arrow_upper_right:](benchmark/jsonereversesort/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
+| [JSON-e templating engine sort example](#jsonesort) | tiny numeric redundant flat  | [:arrow_upper_right:](benchmark/jsonesort/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
+| [JSON Feed example document](#jsonfeed) | small textual non-redundant flat  | [:arrow_upper_right:](benchmark/jsonfeed/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/feed/microblog.json) |
+| [JSON Resume](#jsonresume) | large textual non-redundant nested  | [:arrow_upper_right:](benchmark/jsonresume/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/resume/richardhendriks.json) |
+| [.NET Core project.json](#netcoreproject) | large textual redundant nested  | [:arrow_upper_right:](benchmark/netcoreproject/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/project/EF-project.json) |
+| [Nightwatch.js Test Framework Configuration](#nightwatch) | large boolean redundant flat  | [:arrow_upper_right:](benchmark/nightwatch/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/nightwatch/default.json) |
+| [OpenWeatherMap API example JSON document](#openweathermap) | small numeric non-redundant flat  | [:arrow_upper_right:](benchmark/openweathermap/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.current/example.json) |
+| [OpenWeather Road Risk API example](#openweatherroadrisk) | small numeric non-redundant nested  | [:arrow_upper_right:](benchmark/openweatherroadrisk/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.roadrisk/example.json) |
+| [NPM Package.json example manifest](#packagejson) | large textual non-redundant flat  | [:arrow_upper_right:](benchmark/packagejson/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/package/package-test.json) |
+| [NPM Package.json Linter configuration manifest](#packagejsonlintrc) | large textual redundant flat  | [:arrow_upper_right:](benchmark/packagejsonlintrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/npmpackagejsonlintrc/npmpackagejsonlintrc-test.json) |
+| [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline) | tiny boolean redundant flat  | [:arrow_upper_right:](benchmark/sapcloudsdkpipeline/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/cloud-sdk-pipeline-config-schema/empty.json) |
+| [TravisCI notifications configuration](#travisnotifications) | small textual redundant flat  | [:arrow_upper_right:](benchmark/travisnotifications/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/travis/notification-secure.json) |
+| [TSLint linter definition (basic)](#tslintbasic) | tiny boolean non-redundant nested  | [:arrow_upper_right:](benchmark/tslintbasic/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test19.json) |
+| [TSLint linter definition (extends only)](#tslintextend) | tiny textual non-redundant flat  | [:arrow_upper_right:](benchmark/tslintextend/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test5.json) |
+| [TSLint linter definition (multi-rule)](#tslintmulti) | tiny boolean redundant nested  | [:arrow_upper_right:](benchmark/tslintmulti/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test25.json) |
+
+Serialization formats
 ---------------------
 
 This benchmark involves the serialization formats, implementations, and
@@ -32,8 +111,6 @@ Results
 
 ![CircleCI definition (blank) chart](./charts/circleciblank.png)
 
-- [**Input Document**](benchmark/circleciblank/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 4 | 24 | 23 | 27 |
@@ -56,8 +133,6 @@ Results
 
 ![CircleCI matrix definition chart](./charts/circlecimatrix.png)
 
-- [**Input Document**](benchmark/circlecimatrix/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 18 | 36 | 37 | 38 |
@@ -80,8 +155,6 @@ Results
 
 ![CommitLint configuration chart](./charts/commitlint.png)
 
-- [**Input Document**](benchmark/commitlint/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 50 | 48 | 55 | 52 |
@@ -104,8 +177,6 @@ Results
 
 ![CommitLint configuration (basic) chart](./charts/commitlintbasic.png)
 
-- [**Input Document**](benchmark/commitlintbasic/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 1 | 21 | 20 | 24 |
@@ -128,8 +199,6 @@ Results
 
 ![Entry Point Regulation manifest chart](./charts/epr.png)
 
-- [**Input Document**](benchmark/epr/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 231 | 180 | 208 | 175 |
@@ -152,8 +221,6 @@ Results
 
 ![ESLint configuration document chart](./charts/eslintrc.png)
 
-- [**Input Document**](benchmark/eslintrc/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 65 | 81 | 84 | 83 |
@@ -176,8 +243,6 @@ Results
 
 ![ ECMAScript module loader definition chart](./charts/esmrc.png)
 
-- [**Input Document**](benchmark/esmrc/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 12 | 32 | 31 | 35 |
@@ -200,32 +265,6 @@ Results
 
 ![GeoJSON example JSON document chart](./charts/geojson.png)
 
-- [**Input Document**](benchmark/geojson/document.json)
-  
-| Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
-|----------------------|--------------|-----------|----------|-----------|
-| ASN.1 (PER Unaligned) | 205 | 105 | 136 | 103 |
-| Apache Avro (unframed) | 283 | 100 | 130 | 92 |
-| Microsoft Bond (Compact Binary v1) | 298 | 116 | 143 | 106 |
-| BSON | 456 | 187 | 234 | 167 |
-| Cap'n Proto | 448 | 146 | 197 | 132 |
-| Cap'n Proto (packed) | 228 | 142 | 162 | 137 |
-| CBOR | 172 | 112 | 138 | 109 |
-| FlatBuffers | 680 | 220 | 291 | 195 |
-| FlexBuffers | 309 | 167 | 200 | 163 |
-| JSON | 190 | 121 | 146 | 116 |
-| MessagePack | 162 | 111 | 132 | 109 |
-| Protocol Buffers | 325 | 115 | 145 | 107 |
-| Smile | 228 | 131 | 158 | 128 |
-| Apache Thrift (Compact Protocol) | 277 | 110 | 136 | 104 |
-| UBJSON | 208 | 126 | 153 | 120 |
-
-<h3 id="geojsonredundant">GeoJSON example JSON document with redundant coordinates</h3>
-
-![GeoJSON example JSON document with redundant coordinates chart](./charts/geojsonredundant.png)
-
-- [**Input Document**](benchmark/geojsonredundant/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 205 | 105 | 136 | 103 |
@@ -248,8 +287,6 @@ Results
 
 ![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
 
-- [**Input Document**](benchmark/githubfundingblank/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 16 | 36 | 35 | 39 |
@@ -272,8 +309,6 @@ Results
 
 ![GitHub Workflow Definition chart](./charts/githubworkflow.png)
 
-- [**Input Document**](benchmark/githubworkflow/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 165 | 154 | 172 | 152 |
@@ -296,8 +331,6 @@ Results
 
 ![Grunt.js "clean" task definition chart](./charts/gruntcontribclean.png)
 
-- [**Input Document**](benchmark/gruntcontribclean/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 13 | 29 | 32 | 32 |
@@ -320,8 +353,6 @@ Results
 
 ![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizerwebjob.png)
 
-- [**Input Document**](benchmark/imageoptimizerwebjob/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 21 | 41 | 40 | 45 |
@@ -344,8 +375,6 @@ Results
 
 ![JSON-e templating engine reverse sort example chart](./charts/jsonereversesort.png)
 
-- [**Input Document**](benchmark/jsonereversesort/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 15 | 31 | 34 | 33 |
@@ -368,8 +397,6 @@ Results
 
 ![JSON-e templating engine sort example chart](./charts/jsonesort.png)
 
-- [**Input Document**](benchmark/jsonesort/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 13 | 30 | 32 | 32 |
@@ -392,8 +419,6 @@ Results
 
 ![JSON Feed example document chart](./charts/jsonfeed.png)
 
-- [**Input Document**](benchmark/jsonfeed/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 398 | 247 | 287 | 248 |
@@ -416,8 +441,6 @@ Results
 
 ![JSON Resume chart](./charts/jsonresume.png)
 
-- [**Input Document**](benchmark/jsonresume/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 2143 | 1282 | 1754 | 1302 |
@@ -440,8 +463,6 @@ Results
 
 ![.NET Core project.json chart](./charts/netcoreproject.png)
 
-- [**Input Document**](benchmark/netcoreproject/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 242 | 93 | 120 | 98 |
@@ -464,8 +485,6 @@ Results
 
 ![Nightwatch.js Test Framework Configuration chart](./charts/nightwatch.png)
 
-- [**Input Document**](benchmark/nightwatch/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 89 | 105 | 108 | 108 |
@@ -488,8 +507,6 @@ Results
 
 ![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
 
-- [**Input Document**](benchmark/openweathermap/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 165 | 179 | 184 | 183 |
@@ -512,8 +529,6 @@ Results
 
 ![OpenWeather Road Risk API example chart](./charts/openweatherroadrisk.png)
 
-- [**Input Document**](benchmark/openweatherroadrisk/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 176 | 168 | 184 | 163 |
@@ -536,8 +551,6 @@ Results
 
 ![NPM Package.json example manifest chart](./charts/packagejson.png)
 
-- [**Input Document**](benchmark/packagejson/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 1498 | 801 | 1061 | 820 |
@@ -560,8 +573,6 @@ Results
 
 ![NPM Package.json Linter configuration manifest chart](./charts/packagejsonlintrc.png)
 
-- [**Input Document**](benchmark/packagejsonlintrc/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 369 | 84 | 97 | 87 |
@@ -584,8 +595,6 @@ Results
 
 ![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sapcloudsdkpipeline.png)
 
-- [**Input Document**](benchmark/sapcloudsdkpipeline/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 1 | 21 | 20 | 24 |
@@ -608,8 +617,6 @@ Results
 
 ![TravisCI notifications configuration chart](./charts/travisnotifications.png)
 
-- [**Input Document**](benchmark/travisnotifications/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 497 | 88 | 102 | 90 |
@@ -632,8 +639,6 @@ Results
 
 ![TSLint linter definition (basic) chart](./charts/tslintbasic.png)
 
-- [**Input Document**](benchmark/tslintbasic/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 1 | 21 | 20 | 24 |
@@ -656,8 +661,6 @@ Results
 
 ![TSLint linter definition (extends only) chart](./charts/tslintextend.png)
 
-- [**Input Document**](benchmark/tslintextend/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 46 | 54 | 56 | 57 |
@@ -680,8 +683,6 @@ Results
 
 ![TSLint linter definition (multi-rule) chart](./charts/tslintmulti.png)
 
-- [**Input Document**](benchmark/tslintmulti/document.json)
-  
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | 4 | 24 | 23 | 27 |
@@ -743,5 +744,4 @@ make all ASN1STEP=/Applications/asn1step/asn1step/macosx-x86-64.trial/10.0.2/bin
 License
 -------
 
-This work is released under the Apache-1.0 license.
-
+This work is released under the Apache-2.0 license.

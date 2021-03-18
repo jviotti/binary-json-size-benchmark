@@ -1,6 +1,0 @@
-namespace benchmark
-
-struct Main {
-  0: required string type;
-  1: required list<list<list<list<double>>>> coordinates;
-}

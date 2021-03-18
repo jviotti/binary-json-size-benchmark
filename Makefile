@@ -78,9 +78,9 @@ lint:
 charts:
 	mkdir $@
 
-charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
+charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | charts
 	gnuplot \
-		-e "description=\"$(shell cat $(word 3,$^))\"" \
+		-e "description=\"$(shell cat $(word 3,$^))\n{/*0.75 $(shell cat $(word 4,$^))}\"" \
 		-e "filename=\"$(word 2,$^)\"" \
 		$< > $@
 
@@ -307,7 +307,10 @@ CHARTS = $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS)))
 DATA = $(addsuffix /data.dat,$(addprefix output/,$(DOCUMENTS)))
 
 README.md: scripts/readme.sh docs/versions.markdown docs/reproducibility.markdown data.awk \
-	$(CHARTS) $(wildcard benchmark/*/NAME) \
+	$(CHARTS) \
+	$(wildcard benchmark/*/NAME) \
+	$(wildcard benchmark/*/SOURCE) \
+	$(wildcard benchmark/*/TAXONOMY) \
 	$(wildcard benchmark/*/document.json) \
 	$(DATA)
 	./$< > $@
