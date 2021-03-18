@@ -5,7 +5,7 @@ set -eu
 echo "Binary JSON-compatible Format Size Benchmark"
 echo "============================================"
 echo ""
-echo "[**JSON documents**](#json-documents) | [**Serialization dormats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)"
+echo "[**JSON documents**](#json-documents) | [**Serialization formats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)"
 echo "
 A large-scale space-efficiency benchmark of JSON-compatible binary
 serialization formats involving representative real-world JSON documents.

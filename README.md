@@ -1,7 +1,7 @@
 Binary JSON-compatible Format Size Benchmark
 ============================================
 
-[**JSON documents**](#json-documents) | [**Serialization dormats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)
+[**JSON documents**](#json-documents) | [**Serialization formats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)
 
 A large-scale space-efficiency benchmark of JSON-compatible binary
 serialization formats involving representative real-world JSON documents.
