@@ -1,45 +1,11 @@
 Binary JSON-compatible Format Size Benchmark
 ============================================
 
+[**JSON documents**](#json-documents) | [**Serialization dormats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)
+
 A large-scale space-efficiency benchmark of JSON-compatible binary
 serialization formats involving representative real-world JSON documents.
 
-
-Table of contents
------------------
-
-- [JSON documents](#json-documents)
-- [Serialization formats](#serialization-formats)
-- [Results](#results)
-    - [CircleCI definition (blank)](#circleciblank)
-    - [CircleCI matrix definition](#circlecimatrix)
-    - [CommitLint configuration](#commitlint)
-    - [CommitLint configuration (basic)](#commitlintbasic)
-    - [Entry Point Regulation manifest](#epr)
-    - [ESLint configuration document](#eslintrc)
-    - [ ECMAScript module loader definition](#esmrc)
-    - [GeoJSON example JSON document](#geojson)
-    - [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank)
-    - [GitHub Workflow Definition](#githubworkflow)
-    - [Grunt.js "clean" task definition](#gruntcontribclean)
-    - [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob)
-    - [JSON-e templating engine reverse sort example](#jsonereversesort)
-    - [JSON-e templating engine sort example](#jsonesort)
-    - [JSON Feed example document](#jsonfeed)
-    - [JSON Resume](#jsonresume)
-    - [.NET Core project.json](#netcoreproject)
-    - [Nightwatch.js Test Framework Configuration](#nightwatch)
-    - [OpenWeatherMap API example JSON document](#openweathermap)
-    - [OpenWeather Road Risk API example](#openweatherroadrisk)
-    - [NPM Package.json example manifest](#packagejson)
-    - [NPM Package.json Linter configuration manifest](#packagejsonlintrc)
-    - [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline)
-    - [TravisCI notifications configuration](#travisnotifications)
-    - [TSLint linter definition (basic)](#tslintbasic)
-    - [TSLint linter definition (extends only)](#tslintextend)
-    - [TSLint linter definition (multi-rule)](#tslintmulti)
-- [Running locally](#running-locally)
-- [License](#license)
 
 JSON documents
 --------------

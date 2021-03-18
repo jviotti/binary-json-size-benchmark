@@ -4,27 +4,12 @@ set -eu
 
 echo "Binary JSON-compatible Format Size Benchmark"
 echo "============================================"
+echo ""
+echo "[**JSON documents**](#json-documents) | [**Serialization dormats**](#serialization-formats) | [**Results**](#results) | [**Running locally**](#running-locally)"
 echo "
 A large-scale space-efficiency benchmark of JSON-compatible binary
 serialization formats involving representative real-world JSON documents.
 "
-
-echo "
-Table of contents
------------------
-"
-
-echo "- [JSON documents](#json-documents)"
-echo "- [Serialization formats](#serialization-formats)"
-echo "- [Results](#results)"
-for document in output/*
-do
-  DOCUMENT_ID="$(basename "$document")"
-  TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
-  echo "    - [$TITLE](#$DOCUMENT_ID)"
-done
-echo "- [Running locally](#running-locally)"
-echo "- [License](#license)"
 
 echo "
 JSON documents
