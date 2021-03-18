@@ -5,7 +5,13 @@ set -eu
 echo "Binary JSON-compatible Format Size Benchmark"
 echo "============================================"
 echo "
-A size benchmark of JSON-compatible binary serialization formats.
+A large-scale space-efficiency benchmark of JSON-compatible binary
+serialization formats involving representative real-world JSON documents.
+"
+
+echo "
+Table of contents
+-----------------
 "
 
 echo "- [JSON documents](#json-documents)"
@@ -23,6 +29,14 @@ echo "- [License](#license)"
 echo "
 JSON documents
 --------------
+
+This size benchmark utilizes representative real-world JSON documents adapted
+from the open-source Apache-2.0
+[SchemaStore](https://www.schemastore.org/json/)'s [test
+suite](https://github.com/SchemaStore/schemastore/tree/master/src/test). All
+the JSON documents used in this benchmark are described in the table below.
+The *type* column is based on JSON BinPack's [JSON Stats online
+tool](https://www.jsonbinpack.org/stats/).
 
 | Name | Type | Link | SchemaStore |
 |------|------|------|-------------|"
