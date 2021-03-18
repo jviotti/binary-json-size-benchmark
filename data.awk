@@ -1,7 +1,7 @@
 #!/usr/bin/env awk -f
 
 BEGIN {
-  FS = "  "
+  FS = ","
 }
 
 function unquote(string) {
@@ -15,10 +15,10 @@ function unescape(string) {
 }
 
 NR == 1 {
-  print "| " unquote($2) " | " unquote($3) " | " unquote($4) " | " unquote($5) " | " unquote($6) " |"
+  print "| " unquote($3) " | " unquote($4) " | " unquote($5) " | " unquote($6) " | " unquote($7) " |"
   print "|----------------------|--------------|-----------|----------|-----------|"
 }
 
 NR != 1 {
-  print "| " unescape(unquote($2)) " | " $3 " | " $4 " | " $5 " | " $6 " |"
+  print "| " unescape(unquote($3)) " | " $4 " | " $5 " | " $6 " | " $7 " |"
 }

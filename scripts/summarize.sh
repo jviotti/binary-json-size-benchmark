@@ -6,8 +6,9 @@ set -u
 
 INDEX="1"
 
-printf "\"%s\"  \"%s\"  \"%s\"  \"%s\"  \"%s\"  \"%s\"\n" \
+printf "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n" \
   "Index" \
+  "Format ID" \
   "Serialization Format" \
   "Uncompressed" \
   "GZIP (-9)" \
@@ -23,8 +24,9 @@ do
 
   NAME="$(cat "skeleton/$(basename "$format")/NAME")"
 
-  printf "%s  \"%s\"  %s  %s  %s  %s\n" \
+  printf "%s,%s,\"%s\",%s,%s,%s,%s\n" \
     "$INDEX" \
+    "$(basename "$format")" \
     "$NAME" \
     "$(./scripts/byte-size.sh "$format/output.bin")" \
     "$(./scripts/byte-size.sh "$format/output.bin.gz")" \

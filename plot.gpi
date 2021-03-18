@@ -10,8 +10,9 @@ set key above height 1.5
 set bmargin 11
 set lmargin 9
 set key autotitle columnhead
+set datafile separator ","
 
-plot filename using 3:xtic(2),\
-filename using 4:xtic(2),\
-filename using 5:xtic(2),\
-filename using 6:xtic(2)
+plot filename using 4:xtic(3),\
+filename using 5:xtic(3),\
+filename using 6:xtic(3),\
+filename using 7:xtic(3)
