@@ -56,7 +56,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+/node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -103,7 +103,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+/dist
 
 # Gatsby files
 .cache/
@@ -142,7 +142,7 @@ __pycache__/
 .Python
 /build/
 develop-eggs/
-dist/
+/dist/
 downloads/
 eggs/
 .eggs/
@@ -562,3 +562,4 @@ TSWLatexianTemp*
 .DS_Store
 .cpcache
 vendor/msgpack-tools/contrib
+vendor/jsontoolkit/node_modules

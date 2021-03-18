@@ -69,11 +69,14 @@ deps: requirements.txt package.json \
 	deps-bond deps-protobuf deps-thrift \
 	deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
 	pip3 install --requirement $<
-	npm install
+	node vendor/jsontoolkit/vendor/npm/bin/npm-cli.js install
 
 lint:
 	shellcheck scripts/*.sh
 	python3 -m flake8 skeleton/*/*.py scripts/*.py
+
+benchmark/%/TAXONOMY: scripts/taxonomy.js benchmark/%/document.json
+	node $< $(word 2,$^) > $@
 
 charts:
 	mkdir $@

@@ -1,0 +1,26 @@
+import { JSONValue } from '../../json';
+import { ObjectSchema } from '../schema';
+import { Pointer } from '../../jsonpointer';
+import { SchemaValidator, ValidationResult, ValidateOutputMode } from '../validate';
+export declare const type: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, _schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const properties: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, _schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const minItems: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const maxItems: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const minLength: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const maxLength: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const exclusiveMaximum: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const exclusiveMinimum: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const maximum: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, schema: ObjectSchema) => Promise<ValidationResult>;
+export declare const minimum: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, schema: ObjectSchema) => Promise<ValidationResult>;
+export declare const pattern: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const patternProperties: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, _schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const _enum: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const format: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const uniqueItems: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const dependencies: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, _schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const items: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const additionalProperties: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, schema: ObjectSchema, scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const divisibleBy: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue) => Promise<ValidationResult>;
+export declare const disallow: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, _schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+export declare const _extends: (mode: ValidateOutputMode, arg: JSONValue, instance: JSONValue, _schema: ObjectSchema, _scope: string | null, validate: SchemaValidator, instancePointer: Pointer, _schemaPointer: Pointer, keywordPointer: Pointer, evaluatedPointers: Set<string>) => Promise<ValidationResult>;
+//# sourceMappingURL=draft3.d.ts.map

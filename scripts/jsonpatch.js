@@ -1,3 +1,4 @@
+// TODO: Use a JSON Patch implementation from jsontoolkit
 const fs = require('fs')
 const jsonpatch = require('fast-json-patch')
 
