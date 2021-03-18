@@ -78,9 +78,9 @@ lint:
 charts:
 	mkdir $@
 
-charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME | charts
+charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | charts
 	gnuplot \
-		-e "description=\"$(shell cat $(word 3,$^))\"" \
+		-e "description=\"$(shell cat $(word 3,$^))\n{/*0.75 $(shell cat $(word 4,$^))}\"" \
 		-e "filename=\"$(word 2,$^)\"" \
 		$< > $@
 

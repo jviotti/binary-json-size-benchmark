@@ -14,7 +14,6 @@ A size benchmark of JSON-compatible binary serialization formats.
     - [ESLint configuration document](#eslintrc)
     - [ ECMAScript module loader definition](#esmrc)
     - [GeoJSON example JSON document](#geojson)
-    - [GeoJSON example JSON document with redundant coordinates](#geojsonredundant)
     - [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank)
     - [GitHub Workflow Definition](#githubworkflow)
     - [Grunt.js "clean" task definition](#gruntcontribclean)
@@ -50,7 +49,6 @@ JSON documents
 | [ESLint configuration document](#eslintrc) | large numeric redundant flat  | [:arrow_upper_right:](benchmark/eslintrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
 | [ ECMAScript module loader definition](#esmrc) | small boolean non-redundant flat  | [:arrow_upper_right:](benchmark/esmrc/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
 | [GeoJSON example JSON document](#geojson) | small numeric redundant nested  | [:arrow_upper_right:](benchmark/geojson/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
-| [GeoJSON example JSON document with redundant coordinates](#geojsonredundant) | small numeric redundant nested  | [:arrow_upper_right:](benchmark/geojsonredundant/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
 | [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | small boolean redundant flat  | [:arrow_upper_right:](benchmark/githubfundingblank/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
 | [GitHub Workflow Definition](#githubworkflow) | small textual non-redundant nested  | [:arrow_upper_right:](benchmark/githubworkflow/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
 | [Grunt.js "clean" task definition](#gruntcontribclean) | tiny textual redundant flat  | [:arrow_upper_right:](benchmark/gruntcontribclean/document.json) | [:arrow_upper_right:](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
@@ -253,28 +251,6 @@ Results
 <h3 id="geojson">GeoJSON example JSON document</h3>
 
 ![GeoJSON example JSON document chart](./charts/geojson.png)
-
-| Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
-|----------------------|--------------|-----------|----------|-----------|
-| ASN.1 (PER Unaligned) | 205 | 105 | 136 | 103 |
-| Apache Avro (unframed) | 283 | 100 | 130 | 92 |
-| Microsoft Bond (Compact Binary v1) | 298 | 116 | 143 | 106 |
-| BSON | 456 | 187 | 234 | 167 |
-| Cap'n Proto | 448 | 146 | 197 | 132 |
-| Cap'n Proto (packed) | 228 | 142 | 162 | 137 |
-| CBOR | 172 | 112 | 138 | 109 |
-| FlatBuffers | 680 | 220 | 291 | 195 |
-| FlexBuffers | 309 | 167 | 200 | 163 |
-| JSON | 190 | 121 | 146 | 116 |
-| MessagePack | 162 | 111 | 132 | 109 |
-| Protocol Buffers | 325 | 115 | 145 | 107 |
-| Smile | 228 | 131 | 158 | 128 |
-| Apache Thrift (Compact Protocol) | 277 | 110 | 136 | 104 |
-| UBJSON | 208 | 126 | 153 | 120 |
-
-<h3 id="geojsonredundant">GeoJSON example JSON document with redundant coordinates</h3>
-
-![GeoJSON example JSON document with redundant coordinates chart](./charts/geojsonredundant.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
