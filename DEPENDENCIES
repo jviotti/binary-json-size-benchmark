@@ -6,3 +6,4 @@ lz4 https://github.com/lz4/lz4 v1.9.3
 thrift https://github.com/apache/thrift 65fb49bb41f852375b278c9057d52c9472f0cb3a
 protobuf https://github.com/protocolbuffers/protobuf v3.15.3
 bond https://github.com/microsoft/bond 9.0.4
+jsontoolkit git@github.com:sourcemeta/jsontoolkit.git 4534797a3dcebc6c84899d227d478c96dcf46e70

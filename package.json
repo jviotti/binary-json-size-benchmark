@@ -14,6 +14,7 @@
   "homepage": "https://github.com/jviotti/binary-json-benchmark#readme",
   "dependencies": {
     "bson": "^4.2.2",
-    "fast-json-patch": "^3.0.0-1"
+    "fast-json-patch": "^3.0.0-1",
+    "jsontoolkit": "./vendor/jsontoolkit"
   }
 }

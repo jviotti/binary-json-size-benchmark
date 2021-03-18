@@ -1,0 +1,6 @@
+--ignore-dir=build
+--ignore-dir=dist
+--ignore-dir=docs
+--ignore-dir=vendor
+--ignore-dir=node_modules
+--ignore-dir=.nyc_output

@@ -1,0 +1,3 @@
+vendorpull https://github.com/jviotti/vendorpull 82aa57d67b39a783b819aa19111d2b680a8d4ed4
+json-schema-test-suite https://github.com/json-schema-org/JSON-Schema-Test-Suite.git 8daea3f47e52526518cc2e88ef5d25d8a7070e3c
+npm https://github.com/npm/cli 7b1a5399cfbfcc7a7194c4aa4bbadfbce6cbbe66
