@@ -15,4 +15,4 @@ encodings described in the table below.
 | Protocol Buffers     | Python `protobuf` (pip)  | 3.15.3  | Binary Wire Format              |
 | Smile                | Clojure `cheshire`       | 5.10.0  |                                 |
 | Apache Thrift        | Python `thrift` (pip)    | 0.13.0  | Compact Protocol                |
-| UBJSON               | Python `py-ubjson` (pip) | 0.16.1  | Compact Protocol                |
+| UBJSON               | Python `py-ubjson` (pip) | 0.16.1  |                                 |

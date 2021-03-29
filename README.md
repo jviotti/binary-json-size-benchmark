@@ -27,7 +27,7 @@ tool](https://www.jsonbinpack.org/stats/).
 | [CommitLint configuration (basic)](#commitlintbasic) | tiny boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
 | [Entry Point Regulation manifest](#epr) | small textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
 | [ESLint configuration document](#eslintrc) | large numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
-| [ ECMAScript module loader definition](#esmrc) | small boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
+| [ECMAScript module loader definition](#esmrc) | small boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
 | [GeoJSON example JSON document](#geojson) | small numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
 | [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | small boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
 | [GitHub Workflow Definition](#githubworkflow) | small textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
@@ -69,7 +69,7 @@ encodings described in the table below.
 | Protocol Buffers     | Python `protobuf` (pip)  | 3.15.3  | Binary Wire Format              |
 | Smile                | Clojure `cheshire`       | 5.10.0  |                                 |
 | Apache Thrift        | Python `thrift` (pip)    | 0.13.0  | Compact Protocol                |
-| UBJSON               | Python `py-ubjson` (pip) | 0.16.1  | Compact Protocol                |
+| UBJSON               | Python `py-ubjson` (pip) | 0.16.1  |                                 |
 
 Results
 -------
@@ -206,9 +206,9 @@ Results
 | Apache Thrift (Compact Protocol) | 150 | 110 | 132 | 109 |
 | UBJSON | 1070 | 550 | 771 | 563 |
 
-<h3 id="esmrc"> ECMAScript module loader definition</h3>
+<h3 id="esmrc">ECMAScript module loader definition</h3>
 
-![ ECMAScript module loader definition chart](./charts/esmrc.png)
+![ECMAScript module loader definition chart](./charts/esmrc.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
