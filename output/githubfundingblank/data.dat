@@ -3,14 +3,14 @@
 2,avro,"Apache Avro\n(unframed)",16,36,35,39
 3,bond,"Microsoft Bond\n(Compact Binary v1)",49,64,68,64
 4,bson,"BSON",133,125,152,137
-5,capnproto,"Cap'n Proto",40,50,56,51
-6,capnproto-packed,"Cap'n Proto\n(packed)",25,45,44,50
+5,capnproto,"Cap'n Proto\n(Binary Encoding)",40,50,56,51
+6,capnproto-packed,"Cap'n Proto\n(Packed Encoding)",25,45,44,50
 7,cbor,"CBOR",124,114,143,131
 8,flatbuffers,"FlatBuffers",68,71,79,71
 9,flexbuffers,"FlexBuffers",152,143,168,148
 10,json,"JSON",183,134,167,144
 11,messagepack,"MessagePack",124,124,143,136
-12,protobuf,"Protocol Buffers",17,37,36,41
+12,protobuf,"Protocol Buffers\n(Binary Wire Format)",17,37,36,41
 13,smile,"Smile",129,134,148,139
 14,thrift,"Apache Thrift\n(Compact Protocol)",18,38,37,42
 15,ubjson,"UBJSON",137,135,156,144
