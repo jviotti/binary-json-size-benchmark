@@ -169,9 +169,9 @@ var percentage = function (total, local) {
 };
 var JSONStatsSizeQualifier;
 (function (JSONStatsSizeQualifier) {
-    JSONStatsSizeQualifier["tiny"] = "tiny";
-    JSONStatsSizeQualifier["small"] = "small";
-    JSONStatsSizeQualifier["large"] = "large";
+    JSONStatsSizeQualifier["tiny"] = "minified < 100 bytes";
+    JSONStatsSizeQualifier["small"] = "minified >= 100 < 1000 bytes";
+    JSONStatsSizeQualifier["large"] = "minified >= 1000 bytes";
 })(JSONStatsSizeQualifier = exports.JSONStatsSizeQualifier || (exports.JSONStatsSizeQualifier = {}));
 // Based on distribution plot results
 var getSizeQualifier = function (byteSize) {
@@ -208,12 +208,12 @@ exports.summarize = function (stats) {
 };
 exports.qualify = function (summary) {
     var qualifiers = [summary.size];
-    if (summary.numericWeight > summary.textualWeight &&
-        summary.numericWeight > summary.booleanWeight) {
+    if (summary.numericWeight >= summary.textualWeight &&
+        summary.numericWeight >= summary.booleanWeight) {
         qualifiers.push('numeric');
     }
-    else if (summary.textualWeight > summary.numericWeight &&
-        summary.textualWeight > summary.booleanWeight) {
+    else if (summary.textualWeight >= summary.numericWeight &&
+        summary.textualWeight >= summary.booleanWeight) {
         qualifiers.push('textual');
     }
     else {

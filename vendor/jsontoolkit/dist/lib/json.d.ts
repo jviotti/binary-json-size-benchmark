@@ -1,4 +1,4 @@
-declare type JSONScalar = number | boolean | string | null;
+export declare type JSONScalar = number | boolean | string | null;
 export interface JSONObject {
     readonly [key: string]: JSONValue | undefined;
 }
@@ -21,5 +21,5 @@ export declare const getJSONType: (value: JSONValue) => JSONType;
 export declare const getJSONTypeCategory: (type: JSONType) => JSONTypeCategory;
 export declare const getElement: (document: JSONObject | JSONValue[], key: string | number) => string | number | boolean | JSONObject | JSONValue[] | null | undefined;
 export declare const getJSONSize: (document: JSONValue) => number;
-export {};
+export declare const readJSONFile: (filePath: string) => Promise<JSONValue>;
 //# sourceMappingURL=json.d.ts.map

@@ -32,5 +32,8 @@ export {
 
 export {
   JSONValue,
-  JSONObject
+  JSONObject,
+  JSONScalar,
+  getElement,
+  readJSONFile
 } from './json'

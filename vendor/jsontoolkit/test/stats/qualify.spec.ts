@@ -53,7 +53,7 @@ tap.test('should qualify the survey test object', (test) => {
   }
 
   const qualifiers: string[] = [
-    'small',
+    'minified >= 100 < 1000 bytes',
     'numeric',
     'non-redundant',
     'nested'

@@ -43,7 +43,7 @@ tap.test('should qualify the survey test object', function (test) {
         ]
     };
     var qualifiers = [
-        'small',
+        'minified >= 100 < 1000 bytes',
         'numeric',
         'non-redundant',
         'nested'

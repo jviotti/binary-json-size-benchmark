@@ -20,9 +20,9 @@ export interface JSONStats {
 }
 export declare const analyze: (document: JSONValue, level?: number, accumulator?: JSONStats, keys?: Set<string>, values?: JSONValue[], levels?: number[]) => JSONStats;
 export declare enum JSONStatsSizeQualifier {
-    tiny = "tiny",
-    small = "small",
-    large = "large"
+    tiny = "minified < 100 bytes",
+    small = "minified >= 100 < 1000 bytes",
+    large = "minified >= 1000 bytes"
 }
 export interface JSONStatsSummary {
     size: JSONStatsSizeQualifier;
