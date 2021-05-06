@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-type JSONScalar = number | boolean | string | null
+import * as fs from 'fs'
+
+export type JSONScalar = number | boolean | string | null
 
 export interface JSONObject {
   readonly [key: string]: JSONValue | undefined;
@@ -84,4 +86,10 @@ export const getElement =
 
 export const getJSONSize = (document: JSONValue): number => {
   return Buffer.byteLength(JSON.stringify(document), 'utf8')
+}
+
+export const readJSONFile = async (filePath: string): Promise<JSONValue> => {
+  const content: string = await fs.promises.readFile(filePath, 'utf8')
+  const json: JSONValue = JSON.parse(content)
+  return json
 }

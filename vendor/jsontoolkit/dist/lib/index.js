@@ -24,4 +24,7 @@ exports.analyze = stats_1.analyze;
 exports.summarize = stats_1.summarize;
 exports.qualify = stats_1.qualify;
 exports.JSONStatsSizeQualifier = stats_1.JSONStatsSizeQualifier;
+var json_1 = require("./json");
+exports.getElement = json_1.getElement;
+exports.readJSONFile = json_1.readJSONFile;
 //# sourceMappingURL=index.js.map

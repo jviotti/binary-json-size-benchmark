@@ -157,9 +157,9 @@ const percentage = (total: number, local: number): number => {
 }
 
 export enum JSONStatsSizeQualifier {
-  tiny = 'tiny',
-  small = 'small',
-  large = 'large'
+  tiny = 'minified < 100 bytes',
+  small = 'minified >= 100 < 1000 bytes',
+  large = 'minified >= 1000 bytes'
 }
 
 export interface JSONStatsSummary {
@@ -221,11 +221,11 @@ export const summarize = (stats: JSONStats): JSONStatsSummary => {
 export const qualify = (summary: JSONStatsSummary): string[] => {
   const qualifiers: string[] = [ summary.size ]
 
-  if (summary.numericWeight > summary.textualWeight &&
-    summary.numericWeight > summary.booleanWeight) {
+  if (summary.numericWeight >= summary.textualWeight &&
+    summary.numericWeight >= summary.booleanWeight) {
     qualifiers.push('numeric')
-  } else if (summary.textualWeight > summary.numericWeight &&
-    summary.textualWeight > summary.booleanWeight) {
+  } else if (summary.textualWeight >= summary.numericWeight &&
+    summary.textualWeight >= summary.booleanWeight) {
     qualifiers.push('textual')
   } else {
     qualifiers.push('boolean')
