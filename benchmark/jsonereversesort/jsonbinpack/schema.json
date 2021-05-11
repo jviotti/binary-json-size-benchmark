@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "$let", "in" ],
+  "properties": {
+    "$let": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "x" ],
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "multipleOf": 10
+      }
+    },
+    "in": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "$reverse" ],
+      "properties": {
+        "$reverse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "$sort", "by(x)" ],
+          "properties": {
+            "$sort": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [ "$eval" ],
+              "properties": {
+                "$eval": {
+                  "type": "string"
+                }
+              }
+            },
+            "by(x)": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

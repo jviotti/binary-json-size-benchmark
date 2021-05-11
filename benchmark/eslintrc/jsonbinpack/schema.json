@@ -1,0 +1,296 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "extends", "parser", "ecmaFeatures", "plugins", "env", "rules" ],
+  "properties": {
+    "extends": {
+      "type": "string"
+    },
+    "parser": {
+      "type": "string"
+    },
+    "ecmaFeatures": {
+      "type": "object",
+      "required": [ "jsx" ],
+      "properties": {
+        "jsx": {
+          "type": "boolean"
+        }
+      }
+    },
+    "plugins": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "env": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "browser", "node", "es6" ],
+      "properties": {
+        "browser": { "type": "boolean" },
+        "node": { "type": "boolean" },
+        "es6": { "type": "boolean" }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eqeqeq",
+        "comma-dangle",
+        "no-console",
+        "no-debugger",
+        "no-extra-semi",
+        "no-extra-parens",
+        "no-irregular-whitespace",
+        "no-undef",
+        "no-unused-vars",
+        "semi",
+        "semi-spacing",
+        "valid-jsdoc",
+        "react/display-name",
+        "react/forbid-prop-types",
+        "react/jsx-boolean-value",
+        "react/jsx-closing-bracket-location",
+        "react/jsx-curly-spacing",
+        "react/jsx-indent-props",
+        "react/jsx-max-props-per-line",
+        "react/jsx-no-duplicate-props",
+        "react/jsx-no-literals",
+        "react/jsx-no-undef",
+        "react/jsx-sort-prop-types",
+        "react/jsx-sort-props",
+        "react/jsx-uses-react",
+        "react/jsx-uses-vars",
+        "react/no-danger",
+        "react/no-did-mount-set-state",
+        "react/no-did-update-set-state",
+        "react/no-direct-mutation-state",
+        "react/no-multi-comp",
+        "react/no-set-state",
+        "react/no-unknown-property",
+        "react/prop-types",
+        "react/react-in-jsx-scope",
+        "react/require-extension",
+        "react/self-closing-comp",
+        "react/sort-comp",
+        "react/wrap-multilines"
+      ],
+      "properties": {
+        "eqeqeq": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "comma-dangle": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-console": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-debugger": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-extra-semi": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-extra-parens": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-irregular-whitespace": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-undef": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "no-unused-vars": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "semi": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "semi-spacing": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "valid-jsdoc": {
+          "type": "array",
+          "maxItems": 2,
+          "prefixItems": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 3
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [ "requireReturn" ],
+              "properties": {
+                "requireReturn": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        },
+        "react/display-name": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/forbid-prop-types": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-boolean-value": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-closing-bracket-location": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-curly-spacing": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-indent-props": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-max-props-per-line": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-no-duplicate-props": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-no-literals": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-no-undef": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-sort-prop-types": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-sort-props": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-uses-react": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/jsx-uses-vars": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-danger": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-did-mount-set-state": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-did-update-set-state": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-direct-mutation-state": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-multi-comp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-set-state": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/no-unknown-property": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/prop-types": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/react-in-jsx-scope": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/require-extension": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/self-closing-comp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/sort-comp": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "react/wrap-multilines": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        }
+      }
+    }
+  }
+}
