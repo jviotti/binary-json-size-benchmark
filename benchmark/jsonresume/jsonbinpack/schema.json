@@ -17,7 +17,7 @@
   "properties": {
     "basics": {
       "type": "object",
-      "additionalproperties": false,
+      "additionalProperties": false,
       "required": [
         "name", "label", "picture", "email",
         "phone", "website", "summary", "location", "profiles"
@@ -69,7 +69,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "additionalproperties": false,
+        "additionalProperties": false,
         "required": [
           "company", "position", "website",
           "startDate", "endDate", "summary", "highlights"
@@ -101,7 +101,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "additionalproperties": false,
+        "additionalProperties": false,
         "required": [
           "organization", "position", "website",
           "startDate", "endDate", "summary", "highlights"
@@ -133,7 +133,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "additionalproperties": false,
+        "additionalProperties": false,
         "required": [
           "institution", "area", "studyType",
           "startDate", "endDate", "gpa", "courses"
@@ -162,7 +162,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "additionalproperties": false,
+        "additionalProperties": false,
         "required": [ "title", "date", "awarder", "summary" ],
         "properties": {
           "title": { "type": "string" },

@@ -8,10 +8,15 @@
       "type": "object",
       "additionalProperties": false,
       "required": [ "x" ],
-      "items": {
-        "type": "integer",
-        "minimum": 0,
-        "multipleOf": 10
+      "properties": {
+        "x": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "multipleOf": 10
+          }
+        }
       }
     },
     "in": {

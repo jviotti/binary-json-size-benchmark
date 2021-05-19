@@ -11,16 +11,16 @@
       "properties": {
         "no-any": {
           "type": "array",
-          "minLength": 1,
-          "maxLength": 1,
+          "minItems": 1,
+          "maxItems": 1,
           "items": {
             "type": "boolean"
           }
         },
         "radix": {
           "type": "array",
-          "minLength": 1,
-          "maxLength": 1,
+          "minItems": 1,
+          "maxItems": 1,
           "items": {
             "type": "boolean"
           }

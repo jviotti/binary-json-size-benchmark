@@ -8,7 +8,8 @@
       "type": "string"
     },
     "on": {
-      "type": "string"
+      "type": "array",
+      "items": { "type": "string" }
     },
     "jobs": {
       "type": "object",

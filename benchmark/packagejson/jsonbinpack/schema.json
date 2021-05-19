@@ -33,13 +33,13 @@
         "name": { "type": "string" },
         "url": {
           "type": "string",
-          "format": "url"
+          "format": "uri"
         }
       }
     },
     "homepage": {
       "type": "string",
-      "format": "url"
+      "format": "uri"
     },
     "repository": {
       "type": "object",
@@ -49,7 +49,7 @@
         "type": { "type": "string" },
         "url": {
           "type": "string",
-          "format": "url"
+          "format": "uri"
         }
       }
     },
@@ -60,7 +60,7 @@
       "properties": {
         "url": {
           "type": "string",
-          "format": "url"
+          "format": "uri"
         }
       }
     },
@@ -74,7 +74,7 @@
           "type": { "type": "string" },
           "url": {
             "type": "string",
-            "format": "url"
+            "format": "uri"
           }
         }
       }

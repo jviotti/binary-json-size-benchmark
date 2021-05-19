@@ -13,6 +13,8 @@
   },
   "homepage": "https://github.com/jviotti/binary-json-benchmark#readme",
   "dependencies": {
+    "ajv-cli": "^5.0.0",
+    "ajv-formats": "^2.1.0",
     "bson": "^4.2.2",
     "fast-json-patch": "^3.0.0-1",
     "jsontoolkit": "./vendor/jsontoolkit"

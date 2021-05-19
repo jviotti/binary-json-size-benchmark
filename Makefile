@@ -192,6 +192,11 @@ output/%/json/output.bin: output/%/json/encode.json \
 	jq -c '.' < $< > $@
 	xxd $@
 
+output/%/jsonbinpack/output.bin: skeleton/jsonbinpack/encode.js output/%/jsonbinpack/encode.json benchmark/%/jsonbinpack/schema.json \
+	| output/%/jsonbinpack
+	node $< $(word 2,$^) $(word 3,$^) $@
+	xxd $@
+
 output/%/messagepack/output.bin: output/%/messagepack/encode.json \
 	| output/%/messagepack
 	$(DEPSDIR)/msgpack-tools/json2msgpack < $< > $@
@@ -272,6 +277,10 @@ output/%/flexbuffers/decode.json: output/%/flexbuffers/output.bin \
 output/%/json/decode.json: output/%/json/output.bin \
 	| output/%/json
 	jq '.' < $< > $@
+
+output/%/jsonbinpack/decode.json: skeleton/jsonbinpack/decode.js output/%/jsonbinpack/output.bin benchmark/%/jsonbinpack/schema.json \
+	| output/%/jsonbinpack
+	node $< $(word 2,$^) $(word 3,$^) > $@
 
 output/%/messagepack/decode.json: output/%/messagepack/output.bin \
 	| output/%/messagepack

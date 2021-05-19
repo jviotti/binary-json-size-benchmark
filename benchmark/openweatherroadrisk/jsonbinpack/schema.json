@@ -12,8 +12,8 @@
       },
       "coord": {
         "type": "array",
-        "minLength": 2,
-        "maxLength": 2,
+        "minItems": 2,
+        "maxItems": 2,
         "items": { "type": "number" }
       },
       "weather": {
