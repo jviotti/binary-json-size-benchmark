@@ -9,7 +9,7 @@
 8,flatbuffers,"FlatBuffers",3116,1686,2290,1627
 9,flexbuffers,"FlexBuffers",3049,1966,2560,1936
 10,json,"JSON",3048,1556,2204,1586
-11,jsonbinpack,"JSON BinPack",2143,1292,1757,1309
+11,jsonbinpack,"JSON BinPack",2085,1299,1745,1320
 12,messagepack,"MessagePack",2749,1600,2163,1615
 13,protobuf,"Protocol Buffers\n(Binary Wire Format)",2225,1370,1832,1371
 14,smile,"Smile",2620,1581,2169,1621

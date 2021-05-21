@@ -35,7 +35,10 @@
           "type": "string",
           "format": "uri"
         },
-        "summary": { "type": "string" },
+        "summary": {
+          "type": "string",
+          "contentMediaType": "text/plain"
+        },
         "location": {
           "type": "object",
           "additionalProperties": false,
@@ -89,10 +92,16 @@
             "type": "string",
             "format": "date"
           },
-          "summary": { "type": "string" },
+          "summary": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          },
           "highlights": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string",
+              "contentMediaType": "text/plain"
+            }
           }
         }
       }
@@ -121,10 +130,16 @@
             "type": "string",
             "format": "date"
           },
-          "summary": { "type": "string" },
+          "summary": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          },
           "highlights": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string",
+              "contentMediaType": "text/plain"
+            }
           }
         }
       }
@@ -171,7 +186,10 @@
             "format": "date"
           },
           "awarder": { "type": "string" },
-          "summary": { "type": "string" }
+          "summary": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          }
         }
       }
     },
@@ -182,7 +200,10 @@
         "additionalProperties": false,
         "required": [ "name", "publisher", "releaseDate", "website", "summary" ],
         "properties": {
-          "name": { "type": "string" },
+          "name": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          },
           "publisher": { "type": "string" },
           "releaseDate": {
             "type": "string",
@@ -192,7 +213,10 @@
             "type": "string",
             "format": "uri"
           },
-          "summary": { "type": "string" }
+          "summary": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          }
         }
       }
     },
@@ -247,7 +271,10 @@
         "required": [ "name", "reference" ],
         "properties": {
           "name": { "type": "string" },
-          "reference": { "type": "string" }
+          "reference": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          }
         }
       }
     }

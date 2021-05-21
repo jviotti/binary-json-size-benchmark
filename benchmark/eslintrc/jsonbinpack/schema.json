@@ -12,6 +12,7 @@
     },
     "ecmaFeatures": {
       "type": "object",
+      "additionalProperties": false,
       "required": [ "jsx" ],
       "properties": {
         "jsx": {
@@ -37,10 +38,11 @@
     },
     "rules": {
       "type": "object",
+      "maxProperties": 39,
       "additionalProperties": {
         "type": "integer",
         "minimum": 0,
-        "maximum": 3
+        "maximum": 2
       },
       "required": [
         "eqeqeq",
@@ -92,7 +94,7 @@
             {
               "type": "integer",
               "minimum": 0,
-              "maximum": 3
+              "maximum": 2
             },
             {
               "type": "object",

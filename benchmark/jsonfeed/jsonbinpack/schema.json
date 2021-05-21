@@ -16,8 +16,14 @@
       "type": "string",
       "format": "uri"
     },
-    "user_comment": { "type": "string" },
-    "title": { "type": "string" },
+    "user_comment": {
+      "type": "string",
+      "contentMediaType": "text/plain"
+    },
+    "title": {
+      "type": "string",
+      "contentMediaType": "text/plain"
+    },
     "home_page_url": {
       "type": "string",
       "format": "uri"
@@ -54,7 +60,10 @@
             "type": "string",
             "format": "uri"
           },
-          "content_text": { "type": "string" },
+          "content_text": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          },
           "date_published": {
             "type": "string",
             "format": "date-time"

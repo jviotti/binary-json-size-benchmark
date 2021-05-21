@@ -23,7 +23,10 @@
   ],
   "properties": {
     "name": { "type": "string" },
-    "description": { "type": "string" },
+    "description": {
+      "type": "string",
+      "contentMediaType": "text/plain"
+    },
     "version": { "type": "string" },
     "author": {
       "type": "object",
@@ -170,7 +173,10 @@
         "shelljs": { "type": "string" }
       }
     },
-    "readme": { "type": "string" },
+    "readme": {
+      "type": "string",
+      "contentMediaType": "text/markdown"
+    },
     "_id": { "type": "string" },
     "_from": { "type": "string" }
   }

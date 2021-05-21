@@ -5,39 +5,39 @@
   "reportUrl": "https://example.com",
   "rules": [
     {
+      "allowData": false,
       "path": "/",
       "types": [
         "navigation"
-      ],
-      "allowData": false
+      ]
     },
     {
+      "allowData": false,
       "regex": "^/\\d+$",
       "types": [
         "navigation"
-      ],
-      "allowData": false
+      ]
     },
     {
+      "allowData": true,
       "path": "/image",
       "types": [
         "image"
-      ],
-      "allowData": true
+      ]
     },
     {
+      "allowData": false,
       "regex": "^/(scoreboard|random|favorites|recentvisits|create)$",
       "types": [
         "navigation"
-      ],
-      "allowData": false
+      ]
     },
     {
+      "allowData": true,
       "regex": "^/(recent|popular|metrics|template|search)$",
       "types": [
         "navigation"
-      ],
-      "allowData": true
+      ]
     }
   ],
   "site": "https://eample.com"

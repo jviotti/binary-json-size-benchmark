@@ -2,10 +2,10 @@
   "cache": false,
   "cjs": false,
   "force": true,
+  "sourceMap": true,
   "mainFields": [
     "main",
     "app"
   ],
-  "mode": "strict",
-  "sourceMap": true
+  "mode": "strict"
 }
