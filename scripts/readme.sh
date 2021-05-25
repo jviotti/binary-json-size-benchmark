@@ -4,8 +4,10 @@ GITHUB_REPOSITORY="https://github.com/jviotti/binary-json-size-benchmark"
 
 set -eu
 
-echo "Binary JSON-compatible Format Size Benchmark"
-echo "============================================"
+echo "---"
+echo "title: Benchmark"
+echo "permalink: /"
+echo "---"
 echo ""
 echo "[**JSON documents**](#json-documents) - [**Serialization formats**](#serialization-formats) - [**Results**](#results) - [**Running locally**](#running-locally) - [**GitHub**]($GITHUB_REPOSITORY)"
 echo "
@@ -59,7 +61,7 @@ do
   TITLE="$(tr -d '\n' < "benchmark/$DOCUMENT_ID/NAME")"
   echo "<h3 id=\"$DOCUMENT_ID\">$TITLE</h3>"
   echo ""
-  echo "![$TITLE chart](./charts/$DOCUMENT_ID.png)"
+  echo "![$TITLE chart](https://www.jviotti.com/binary-json-size-benchmark/charts/$DOCUMENT_ID.png)"
   echo ""
 
 awk -f data.awk "output/$DOCUMENT_ID/data.dat"

@@ -3,9 +3,6 @@ title: Benchmark
 permalink: /
 ---
 
-Binary JSON-compatible Format Size Benchmark
-============================================
-
 [**JSON documents**](#json-documents) - [**Serialization formats**](#serialization-formats) - [**Results**](#results) - [**Running locally**](#running-locally) - [**GitHub**](https://github.com/jviotti/binary-json-size-benchmark)
 
 A large-scale space-efficiency benchmark of JSON-compatible binary
@@ -81,7 +78,7 @@ Results
 
 <h3 id="circleciblank">CircleCI definition (blank)</h3>
 
-![CircleCI definition (blank) chart](./charts/circleciblank.png)
+![CircleCI definition (blank) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circleciblank.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -103,7 +100,7 @@ Results
 
 <h3 id="circlecimatrix">CircleCI matrix definition</h3>
 
-![CircleCI matrix definition chart](./charts/circlecimatrix.png)
+![CircleCI matrix definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circlecimatrix.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -125,7 +122,7 @@ Results
 
 <h3 id="commitlint">CommitLint configuration</h3>
 
-![CommitLint configuration chart](./charts/commitlint.png)
+![CommitLint configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlint.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -147,7 +144,7 @@ Results
 
 <h3 id="commitlintbasic">CommitLint configuration (basic)</h3>
 
-![CommitLint configuration (basic) chart](./charts/commitlintbasic.png)
+![CommitLint configuration (basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlintbasic.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -169,7 +166,7 @@ Results
 
 <h3 id="epr">Entry Point Regulation manifest</h3>
 
-![Entry Point Regulation manifest chart](./charts/epr.png)
+![Entry Point Regulation manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/epr.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -191,7 +188,7 @@ Results
 
 <h3 id="eslintrc">ESLint configuration document</h3>
 
-![ESLint configuration document chart](./charts/eslintrc.png)
+![ESLint configuration document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/eslintrc.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -213,7 +210,7 @@ Results
 
 <h3 id="esmrc">ECMAScript module loader definition</h3>
 
-![ECMAScript module loader definition chart](./charts/esmrc.png)
+![ECMAScript module loader definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/esmrc.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -235,7 +232,7 @@ Results
 
 <h3 id="geojson">GeoJSON example JSON document</h3>
 
-![GeoJSON example JSON document chart](./charts/geojson.png)
+![GeoJSON example JSON document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/geojson.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -257,7 +254,7 @@ Results
 
 <h3 id="githubfundingblank">GitHub FUNDING sponsorship definition (empty)</h3>
 
-![GitHub FUNDING sponsorship definition (empty) chart](./charts/githubfundingblank.png)
+![GitHub FUNDING sponsorship definition (empty) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/githubfundingblank.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -279,7 +276,7 @@ Results
 
 <h3 id="githubworkflow">GitHub Workflow Definition</h3>
 
-![GitHub Workflow Definition chart](./charts/githubworkflow.png)
+![GitHub Workflow Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/githubworkflow.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -301,7 +298,7 @@ Results
 
 <h3 id="gruntcontribclean">Grunt.js "clean" task definition</h3>
 
-![Grunt.js "clean" task definition chart](./charts/gruntcontribclean.png)
+![Grunt.js "clean" task definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/gruntcontribclean.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -323,7 +320,7 @@ Results
 
 <h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob configuration</h3>
 
-![ImageOptimizer Azure Webjob configuration chart](./charts/imageoptimizerwebjob.png)
+![ImageOptimizer Azure Webjob configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/imageoptimizerwebjob.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -345,7 +342,7 @@ Results
 
 <h3 id="jsonereversesort">JSON-e templating engine reverse sort example</h3>
 
-![JSON-e templating engine reverse sort example chart](./charts/jsonereversesort.png)
+![JSON-e templating engine reverse sort example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonereversesort.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -367,7 +364,7 @@ Results
 
 <h3 id="jsonesort">JSON-e templating engine sort example</h3>
 
-![JSON-e templating engine sort example chart](./charts/jsonesort.png)
+![JSON-e templating engine sort example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonesort.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -389,7 +386,7 @@ Results
 
 <h3 id="jsonfeed">JSON Feed example document</h3>
 
-![JSON Feed example document chart](./charts/jsonfeed.png)
+![JSON Feed example document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonfeed.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -411,7 +408,7 @@ Results
 
 <h3 id="jsonresume">JSON Resume</h3>
 
-![JSON Resume chart](./charts/jsonresume.png)
+![JSON Resume chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonresume.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -433,7 +430,7 @@ Results
 
 <h3 id="netcoreproject">.NET Core project.json</h3>
 
-![.NET Core project.json chart](./charts/netcoreproject.png)
+![.NET Core project.json chart](https://www.jviotti.com/binary-json-size-benchmark/charts/netcoreproject.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -455,7 +452,7 @@ Results
 
 <h3 id="nightwatch">Nightwatch.js Test Framework Configuration</h3>
 
-![Nightwatch.js Test Framework Configuration chart](./charts/nightwatch.png)
+![Nightwatch.js Test Framework Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/nightwatch.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -477,7 +474,7 @@ Results
 
 <h3 id="openweathermap">OpenWeatherMap API example JSON document</h3>
 
-![OpenWeatherMap API example JSON document chart](./charts/openweathermap.png)
+![OpenWeatherMap API example JSON document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweathermap.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -499,7 +496,7 @@ Results
 
 <h3 id="openweatherroadrisk">OpenWeather Road Risk API example</h3>
 
-![OpenWeather Road Risk API example chart](./charts/openweatherroadrisk.png)
+![OpenWeather Road Risk API example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweatherroadrisk.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -521,7 +518,7 @@ Results
 
 <h3 id="packagejson">NPM Package.json example manifest</h3>
 
-![NPM Package.json example manifest chart](./charts/packagejson.png)
+![NPM Package.json example manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejson.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -543,7 +540,7 @@ Results
 
 <h3 id="packagejsonlintrc">NPM Package.json Linter configuration manifest</h3>
 
-![NPM Package.json Linter configuration manifest chart](./charts/packagejsonlintrc.png)
+![NPM Package.json Linter configuration manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejsonlintrc.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -565,7 +562,7 @@ Results
 
 <h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit configuration</h3>
 
-![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](./charts/sapcloudsdkpipeline.png)
+![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/sapcloudsdkpipeline.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -587,7 +584,7 @@ Results
 
 <h3 id="travisnotifications">TravisCI notifications configuration</h3>
 
-![TravisCI notifications configuration chart](./charts/travisnotifications.png)
+![TravisCI notifications configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/travisnotifications.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -609,7 +606,7 @@ Results
 
 <h3 id="tslintbasic">TSLint linter definition (basic)</h3>
 
-![TSLint linter definition (basic) chart](./charts/tslintbasic.png)
+![TSLint linter definition (basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintbasic.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -631,7 +628,7 @@ Results
 
 <h3 id="tslintextend">TSLint linter definition (extends only)</h3>
 
-![TSLint linter definition (extends only) chart](./charts/tslintextend.png)
+![TSLint linter definition (extends only) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintextend.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
@@ -653,7 +650,7 @@ Results
 
 <h3 id="tslintmulti">TSLint linter definition (multi-rule)</h3>
 
-![TSLint linter definition (multi-rule) chart](./charts/tslintmulti.png)
+![TSLint linter definition (multi-rule) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintmulti.png)
 
 | Serialization Format | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------------|-----------|----------|-----------|
