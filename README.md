@@ -1,3 +1,8 @@
+---
+title: Benchmark
+permalink: /
+---
+
 Binary JSON-compatible Format Size Benchmark
 ============================================
 
