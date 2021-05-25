@@ -1,0 +1,20 @@
+title: Binary JSON size benchmark
+email: jv@jviotti.com
+description: >-
+  A schema-driven JSON serialization format based on JSON Schema
+baseurl: ""
+url: "https://www.jviotti.com/binary-json-size-benchmark"
+exclude:
+  - vendor
+  - node_modules
+  - docs
+  - patches
+  - scripts
+  - skeleton
+  - data.awk
+  - DEPENDENCIES
+  - Makefile
+  - package-lock.json
+  - package.json
+  - plot.gpi
+  - requirements.txt
