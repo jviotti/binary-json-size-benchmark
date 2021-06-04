@@ -3,6 +3,8 @@ title: Benchmark
 permalink: /
 ---
 
+[![DOI](https://www.zenodo.org/badge/337583132.svg)](https://www.zenodo.org/badge/latestdoi/337583132)
+
 [**JSON documents**](#json-documents) - [**Serialization formats**](#serialization-formats) - [**Results**](#results) - [**Running locally**](#running-locally) - [**GitHub**](https://github.com/jviotti/binary-json-size-benchmark)
 
 A large-scale space-efficiency benchmark of JSON-compatible binary

@@ -9,6 +9,8 @@ echo "title: Benchmark"
 echo "permalink: /"
 echo "---"
 echo ""
+echo "[![DOI](https://www.zenodo.org/badge/337583132.svg)](https://www.zenodo.org/badge/latestdoi/337583132)"
+echo ""
 echo "[**JSON documents**](#json-documents) - [**Serialization formats**](#serialization-formats) - [**Results**](#results) - [**Running locally**](#running-locally) - [**GitHub**]($GITHUB_REPOSITORY)"
 echo "
 A large-scale space-efficiency benchmark of JSON-compatible binary
