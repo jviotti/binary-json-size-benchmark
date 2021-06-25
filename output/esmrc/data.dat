@@ -9,8 +9,9 @@
 8,flatbuffers,"FlatBuffers",80,77,94,74
 9,flexbuffers,"FlexBuffers",91,107,110,109
 10,json,"JSON",102,101,117,103
-11,messagepack,"MessagePack",64,82,83,85
-12,protobuf,"Protocol Buffers\n(Binary Wire Format)",23,43,42,47
-13,smile,"Smile",70,87,89,91
-14,thrift,"Apache Thrift\n(Compact Protocol)",24,44,43,48
-15,ubjson,"UBJSON",78,93,97,94
+11,jsonbinpack,"JSON BinPack",12,32,31,35
+12,messagepack,"MessagePack",64,82,83,85
+13,protobuf,"Protocol Buffers\n(Binary Wire Format)",23,43,42,47
+14,smile,"Smile",70,87,89,91
+15,thrift,"Apache Thrift\n(Compact Protocol)",24,44,43,48
+16,ubjson,"UBJSON",78,93,97,94
