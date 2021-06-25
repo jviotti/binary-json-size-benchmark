@@ -1,0 +1,108 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "notifications"
+  ],
+  "properties": {
+    "notifications": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "campfire",
+        "irc",
+        "flowdock",
+        "hipchat",
+        "slack",
+        "webhooks",
+        "email"
+      ],
+      "properties": {
+        "campfire": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        },
+        "irc": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        },
+        "flowdock": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        },
+        "hipchat": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        },
+        "slack": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        },
+        "webhooks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        },
+        "email": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "secure"
+          ],
+          "properties": {
+            "secure": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

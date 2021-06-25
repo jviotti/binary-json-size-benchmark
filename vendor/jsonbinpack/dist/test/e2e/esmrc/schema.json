@@ -1,0 +1,29 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["cjs", "mainFields", "mode", "force", "cache", "sourceMap"],
+    "properties": {
+        "cjs": {
+            "type": "boolean"
+        },
+        "mainFields": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "mode": {
+            "enum": ["auto", "all", "strict"]
+        },
+        "force": {
+            "type": "boolean"
+        },
+        "cache": {
+            "type": "boolean"
+        },
+        "sourceMap": {
+            "type": "boolean"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [ "foo" ],
+  "additionalProperties": false,
+  "properties": {
+    "foo": {
+      "type": "string"
+    },
+    "baz": {
+      "type": "object",
+      "required": [ "qux" ],
+      "properties": {
+        "qux": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}

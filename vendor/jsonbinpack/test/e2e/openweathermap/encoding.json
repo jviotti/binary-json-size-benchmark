@@ -1,0 +1,284 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "coord": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "lon": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "lat": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            }
+          },
+          "requiredProperties": [
+            "lat",
+            "lon"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "weather": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "object",
+            "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+            "options": {
+              "propertyEncodings": {
+                "id": {
+                  "type": "integer",
+                  "encoding": "FLOOR__ENUM_VARINT",
+                  "options": {
+                    "minimum": 0
+                  }
+                },
+                "main": {
+                  "type": "string",
+                  "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                  "options": {}
+                },
+                "description": {
+                  "type": "string",
+                  "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                  "options": {}
+                },
+                "icon": {
+                  "type": "string",
+                  "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                  "options": {}
+                }
+              },
+              "requiredProperties": [
+                "description",
+                "icon",
+                "id",
+                "main"
+              ],
+              "booleanRequiredProperties": []
+            }
+          },
+          "prefixEncodings": []
+        }
+      },
+      "base": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "main": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "temp": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "feels_like": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "temp_min": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "temp_max": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "pressure": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "humidity": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            }
+          },
+          "requiredProperties": [
+            "feels_like",
+            "humidity",
+            "pressure",
+            "temp",
+            "temp_max",
+            "temp_min"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "visibility": {
+        "type": "integer",
+        "encoding": "FLOOR__ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      },
+      "wind": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "speed": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "deg": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            }
+          },
+          "requiredProperties": [
+            "deg",
+            "speed"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "clouds": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "all": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            }
+          },
+          "requiredProperties": [
+            "all"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "dt": {
+        "type": "integer",
+        "encoding": "FLOOR__ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      },
+      "sys": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "type": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "id": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "message": {
+              "type": "number",
+              "encoding": "DOUBLE_VARINT_TUPLE",
+              "options": {}
+            },
+            "country": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "sunrise": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "sunset": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            }
+          },
+          "requiredProperties": [
+            "country",
+            "id",
+            "message",
+            "sunrise",
+            "sunset",
+            "type"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "timezone": {
+        "type": "integer",
+        "encoding": "ARBITRARY__ZIGZAG_VARINT",
+        "options": {}
+      },
+      "id": {
+        "type": "integer",
+        "encoding": "FLOOR__ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      },
+      "name": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "cod": {
+        "type": "integer",
+        "encoding": "FLOOR__ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      }
+    },
+    "requiredProperties": [
+      "base",
+      "clouds",
+      "cod",
+      "coord",
+      "dt",
+      "id",
+      "main",
+      "name",
+      "sys",
+      "timezone",
+      "visibility",
+      "weather",
+      "wind"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

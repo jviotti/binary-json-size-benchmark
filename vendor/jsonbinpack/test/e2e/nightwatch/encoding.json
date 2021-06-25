@@ -1,0 +1,477 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "custom_commands_path": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "custom_assertions_path": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "page_objects_path": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "globals_path": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "globals": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "abortOnAssertionFailure": {
+              "type": "boolean",
+              "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "abortOnElementLocateError": {
+              "type": "boolean",
+              "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "waitForConditionPollInterval": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "waitForConditionTimeout": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "throwOnMultipleElementsReturned": {
+              "type": "boolean",
+              "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "suppressWarningsOnMultipleElementsReturned": {
+              "type": "boolean",
+              "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "asyncHookTimeout": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "unitTestsTimeout": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "customReporterCallbackTimeout": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "retryAssertionTimeout": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            }
+          },
+          "requiredProperties": [
+            "asyncHookTimeout",
+            "customReporterCallbackTimeout",
+            "retryAssertionTimeout",
+            "unitTestsTimeout",
+            "waitForConditionPollInterval",
+            "waitForConditionTimeout"
+          ],
+          "booleanRequiredProperties": [
+            "abortOnAssertionFailure",
+            "abortOnElementLocateError",
+            "suppressWarningsOnMultipleElementsReturned",
+            "throwOnMultipleElementsReturned"
+          ]
+        }
+      },
+      "dotenv": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {},
+          "requiredProperties": [],
+          "booleanRequiredProperties": []
+        }
+      },
+      "persist_globals": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "output_folder": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "src_folders": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "live_output": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "disable_colors": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "parallel_process_delay": {
+        "type": "integer",
+        "encoding": "FLOOR__ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      },
+      "selenium": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "start_process": {
+              "type": "boolean",
+              "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "cli_args": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {},
+                "requiredProperties": [],
+                "booleanRequiredProperties": []
+              }
+            },
+            "server_path": {
+              "type": "null",
+              "encoding": "NULL_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "log_path": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "check_process_delay": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "max_status_poll_tries": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "status_poll_interval": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            }
+          },
+          "requiredProperties": [
+            "check_process_delay",
+            "cli_args",
+            "log_path",
+            "max_status_poll_tries",
+            "server_path",
+            "status_poll_interval"
+          ],
+          "booleanRequiredProperties": [
+            "start_process"
+          ]
+        }
+      },
+      "start_session": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "end_session_on_fail": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "test_workers": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "test_runner": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "webdriver": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "start_process": {
+              "type": "boolean",
+              "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "cli_args": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {},
+                "requiredProperties": [],
+                "booleanRequiredProperties": []
+              }
+            },
+            "server_path": {
+              "type": "null",
+              "encoding": "NULL_8BITS__ENUM_FIXED",
+              "options": {}
+            },
+            "log_path": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "check_process_delay": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "max_status_poll_tries": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "status_poll_interval": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "process_create_timeout": {
+              "type": "integer",
+              "encoding": "FLOOR__ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
+            },
+            "timeout_options": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {},
+                "requiredProperties": [],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "check_process_delay",
+            "cli_args",
+            "log_path",
+            "max_status_poll_tries",
+            "process_create_timeout",
+            "server_path",
+            "status_poll_interval",
+            "timeout_options"
+          ],
+          "booleanRequiredProperties": [
+            "start_process"
+          ]
+        }
+      },
+      "test_settings": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {},
+          "requiredProperties": [],
+          "booleanRequiredProperties": []
+        }
+      },
+      "launch_url": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "silent": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "output": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "detailed_output": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "output_timestamp": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "disable_error_log": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "screenshots": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "log_screenshot_data": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "desiredCapabilities": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "browserName": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            }
+          },
+          "requiredProperties": [
+            "browserName"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "exclude": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "filter": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "skipgroup": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "sync_test_names": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "skiptags": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "use_xpath": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "parallel_mode": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "report_prefix": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "unit_tests_mode": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "default_reporter": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      }
+    },
+    "requiredProperties": [
+      "custom_assertions_path",
+      "custom_commands_path",
+      "default_reporter",
+      "desiredCapabilities",
+      "dotenv",
+      "exclude",
+      "filter",
+      "globals",
+      "globals_path",
+      "launch_url",
+      "output_folder",
+      "page_objects_path",
+      "parallel_process_delay",
+      "report_prefix",
+      "selenium",
+      "skipgroup",
+      "skiptags",
+      "src_folders",
+      "test_runner",
+      "test_settings",
+      "webdriver"
+    ],
+    "booleanRequiredProperties": [
+      "detailed_output",
+      "disable_colors",
+      "disable_error_log",
+      "end_session_on_fail",
+      "live_output",
+      "log_screenshot_data",
+      "output",
+      "output_timestamp",
+      "parallel_mode",
+      "persist_globals",
+      "screenshots",
+      "silent",
+      "start_session",
+      "sync_test_names",
+      "test_workers",
+      "unit_tests_mode",
+      "use_xpath"
+    ]
+  }
+}

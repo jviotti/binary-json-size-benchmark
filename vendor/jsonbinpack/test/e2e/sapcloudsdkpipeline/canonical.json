@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "general",
+    "stages",
+    "steps"
+  ],
+  "properties": {
+    "general": {
+      "type": "null"
+    },
+    "stages": {
+      "type": "null"
+    },
+    "steps": {
+      "type": "null"
+    }
+  }
+}

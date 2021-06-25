@@ -1,0 +1,205 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "extends": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "parser": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "ecmaFeatures": {
+        "type": "enum",
+        "encoding": "BOUNDED_CHOICE_INDEX",
+        "options": {
+          "choices": [
+            {
+              "jsx": false
+            },
+            {
+              "jsx": true
+            }
+          ]
+        }
+      },
+      "plugins": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "string",
+            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+            "options": {}
+          },
+          "prefixEncodings": []
+        }
+      },
+      "env": {
+        "type": "enum",
+        "encoding": "BOUNDED_CHOICE_INDEX",
+        "options": {
+          "choices": [
+            {
+              "browser": false,
+              "node": false,
+              "es6": false
+            },
+            {
+              "browser": false,
+              "node": false,
+              "es6": true
+            },
+            {
+              "browser": false,
+              "node": true,
+              "es6": false
+            },
+            {
+              "browser": false,
+              "node": true,
+              "es6": true
+            },
+            {
+              "browser": true,
+              "node": false,
+              "es6": false
+            },
+            {
+              "browser": true,
+              "node": false,
+              "es6": true
+            },
+            {
+              "browser": true,
+              "node": true,
+              "es6": false
+            },
+            {
+              "browser": true,
+              "node": true,
+              "es6": true
+            }
+          ]
+        }
+      },
+      "rules": {
+        "type": "object",
+        "encoding": "PACKED_BOUNDED_REQUIRED_OBJECT",
+        "options": {
+          "packedEncoding": {
+            "type": "integer",
+            "encoding": "BOUNDED_8BITS__ENUM_FIXED",
+            "options": {
+              "minimum": 0,
+              "maximum": 2
+            }
+          },
+          "packedRequiredProperties": [
+            "comma-dangle",
+            "eqeqeq",
+            "no-console",
+            "no-debugger",
+            "no-extra-parens",
+            "no-extra-semi",
+            "no-irregular-whitespace",
+            "no-undef",
+            "no-unused-vars",
+            "react/display-name",
+            "react/forbid-prop-types",
+            "react/jsx-boolean-value",
+            "react/jsx-closing-bracket-location",
+            "react/jsx-curly-spacing",
+            "react/jsx-indent-props",
+            "react/jsx-max-props-per-line",
+            "react/jsx-no-duplicate-props",
+            "react/jsx-no-literals",
+            "react/jsx-no-undef",
+            "react/jsx-sort-prop-types",
+            "react/jsx-sort-props",
+            "react/jsx-uses-react",
+            "react/jsx-uses-vars",
+            "react/no-danger",
+            "react/no-did-mount-set-state",
+            "react/no-did-update-set-state",
+            "react/no-direct-mutation-state",
+            "react/no-multi-comp",
+            "react/no-set-state",
+            "react/no-unknown-property",
+            "react/prop-types",
+            "react/react-in-jsx-scope",
+            "react/require-extension",
+            "react/self-closing-comp",
+            "react/sort-comp",
+            "react/wrap-multilines",
+            "semi",
+            "semi-spacing"
+          ],
+          "propertyEncodings": {
+            "valid-jsdoc": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  [
+                    0,
+                    {
+                      "requireReturn": false
+                    }
+                  ],
+                  [
+                    0,
+                    {
+                      "requireReturn": true
+                    }
+                  ],
+                  [
+                    1,
+                    {
+                      "requireReturn": false
+                    }
+                  ],
+                  [
+                    1,
+                    {
+                      "requireReturn": true
+                    }
+                  ],
+                  [
+                    2,
+                    {
+                      "requireReturn": false
+                    }
+                  ],
+                  [
+                    2,
+                    {
+                      "requireReturn": true
+                    }
+                  ]
+                ]
+              }
+            }
+          },
+          "requiredProperties": [
+            "valid-jsdoc"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "ecmaFeatures",
+      "env",
+      "extends",
+      "parser",
+      "plugins",
+      "rules"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

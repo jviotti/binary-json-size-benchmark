@@ -1,0 +1,14 @@
+{
+  "type": "enum",
+  "encoding": "TOP_LEVEL_8BIT_CHOICE_INDEX",
+  "options": {
+    "choices": [
+      {
+        "defaultIgnores": false
+      },
+      {
+        "defaultIgnores": true
+      }
+    ]
+  }
+}

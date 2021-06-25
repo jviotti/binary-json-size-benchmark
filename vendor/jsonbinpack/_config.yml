@@ -1,0 +1,12 @@
+title: JSON BinPack
+email: jv@jviotti.com
+description: >-
+  A schema-driven JSON serialization format based on JSON Schema
+baseurl: ""
+url: "https://www.jsonbinpack.org"
+sass:
+  style: :compressed
+  sass_dir: _sass
+exclude:
+  - node_modules
+  - vendor

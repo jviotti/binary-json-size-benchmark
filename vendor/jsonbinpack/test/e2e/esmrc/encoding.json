@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "cjs": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "mainFields": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "string",
+            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+            "options": {}
+          },
+          "prefixEncodings": []
+        }
+      },
+      "mode": {
+        "type": "enum",
+        "encoding": "BOUNDED_CHOICE_INDEX",
+        "options": {
+          "choices": [
+            "auto",
+            "all",
+            "strict"
+          ]
+        }
+      },
+      "force": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "cache": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "sourceMap": {
+        "type": "boolean",
+        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "options": {}
+      }
+    },
+    "requiredProperties": [
+      "mainFields",
+      "mode"
+    ],
+    "booleanRequiredProperties": [
+      "cache",
+      "cjs",
+      "force",
+      "sourceMap"
+    ]
+  }
+}

@@ -52,7 +52,7 @@ Go to the root of the repository you want to setup `vendorpull` in and run the
 following command:
 
 ```sh
-/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/jviotti/vendorpull/master/bootstrap.sh -H "Cache-Control: no-cache, no-store, must-revalidate")"
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/jviotti/vendorpull/master/bootstrap -H "Cache-Control: no-cache, no-store, must-revalidate")"
 ```
 
 The bootstrap script will install `vendorpull` at `vendor/vendorpull` and set
@@ -73,8 +73,8 @@ electron https://github.com/electron/electron 68d9adb38870a6ea4f8796ba7d4d9bea2d
 In this case, we're vendoring `vendorpull` itself, Chromium's `depot_tools`,
 and the Electron project.
 
-- The first column defines the dependency name as it will be vendored inside
-  the `vendor` directory
+- The first column defines the dependency name as it will be vendored in the
+  project. The dependency is vendored inside the `vendor` directory.
 - The second column defines the repository `git` URL of the dependency
 - The third column defines the `git` revision of the project that you want to
   vendor. It can be any `git` revision such as a commit hash, a tag, etc
@@ -82,13 +82,13 @@ and the Electron project.
 In order to pull all dependencies, run the following command:
 
 ```sh
-./vendor/vendorpull/update
+./vendor/vendorpull/pull
 ```
 
 You can also pull a single dependency by specifying its name as the first argument. For example:
 
 ```sh
-./vendor/vendorpull/update depot_tools
+./vendor/vendorpull/pull depot_tools
 ```
 
 Updating
@@ -99,7 +99,7 @@ Updating
 and running the following command:
 
 ```sh
-./vendor/vendorpull/update vendorpull
+./vendor/vendorpull/pull vendorpull
 ```
 
 Masking
@@ -112,16 +112,15 @@ to as *masking*.
 
 In order to mask a dependency, you can create a file called
 `vendor/<name>.mask` where `<name>` corresponds to the dependency name as
-defined in the `DEPENDENCIES` file. This file contains a set of path
-expressions compatible with the [`find(1)`](https://linux.die.net/man/1/find)
-command `-path` option that will be removed when vendoring the dependency.
+defined in the `DEPENDENCIES` file. This file contains a set of paths relative
+to the dependency path that will be removed when vendoring the dependency.
 
 For example, at the time of this writing, the Electron project repository
 contains an 8.1M `docs` directory. We can ignore this directory by creating a
 `vendor/electron.mask` file whose contents are the following:
 
 ```
-./docs
+docs
 ```
 
 Patches
@@ -134,6 +133,17 @@ placing a set of `*.patch` files produced with
 into a `patches/<name>` directory where `<name>` corresponds to a dependency
 name as defined in the `DEPENDENCIES` file.
 
+GitHub integration
+------------------
+
+We recommend adding the following line to `.gitattributes` to [prevent
+GitHub](https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/customizing-how-changed-files-appear-on-github)
+from automatically rendering files in `vendor` during upgrade pull requests:
+
+```
+/vendor/** linguist-generated=true
+```
+
 GNU Make integration
 --------------------
 
@@ -145,8 +155,8 @@ include vendor/vendorpull/targets.mk
 
 This will add two targets:
 
-- `vendor`: Pull all dependencies
-- `vendor-<dependency>`: Pull a particular dependency
+- `vendor-pull`: Pull all dependencies
+- `vendor-pull-<dependency>`: Pull a particular dependency
 
 Future plans
 ------------

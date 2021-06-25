@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "type",
+        "coordinates"
+    ],
+    "properties": {
+        "type": {
+            "enum": [
+                "Point",
+                "MultiPoint",
+                "LineString",
+                "MultiLineString",
+                "Polygon",
+                "MultiPolygon",
+                "GeometryCollection",
+                "Feature",
+                "FeatureCollection"
+            ]
+        },
+        "coordinates": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "maxItems": 2,
+                        "minItems": 2,
+                        "items": {
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

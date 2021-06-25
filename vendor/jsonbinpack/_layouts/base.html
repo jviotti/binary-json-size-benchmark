@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="referrer" content="no-referrer">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  {% if page.title %}
+  <title>{{ page.title }}</title>
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <meta name="description" content="{{ page.title }}">
+  {% else %}
+  <title>{{ site.title }}</title>
+  <link rel="canonical" href="{{ site.url }}">
+  <meta name="description" content="{{ site.description }}">
+  {% endif %}
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css" type="text/css">
+</head>
+<body>
+  {{ content }}
+</body>
+</html>
+

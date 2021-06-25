@@ -563,3 +563,4 @@ TSWLatexianTemp*
 .cpcache
 vendor/msgpack-tools/contrib
 vendor/jsontoolkit/node_modules
+vendor/jsonbinpack/node_modules

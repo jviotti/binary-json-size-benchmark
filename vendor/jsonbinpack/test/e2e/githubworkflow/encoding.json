@@ -1,0 +1,279 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "name": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "on": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "string",
+            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+            "options": {}
+          },
+          "prefixEncodings": []
+        }
+      },
+      "jobs": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "build": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "runs-on": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  },
+                  "env": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "build-suite-dir": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        }
+                      },
+                      "requiredProperties": [
+                        "build-suite-dir"
+                      ],
+                      "booleanRequiredProperties": []
+                    }
+                  },
+                  "steps": {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "oneOf",
+                        "encoding": "ONEOF_CHOICE_INDEX_PREFIX",
+                        "options": {
+                          "schemas": [
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "uses"
+                                ],
+                                "properties": {
+                                  "uses": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "uses": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "uses"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            },
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "uses",
+                                  "with"
+                                ],
+                                "properties": {
+                                  "uses": {
+                                    "type": "string"
+                                  },
+                                  "with": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "required": [
+                                      "node-version"
+                                    ],
+                                    "properties": {
+                                      "node-version": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "uses": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    },
+                                    "with": {
+                                      "type": "object",
+                                      "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                      "options": {
+                                        "propertyEncodings": {
+                                          "node-version": {
+                                            "type": "string",
+                                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                            "options": {}
+                                          }
+                                        },
+                                        "requiredProperties": [
+                                          "node-version"
+                                        ],
+                                        "booleanRequiredProperties": []
+                                      }
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "uses",
+                                    "with"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            },
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "name",
+                                  "run"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "run": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "name": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    },
+                                    "run": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "name",
+                                    "run"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            },
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "name",
+                                  "run",
+                                  "working-directory"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "run": {
+                                    "type": "string"
+                                  },
+                                  "working-directory": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "name": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    },
+                                    "run": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    },
+                                    "working-directory": {
+                                      "type": "string",
+                                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                      "options": {}
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "name",
+                                    "run",
+                                    "working-directory"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                },
+                "requiredProperties": [
+                  "env",
+                  "runs-on",
+                  "steps"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "build"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "jobs",
+      "name",
+      "on"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

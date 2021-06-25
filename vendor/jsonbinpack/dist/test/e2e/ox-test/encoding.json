@@ -1,0 +1,205 @@
+{
+    "type": "object",
+    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+    "options": {
+        "propertyEncodings": {
+            "tags": {
+                "type": "array",
+                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "options": {
+                    "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                    },
+                    "prefixEncodings": []
+                }
+            },
+            "tz": {
+                "type": "integer",
+                "encoding": "ARBITRARY__ZIGZAG_VARINT",
+                "options": {}
+            },
+            "days": {
+                "type": "array",
+                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "options": {
+                    "encoding": {
+                        "type": "integer",
+                        "encoding": "BOUNDED_8BITS__ENUM_FIXED",
+                        "options": {
+                            "minimum": 0,
+                            "maximum": 6
+                        }
+                    },
+                    "prefixEncodings": []
+                }
+            },
+            "coord": {
+                "type": "array",
+                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "options": {
+                    "encoding": {
+                        "type": "number",
+                        "encoding": "DOUBLE_VARINT_TUPLE",
+                        "options": {}
+                    },
+                    "prefixEncodings": []
+                }
+            },
+            "data": {
+                "type": "array",
+                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "options": {
+                    "encoding": {
+                        "type": "oneOf",
+                        "encoding": "ONEOF_CHOICE_INDEX_PREFIX",
+                        "options": {
+                            "schemas": [
+                                {
+                                    "schema": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "name",
+                                            "staff"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "staff": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    },
+                                    "encoding": {
+                                        "type": "object",
+                                        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                        "options": {
+                                            "propertyEncodings": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                                    "options": {}
+                                                },
+                                                "staff": {
+                                                    "type": "boolean",
+                                                    "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                                                    "options": {}
+                                                }
+                                            },
+                                            "requiredProperties": [
+                                                "name"
+                                            ],
+                                            "booleanRequiredProperties": [
+                                                "staff"
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "schema": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": [
+                                            "name",
+                                            "staff",
+                                            "extra"
+                                        ],
+                                        "properties": {
+                                            "name": {
+                                                "type": "null"
+                                            },
+                                            "staff": {
+                                                "type": "boolean"
+                                            },
+                                            "extra": {
+                                                "type": "object",
+                                                "additionalProperties": false,
+                                                "required": [
+                                                    "info"
+                                                ],
+                                                "properties": {
+                                                    "info": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "encoding": {
+                                        "type": "object",
+                                        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                        "options": {
+                                            "propertyEncodings": {
+                                                "name": {
+                                                    "type": "null",
+                                                    "encoding": "NULL_8BITS__ENUM_FIXED",
+                                                    "options": {}
+                                                },
+                                                "staff": {
+                                                    "type": "boolean",
+                                                    "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                                                    "options": {}
+                                                },
+                                                "extra": {
+                                                    "type": "object",
+                                                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                                    "options": {
+                                                        "propertyEncodings": {
+                                                            "info": {
+                                                                "type": "string",
+                                                                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                                                                "options": {}
+                                                            }
+                                                        },
+                                                        "requiredProperties": [
+                                                            "info"
+                                                        ],
+                                                        "booleanRequiredProperties": []
+                                                    }
+                                                }
+                                            },
+                                            "requiredProperties": [
+                                                "extra",
+                                                "name"
+                                            ],
+                                            "booleanRequiredProperties": [
+                                                "staff"
+                                            ]
+                                        }
+                                    }
+                                },
+                                {
+                                    "schema": {
+                                        "type": "object",
+                                        "additionalProperties": false
+                                    },
+                                    "encoding": {
+                                        "type": "object",
+                                        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                        "options": {
+                                            "propertyEncodings": {},
+                                            "requiredProperties": [],
+                                            "booleanRequiredProperties": []
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "prefixEncodings": []
+                }
+            }
+        },
+        "requiredProperties": [
+            "coord",
+            "data",
+            "days",
+            "tags",
+            "tz"
+        ],
+        "booleanRequiredProperties": []
+    }
+}

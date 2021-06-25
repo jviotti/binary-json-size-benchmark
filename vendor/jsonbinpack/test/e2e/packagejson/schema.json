@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "description",
+    "version",
+    "author",
+    "homepage",
+    "repository",
+    "bugs",
+    "licenses",
+    "main",
+    "scripts",
+    "engines",
+    "keywords",
+    "dependencies",
+    "devDependencies",
+    "readme",
+    "_id",
+    "_from"
+  ],
+  "properties": {
+    "name": { "type": "string" },
+    "description": {
+      "type": "string",
+      "contentMediaType": "text/plain"
+    },
+    "version": { "type": "string" },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "name", "url" ],
+      "properties": {
+        "name": { "type": "string" },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "type", "url" ],
+      "properties": {
+        "type": { "type": "string" },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "bugs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "url" ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "licenses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "type", "url" ],
+        "properties": {
+          "type": { "type": "string" },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      }
+    },
+    "main": { "type": "string" },
+    "scripts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "test" ],
+      "properties": {
+        "test": { "type": "string" }
+      }
+    },
+    "engines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "node" ],
+      "properties": {
+        "node": { "type": "string" }
+      }
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "async",
+        "coffee-script",
+        "colors",
+        "dateformat",
+        "eventemitter2",
+        "findup-sync",
+        "glob",
+        "hooker",
+        "iconv-lite",
+        "minimatch",
+        "nopt",
+        "rimraf",
+        "lodash",
+        "underscore.string",
+        "which",
+        "js-yaml",
+        "exit",
+        "getobject",
+        "grunt-legacy-util",
+        "grunt-legacy-log"
+      ],
+      "properties": {
+        "async": { "type": "string" },
+        "coffee-script": { "type": "string" },
+        "colors": { "type": "string" },
+        "dateformat": { "type": "string" },
+        "eventemitter2": { "type": "string" },
+        "findup-sync": { "type": "string" },
+        "glob": { "type": "string" },
+        "hooker": { "type": "string" },
+        "iconv-lite": { "type": "string" },
+        "minimatch": { "type": "string" },
+        "nopt": { "type": "string" },
+        "rimraf": { "type": "string" },
+        "lodash": { "type": "string" },
+        "underscore.string": { "type": "string" },
+        "which": { "type": "string" },
+        "js-yaml": { "type": "string" },
+        "exit": { "type": "string" },
+        "getobject": { "type": "string" },
+        "grunt-legacy-util": { "type": "string" },
+        "grunt-legacy-log": { "type": "string" }
+      }
+    },
+    "devDependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "temporary",
+        "grunt-contrib-jshint",
+        "grunt-contrib-nodeunit",
+        "grunt-contrib-watch",
+        "difflet",
+        "semver",
+        "shelljs"
+      ],
+      "properties": {
+        "temporary": { "type": "string" },
+        "grunt-contrib-jshint": { "type": "string" },
+        "grunt-contrib-nodeunit": { "type": "string" },
+        "grunt-contrib-watch": { "type": "string" },
+        "difflet": { "type": "string" },
+        "semver": { "type": "string" },
+        "shelljs": { "type": "string" }
+      }
+    },
+    "readme": {
+      "type": "string",
+      "contentMediaType": "text/markdown"
+    },
+    "_id": { "type": "string" },
+    "_from": { "type": "string" }
+  }
+}

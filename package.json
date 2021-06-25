@@ -15,6 +15,7 @@
   "dependencies": {
     "bson": "^4.2.2",
     "fast-json-patch": "^3.0.0-1",
+    "jsonbinpack": "./vendor/jsonbinpack",
     "jsontoolkit": "./vendor/jsontoolkit"
   }
 }

@@ -1,0 +1,254 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "version": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "compilationOptions": {
+        "type": "enum",
+        "encoding": "BOUNDED_CHOICE_INDEX",
+        "options": {
+          "choices": [
+            {
+              "warningsAsErrors": false
+            },
+            {
+              "warningsAsErrors": true
+            }
+          ]
+        }
+      },
+      "dependencies": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "Microsoft.Bcl.Immutable": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "Microsoft.AspNet.ConfigurationModel": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "Microsoft.AspNet.DependencyInjection": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "Microsoft.AspNet.Logging": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            },
+            "System.Data.Common": {
+              "type": "string",
+              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+              "options": {}
+            }
+          },
+          "requiredProperties": [
+            "Microsoft.AspNet.ConfigurationModel",
+            "Microsoft.AspNet.DependencyInjection",
+            "Microsoft.AspNet.Logging",
+            "Microsoft.Bcl.Immutable",
+            "System.Data.Common"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "code": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "frameworks": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "net45": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "dependencies": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "System.Runtime": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Collections": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        }
+                      },
+                      "requiredProperties": [
+                        "System.Collections",
+                        "System.Runtime"
+                      ],
+                      "booleanRequiredProperties": []
+                    }
+                  }
+                },
+                "requiredProperties": [
+                  "dependencies"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "k10": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "dependencies": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "System.Collections": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Collections.Concurrent": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.ComponentModel": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Console": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Diagnostics.Contracts": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Diagnostics.Debug": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Globalization": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Linq": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Linq.Expressions": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Linq.Queryable": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Reflection": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Reflection.Extensions": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Resources.ResourceManager": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Runtime": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Runtime.Extensions": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Threading": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "System.Threading.Tasks": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        }
+                      },
+                      "requiredProperties": [
+                        "System.Collections",
+                        "System.Collections.Concurrent",
+                        "System.ComponentModel",
+                        "System.Console",
+                        "System.Diagnostics.Contracts",
+                        "System.Diagnostics.Debug",
+                        "System.Globalization",
+                        "System.Linq",
+                        "System.Linq.Expressions",
+                        "System.Linq.Queryable",
+                        "System.Reflection",
+                        "System.Reflection.Extensions",
+                        "System.Resources.ResourceManager",
+                        "System.Runtime",
+                        "System.Runtime.Extensions",
+                        "System.Threading",
+                        "System.Threading.Tasks"
+                      ],
+                      "booleanRequiredProperties": []
+                    }
+                  }
+                },
+                "requiredProperties": [
+                  "dependencies"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "k10",
+            "net45"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "code",
+      "compilationOptions",
+      "dependencies",
+      "frameworks",
+      "version"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

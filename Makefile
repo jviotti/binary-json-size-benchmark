@@ -75,7 +75,7 @@ $(DEPSDIR)/thrift/bin/thrift: vendor/thrift | $(DEPSDIR)
 
 deps: requirements.txt package.json
 	pip3 install --requirement $<
-	node vendor/jsontoolkit/vendor/npm/bin/npm-cli.js install
+	node vendor/npm/bin/npm-cli.js install
 
 lint:
 	shellcheck scripts/*.sh

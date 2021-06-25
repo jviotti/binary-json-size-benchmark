@@ -1,0 +1,5 @@
+rules:
+  '@typescript-eslint/typedef':
+    - off
+  '@typescript-eslint/no-floating-promises':
+    - off
