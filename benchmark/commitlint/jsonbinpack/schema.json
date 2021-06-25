@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "rules" ],
+  "properties": {
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "scope-case", "subject-case" ],
+      "properties": {
+        "scope-case": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            { "type": "integer", "minimum": 0 },
+            { "enum": [ "always", "never" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "subject-case": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "prefixItems": [
+            { "type": "integer", "minimum": 0 },
+            { "enum": [ "always", "never" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

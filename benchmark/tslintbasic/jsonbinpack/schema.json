@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "rules" ],
+  "properties": {
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "ordered-imports" ],
+      "properties": {
+        "ordered-imports": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "options" ],
+          "properties": {
+            "options": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [ "grouped-imports" ],
+              "properties": {
+                "grouped-imports": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

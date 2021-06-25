@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "site",
+    "maxAge",
+    "reportUrl",
+    "defaultNavBehavior",
+    "defaultResBehavior",
+    "rules"
+  ],
+  "properties": {
+    "site": {
+      "type": "string",
+      "format": "uri"
+    },
+    "maxAge": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "reportUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "defaultNavBehavior": {
+      "type": "string"
+    },
+    "defaultResBehavior": {
+      "type": "string"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [ "path", "types", "allowData" ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "format": "json-pointer"
+              },
+              "types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "navigation",
+                    "image",
+                    "stylesheet",
+                    "script",
+                    "xhr",
+                    "other"
+                  ]
+                }
+              },
+              "allowData": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [ "regex", "types", "allowData" ],
+            "properties": {
+              "regex": {
+                "type": "string",
+                "format": "regex"
+              },
+              "types": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "navigation",
+                    "image",
+                    "stylesheet",
+                    "script",
+                    "xhr",
+                    "other"
+                  ]
+                }
+              },
+              "allowData": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

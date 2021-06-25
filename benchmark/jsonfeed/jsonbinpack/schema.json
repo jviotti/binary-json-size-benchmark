@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "user_comment",
+    "title",
+    "home_page_url",
+    "feed_url",
+    "author",
+    "items"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "format": "uri"
+    },
+    "user_comment": {
+      "type": "string",
+      "contentMediaType": "text/plain"
+    },
+    "title": {
+      "type": "string",
+      "contentMediaType": "text/plain"
+    },
+    "home_page_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "feed_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "author": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "name", "url", "avatar" ],
+      "properties": {
+        "name": { "type": "string" },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri"
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [ "id", "url", "content_text", "date_published" ],
+        "properties": {
+          "id": { "type": "string" },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "content_text": {
+            "type": "string",
+            "contentMediaType": "text/plain"
+          },
+          "date_published": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "rules" ],
+  "properties": {
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "require-author",
+        "require-description",
+        "require-engines",
+        "require-license",
+        "require-name",
+        "require-repository",
+        "require-version",
+        "require-bugs",
+        "require-homepage",
+        "require-keywords",
+        "bin-type",
+        "config-type",
+        "description-type",
+        "devDependencies-type",
+        "directories-type",
+        "engines-type",
+        "files-type",
+        "homepage-type",
+        "keywords-type",
+        "license-type",
+        "main-type",
+        "man-type",
+        "name-type",
+        "preferGlobal-type",
+        "private-type",
+        "repository-type",
+        "scripts-type",
+        "version-type",
+        "valid-values-author",
+        "valid-values-private",
+        "no-restricted-dependencies",
+        "no-restricted-pre-release-dependencies",
+        "no-restricted-invalid-devDependencies",
+        "no-restricted-pre-release-devDependencies",
+        "name-format",
+        "version-format"
+      ],
+      "properties": {
+        "require-author": { "enum": [ "off", "warning", "error" ] },
+        "require-description": { "enum": [ "off", "warning", "error" ] },
+        "require-engines": { "enum": [ "off", "warning", "error" ] },
+        "require-license": { "enum": [ "off", "warning", "error" ] },
+        "require-name": { "enum": [ "off", "warning", "error" ] },
+        "require-repository": { "enum": [ "off", "warning", "error" ] },
+        "require-version": { "enum": [ "off", "warning", "error" ] },
+        "require-bugs": { "enum": [ "off", "warning", "error" ] },
+        "require-homepage": { "enum": [ "off", "warning", "error" ] },
+        "require-keywords": { "enum": [ "off", "warning", "error" ] },
+        "bin-type": { "enum": [ "off", "warning", "error" ] },
+        "config-type": { "enum": [ "off", "warning", "error" ] },
+        "description-type": { "enum": [ "off", "warning", "error" ] },
+        "devDependencies-type": { "enum": [ "off", "warning", "error" ] },
+        "directories-type": { "enum": [ "off", "warning", "error" ] },
+        "engines-type": { "enum": [ "off", "warning", "error" ] },
+        "files-type": { "enum": [ "off", "warning", "error" ] },
+        "homepage-type": { "enum": [ "off", "warning", "error" ] },
+        "keywords-type": { "enum": [ "off", "warning", "error" ] },
+        "license-type": { "enum": [ "off", "warning", "error" ] },
+        "main-type": { "enum": [ "off", "warning", "error" ] },
+        "man-type": { "enum": [ "off", "warning", "error" ] },
+        "name-type": { "enum": [ "off", "warning", "error" ] },
+        "preferGlobal-type": { "enum": [ "off", "warning", "error" ] },
+        "private-type": { "enum": [ "off", "warning", "error" ] },
+        "repository-type": { "enum": [ "off", "warning", "error" ] },
+        "scripts-type": { "enum": [ "off", "warning", "error" ] },
+        "version-type": { "enum": [ "off", "warning", "error" ] },
+
+
+        "valid-values-author": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "enum": [ "off", "warning", "error" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "valid-values-private": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "enum": [ "off", "warning", "error" ] },
+            {
+              "type": "array",
+              "items": { "type": "boolean" }
+            }
+          ]
+        },
+        "no-restricted-dependencies": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "enum": [ "off", "warning", "error" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "no-restricted-pre-release-dependencies": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "enum": [ "off", "warning", "error" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "no-restricted-invalid-devDependencies": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "enum": [ "off", "warning", "error" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "no-restricted-pre-release-devDependencies": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "prefixItems": [
+            { "enum": [ "off", "warning", "error" ] },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        },
+        "name-format": { "enum": [ "off", "warning", "error" ] },
+        "version-format": { "enum": [ "off", "warning", "error" ] }
+      }
+    }
+  }
+}
