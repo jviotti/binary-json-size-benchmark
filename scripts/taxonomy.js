@@ -1,10 +1,10 @@
 const fs = require('fs')
-const jsontoolkit = require('jsontoolkit')
+const jsonstats = require('jsonbinpack/dist/contrib/jsonstats')
 
 const DOCUMENT = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'))
 
-const taxonomy = jsontoolkit.qualify(
-  jsontoolkit.summarize(
-    jsontoolkit.analyze(DOCUMENT)))
+const taxonomy = jsonstats.qualify(
+  jsonstats.summarize(
+    jsonstats.analyze(DOCUMENT)))
 
 console.log(taxonomy.join(' '))

@@ -7,4 +7,5 @@ thrift https://github.com/apache/thrift 65fb49bb41f852375b278c9057d52c9472f0cb3a
 protobuf https://github.com/protocolbuffers/protobuf v3.15.3
 bond https://github.com/microsoft/bond 9.0.4
 jsontoolkit git@github.com:sourcemeta/jsontoolkit.git 3c398891005513fdef054364cd4cff91719fa2a6
+jsonbinpack git@github.com:jviotti/jsonbinpack.git c501667355a7593d8b12202475cd08b3ef47602b
 npm https://github.com/npm/cli 7b1a5399cfbfcc7a7194c4aa4bbadfbce6cbbe66
