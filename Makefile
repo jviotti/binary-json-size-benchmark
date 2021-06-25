@@ -1,4 +1,4 @@
-.PHONY: deps deps-flatbuffers deps-capnproto lint benchmark all
+.PHONY: deps lint benchmark all
 .DEFAULT_GOAL = benchmark
 
 # Don't remove intermediary files
@@ -6,18 +6,26 @@
 
 OS = $(shell uname)
 DEPSDIR ?= $(shell pwd)/.tmp
+APPLE_SILICON = 0
 
 CPPFLAGS_BOND ?= -Ivendor/bond/cpp/inc -I$(DEPSDIR)/bond/cpp -Ivendor/bond/thirdparty/rapidjson/include -L$(DEPSDIR)/bond/cpp -lbond -std=c++11
 
 ifeq ($(OS),Darwin)
-# Allow Thrift to be compiled on macOS
-LDFLAGS += -L/usr/local/opt/bison@2.7/lib
-LDFLAGS += -L/usr/local/opt/openssl@1.1/lib
-LDFLAGS += -L/usr/local/Cellar/boost/1.75.0_2/lib
-CPPFLAGS += -I/usr/local/opt/openssl@1.1/include
-CPPFLAGS += -I/usr/local/Cellar/boost/1.75.0_2/include
-export PKG_CONFIG_PATH := /usr/local/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
-export PATH := /usr/local/opt/openjdk/bin:/usr/local/opt/bison@2.7/bin:/usr/local/opt/openssl@1.1/bin:$(PATH)
+
+ifeq ($(shell uname -m),arm64)
+APPLE_SILICON = 1
+HOMEBREW_BASE_DIRECTORY = /opt/homebrew
+else
+HOMEBREW_BASE_DIRECTORY = /usr/local
+endif
+
+LDFLAGS += -L$(HOMEBREW_BASE_DIRECTORY)/opt/bison@2.7/lib
+LDFLAGS += -L$(HOMEBREW_BASE_DIRECTORY)/opt/openssl@1.1/lib
+LDFLAGS += -L$(HOMEBREW_BASE_DIRECTORY)/Cellar/boost/1.75.0_2/lib
+CPPFLAGS += -I$(HOMEBREW_BASE_DIRECTORY)/opt/openssl@1.1/include
+CPPFLAGS += -I$(HOMEBREW_BASE_DIRECTORY)/Cellar/boost/1.75.0_2/include
+export PKG_CONFIG_PATH := $(HOMEBREW_BASE_DIRECTORY)/opt/openssl@1.1/lib/pkgconfig:$(PKG_CONFIG_PATH)
+export PATH := $(HOMEBREW_BASE_DIRECTORY)/opt/openjdk/bin:$(HOMEBREW_BASE_DIRECTORY)/opt/bison@2.7/bin:$(HOMEBREW_BASE_DIRECTORY)/opt/openssl@1.1/bin:$(PATH)
 CPPFLAGS_BOND += -lboost_thread-mt
 else
 CPPFLAGS_BOND += -lboost_thread
@@ -28,34 +36,34 @@ include vendor/vendorpull/targets.mk
 $(DEPSDIR):
 	mkdir -p $@
 
-deps-bond: vendor/bond | $(DEPSDIR)
+$(DEPSDIR)/bond/compiler/build/gbc/gbc: vendor/bond | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/bond -DBOND_ENABLE_GRPC=FALSE
 	make --directory=$(DEPSDIR)/bond --jobs
 
-deps-protobuf: vendor/protobuf | $(DEPSDIR)
+$(DEPSDIR)/protobuf/protoc: vendor/protobuf | $(DEPSDIR)
 	cmake -S $</cmake -B $(DEPSDIR)/protobuf \
 		-Dprotobuf_BUILD_TESTS=OFF -Dprotobuf_BUILD_SHARED_LIBS=OFF
 	make --directory=$(DEPSDIR)/protobuf --jobs
 
-deps-flatbuffers: vendor/flatbuffers | $(DEPSDIR)
+$(DEPSDIR)/flatbuffers/flatc: vendor/flatbuffers | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/flatbuffers \
 		-DFLATBUFFERS_BUILD_TESTS=OFF -DFLATBUFFERS_BUILD_FLATHASH=OFF \
 		-DFLATBUFFERS_BUILD_GRPCTEST=OFF -DFLATBUFFERS_BUILD_FLATLIB=OFF
 	make --directory=$(DEPSDIR)/flatbuffers --jobs
 
-deps-capnproto: vendor/capnproto | $(DEPSDIR)
+$(DEPSDIR)/capnproto/c++/src/capnp/capnp: vendor/capnproto | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/capnproto -DBUILD_TESTING=OFF
 	make --directory=$(DEPSDIR)/capnproto --jobs
 
-deps-msgpack-tools: vendor/msgpack-tools | $(DEPSDIR)
+$(DEPSDIR)/msgpack-tools/json2msgpack $(DEPSDIR)/msgpack-tools/msgpack2json: vendor/msgpack-tools | $(DEPSDIR)
 	cmake -S $< -B $(DEPSDIR)/msgpack-tools
 	make --directory=$(DEPSDIR)/msgpack-tools --jobs
 
-deps-lz4: vendor/lz4 | $(DEPSDIR)
+$(DEPSDIR)/lz4/lz4: vendor/lz4 | $(DEPSDIR)
 	cmake -S $</build/cmake -B $(DEPSDIR)/lz4 -DLZ4_BUILD_LEGACY_LZ4C=OFF
 	make --directory=$(DEPSDIR)/lz4
 
-deps-thrift: vendor/thrift | $(DEPSDIR)
+$(DEPSDIR)/thrift/bin/thrift: vendor/thrift | $(DEPSDIR)
 	cd $< && ./bootstrap.sh && ./configure --prefix=$(DEPSDIR)/thrift \
 		--without-java --without-erlang --without-nodejs --without-nodets --without-lua \
 		--without-perl --without-php --without-php_extension --without-dart --without-ruby \
@@ -65,9 +73,7 @@ deps-thrift: vendor/thrift | $(DEPSDIR)
 	make --directory=$< build install clean --jobs
 	git clean --force -d $<
 
-deps: requirements.txt package.json \
-	deps-bond deps-protobuf deps-thrift \
-	deps-flatbuffers deps-capnproto deps-msgpack-tools deps-lz4
+deps: requirements.txt package.json
 	pip3 install --requirement $<
 	node vendor/jsontoolkit/vendor/npm/bin/npm-cli.js install
 
@@ -90,8 +96,8 @@ charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY |
 %.gz: %
 	gzip --no-name -9 < $< > $@
 
-%.lz4: %
-	$(DEPSDIR)/lz4/lz4 -f -9 $< $@
+%.lz4: % $(DEPSDIR)/lz4/lz4
+	$(word 2,$^) -f -9 $< $@
 
 %.lzma: %
 	lzma -9 --stdout < $< > $@
@@ -101,6 +107,11 @@ ifdef ASN1STEP
 FORMATS = $(ALL_FORMATS)
 else
 FORMATS = $(filter-out asn1,$(ALL_FORMATS))
+endif
+
+ifeq ($(APPLE_SILICON),1)
+FORMATS = $(filter-out bond,$(ALL_FORMATS))
+FORMATS = $(filter-out smile,$(ALL_FORMATS))
 endif
 
 DOCUMENTS = $(notdir $(wildcard benchmark/*))
@@ -145,29 +156,34 @@ output/%/avro/output.bin: skeleton/avro/encode.py output/%/avro/encode.json benc
 	python3 $< $(word 2,$^) $(word 3,$^) $@
 	xxd $@
 
-output/%/bond/output.bin: output/%/bond/encode.json benchmark/%/bond/schema.bond skeleton/bond/encode.cpp \
+ifeq ($(APPLE_SILICON),0)
+output/%/bond/output.bin: $(DEPSDIR)/bond/compiler/build/gbc/gbc \
+	output/%/bond/encode.json benchmark/%/bond/schema.bond skeleton/bond/encode.cpp \
 	| output/%/bond
-	$(DEPSDIR)/bond/compiler/build/gbc/gbc c++ $(word 2,$^) --output-dir=$(dir $(word 2,$^))
-	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) $(CPPFLAGS_BOND) \
-		$(dir $(word 2,$^))schema_apply.cpp $(dir $(word 2,$^))schema_types.cpp \
+	$< c++ $(word 3,$^) --output-dir=$(dir $(word 3,$^))
+	clang++ $(word 4,$^) -I$(dir $(word 3,$^)) $(CPPFLAGS_BOND) \
+		$(dir $(word 3,$^))schema_apply.cpp $(dir $(word 3,$^))schema_types.cpp \
 		-o $(dir $@)encode -Wall
-	$(dir $@)encode $< $@
+	$(dir $@)encode $(word 2,$^) $@
 	rm $(dir $@)encode
 	xxd $@
+endif
 
 output/%/bson/output.bin: skeleton/bson/encode.js output/%/bson/encode.json \
 	| output/%/bson
 	node $< $(word 2,$^) $@
 	xxd $@
 
-output/%/capnproto/output.bin: output/%/capnproto/encode.json benchmark/%/capnproto/schema.capnp \
+output/%/capnproto/output.bin: $(DEPSDIR)/capnproto/c++/src/capnp/capnp \
+	output/%/capnproto/encode.json benchmark/%/capnproto/schema.capnp \
 	| output/%/capnproto
-	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert json:binary $(word 2,$^) Main < $< > $@
+	$< convert json:binary $(word 3,$^) Main < $(word 2,$^) > $@
 	xxd $@
 
-output/%/capnproto-packed/output.bin: output/%/capnproto-packed/encode.json benchmark/%/capnproto-packed/schema.capnp \
+output/%/capnproto-packed/output.bin: $(DEPSDIR)/capnproto/c++/src/capnp/capnp \
+	output/%/capnproto-packed/encode.json benchmark/%/capnproto-packed/schema.capnp \
 	| output/%/capnproto-packed
-	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert json:packed $(word 2,$^) Main < $< > $@
+	$< convert json:packed $(word 3,$^) Main < $(word 2,$^) > $@
 	xxd $@
 
 output/%/cbor/output.bin: skeleton/cbor/encode.py output/%/cbor/encode.json \
@@ -175,16 +191,16 @@ output/%/cbor/output.bin: skeleton/cbor/encode.py output/%/cbor/encode.json \
 	python3 $< $(word 2,$^) $@
 	xxd $@
 
-output/%/flatbuffers/output.bin: output/%/flatbuffers/encode.json benchmark/%/flatbuffers/schema.fbs \
+output/%/flatbuffers/output.bin: $(DEPSDIR)/flatbuffers/flatc output/%/flatbuffers/encode.json benchmark/%/flatbuffers/schema.fbs \
 	| output/%/flatbuffers
-	$(DEPSDIR)/flatbuffers/flatc --force-defaults --raw-binary -o $(dir $@) --binary $(word 2,$^) $<
-	mv $(dir $@)$(notdir $(basename $<)).bin $@
+	$< --force-defaults --raw-binary -o $(dir $@) --binary $(word 3,$^) $(word 2,$^)
+	mv $(dir $@)$(notdir $(basename $(word 2,$^))).bin $@
 	xxd $@
 
-output/%/flexbuffers/output.bin: output/%/flexbuffers/encode.json \
+output/%/flexbuffers/output.bin: $(DEPSDIR)/flatbuffers/flatc output/%/flexbuffers/encode.json \
 	| output/%/flexbuffers
-	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --binary $<
-	mv $(dir $@)$(notdir $(basename $<)).bin $@
+	$< --flexbuffers -o $(dir $@) --binary $(word 2,$^)
+	mv $(dir $@)$(notdir $(basename $(word 2,$^))).bin $@
 	xxd $@
 
 output/%/json/output.bin: output/%/json/encode.json \
@@ -192,27 +208,32 @@ output/%/json/output.bin: output/%/json/encode.json \
 	jq -c '.' < $< > $@
 	xxd $@
 
-output/%/messagepack/output.bin: output/%/messagepack/encode.json \
+output/%/messagepack/output.bin: $(DEPSDIR)/msgpack-tools/json2msgpack output/%/messagepack/encode.json \
 	| output/%/messagepack
-	$(DEPSDIR)/msgpack-tools/json2msgpack < $< > $@
+	$< < $(word 2,$^) > $@
 	xxd $@
 
-output/%/protobuf/output.bin: skeleton/protobuf/encode.py output/%/protobuf/encode.json benchmark/%/protobuf/schema.proto benchmark/%/protobuf/run.py \
-	| output/%/thrift
-	$(DEPSDIR)/protobuf/protoc --experimental_allow_proto3_optional \
-		-I=vendor/protobuf/src -I=$(dir $(word 3,$^)) --python_out=$(dir $(word 3,$^)) $(word 3,$^)
-	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
+output/%/protobuf/output.bin: $(DEPSDIR)/protobuf/protoc \
+	skeleton/protobuf/encode.py output/%/protobuf/encode.json \
+	benchmark/%/protobuf/schema.proto benchmark/%/protobuf/run.py \
+	| output/%/protobuf
+	$< --experimental_allow_proto3_optional \
+		-I=vendor/protobuf/src -I=$(dir $(word 4,$^)) --python_out=$(dir $(word 4,$^)) $(word 4,$^)
+	PYTHONPATH="$(dir $(word 4,$^))" python3 $(word 2,$^) $(word 3,$^) $(word 5,$^) $@
 	xxd $@
 
+ifdef ($(APPLE_SILICON),0)
 output/%/smile/output.bin: skeleton/smile/encode.clj output/%/smile/encode.json \
 	| output/%/smile
 	cd $(dir $<) && JSON_FILE="$(abspath $(word 2,$^))" OUTPUT_FILE="$(abspath $@)" clj -M $(notdir $<)
 	xxd $@
+endif
 
-output/%/thrift/output.bin: skeleton/thrift/encode.py output/%/thrift/encode.json benchmark/%/thrift/schema.thrift benchmark/%/thrift/run.py \
+output/%/thrift/output.bin: $(DEPSDIR)/thrift/bin/thrift \
+	skeleton/thrift/encode.py output/%/thrift/encode.json benchmark/%/thrift/schema.thrift benchmark/%/thrift/run.py \
 	| output/%/thrift
-	$(DEPSDIR)/thrift/bin/thrift --gen py -o $(dir $(word 3,$^)) -out $(dir $(word 3,$^)) $(word 3,$^)
-	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
+	$< --gen py -o $(dir $(word 4,$^)) -out $(dir $(word 4,$^)) $(word 4,$^)
+	PYTHONPATH="$(dir $(word 4,$^))" python3 $(word 2,$^) $(word 3,$^) $(word 5,$^) $@
 	xxd $@
 
 output/%/ubjson/output.bin: skeleton/ubjson/encode.py output/%/ubjson/encode.json \
@@ -235,6 +256,7 @@ output/%/avro/decode.json: skeleton/avro/decode.py output/%/avro/output.bin benc
 	| output/%/avro
 	python3 $< $(word 2,$^) $(word 3,$^) > $@
 
+ifeq ($(APPLE_SILICON),0)
 output/%/bond/decode.json: output/%/bond/output.bin benchmark/%/bond/schema.bond skeleton/bond/decode.cpp \
 	| output/%/bond
 	clang++ $(word 3,$^) -I$(dir $(word 2,$^)) $(CPPFLAGS_BOND) \
@@ -242,48 +264,53 @@ output/%/bond/decode.json: output/%/bond/output.bin benchmark/%/bond/schema.bond
 		-o $(dir $@)decode -Wall
 	$(dir $@)decode $< $@
 	rm $(dir $@)decode
+endif
 
 output/%/bson/decode.json: skeleton/bson/decode.js output/%/bson/output.bin \
 	| output/%/bson
 	node $< $(word 2,$^) > $@
 
-output/%/capnproto/decode.json: output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp skeleton/capnproto/decode.sh \
+output/%/capnproto/decode.json: $(DEPSDIR)/capnproto/c++/src/capnp/capnp \
+	output/%/capnproto/output.bin benchmark/%/capnproto/schema.capnp skeleton/capnproto/decode.sh \
 	| output/%/capnproto
-	DEPSDIR=$(DEPSDIR) ./$(word 3,$^) $(word 2,$^) $< $@
+	DEPSDIR=$(DEPSDIR) ./$(word 4,$^) $(word 3,$^) $(word 2,$^) $@
 
-output/%/capnproto-packed/decode.json: output/%/capnproto-packed/output.bin benchmark/%/capnproto-packed/schema.capnp \
+output/%/capnproto-packed/decode.json: $(DEPSDIR)/capnproto/c++/src/capnp/capnp \
+	output/%/capnproto-packed/output.bin benchmark/%/capnproto-packed/schema.capnp \
 	| output/%/capnproto-packed
-	$(DEPSDIR)/capnproto/c++/src/capnp/capnp convert packed:json $(word 2,$^) Main < $< > $@
+	$< convert packed:json $(word 3,$^) Main < $(word 2,$^) > $@
 
 output/%/cbor/decode.json: skeleton/cbor/decode.py output/%/cbor/output.bin \
 	| output/%/cbor
 	python3 $< $(word 2,$^) > $@
 
-output/%/flatbuffers/decode.json: output/%/flatbuffers/output.bin benchmark/%/flatbuffers/schema.fbs \
+output/%/flatbuffers/decode.json: $(DEPSDIR)/flatbuffers/flatc output/%/flatbuffers/output.bin benchmark/%/flatbuffers/schema.fbs \
 	| output/%/flatbuffers
-	$(DEPSDIR)/flatbuffers/flatc --raw-binary -o $(dir $@) --strict-json --json $(word 2,$^) -- $<
-	mv $(dir $@)$(notdir $(basename $<)).json $@
+	$< --raw-binary -o $(dir $@) --strict-json --json $(word 3,$^) -- $(word 2,$^)
+	mv $(dir $@)$(notdir $(basename $(word 2,$^))).json $@
 
-output/%/flexbuffers/decode.json: output/%/flexbuffers/output.bin \
+output/%/flexbuffers/decode.json: $(DEPSDIR)/flatbuffers/flatc output/%/flexbuffers/output.bin \
 	| output/%/flexbuffers
-	$(DEPSDIR)/flatbuffers/flatc --flexbuffers -o $(dir $@) --strict-json --json $<
-	mv $(dir $@)$(notdir $(basename $<)).json $@
+	$< --flexbuffers -o $(dir $@) --strict-json --json $(word 2,$^)
+	mv $(dir $@)$(notdir $(basename $(word 2,$^))).json $@
 
 output/%/json/decode.json: output/%/json/output.bin \
 	| output/%/json
 	jq '.' < $< > $@
 
-output/%/messagepack/decode.json: output/%/messagepack/output.bin \
+output/%/messagepack/decode.json: $(DEPSDIR)/msgpack-tools/msgpack2json output/%/messagepack/output.bin \
 	| output/%/messagepack
-	$(DEPSDIR)/msgpack-tools/msgpack2json < $< > $@
+	$< < $(word 2,$^) > $@
 
 output/%/protobuf/decode.json: skeleton/protobuf/decode.py output/%/protobuf/output.bin benchmark/%/protobuf/schema.proto benchmark/%/protobuf/run.py \
 	| output/%/thrift
 	PYTHONPATH="$(dir $(word 3,$^))" python3 $< $(word 2,$^) $(word 4,$^) $@
 
+ifdef ($(APPLE_SILICON),0)
 output/%/smile/decode.json: skeleton/smile/decode.clj output/%/smile/output.bin \
 	| output/%/smile
 	cd $(dir $<) && INPUT_FILE="$(abspath $(word 2,$^))" clj -M $(notdir $<) > $(abspath $@)
+endif
 
 output/%/thrift/decode.json: skeleton/thrift/decode.py output/%/thrift/output.bin benchmark/%/thrift/schema.thrift benchmark/%/thrift/run.py \
 	| output/%/thrift
