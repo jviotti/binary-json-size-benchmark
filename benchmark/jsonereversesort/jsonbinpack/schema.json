@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [ "$let", "in" ],
+  "properties": {
+    "$let": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "x" ],
+      "properties": {
+        "x": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "multipleOf": 10
+          }
+        }
+      }
+    },
+    "in": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [ "$reverse" ],
+      "properties": {
+        "$reverse": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [ "$sort", "by(x)" ],
+          "properties": {
+            "$sort": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [ "$eval" ],
+              "properties": {
+                "$eval": {
+                  "type": "string"
+                }
+              }
+            },
+            "by(x)": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
