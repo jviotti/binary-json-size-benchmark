@@ -4,6 +4,7 @@ set -o errexit
 set -o nounset
 
 TEMPORARY_DIRECTORY="$(mktemp -d -t vendorpull-test-XXXXX)"
+git -C "$TEMPORARY_DIRECTORY" init
 
 echo "Setting up test case at $TEMPORARY_DIRECTORY..."
 temporary_directory_clean() {
@@ -16,7 +17,7 @@ VENDORPULL_SOURCE="$PWD"
 cd "$TEMPORARY_DIRECTORY"
 
 echo "Running bootstrap script..."
-"$VENDORPULL_SOURCE/bootstrap.sh"
+"$VENDORPULL_SOURCE/bootstrap"
 
 echo "Running assertions..."
 
@@ -38,9 +39,9 @@ then
   exit 1
 fi
 
-if [ ! -x "$TEMPORARY_DIRECTORY/vendor/vendorpull/update" ]
+if [ ! -x "$TEMPORARY_DIRECTORY/vendor/vendorpull/pull" ]
 then
-  echo "There should be an update executable file at vendor/vendorpull" 1>&2
+  echo "There should be an pull executable file at vendor/vendorpull" 1>&2
   exit 1
 fi
 
