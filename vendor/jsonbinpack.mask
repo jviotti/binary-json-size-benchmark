@@ -1,12 +1,1 @@
 ./vendor
-./dist/test
-./test
-./lib
-./contrib
-./_sass
-./_includes
-./_layouts
-./dist/web
-./web
-./assets
-./scripts

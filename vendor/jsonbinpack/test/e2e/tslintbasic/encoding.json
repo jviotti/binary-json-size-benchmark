@@ -1,0 +1,26 @@
+{
+  "type": "enum",
+  "encoding": "TOP_LEVEL_8BIT_CHOICE_INDEX",
+  "options": {
+    "choices": [
+      {
+        "rules": {
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": false
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": true
+            }
+          }
+        }
+      }
+    ]
+  }
+}

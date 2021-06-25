@@ -1,0 +1,587 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "rules": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "require-author": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-description": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-engines": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-license": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-name": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-repository": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-version": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-bugs": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-homepage": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "require-keywords": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "bin-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "config-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "description-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "devDependencies-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "directories-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "engines-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "files-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "homepage-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "keywords-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "license-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "main-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "man-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "name-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "preferGlobal-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "private-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "repository-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "scripts-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "version-type": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "valid-values-author": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 2,
+                "maximum": 2,
+                "prefixEncodings": [
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "off",
+                        "warning",
+                        "error"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "valid-values-private": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 2,
+                "maximum": 2,
+                "prefixEncodings": [
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "off",
+                        "warning",
+                        "error"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "boolean",
+                        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "no-restricted-dependencies": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 2,
+                "maximum": 2,
+                "prefixEncodings": [
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "off",
+                        "warning",
+                        "error"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "no-restricted-pre-release-dependencies": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 2,
+                "maximum": 2,
+                "prefixEncodings": [
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "off",
+                        "warning",
+                        "error"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "no-restricted-invalid-devDependencies": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 2,
+                "maximum": 2,
+                "prefixEncodings": [
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "off",
+                        "warning",
+                        "error"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "no-restricted-pre-release-devDependencies": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 2,
+                "maximum": 2,
+                "prefixEncodings": [
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "off",
+                        "warning",
+                        "error"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "name-format": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            },
+            "version-format": {
+              "type": "enum",
+              "encoding": "BOUNDED_CHOICE_INDEX",
+              "options": {
+                "choices": [
+                  "off",
+                  "warning",
+                  "error"
+                ]
+              }
+            }
+          },
+          "requiredProperties": [
+            "bin-type",
+            "config-type",
+            "description-type",
+            "devDependencies-type",
+            "directories-type",
+            "engines-type",
+            "files-type",
+            "homepage-type",
+            "keywords-type",
+            "license-type",
+            "main-type",
+            "man-type",
+            "name-format",
+            "name-type",
+            "no-restricted-dependencies",
+            "no-restricted-invalid-devDependencies",
+            "no-restricted-pre-release-dependencies",
+            "no-restricted-pre-release-devDependencies",
+            "preferGlobal-type",
+            "private-type",
+            "repository-type",
+            "require-author",
+            "require-bugs",
+            "require-description",
+            "require-engines",
+            "require-homepage",
+            "require-keywords",
+            "require-license",
+            "require-name",
+            "require-repository",
+            "require-version",
+            "scripts-type",
+            "valid-values-author",
+            "valid-values-private",
+            "version-format",
+            "version-type"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "rules"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

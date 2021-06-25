@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tags",
+    "tz",
+    "days",
+    "coord",
+    "data"
+  ],
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tz": {
+      "type": "integer"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 6
+      }
+    },
+    "coord": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "staff"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "staff": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "staff",
+              "extra"
+            ],
+            "properties": {
+              "name": {
+                "type": "null"
+              },
+              "staff": {
+                "type": "boolean"
+              },
+              "extra": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "info"
+                ],
+                "properties": {
+                  "info": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  }
+}

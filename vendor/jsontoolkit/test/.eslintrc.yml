@@ -1,6 +1,0 @@
-rules:
-  # TODO: Find a way to re-enable these rules
-  '@typescript-eslint/typedef':
-    - off
-  '@typescript-eslint/no-floating-promises':
-    - off

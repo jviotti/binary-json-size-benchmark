@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "encoding": "MIXED_BOUNDED_TYPED_OBJECT",
+    "options": {
+        "propertyEncodings": {
+            "foo": {
+                "type": "string",
+                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                "options": {}
+            },
+            "baz": {
+                "type": "object",
+                "encoding": "REQUIRED_UNBOUNDED_TYPED_OBJECT",
+                "options": {
+                    "encoding": {
+                        "type": "any",
+                        "encoding": "ANY__TYPE_PREFIX",
+                        "options": {}
+                    },
+                    "propertyEncodings": {
+                        "qux": {
+                            "type": "array",
+                            "encoding": "UNBOUNDED_SEMITYPED__LENGTH_PREFIX",
+                            "options": {
+                                "prefixEncodings": []
+                            }
+                        }
+                    },
+                    "keyEncoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                    },
+                    "requiredProperties": [
+                        "qux"
+                    ],
+                    "booleanRequiredProperties": []
+                }
+            }
+        },
+        "optionalProperties": [
+            "baz"
+        ],
+        "requiredProperties": [
+            "foo"
+        ],
+        "booleanRequiredProperties": []
+    }
+}

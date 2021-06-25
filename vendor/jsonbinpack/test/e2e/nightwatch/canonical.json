@@ -1,0 +1,307 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "custom_commands_path",
+    "custom_assertions_path",
+    "page_objects_path",
+    "globals_path",
+    "globals",
+    "dotenv",
+    "persist_globals",
+    "output_folder",
+    "src_folders",
+    "live_output",
+    "disable_colors",
+    "parallel_process_delay",
+    "selenium",
+    "start_session",
+    "end_session_on_fail",
+    "test_workers",
+    "test_runner",
+    "webdriver",
+    "test_settings",
+    "launch_url",
+    "silent",
+    "output",
+    "detailed_output",
+    "output_timestamp",
+    "disable_error_log",
+    "screenshots",
+    "log_screenshot_data",
+    "desiredCapabilities",
+    "exclude",
+    "filter",
+    "skipgroup",
+    "sync_test_names",
+    "skiptags",
+    "use_xpath",
+    "parallel_mode",
+    "report_prefix",
+    "unit_tests_mode",
+    "default_reporter"
+  ],
+  "properties": {
+    "custom_commands_path": {
+      "type": "null"
+    },
+    "custom_assertions_path": {
+      "type": "null"
+    },
+    "page_objects_path": {
+      "type": "null"
+    },
+    "globals_path": {
+      "type": "null"
+    },
+    "globals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "abortOnAssertionFailure",
+        "abortOnElementLocateError",
+        "waitForConditionPollInterval",
+        "waitForConditionTimeout",
+        "throwOnMultipleElementsReturned",
+        "suppressWarningsOnMultipleElementsReturned",
+        "asyncHookTimeout",
+        "unitTestsTimeout",
+        "customReporterCallbackTimeout",
+        "retryAssertionTimeout"
+      ],
+      "properties": {
+        "abortOnAssertionFailure": {
+          "type": "boolean"
+        },
+        "abortOnElementLocateError": {
+          "type": "boolean"
+        },
+        "waitForConditionPollInterval": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "waitForConditionTimeout": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "throwOnMultipleElementsReturned": {
+          "type": "boolean"
+        },
+        "suppressWarningsOnMultipleElementsReturned": {
+          "type": "boolean"
+        },
+        "asyncHookTimeout": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unitTestsTimeout": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customReporterCallbackTimeout": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retryAssertionTimeout": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "dotenv": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "persist_globals": {
+      "type": "boolean"
+    },
+    "output_folder": {
+      "type": "string"
+    },
+    "src_folders": {
+      "type": "null"
+    },
+    "live_output": {
+      "type": "boolean"
+    },
+    "disable_colors": {
+      "type": "boolean"
+    },
+    "parallel_process_delay": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "selenium": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_process",
+        "cli_args",
+        "server_path",
+        "log_path",
+        "check_process_delay",
+        "max_status_poll_tries",
+        "status_poll_interval"
+      ],
+      "properties": {
+        "start_process": {
+          "type": "boolean"
+        },
+        "cli_args": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "server_path": {
+          "type": "null"
+        },
+        "log_path": {
+          "type": "string"
+        },
+        "check_process_delay": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_status_poll_tries": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status_poll_interval": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "start_session": {
+      "type": "boolean"
+    },
+    "end_session_on_fail": {
+      "type": "boolean"
+    },
+    "test_workers": {
+      "type": "boolean"
+    },
+    "test_runner": {
+      "type": "string"
+    },
+    "webdriver": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_process",
+        "cli_args",
+        "server_path",
+        "log_path",
+        "check_process_delay",
+        "max_status_poll_tries",
+        "status_poll_interval",
+        "process_create_timeout",
+        "timeout_options"
+      ],
+      "properties": {
+        "start_process": {
+          "type": "boolean"
+        },
+        "cli_args": {
+          "type": "object",
+          "additionalProperties": false
+        },
+        "server_path": {
+          "type": "null"
+        },
+        "log_path": {
+          "type": "string"
+        },
+        "check_process_delay": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_status_poll_tries": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status_poll_interval": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "process_create_timeout": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "timeout_options": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      }
+    },
+    "test_settings": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "launch_url": {
+      "type": "string"
+    },
+    "silent": {
+      "type": "boolean"
+    },
+    "output": {
+      "type": "boolean"
+    },
+    "detailed_output": {
+      "type": "boolean"
+    },
+    "output_timestamp": {
+      "type": "boolean"
+    },
+    "disable_error_log": {
+      "type": "boolean"
+    },
+    "screenshots": {
+      "type": "boolean"
+    },
+    "log_screenshot_data": {
+      "type": "boolean"
+    },
+    "desiredCapabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "browserName"
+      ],
+      "properties": {
+        "browserName": {
+          "type": "string"
+        }
+      }
+    },
+    "exclude": {
+      "type": "null"
+    },
+    "filter": {
+      "type": "null"
+    },
+    "skipgroup": {
+      "type": "string"
+    },
+    "sync_test_names": {
+      "type": "boolean"
+    },
+    "skiptags": {
+      "type": "string"
+    },
+    "use_xpath": {
+      "type": "boolean"
+    },
+    "parallel_mode": {
+      "type": "boolean"
+    },
+    "report_prefix": {
+      "type": "string"
+    },
+    "unit_tests_mode": {
+      "type": "boolean"
+    },
+    "default_reporter": {
+      "type": "string"
+    }
+  }
+}

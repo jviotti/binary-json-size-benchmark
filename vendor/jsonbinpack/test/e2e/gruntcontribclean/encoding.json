@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "foo": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "string",
+            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+            "options": {}
+          },
+          "prefixEncodings": []
+        }
+      },
+      "main": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "files": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {},
+                "requiredProperties": [],
+                "booleanRequiredProperties": []
+              }
+            },
+            "src": {
+              "type": "array",
+              "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+              "options": {
+                "encoding": {
+                  "type": "string",
+                  "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                  "options": {}
+                },
+                "prefixEncodings": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "files",
+            "src"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "options": {
+        "type": "enum",
+        "encoding": "BOUNDED_CHOICE_INDEX",
+        "options": {
+          "choices": [
+            {
+              "force": false,
+              "no-write": false
+            },
+            {
+              "force": false,
+              "no-write": true
+            },
+            {
+              "force": true,
+              "no-write": false
+            },
+            {
+              "force": true,
+              "no-write": true
+            }
+          ]
+        }
+      }
+    },
+    "requiredProperties": [
+      "foo",
+      "main",
+      "options"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "github",
+    "patreon",
+    "open_collective",
+    "ko_fi",
+    "tidelift",
+    "community_bridge",
+    "liberapay",
+    "issuehunt",
+    "otechie",
+    "custom"
+  ],
+  "properties": {
+    "github": {
+      "type": "string"
+    },
+    "patreon": {
+      "type": "null"
+    },
+    "open_collective": {
+      "type": "null"
+    },
+    "ko_fi": {
+      "type": "null"
+    },
+    "tidelift": {
+      "type": "null"
+    },
+    "community_bridge": {
+      "type": "null"
+    },
+    "liberapay": {
+      "type": "null"
+    },
+    "issuehunt": {
+      "type": "null"
+    },
+    "otechie": {
+      "type": "null"
+    },
+    "custom": {
+      "type": "null"
+    }
+  }
+}

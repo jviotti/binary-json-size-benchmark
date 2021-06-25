@@ -1,0 +1,63 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["version", "workflows"],
+    "properties": {
+        "version": {
+            "type": "number"
+        },
+        "workflows": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["test"],
+            "properties": {
+                "test": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["jobs"],
+                    "properties": {
+                        "jobs": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": ["m1"],
+                                "properties": {
+                                    "m1": {
+                                        "type": "object",
+                                        "additionalProperties": false,
+                                        "required": ["matrix"],
+                                        "properties": {
+                                            "matrix": {
+                                                "type": "object",
+                                                "additionalProperties": false,
+                                                "required": ["parameters"],
+                                                "properties": {
+                                                    "parameters": {
+                                                        "type": "object",
+                                                        "additionalProperties": false,
+                                                        "required": ["a"],
+                                                        "properties": {
+                                                            "a": {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "integer",
+                                                                    "minimum": 0
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

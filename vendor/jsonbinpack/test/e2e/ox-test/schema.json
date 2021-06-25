@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "required": [ "tags", "tz", "days", "coord", "data" ],
+  "additionalProperties": false,
+  "properties": {
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tz": {
+      "type": "integer"
+    },
+    "days": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 6
+      }
+    },
+    "coord": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      }
+    },
+    "data": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "required": [ "name", "staff" ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "staff": {
+                "type": "boolean"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "required": [ "name", "staff", "extra" ],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "null"
+              },
+              "staff": {
+                "type": "boolean"
+              },
+              "extra": {
+                "type": "object",
+                "required": [ "info" ],
+                "additionalProperties": false,
+                "properties": {
+                  "info": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      }
+    }
+  }
+}

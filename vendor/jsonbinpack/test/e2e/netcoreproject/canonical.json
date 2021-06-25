@@ -1,0 +1,179 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "compilationOptions",
+    "dependencies",
+    "code",
+    "frameworks"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "compilationOptions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "warningsAsErrors"
+      ],
+      "properties": {
+        "warningsAsErrors": {
+          "type": "boolean"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Microsoft.Bcl.Immutable",
+        "Microsoft.AspNet.ConfigurationModel",
+        "Microsoft.AspNet.DependencyInjection",
+        "Microsoft.AspNet.Logging",
+        "System.Data.Common"
+      ],
+      "properties": {
+        "Microsoft.Bcl.Immutable": {
+          "type": "string"
+        },
+        "Microsoft.AspNet.ConfigurationModel": {
+          "type": "string"
+        },
+        "Microsoft.AspNet.DependencyInjection": {
+          "type": "string"
+        },
+        "Microsoft.AspNet.Logging": {
+          "type": "string"
+        },
+        "System.Data.Common": {
+          "type": "string"
+        }
+      }
+    },
+    "code": {
+      "type": "string"
+    },
+    "frameworks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "net45",
+        "k10"
+      ],
+      "properties": {
+        "net45": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "dependencies"
+          ],
+          "properties": {
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "System.Runtime",
+                "System.Collections"
+              ],
+              "properties": {
+                "System.Runtime": {
+                  "type": "string"
+                },
+                "System.Collections": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "k10": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "dependencies"
+          ],
+          "properties": {
+            "dependencies": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "System.Collections",
+                "System.Collections.Concurrent",
+                "System.ComponentModel",
+                "System.Console",
+                "System.Diagnostics.Contracts",
+                "System.Diagnostics.Debug",
+                "System.Globalization",
+                "System.Linq",
+                "System.Linq.Expressions",
+                "System.Linq.Queryable",
+                "System.Reflection",
+                "System.Reflection.Extensions",
+                "System.Resources.ResourceManager",
+                "System.Runtime",
+                "System.Runtime.Extensions",
+                "System.Threading",
+                "System.Threading.Tasks"
+              ],
+              "properties": {
+                "System.Collections": {
+                  "type": "string"
+                },
+                "System.Collections.Concurrent": {
+                  "type": "string"
+                },
+                "System.ComponentModel": {
+                  "type": "string"
+                },
+                "System.Console": {
+                  "type": "string"
+                },
+                "System.Diagnostics.Contracts": {
+                  "type": "string"
+                },
+                "System.Diagnostics.Debug": {
+                  "type": "string"
+                },
+                "System.Globalization": {
+                  "type": "string"
+                },
+                "System.Linq": {
+                  "type": "string"
+                },
+                "System.Linq.Expressions": {
+                  "type": "string"
+                },
+                "System.Linq.Queryable": {
+                  "type": "string"
+                },
+                "System.Reflection": {
+                  "type": "string"
+                },
+                "System.Reflection.Extensions": {
+                  "type": "string"
+                },
+                "System.Resources.ResourceManager": {
+                  "type": "string"
+                },
+                "System.Runtime": {
+                  "type": "string"
+                },
+                "System.Runtime.Extensions": {
+                  "type": "string"
+                },
+                "System.Threading": {
+                  "type": "string"
+                },
+                "System.Threading.Tasks": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

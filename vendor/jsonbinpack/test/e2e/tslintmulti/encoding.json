@@ -1,0 +1,128 @@
+{
+  "type": "enum",
+  "encoding": "TOP_LEVEL_8BIT_CHOICE_INDEX",
+  "options": {
+    "choices": [
+      {
+        "rules": {
+          "no-any": [
+            false
+          ],
+          "radix": [
+            false
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": false
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            false
+          ],
+          "radix": [
+            false
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": true
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            false
+          ],
+          "radix": [
+            true
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": false
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            false
+          ],
+          "radix": [
+            true
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": true
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            true
+          ],
+          "radix": [
+            false
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": false
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            true
+          ],
+          "radix": [
+            false
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": true
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            true
+          ],
+          "radix": [
+            true
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": false
+            }
+          }
+        }
+      },
+      {
+        "rules": {
+          "no-any": [
+            true
+          ],
+          "radix": [
+            true
+          ],
+          "ordered-imports": {
+            "options": {
+              "grouped-imports": true
+            }
+          }
+        }
+      }
+    ]
+  }
+}

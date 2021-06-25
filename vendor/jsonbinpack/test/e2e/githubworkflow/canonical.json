@@ -1,0 +1,135 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "on",
+    "jobs"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "on": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "jobs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "build"
+      ],
+      "properties": {
+        "build": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "runs-on",
+            "env",
+            "steps"
+          ],
+          "properties": {
+            "runs-on": {
+              "type": "string"
+            },
+            "env": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "build-suite-dir"
+              ],
+              "properties": {
+                "build-suite-dir": {
+                  "type": "string"
+                }
+              }
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "uses"
+                    ],
+                    "properties": {
+                      "uses": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "uses",
+                      "with"
+                    ],
+                    "properties": {
+                      "uses": {
+                        "type": "string"
+                      },
+                      "with": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "node-version"
+                        ],
+                        "properties": {
+                          "node-version": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "name",
+                      "run"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "run": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "name",
+                      "run",
+                      "working-directory"
+                    ],
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "run": {
+                        "type": "string"
+                      },
+                      "working-directory": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
