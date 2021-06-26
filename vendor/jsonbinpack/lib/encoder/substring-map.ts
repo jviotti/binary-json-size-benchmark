@@ -18,6 +18,10 @@
 // that supports searching for any substring of a string
 // in a bucket
 
+// TODO: The limit should probably be based on number
+// of bytes rather than number of strings
+const LIMIT: number = 100
+
 export default class SubstringMap {
   private data: Map<string, number>;
 
@@ -34,6 +38,10 @@ export default class SubstringMap {
   }
 
   public set (value: string, offset: number): void {
+    if (this.data.size >= LIMIT) {
+      return
+    }
+
     this.data.set(value, offset)
   }
 }

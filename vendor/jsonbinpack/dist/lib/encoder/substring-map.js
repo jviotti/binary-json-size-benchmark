@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var LIMIT = 100;
 var SubstringMap = (function () {
     function SubstringMap() {
         this.data = new Map();
@@ -11,6 +12,9 @@ var SubstringMap = (function () {
         return this.data.get(value);
     };
     SubstringMap.prototype.set = function (value, offset) {
+        if (this.data.size >= LIMIT) {
+            return;
+        }
         this.data.set(value, offset);
     };
     return SubstringMap;
