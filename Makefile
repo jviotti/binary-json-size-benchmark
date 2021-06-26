@@ -208,9 +208,13 @@ output/%/json/output.bin: output/%/json/encode.json \
 	jq -c '.' < $< > $@
 	xxd $@
 
-output/%/jsonbinpack/output.bin: skeleton/jsonbinpack/encode.js output/%/jsonbinpack/encode.json benchmark/%/jsonbinpack/schema.json \
+output/%/jsonbinpack/encoding.json: vendor/jsonbinpack/dist/cli/index.js benchmark/%/jsonbinpack/schema.json \
 	| output/%/jsonbinpack
-	node $< $(word 2,$^) $(word 3,$^) $@
+	node $< compile $(word 2,$^) > $@
+
+output/%/jsonbinpack/output.bin: vendor/jsonbinpack/dist/cli/index.js output/%/jsonbinpack/encode.json output/%/jsonbinpack/encoding.json \
+	| output/%/jsonbinpack
+	node $< encode $(word 3,$^) $(word 2,$^) > $@
 	xxd $@
 
 output/%/messagepack/output.bin: $(DEPSDIR)/msgpack-tools/json2msgpack output/%/messagepack/encode.json \
@@ -303,9 +307,9 @@ output/%/json/decode.json: output/%/json/output.bin \
 	| output/%/json
 	jq '.' < $< > $@
 
-output/%/jsonbinpack/decode.json: skeleton/jsonbinpack/decode.js output/%/jsonbinpack/output.bin benchmark/%/jsonbinpack/schema.json \
+output/%/jsonbinpack/decode.json: vendor/jsonbinpack/dist/cli/index.js output/%/jsonbinpack/output.bin output/%/jsonbinpack/encoding.json \
  	| output/%/jsonbinpack
-	node $< $(word 2,$^) $(word 3,$^) > $@
+	node $< decode $(word 3,$^) $(word 2,$^) > $@
 
 output/%/messagepack/decode.json: $(DEPSDIR)/msgpack-tools/msgpack2json output/%/messagepack/output.bin \
 	| output/%/messagepack

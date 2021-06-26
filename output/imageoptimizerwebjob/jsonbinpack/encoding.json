@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "optimizations": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "object",
+            "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+            "options": {
+              "propertyEncodings": {
+                "includes": {
+                  "type": "array",
+                  "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                  "options": {
+                    "encoding": {
+                      "type": "string",
+                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                      "options": {}
+                    },
+                    "prefixEncodings": []
+                  }
+                },
+                "excludes": {
+                  "type": "array",
+                  "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                  "options": {
+                    "encoding": {
+                      "type": "string",
+                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                      "options": {}
+                    },
+                    "prefixEncodings": []
+                  }
+                },
+                "lossy": {
+                  "type": "boolean",
+                  "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                  "options": {}
+                }
+              },
+              "requiredProperties": [
+                "excludes",
+                "includes"
+              ],
+              "booleanRequiredProperties": [
+                "lossy"
+              ]
+            }
+          },
+          "prefixEncodings": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "optimizations"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "$sort": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "integer",
+            "encoding": "FLOOR__ENUM_VARINT",
+            "options": {
+              "minimum": 0
+            }
+          },
+          "prefixEncodings": []
+        }
+      },
+      "by(x)": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      }
+    },
+    "requiredProperties": [
+      "$sort",
+      "by(x)"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

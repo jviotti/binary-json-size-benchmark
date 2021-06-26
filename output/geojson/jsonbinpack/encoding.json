@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "type": {
+        "type": "enum",
+        "encoding": "BOUNDED_CHOICE_INDEX",
+        "options": {
+          "choices": [
+            "Point",
+            "MultiPoint",
+            "LineString",
+            "MultiLineString",
+            "Polygon",
+            "MultiPolygon",
+            "GeometryCollection",
+            "Feature",
+            "FeatureCollection"
+          ]
+        }
+      },
+      "coordinates": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "array",
+            "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+            "options": {
+              "encoding": {
+                "type": "array",
+                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "options": {
+                  "encoding": {
+                    "type": "array",
+                    "encoding": "BOUNDED_8BITS_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "minimum": 2,
+                      "maximum": 2,
+                      "encoding": {
+                        "type": "number",
+                        "encoding": "DOUBLE_VARINT_TUPLE",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  },
+                  "prefixEncodings": []
+                }
+              },
+              "prefixEncodings": []
+            }
+          },
+          "prefixEncodings": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "coordinates",
+      "type"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

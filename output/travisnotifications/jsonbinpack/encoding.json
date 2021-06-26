@@ -1,0 +1,149 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "notifications": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "campfire": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "irc": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "flowdock": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "hipchat": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "slack": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "webhooks": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            },
+            "email": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "secure": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "secure"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "campfire",
+            "email",
+            "flowdock",
+            "hipchat",
+            "irc",
+            "slack",
+            "webhooks"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "notifications"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "site": {
+        "type": "string",
+        "encoding": "URL_PROTOCOL_HOST_REST",
+        "options": {}
+      },
+      "maxAge": {
+        "type": "integer",
+        "encoding": "FLOOR__ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      },
+      "reportUrl": {
+        "type": "string",
+        "encoding": "URL_PROTOCOL_HOST_REST",
+        "options": {}
+      },
+      "defaultNavBehavior": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "defaultResBehavior": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "rules": {
+        "type": "array",
+        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "options": {
+          "encoding": {
+            "type": "oneOf",
+            "encoding": "ONEOF_CHOICE_INDEX_PREFIX",
+            "options": {
+              "schemas": [
+                {
+                  "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "path",
+                      "types",
+                      "allowData"
+                    ],
+                    "properties": {
+                      "path": {
+                        "type": "string",
+                        "format": "json-pointer"
+                      },
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "enum": [
+                            "navigation",
+                            "image",
+                            "stylesheet",
+                            "script",
+                            "xhr",
+                            "other"
+                          ]
+                        }
+                      },
+                      "allowData": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "encoding": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "path": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "types": {
+                          "type": "array",
+                          "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                          "options": {
+                            "encoding": {
+                              "type": "enum",
+                              "encoding": "BOUNDED_CHOICE_INDEX",
+                              "options": {
+                                "choices": [
+                                  "navigation",
+                                  "image",
+                                  "stylesheet",
+                                  "script",
+                                  "xhr",
+                                  "other"
+                                ]
+                              }
+                            },
+                            "prefixEncodings": []
+                          }
+                        },
+                        "allowData": {
+                          "type": "boolean",
+                          "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                          "options": {}
+                        }
+                      },
+                      "requiredProperties": [
+                        "path",
+                        "types"
+                      ],
+                      "booleanRequiredProperties": [
+                        "allowData"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "regex",
+                      "types",
+                      "allowData"
+                    ],
+                    "properties": {
+                      "regex": {
+                        "type": "string",
+                        "format": "regex"
+                      },
+                      "types": {
+                        "type": "array",
+                        "items": {
+                          "enum": [
+                            "navigation",
+                            "image",
+                            "stylesheet",
+                            "script",
+                            "xhr",
+                            "other"
+                          ]
+                        }
+                      },
+                      "allowData": {
+                        "type": "boolean"
+                      }
+                    }
+                  },
+                  "encoding": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "regex": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        },
+                        "types": {
+                          "type": "array",
+                          "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                          "options": {
+                            "encoding": {
+                              "type": "enum",
+                              "encoding": "BOUNDED_CHOICE_INDEX",
+                              "options": {
+                                "choices": [
+                                  "navigation",
+                                  "image",
+                                  "stylesheet",
+                                  "script",
+                                  "xhr",
+                                  "other"
+                                ]
+                              }
+                            },
+                            "prefixEncodings": []
+                          }
+                        },
+                        "allowData": {
+                          "type": "boolean",
+                          "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                          "options": {}
+                        }
+                      },
+                      "requiredProperties": [
+                        "regex",
+                        "types"
+                      ],
+                      "booleanRequiredProperties": [
+                        "allowData"
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "prefixEncodings": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "defaultNavBehavior",
+      "defaultResBehavior",
+      "maxAge",
+      "reportUrl",
+      "rules",
+      "site"
+    ],
+    "booleanRequiredProperties": []
+  }
+}
