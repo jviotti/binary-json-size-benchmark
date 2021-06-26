@@ -216,10 +216,12 @@ tap_1.default.test('BOUNDED__PREFIX_LENGTH_8BIT_FIXED (ASCII)', function (test) 
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + limits_1.UINT8_MAX + 1));
         var bytesWritten = encode_1.BOUNDED__PREFIX_LENGTH_8BIT_FIXED(buffer, offset, value, {
-            minimum: minimum, maximum: maximum
+            minimum: minimum,
+            maximum: maximum
         }, context);
         var result = decode_1.BOUNDED__PREFIX_LENGTH_8BIT_FIXED(buffer, offset, {
-            minimum: minimum, maximum: maximum
+            minimum: minimum,
+            maximum: maximum
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -239,10 +241,12 @@ tap_1.default.test('BOUNDED__PREFIX_LENGTH_ENUM_VARINT (ASCII)', function (test)
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2048));
         var bytesWritten = encode_1.BOUNDED__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, value, {
-            minimum: minimum, maximum: maximum
+            minimum: minimum,
+            maximum: maximum
         }, context);
         var result = decode_1.BOUNDED__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
-            minimum: minimum, maximum: maximum
+            minimum: minimum,
+            maximum: maximum
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {

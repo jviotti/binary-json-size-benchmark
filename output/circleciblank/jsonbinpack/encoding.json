@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "version": {
+        "type": "number",
+        "encoding": "DOUBLE_VARINT_TUPLE",
+        "options": {}
+      }
+    },
+    "requiredProperties": [
+      "version"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

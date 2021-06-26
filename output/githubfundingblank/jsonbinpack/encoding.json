@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "github": {
+        "type": "string",
+        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+        "options": {}
+      },
+      "patreon": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "open_collective": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "ko_fi": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "tidelift": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "community_bridge": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "liberapay": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "issuehunt": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "otechie": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      },
+      "custom": {
+        "type": "null",
+        "encoding": "NULL_8BITS__ENUM_FIXED",
+        "options": {}
+      }
+    },
+    "requiredProperties": [
+      "community_bridge",
+      "custom",
+      "github",
+      "issuehunt",
+      "ko_fi",
+      "liberapay",
+      "open_collective",
+      "otechie",
+      "patreon",
+      "tidelift"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

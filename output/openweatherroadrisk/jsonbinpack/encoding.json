@@ -1,0 +1,126 @@
+{
+  "type": "array",
+  "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+  "options": {
+    "encoding": {
+      "type": "object",
+      "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+      "options": {
+        "propertyEncodings": {
+          "dt": {
+            "type": "integer",
+            "encoding": "FLOOR__ENUM_VARINT",
+            "options": {
+              "minimum": 0
+            }
+          },
+          "coord": {
+            "type": "array",
+            "encoding": "BOUNDED_8BITS_TYPED__LENGTH_PREFIX",
+            "options": {
+              "minimum": 2,
+              "maximum": 2,
+              "encoding": {
+                "type": "number",
+                "encoding": "DOUBLE_VARINT_TUPLE",
+                "options": {}
+              },
+              "prefixEncodings": []
+            }
+          },
+          "weather": {
+            "type": "object",
+            "encoding": "MIXED_BOUNDED_TYPED_OBJECT",
+            "options": {
+              "propertyEncodings": {
+                "temp": {
+                  "type": "number",
+                  "encoding": "DOUBLE_VARINT_TUPLE",
+                  "options": {}
+                },
+                "wind_speed": {
+                  "type": "number",
+                  "encoding": "DOUBLE_VARINT_TUPLE",
+                  "options": {}
+                },
+                "wind_deg": {
+                  "type": "integer",
+                  "encoding": "FLOOR__ENUM_VARINT",
+                  "options": {
+                    "minimum": 0
+                  }
+                },
+                "precipitation_intensity": {
+                  "type": "number",
+                  "encoding": "DOUBLE_VARINT_TUPLE",
+                  "options": {}
+                },
+                "dew_point": {
+                  "type": "number",
+                  "encoding": "DOUBLE_VARINT_TUPLE",
+                  "options": {}
+                }
+              },
+              "optionalProperties": [
+                "precipitation_intensity"
+              ],
+              "requiredProperties": [
+                "dew_point",
+                "temp",
+                "wind_deg",
+                "wind_speed"
+              ],
+              "booleanRequiredProperties": []
+            }
+          },
+          "alerts": {
+            "type": "array",
+            "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+            "options": {
+              "encoding": {
+                "type": "object",
+                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                "options": {
+                  "propertyEncodings": {
+                    "sender_name": {
+                      "type": "string",
+                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                      "options": {}
+                    },
+                    "event": {
+                      "type": "string",
+                      "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                      "options": {}
+                    },
+                    "event_level": {
+                      "type": "integer",
+                      "encoding": "FLOOR__ENUM_VARINT",
+                      "options": {
+                        "minimum": 0
+                      }
+                    }
+                  },
+                  "requiredProperties": [
+                    "event",
+                    "event_level",
+                    "sender_name"
+                  ],
+                  "booleanRequiredProperties": []
+                }
+              },
+              "prefixEncodings": []
+            }
+          }
+        },
+        "requiredProperties": [
+          "alerts",
+          "coord",
+          "dt",
+          "weather"
+        ],
+        "booleanRequiredProperties": []
+      }
+    },
+    "prefixEncodings": []
+  }
+}

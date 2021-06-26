@@ -1,0 +1,87 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "$let": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "x": {
+              "type": "array",
+              "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+              "options": {
+                "encoding": {
+                  "type": "integer",
+                  "encoding": "FLOOR_MULTIPLE__ENUM_VARINT",
+                  "options": {
+                    "minimum": 0,
+                    "multiplier": 10
+                  }
+                },
+                "prefixEncodings": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "x"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "in": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "$reverse": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "$sort": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "$eval": {
+                          "type": "string",
+                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                          "options": {}
+                        }
+                      },
+                      "requiredProperties": [
+                        "$eval"
+                      ],
+                      "booleanRequiredProperties": []
+                    }
+                  },
+                  "by(x)": {
+                    "type": "string",
+                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                    "options": {}
+                  }
+                },
+                "requiredProperties": [
+                  "$sort",
+                  "by(x)"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "$reverse"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "$let",
+      "in"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "rules": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "scope-case": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 3,
+                "maximum": 3,
+                "prefixEncodings": [
+                  {
+                    "type": "integer",
+                    "encoding": "FLOOR__ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
+                  },
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "always",
+                        "never"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            },
+            "subject-case": {
+              "type": "array",
+              "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+              "options": {
+                "minimum": 3,
+                "maximum": 3,
+                "prefixEncodings": [
+                  {
+                    "type": "integer",
+                    "encoding": "FLOOR__ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
+                  },
+                  {
+                    "type": "enum",
+                    "encoding": "BOUNDED_CHOICE_INDEX",
+                    "options": {
+                      "choices": [
+                        "always",
+                        "never"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "array",
+                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                    "options": {
+                      "encoding": {
+                        "type": "string",
+                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+                        "options": {}
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "requiredProperties": [
+            "scope-case",
+            "subject-case"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "rules"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

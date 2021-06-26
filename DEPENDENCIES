@@ -1,4 +1,4 @@
-vendorpull https://github.com/jviotti/vendorpull 93916f1df3081071cd8e37f575970baee94639d1
+vendorpull https://github.com/jviotti/vendorpull 49c571c86569d147511d15737b14216aba90e089
 flatbuffers https://github.com/google/flatbuffers.git v1.12.0
 capnproto https://github.com/capnproto/capnproto v0.8.0
 msgpack-tools https://github.com/ludocode/msgpack-tools v0.6
@@ -6,5 +6,5 @@ lz4 https://github.com/lz4/lz4 v1.9.3
 thrift https://github.com/apache/thrift 65fb49bb41f852375b278c9057d52c9472f0cb3a
 protobuf https://github.com/protocolbuffers/protobuf v3.15.3
 bond https://github.com/microsoft/bond 9.0.4
-jsonbinpack git@github.com:jviotti/jsonbinpack.git c501667355a7593d8b12202475cd08b3ef47602b
+jsonbinpack git@github.com:jviotti/jsonbinpack.git f098464188128c83b87c4c6751fde325e35bc3a6
 npm https://github.com/npm/cli 7b1a5399cfbfcc7a7194c4aa4bbadfbce6cbbe66
