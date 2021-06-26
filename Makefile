@@ -217,6 +217,16 @@ output/%/jsonbinpack/output.bin: vendor/jsonbinpack/dist/cli/index.js output/%/j
 	node $< encode $(word 3,$^) $(word 2,$^) > $@
 	xxd $@
 
+output/%/jsonbinpack-schemaless/encoding.json: vendor/jsonbinpack/dist/cli/index.js benchmark/%/jsonbinpack-schemaless/schema.json \
+	| output/%/jsonbinpack-schemaless
+	node $< compile $(word 2,$^) > $@
+
+output/%/jsonbinpack-schemaless/output.bin: vendor/jsonbinpack/dist/cli/index.js \
+	output/%/jsonbinpack-schemaless/encode.json output/%/jsonbinpack-schemaless/encoding.json \
+	| output/%/jsonbinpack-schemaless
+	node $< encode $(word 3,$^) $(word 2,$^) > $@
+	xxd $@
+
 output/%/messagepack/output.bin: $(DEPSDIR)/msgpack-tools/json2msgpack output/%/messagepack/encode.json \
 	| output/%/messagepack
 	$< < $(word 2,$^) > $@
@@ -309,6 +319,11 @@ output/%/json/decode.json: output/%/json/output.bin \
 
 output/%/jsonbinpack/decode.json: vendor/jsonbinpack/dist/cli/index.js output/%/jsonbinpack/output.bin output/%/jsonbinpack/encoding.json \
  	| output/%/jsonbinpack
+	node $< decode $(word 3,$^) $(word 2,$^) > $@
+
+output/%/jsonbinpack-schemaless/decode.json: vendor/jsonbinpack/dist/cli/index.js \
+	output/%/jsonbinpack-schemaless/output.bin output/%/jsonbinpack-schemaless/encoding.json \
+ 	| output/%/jsonbinpack-schemaless
 	node $< decode $(word 3,$^) $(word 2,$^) > $@
 
 output/%/messagepack/decode.json: $(DEPSDIR)/msgpack-tools/msgpack2json output/%/messagepack/output.bin \
