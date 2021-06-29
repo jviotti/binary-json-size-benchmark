@@ -48,7 +48,8 @@ import {
   OptionalBoundedTypedOptions,
   RequiredBoundedTypedOptions,
   PackedUnboundedOptions,
-  PackedRequiredBoundedOptions
+  PackedRequiredBoundedOptions,
+  SizeTypedKeysOptions
 } from './options'
 
 import {
@@ -148,20 +149,16 @@ export const MIXED_BOUNDED_TYPED_OBJECT = (
   }
 }
 
-export const ARBITRARY_TYPED_KEYS_OBJECT = (
-  buffer: ResizableBuffer, offset: number, options: TypedKeysOptions
+export const ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = (
+  buffer: ResizableBuffer, offset: number, options: SizeTypedKeysOptions
 ): ObjectResult => {
-  const result: IntegerResult = FLOOR__ENUM_VARINT(buffer, offset, {
-    minimum: 0
-  })
-
-  assert(result.value >= 0)
+  assert(options.size >= 0)
 
   let count: number = 0
-  let cursor: number = offset + result.bytes
+  let cursor: number = offset
   const value: JSONObject = {}
 
-  while (count < result.value) {
+  while (count < options.size) {
     const keyResult: DecodeResult =
       decode(buffer, cursor, options.keyEncoding)
     assert(typeof keyResult.value === 'string')
@@ -179,6 +176,26 @@ export const ARBITRARY_TYPED_KEYS_OBJECT = (
   return {
     value,
     bytes: cursor - offset
+  }
+}
+
+export const ARBITRARY_TYPED_KEYS_OBJECT = (
+  buffer: ResizableBuffer, offset: number, options: TypedKeysOptions
+): ObjectResult => {
+  const sizeResult: IntegerResult = FLOOR__ENUM_VARINT(buffer, offset, {
+    minimum: 0
+  })
+
+  const result: ObjectResult = ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH(
+    buffer, offset + sizeResult.bytes, {
+      encoding: options.encoding,
+      keyEncoding: options.keyEncoding,
+      size: sizeResult.value
+    })
+
+  return {
+    bytes: sizeResult.bytes + result.bytes,
+    value: result.value
   }
 }
 

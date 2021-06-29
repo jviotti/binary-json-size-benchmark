@@ -71,8 +71,8 @@ var safeReadFile = function (filePath) {
         throw error;
     }
 };
-var writeResult = function (testCase, name, value) {
-    var destination = path_1.resolve(SRC_TEST_DIRECTORY, testCase, name);
+var writeResult = function (testCase, type, name, value) {
+    var destination = path_1.resolve(SRC_TEST_DIRECTORY, testCase, type, name);
     var currentContent = safeReadFile(destination);
     if (typeof currentContent === 'string' &&
         util_1.isDeepStrictEqual(JSON.parse(currentContent), value)) {
@@ -82,37 +82,56 @@ var writeResult = function (testCase, name, value) {
     fs_1.writeFileSync(destination, content + "\n", 'utf8');
 };
 var _loop_1 = function (testCase) {
+    var e_2, _d;
     var testCasePath = path_1.resolve(TEST_DIRECTORY, testCase);
     if (!fs_1.statSync(testCasePath).isDirectory()) {
         return "continue";
     }
-    tap_1.default.test(testCase, function (test) { return __awaiter(void 0, void 0, void 0, function () {
-        var schema, value, encodingSchema, encoding, buffer, result, size;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    schema = JSON.parse(fs_1.readFileSync(path_1.resolve(testCasePath, 'schema.json'), 'utf8'));
-                    value = JSON.parse(fs_1.readFileSync(path_1.resolve(testCasePath, 'document.json'), 'utf8'));
-                    return [4, preprocessor_1.preprocessSchema(schema)];
-                case 1:
-                    encodingSchema = _a.sent();
-                    test.true(schema_1.validateSchema(encodingSchema, value));
-                    return [4, lib_1.compileSchema(schema)];
-                case 2:
-                    encoding = _a.sent();
-                    writeResult(testCase, 'encoding.json', encoding);
-                    writeResult(testCase, 'canonical.json', encodingSchema);
-                    buffer = lib_1.encode(encoding, value);
-                    result = lib_1.decode(encoding, buffer);
-                    fs_1.writeFileSync(path_1.resolve(SRC_TEST_DIRECTORY, testCase, 'output.bin'), buffer);
-                    size = String(buffer.length);
-                    fs_1.writeFileSync(path_1.resolve(SRC_TEST_DIRECTORY, testCase, 'size'), size + "\n", 'utf8');
-                    test.strictSame(value, result);
-                    test.end();
-                    return [2];
-            }
-        });
-    }); });
+    var types = ['schema-driven', 'schema-less'];
+    var _loop_2 = function (type) {
+        tap_1.default.test(testCase + " (" + type + ")", function (test) { return __awaiter(void 0, void 0, void 0, function () {
+            var schema, value, encodingSchema, encoding, buffer, result, size;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        schema = type === 'schema-driven'
+                            ? JSON.parse(fs_1.readFileSync(path_1.resolve(testCasePath, type, 'schema.json'), 'utf8'))
+                            : {};
+                        value = JSON.parse(fs_1.readFileSync(path_1.resolve(testCasePath, 'document.json'), 'utf8'));
+                        return [4, preprocessor_1.preprocessSchema(schema)];
+                    case 1:
+                        encodingSchema = _a.sent();
+                        test.true(schema_1.validateSchema(encodingSchema, value));
+                        return [4, lib_1.compileSchema(schema)];
+                    case 2:
+                        encoding = _a.sent();
+                        writeResult(testCase, type, 'encoding.json', encoding);
+                        writeResult(testCase, type, 'canonical.json', encodingSchema);
+                        buffer = lib_1.encode(encoding, value);
+                        result = lib_1.decode(encoding, buffer);
+                        fs_1.writeFileSync(path_1.resolve(SRC_TEST_DIRECTORY, testCase, type, 'output.bin'), buffer);
+                        size = String(buffer.length);
+                        fs_1.writeFileSync(path_1.resolve(SRC_TEST_DIRECTORY, testCase, type, 'size'), size + "\n", 'utf8');
+                        test.strictSame(value, result);
+                        test.end();
+                        return [2];
+                }
+            });
+        }); });
+    };
+    try {
+        for (var types_1 = (e_2 = void 0, __values(types)), types_1_1 = types_1.next(); !types_1_1.done; types_1_1 = types_1.next()) {
+            var type = types_1_1.value;
+            _loop_2(type);
+        }
+    }
+    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+    finally {
+        try {
+            if (types_1_1 && !types_1_1.done && (_d = types_1.return)) _d.call(types_1);
+        }
+        finally { if (e_2) throw e_2.error; }
+    }
 };
 try {
     for (var _b = __values(fs_1.readdirSync(TEST_DIRECTORY)), _c = _b.next(); !_c.done; _c = _b.next()) {

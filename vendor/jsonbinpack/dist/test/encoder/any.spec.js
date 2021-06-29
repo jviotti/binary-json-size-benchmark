@@ -45,9 +45,9 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', func
         foo: 'bar',
         baz: 1
     }, {}, context);
-    test.is(bytesWritten, 17);
+    test.is(bytesWritten, 15);
     var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
-    test.is(result.bytes, 17);
+    test.is(result.bytes, 15);
     test.strictSame(result.value, {
         foo: 'bar',
         baz: 1

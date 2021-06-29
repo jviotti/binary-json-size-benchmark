@@ -26,7 +26,8 @@ import {
 
 import {
   UINT8_MIN,
-  UINT8_MAX
+  UINT8_MAX,
+  UINT4_MAX
 } from '../../utils/limits'
 
 import {
@@ -34,7 +35,8 @@ import {
 } from './options'
 
 import {
-  Type
+  Type,
+  getTypeTag
 } from './types'
 
 import {
@@ -55,7 +57,8 @@ import {
 } from '../number/encode'
 
 import {
-  ARBITRARY_TYPED_KEYS_OBJECT
+  ARBITRARY_TYPED_KEYS_OBJECT,
+  ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH
 } from '../object/encode'
 
 import {
@@ -69,18 +72,17 @@ import {
 const encodeTypeTag = (buffer: ResizableBuffer, offset: number, tag: number, context: EncodingContext): number => {
   return BOUNDED_8BITS__ENUM_FIXED(buffer, offset, tag, {
     minimum: UINT8_MIN,
-
-    // TODO: Find a way to keep this automatically in sync with "Type"
-    maximum: 11
+    maximum: UINT8_MAX
   }, context)
 }
 
 export const ANY__TYPE_PREFIX = (
   buffer: ResizableBuffer, offset: number, value: JSONValue, _options: NoOptions, context: EncodingContext
 ): number => {
-  // Encode an object value
+  // Encode an array value
   if (Array.isArray(value)) {
-    const tagBytes: number = encodeTypeTag(buffer, offset, Type.Array, context)
+    const typeTag: number = getTypeTag(Type.Array, 0)
+    const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
     const valueBytes: number = UNBOUNDED_SEMITYPED__LENGTH_PREFIX(
       buffer, offset + tagBytes, value, {
         prefixEncodings: []
@@ -88,11 +90,35 @@ export const ANY__TYPE_PREFIX = (
 
     return tagBytes + valueBytes
 
-  // Encode an array value
+  // Encode an object value
   } else if (typeof value === 'object' && value !== null) {
-    const tagBytes: number = encodeTypeTag(buffer, offset, Type.Object, context)
-    const valueBytes: number = ARBITRARY_TYPED_KEYS_OBJECT(
+    const size: number = Object.keys(value).length
+
+    if (size > UINT4_MAX - 1) {
+      const typeTag: number = getTypeTag(Type.Object, 0)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+      const valueBytes: number = ARBITRARY_TYPED_KEYS_OBJECT(
+        buffer, offset + tagBytes, value, {
+          keyEncoding: {
+            type: EncodingType.String,
+            encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+            options: {}
+          },
+          encoding: {
+            type: EncodingType.Any,
+            encoding: 'ANY__TYPE_PREFIX',
+            options: {}
+          }
+        }, context)
+
+      return tagBytes + valueBytes
+    }
+
+    const typeTag: number = getTypeTag(Type.Object, size + 1)
+    const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+    const valueBytes: number = ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH(
       buffer, offset + tagBytes, value, {
+        size,
         keyEncoding: {
           type: EncodingType.String,
           encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
@@ -109,19 +135,24 @@ export const ANY__TYPE_PREFIX = (
 
   // Encode a null value (at the type level)
   } else if (value === null) {
-    return encodeTypeTag(buffer, offset, Type.Null, context)
+    const typeTag: number = getTypeTag(Type.Null, 0)
+    return encodeTypeTag(buffer, offset, typeTag, context)
 
   // Encode a boolean value (at the type level)
   } else if (typeof value === 'boolean') {
-    return encodeTypeTag(buffer, offset, value ? Type.True : Type.False, context)
+    const typeTag: number = value
+      ? getTypeTag(Type.True, 0) : getTypeTag(Type.False, 0)
+    return encodeTypeTag(buffer, offset, typeTag, context)
 
   // Encode a string value
   } else if (typeof value === 'string') {
+    const typeTag: number = getTypeTag(Type.String, 0)
+
     // Exploit the fact that a shared string always starts with an impossible length
     // marker (0) to avoid having to encode an additional tag
     const tagBytes: number = context.strings.has(value)
       ? 0
-      : encodeTypeTag(buffer, offset, Type.String, context)
+      : encodeTypeTag(buffer, offset, typeTag, context)
     const valueBytes: number =
       ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + tagBytes, value, {}, context)
     return tagBytes + valueBytes
@@ -134,7 +165,14 @@ export const ANY__TYPE_PREFIX = (
     if (absoluteValue <= UINT8_MAX) {
       const type: Type = isPositive
         ? Type.PositiveIntegerByte : Type.NegativeIntegerByte
-      const tagBytes: number = encodeTypeTag(buffer, offset, type, context)
+
+      if (absoluteValue <= UINT4_MAX - 1) {
+        const typeTag: number = getTypeTag(type, absoluteValue + 1)
+        return encodeTypeTag(buffer, offset, typeTag, context)
+      }
+
+      const typeTag: number = getTypeTag(type, 0)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
       const valueBytes: number =
         BOUNDED_8BITS__ENUM_FIXED(buffer, offset + tagBytes, absoluteValue, {
           minimum: UINT8_MIN,
@@ -151,16 +189,19 @@ export const ANY__TYPE_PREFIX = (
     // problem aside until we switch over to C++
     assert(type === Type.PositiveInteger || -(absoluteValue + 1) === value)
 
-    const tagBytes: number = encodeTypeTag(buffer, offset, type, context)
+    const typeTag: number = getTypeTag(type, 0)
+    const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
     const valueBytes: number =
       FLOOR__ENUM_VARINT(buffer, offset + tagBytes, absoluteValue, {
         minimum: 0
       }, context)
     return tagBytes + valueBytes
 
-  // Encode an number value
   }
-  const tagBytes: number = encodeTypeTag(buffer, offset, Type.Number, context)
+
+  // Encode an number value
+  const typeTag: number = getTypeTag(Type.Number, 0)
+  const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
   const valueBytes: number =
       DOUBLE_VARINT_TUPLE(buffer, offset + tagBytes, value, {}, context)
   return tagBytes + valueBytes

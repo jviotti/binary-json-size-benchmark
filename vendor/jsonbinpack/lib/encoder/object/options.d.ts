@@ -68,6 +68,10 @@ export interface PackedRequiredBoundedOptions
     packedEncoding: BOUNDED_8BITS__ENUM_FIXED_ENCODING;
   }
 
+export interface SizeTypedKeysOptions extends TypedKeysOptions {
+  size: number;
+}
+
 export type ObjectOptions =
   RequiredBoundedTypedOptions |
   OptionalBoundedTypedOptions |
@@ -77,4 +81,5 @@ export type ObjectOptions =
   RequiredUnboundedTypedOptions |
   UnboundedTypedOptions |
   PackedUnboundedOptions |
-  PackedRequiredBoundedOptions
+  PackedRequiredBoundedOptions |
+  SizeTypedKeysOptions

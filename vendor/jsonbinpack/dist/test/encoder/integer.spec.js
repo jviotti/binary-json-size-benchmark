@@ -54,12 +54,10 @@ tap_1.default.test('BOUNDED_8BITS__ENUM_FIXED', function (test) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + 1));
         var bytesWritten = encode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset, value, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         }, context);
         var result = decode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         });
         return bytesWritten === 1 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -79,14 +77,10 @@ tap_1.default.test('BOUNDED_MULTIPLE_8BITS__ENUM_FIXED', function (test) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + 1));
         var bytesWritten = encode_1.BOUNDED_MULTIPLE_8BITS__ENUM_FIXED(buffer, offset, value, {
-            minimum: minimum,
-            maximum: maximum,
-            multiplier: multiplier
+            minimum: minimum, maximum: maximum, multiplier: multiplier
         }, context);
         var result = decode_1.BOUNDED_MULTIPLE_8BITS__ENUM_FIXED(buffer, offset, {
-            minimum: minimum,
-            maximum: maximum,
-            multiplier: multiplier
+            minimum: minimum, maximum: maximum, multiplier: multiplier
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -100,12 +94,10 @@ tap_1.default.test('BOUNDED__ENUM_VARINT', function (test) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + 8));
         var bytesWritten = encode_1.BOUNDED__ENUM_VARINT(buffer, offset, value, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         }, context);
         var result = decode_1.BOUNDED__ENUM_VARINT(buffer, offset, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -131,14 +123,10 @@ tap_1.default.test('BOUNDED_MULTIPLE__ENUM_VARINT', function (test) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + 8));
         var bytesWritten = encode_1.BOUNDED_MULTIPLE__ENUM_VARINT(buffer, offset, value, {
-            minimum: minimum,
-            maximum: maximum,
-            multiplier: multiplier
+            minimum: minimum, maximum: maximum, multiplier: multiplier
         }, context);
         var result = decode_1.BOUNDED_MULTIPLE__ENUM_VARINT(buffer, offset, {
-            minimum: minimum,
-            maximum: maximum,
-            multiplier: multiplier
+            minimum: minimum, maximum: maximum, multiplier: multiplier
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -191,12 +179,10 @@ tap_1.default.test('FLOOR_MULTIPLE__ENUM_VARINT', function (test) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + 8));
         var bytesWritten = encode_1.FLOOR_MULTIPLE__ENUM_VARINT(buffer, offset, value, {
-            minimum: minimum,
-            multiplier: multiplier
+            minimum: minimum, multiplier: multiplier
         }, context);
         var result = decode_1.FLOOR_MULTIPLE__ENUM_VARINT(buffer, offset, {
-            minimum: minimum,
-            multiplier: multiplier
+            minimum: minimum, multiplier: multiplier
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -235,12 +221,10 @@ tap_1.default.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT', function (test) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + 8));
         var bytesWritten = encode_1.ROOF_MULTIPLE__MIRROR_ENUM_VARINT(buffer, offset, value, {
-            maximum: maximum,
-            multiplier: multiplier
+            maximum: maximum, multiplier: multiplier
         }, context);
         var result = decode_1.ROOF_MULTIPLE__MIRROR_ENUM_VARINT(buffer, offset, {
-            maximum: maximum,
-            multiplier: multiplier
+            maximum: maximum, multiplier: multiplier
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {

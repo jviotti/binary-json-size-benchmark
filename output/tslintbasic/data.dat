@@ -10,7 +10,7 @@
 9,flexbuffers,"FlexBuffers",77,76,88,80
 10,json,"JSON",67,68,74,70
 11,jsonbinpack,"JSON BinPack\n(Schema-driven)",1,21,20,24
-12,jsonbinpack-schemaless,"JSON BinPack\n(Schema-less)",55,63,74,65
+12,jsonbinpack-schemaless,"JSON BinPack\n(Schema-less)",51,61,70,64
 13,messagepack,"MessagePack",51,62,70,64
 14,protobuf,"Protocol Buffers\n(Binary Wire Format)",8,28,27,31
 15,smile,"Smile",59,68,73,71

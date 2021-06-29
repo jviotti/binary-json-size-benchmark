@@ -56,7 +56,8 @@ import {
   OptionalUnboundedTypedOptions,
   RequiredBoundedTypedOptions,
   PackedUnboundedOptions,
-  PackedRequiredBoundedOptions
+  PackedRequiredBoundedOptions,
+  SizeTypedKeysOptions
 } from '../encoder/object/options'
 
 import {
@@ -88,6 +89,12 @@ export interface MIXED_BOUNDED_TYPED_OBJECT_ENCODING extends BaseEncodingDefinit
   readonly type: EncodingType.Object;
   readonly encoding: 'MIXED_BOUNDED_TYPED_OBJECT';
   readonly options: BoundedTypedOptions;
+}
+
+export interface ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH_ENCODING extends BaseEncodingDefinition {
+  readonly type: EncodingType.Object;
+  readonly encoding: 'ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH';
+  readonly options: SizeTypedKeysOptions;
 }
 
 export interface ARBITRARY_TYPED_KEYS_OBJECT_ENCODING extends BaseEncodingDefinition {
@@ -132,6 +139,7 @@ export type ObjectEncodingNames =
   'NON_REQUIRED_BOUNDED_TYPED_OBJECT' |
   'MIXED_BOUNDED_TYPED_OBJECT' |
   'ARBITRARY_TYPED_KEYS_OBJECT' |
+  'ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH' |
   'REQUIRED_UNBOUNDED_TYPED_OBJECT' |
   'OPTIONAL_UNBOUNDED_TYPED_OBJECT' |
   'MIXED_UNBOUNDED_TYPED_OBJECT' |
@@ -143,6 +151,7 @@ export type ObjectEncoding =
   NON_REQUIRED_BOUNDED_TYPED_OBJECT_ENCODING |
   MIXED_BOUNDED_TYPED_OBJECT_ENCODING |
   ARBITRARY_TYPED_KEYS_OBJECT_ENCODING |
+  ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH_ENCODING |
   REQUIRED_UNBOUNDED_TYPED_OBJECT_ENCODING |
   OPTIONAL_UNBOUNDED_TYPED_OBJECT_ENCODING |
   MIXED_UNBOUNDED_TYPED_OBJECT_ENCODING |

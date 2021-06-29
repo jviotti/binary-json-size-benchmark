@@ -64,8 +64,10 @@ const safeReadFile = (filePath: string): string | null => {
   }
 }
 
-const writeResult = (testCase: string, name: string, value: Encoding | EncodingSchema): void => {
-  const destination: string = resolve(SRC_TEST_DIRECTORY, testCase, name)
+type SchemaType = 'schema-driven' | 'schema-less'
+
+const writeResult = (testCase: string, type: SchemaType, name: string, value: Encoding | EncodingSchema): void => {
+  const destination: string = resolve(SRC_TEST_DIRECTORY, testCase, type, name)
 
   const currentContent: string | null = safeReadFile(destination)
   if (typeof currentContent === 'string' &&
@@ -83,30 +85,36 @@ for (const testCase of readdirSync(TEST_DIRECTORY)) {
     continue
   }
 
-  tap.test(testCase, async (test) => {
-    const schema: JSONSchema = JSON.parse(readFileSync(resolve(testCasePath, 'schema.json'), 'utf8'))
-    const value: JSONValue = JSON.parse(readFileSync(resolve(testCasePath, 'document.json'), 'utf8'))
+  const types: SchemaType[] = [ 'schema-driven', 'schema-less' ]
 
-    const encodingSchema: EncodingSchema = await preprocessSchema(schema)
-    test.true(validateSchema(encodingSchema, value))
+  for (const type of types) {
+    tap.test(`${testCase} (${type})`, async (test) => {
+      const schema: JSONSchema = type === 'schema-driven'
+        ? JSON.parse(readFileSync(resolve(testCasePath, type, 'schema.json'), 'utf8'))
+        : {}
+      const value: JSONValue = JSON.parse(readFileSync(resolve(testCasePath, 'document.json'), 'utf8'))
 
-    const encoding: Encoding = await compileSchema(schema)
+      const encodingSchema: EncodingSchema = await preprocessSchema(schema)
+      test.true(validateSchema(encodingSchema, value))
 
-    // Record the encoding and canonical schemas for debugging purposes
-    writeResult(testCase, 'encoding.json', encoding)
-    writeResult(testCase, 'canonical.json', encodingSchema)
+      const encoding: Encoding = await compileSchema(schema)
 
-    const buffer: Buffer = encode(encoding, value)
-    const result: JSONValue = decode(encoding, buffer)
+      // Record the encoding and canonical schemas for debugging purposes
+      writeResult(testCase, type, 'encoding.json', encoding)
+      writeResult(testCase, type, 'canonical.json', encodingSchema)
 
-    // Record the buffer for debugging purposes too
-    writeFileSync(resolve(SRC_TEST_DIRECTORY, testCase, 'output.bin'), buffer)
+      const buffer: Buffer = encode(encoding, value)
+      const result: JSONValue = decode(encoding, buffer)
 
-    // Record the buffer size for debugging purposes
-    const size: string = String(buffer.length)
-    writeFileSync(resolve(SRC_TEST_DIRECTORY, testCase, 'size'), `${size}\n`, 'utf8')
+      // Record the buffer for debugging purposes too
+      writeFileSync(resolve(SRC_TEST_DIRECTORY, testCase, type, 'output.bin'), buffer)
 
-    test.strictSame(value, result)
-    test.end()
-  })
+      // Record the buffer size for debugging purposes
+      const size: string = String(buffer.length)
+      writeFileSync(resolve(SRC_TEST_DIRECTORY, testCase, type, 'size'), `${size}\n`, 'utf8')
+
+      test.strictSame(value, result)
+      test.end()
+    })
+  }
 }
