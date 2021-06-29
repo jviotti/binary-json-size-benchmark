@@ -27,7 +27,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PACKED_BOUNDED_REQUIRED_OBJECT = exports.PACKED_UNBOUNDED_OBJECT = exports.MIXED_UNBOUNDED_TYPED_OBJECT = exports.OPTIONAL_UNBOUNDED_TYPED_OBJECT = exports.REQUIRED_UNBOUNDED_TYPED_OBJECT = exports.ARBITRARY_TYPED_KEYS_OBJECT = exports.MIXED_BOUNDED_TYPED_OBJECT = exports.NON_REQUIRED_BOUNDED_TYPED_OBJECT = exports.REQUIRED_ONLY_BOUNDED_TYPED_OBJECT = void 0;
+exports.PACKED_BOUNDED_REQUIRED_OBJECT = exports.PACKED_UNBOUNDED_OBJECT = exports.MIXED_UNBOUNDED_TYPED_OBJECT = exports.OPTIONAL_UNBOUNDED_TYPED_OBJECT = exports.REQUIRED_UNBOUNDED_TYPED_OBJECT = exports.ARBITRARY_TYPED_KEYS_OBJECT = exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = exports.MIXED_BOUNDED_TYPED_OBJECT = exports.NON_REQUIRED_BOUNDED_TYPED_OBJECT = exports.REQUIRED_ONLY_BOUNDED_TYPED_OBJECT = void 0;
 var assert_1 = require("assert");
 var bitset_1 = require("./bitset");
 var integer_list_1 = require("./integer-list");
@@ -166,11 +166,9 @@ var MIXED_BOUNDED_TYPED_OBJECT = function (buffer, offset, value, options, conte
     }, context);
 };
 exports.MIXED_BOUNDED_TYPED_OBJECT = MIXED_BOUNDED_TYPED_OBJECT;
-var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, value, options, context) {
+var ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = function (buffer, offset, value, options, context) {
     var e_7, _a;
-    var cursor = offset + encode_1.FLOOR__ENUM_VARINT(buffer, offset, Object.keys(value).length, {
-        minimum: 0
-    }, context);
+    var cursor = offset;
     try {
         for (var _b = __values(Object.entries(value)), _c = _b.next(); !_c.done; _c = _b.next()) {
             var _d = __read(_c.value, 2), key = _d[0], objectValue = _d[1];
@@ -186,6 +184,18 @@ var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, value, options, cont
         finally { if (e_7) throw e_7.error; }
     }
     return cursor - offset;
+};
+exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH;
+var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, value, options, context) {
+    var size = Object.keys(value).length;
+    var lengthBytes = encode_1.FLOOR__ENUM_VARINT(buffer, offset, size, {
+        minimum: 0
+    }, context);
+    return lengthBytes + exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH(buffer, offset + lengthBytes, value, {
+        encoding: options.encoding,
+        keyEncoding: options.keyEncoding,
+        size: size
+    }, context);
 };
 exports.ARBITRARY_TYPED_KEYS_OBJECT = ARBITRARY_TYPED_KEYS_OBJECT;
 var REQUIRED_UNBOUNDED_TYPED_OBJECT = function (buffer, offset, value, options, context) {

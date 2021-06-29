@@ -74,10 +74,10 @@ tap_1.default.test('ANY__TYPE_PREFIX: should encode 255 as 0x0a 0xff', function 
 });
 tap_1.default.test('ANY__TYPE_PREFIX: should encode 0 as 0x0a 0x00', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
-    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2));
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(1));
     var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, 0, {}, context);
-    test.strictSame(buffer.getBuffer(), Buffer.from([0x0a, 0x00]));
-    test.is(bytesWritten, 2);
+    test.strictSame(buffer.getBuffer(), Buffer.from([0x1a]));
+    test.is(bytesWritten, 1);
     test.end();
 });
 tap_1.default.test('ANY__TYPE_PREFIX: should encode -257 as 0x09 + 256 varint', function (test) {
@@ -88,12 +88,12 @@ tap_1.default.test('ANY__TYPE_PREFIX: should encode -257 as 0x09 + 256 varint', 
     test.is(bytesWritten, 3);
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: should encode -1 as 0x0b 0x00', function (test) {
+tap_1.default.test('ANY__TYPE_PREFIX: should encode -1 as 0x1b', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
-    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2));
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(1));
     var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, -1, {}, context);
-    test.strictSame(buffer.getBuffer(), Buffer.from([0x0b, 0x00]));
-    test.is(bytesWritten, 2);
+    test.strictSame(buffer.getBuffer(), Buffer.from([0x1b]));
+    test.is(bytesWritten, 1);
     test.end();
 });
 tap_1.default.test('ANY__TYPE_PREFIX: should encode -256 as 0x0b 0xff', function (test) {
@@ -112,14 +112,13 @@ tap_1.default.test('ANY__TYPE_PREFIX: should encode {foo:"bar",baz:1}', function
         baz: 1
     }, {}, context);
     test.strictSame(buffer.getBuffer(), Buffer.from([
-        0x02,
-        0x02,
+        0x32,
         0x04, 0x66, 0x6f, 0x6f,
         0x01, 0x04, 0x62, 0x61, 0x72,
         0x04, 0x62, 0x61, 0x7a,
-        0x0a, 0x01
+        0x2a
     ]));
-    test.is(bytesWritten, 17);
+    test.is(bytesWritten, 15);
     test.end();
 });
 tap_1.default.test('ANY__TYPE_PREFIX: should encode [ "foo", true, 2000 ]', function (test) {

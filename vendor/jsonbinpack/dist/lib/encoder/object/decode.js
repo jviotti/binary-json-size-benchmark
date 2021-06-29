@@ -27,7 +27,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PACKED_BOUNDED_REQUIRED_OBJECT = exports.PACKED_UNBOUNDED_OBJECT = exports.MIXED_UNBOUNDED_TYPED_OBJECT = exports.OPTIONAL_UNBOUNDED_TYPED_OBJECT = exports.REQUIRED_UNBOUNDED_TYPED_OBJECT = exports.ARBITRARY_TYPED_KEYS_OBJECT = exports.MIXED_BOUNDED_TYPED_OBJECT = exports.NON_REQUIRED_BOUNDED_TYPED_OBJECT = exports.REQUIRED_ONLY_BOUNDED_TYPED_OBJECT = void 0;
+exports.PACKED_BOUNDED_REQUIRED_OBJECT = exports.PACKED_UNBOUNDED_OBJECT = exports.MIXED_UNBOUNDED_TYPED_OBJECT = exports.OPTIONAL_UNBOUNDED_TYPED_OBJECT = exports.REQUIRED_UNBOUNDED_TYPED_OBJECT = exports.ARBITRARY_TYPED_KEYS_OBJECT = exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = exports.MIXED_BOUNDED_TYPED_OBJECT = exports.NON_REQUIRED_BOUNDED_TYPED_OBJECT = exports.REQUIRED_ONLY_BOUNDED_TYPED_OBJECT = void 0;
 var assert_1 = require("assert");
 var bitset_1 = require("./bitset");
 var integer_list_1 = require("./integer-list");
@@ -129,15 +129,12 @@ var MIXED_BOUNDED_TYPED_OBJECT = function (buffer, offset, options) {
     };
 };
 exports.MIXED_BOUNDED_TYPED_OBJECT = MIXED_BOUNDED_TYPED_OBJECT;
-var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, options) {
-    var result = decode_1.FLOOR__ENUM_VARINT(buffer, offset, {
-        minimum: 0
-    });
-    assert_1.strict(result.value >= 0);
+var ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = function (buffer, offset, options) {
+    assert_1.strict(options.size >= 0);
     var count = 0;
-    var cursor = offset + result.bytes;
+    var cursor = offset;
     var value = {};
-    while (count < result.value) {
+    while (count < options.size) {
         var keyResult = index_1.decode(buffer, cursor, options.keyEncoding);
         assert_1.strict(typeof keyResult.value === 'string');
         assert_1.strict(keyResult.bytes >= 0);
@@ -151,6 +148,21 @@ var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, options) {
     return {
         value: value,
         bytes: cursor - offset
+    };
+};
+exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH;
+var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, options) {
+    var sizeResult = decode_1.FLOOR__ENUM_VARINT(buffer, offset, {
+        minimum: 0
+    });
+    var result = exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH(buffer, offset + sizeResult.bytes, {
+        encoding: options.encoding,
+        keyEncoding: options.keyEncoding,
+        size: sizeResult.value
+    });
+    return {
+        bytes: sizeResult.bytes + result.bytes,
+        value: result.value
     };
 };
 exports.ARBITRARY_TYPED_KEYS_OBJECT = ARBITRARY_TYPED_KEYS_OBJECT;

@@ -95,7 +95,7 @@ Results
 | FlexBuffers | 18 | 38 | 37 | 41 |
 | JSON | 14 | 34 | 33 | 38 |
 | JSON BinPack (Schema-driven) | 2 | 22 | 21 | 25 |
-| JSON BinPack (Schema-less) | 12 | 32 | 31 | 36 |
+| JSON BinPack (Schema-less) | 10 | 30 | 29 | 34 |
 | MessagePack | 10 | 30 | 29 | 34 |
 | Protocol Buffers (Binary Wire Format) | 5 | 25 | 24 | 27 |
 | Smile | 15 | 35 | 34 | 39 |
@@ -119,7 +119,7 @@ Results
 | FlexBuffers | 157 | 134 | 151 | 131 |
 | JSON | 95 | 99 | 112 | 101 |
 | JSON BinPack (Schema-driven) | 7 | 27 | 26 | 30 |
-| JSON BinPack (Schema-less) | 78 | 90 | 97 | 95 |
+| JSON BinPack (Schema-less) | 68 | 87 | 87 | 90 |
 | MessagePack | 72 | 90 | 91 | 92 |
 | Protocol Buffers (Binary Wire Format) | 26 | 43 | 45 | 46 |
 | Smile | 87 | 104 | 106 | 105 |
@@ -143,7 +143,7 @@ Results
 | FlexBuffers | 90 | 97 | 105 | 99 |
 | JSON | 96 | 80 | 86 | 83 |
 | JSON BinPack (Schema-driven) | 20 | 40 | 39 | 43 |
-| JSON BinPack (Schema-less) | 72 | 82 | 85 | 84 |
+| JSON BinPack (Schema-less) | 68 | 79 | 82 | 81 |
 | MessagePack | 74 | 68 | 76 | 71 |
 | Protocol Buffers (Binary Wire Format) | 62 | 60 | 70 | 63 |
 | Smile | 84 | 76 | 82 | 80 |
@@ -167,7 +167,7 @@ Results
 | FlexBuffers | 25 | 45 | 44 | 49 |
 | JSON | 25 | 45 | 44 | 49 |
 | JSON BinPack (Schema-driven) | 0 | 20 | 15 | 23 |
-| JSON BinPack (Schema-less) | 18 | 38 | 37 | 42 |
+| JSON BinPack (Schema-less) | 17 | 37 | 36 | 41 |
 | MessagePack | 17 | 37 | 36 | 41 |
 | Protocol Buffers (Binary Wire Format) | 0 | 20 | 15 | 23 |
 | Smile | 22 | 42 | 41 | 47 |
@@ -191,7 +191,7 @@ Results
 | FlexBuffers | 429 | 355 | 417 | 342 |
 | JSON | 520 | 264 | 332 | 272 |
 | JSON BinPack (Schema-driven) | 186 | 176 | 199 | 175 |
-| JSON BinPack (Schema-less) | 364 | 303 | 356 | 299 |
+| JSON BinPack (Schema-less) | 358 | 300 | 352 | 295 |
 | MessagePack | 412 | 262 | 307 | 254 |
 | Protocol Buffers (Binary Wire Format) | 247 | 196 | 222 | 189 |
 | Smile | 356 | 266 | 311 | 261 |
@@ -215,7 +215,7 @@ Results
 | FlexBuffers | 1201 | 635 | 824 | 636 |
 | JSON | 1141 | 488 | 703 | 521 |
 | JSON BinPack (Schema-driven) | 65 | 81 | 84 | 84 |
-| JSON BinPack (Schema-less) | 1017 | 533 | 741 | 551 |
+| JSON BinPack (Schema-less) | 974 | 518 | 715 | 543 |
 | MessagePack | 971 | 525 | 712 | 546 |
 | Protocol Buffers (Binary Wire Format) | 161 | 164 | 180 | 155 |
 | Smile | 979 | 544 | 724 | 565 |
@@ -239,7 +239,7 @@ Results
 | FlexBuffers | 91 | 107 | 110 | 109 |
 | JSON | 102 | 101 | 117 | 103 |
 | JSON BinPack (Schema-driven) | 12 | 32 | 31 | 35 |
-| JSON BinPack (Schema-less) | 69 | 84 | 88 | 88 |
+| JSON BinPack (Schema-less) | 68 | 83 | 87 | 87 |
 | MessagePack | 64 | 82 | 83 | 85 |
 | Protocol Buffers (Binary Wire Format) | 23 | 43 | 42 | 47 |
 | Smile | 70 | 87 | 89 | 91 |
@@ -263,7 +263,7 @@ Results
 | FlexBuffers | 309 | 167 | 200 | 163 |
 | JSON | 190 | 121 | 146 | 116 |
 | JSON BinPack (Schema-driven) | 82 | 69 | 82 | 66 |
-| JSON BinPack (Schema-less) | 150 | 110 | 134 | 106 |
+| JSON BinPack (Schema-less) | 139 | 107 | 131 | 104 |
 | MessagePack | 162 | 111 | 132 | 109 |
 | Protocol Buffers (Binary Wire Format) | 325 | 115 | 145 | 107 |
 | Smile | 228 | 131 | 158 | 128 |
@@ -287,7 +287,7 @@ Results
 | FlexBuffers | 152 | 143 | 168 | 148 |
 | JSON | 183 | 134 | 167 | 144 |
 | JSON BinPack (Schema-driven) | 16 | 36 | 35 | 39 |
-| JSON BinPack (Schema-less) | 126 | 122 | 145 | 137 |
+| JSON BinPack (Schema-less) | 125 | 123 | 144 | 136 |
 | MessagePack | 124 | 124 | 143 | 136 |
 | Protocol Buffers (Binary Wire Format) | 17 | 37 | 36 | 41 |
 | Smile | 129 | 134 | 148 | 139 |
@@ -311,7 +311,7 @@ Results
 | FlexBuffers | 396 | 309 | 369 | 318 |
 | JSON | 356 | 228 | 292 | 247 |
 | JSON BinPack (Schema-driven) | 165 | 154 | 166 | 155 |
-| JSON BinPack (Schema-less) | 304 | 240 | 286 | 247 |
+| JSON BinPack (Schema-less) | 295 | 239 | 279 | 243 |
 | MessagePack | 287 | 222 | 256 | 224 |
 | Protocol Buffers (Binary Wire Format) | 189 | 176 | 195 | 175 |
 | Smile | 287 | 235 | 268 | 240 |
@@ -335,7 +335,7 @@ Results
 | FlexBuffers | 94 | 110 | 113 | 115 |
 | JSON | 93 | 94 | 106 | 95 |
 | JSON BinPack (Schema-driven) | 11 | 31 | 30 | 35 |
-| JSON BinPack (Schema-less) | 65 | 83 | 84 | 84 |
+| JSON BinPack (Schema-less) | 61 | 80 | 80 | 81 |
 | MessagePack | 60 | 76 | 79 | 78 |
 | Protocol Buffers (Binary Wire Format) | 20 | 36 | 39 | 41 |
 | Smile | 70 | 85 | 88 | 88 |
@@ -359,7 +359,7 @@ Results
 | FlexBuffers | 89 | 102 | 107 | 103 |
 | JSON | 82 | 88 | 96 | 90 |
 | JSON BinPack (Schema-driven) | 21 | 41 | 40 | 44 |
-| JSON BinPack (Schema-less) | 68 | 79 | 83 | 82 |
+| JSON BinPack (Schema-less) | 66 | 77 | 81 | 80 |
 | MessagePack | 61 | 77 | 78 | 78 |
 | Protocol Buffers (Binary Wire Format) | 23 | 43 | 42 | 47 |
 | Smile | 70 | 86 | 88 | 88 |
@@ -383,7 +383,7 @@ Results
 | FlexBuffers | 95 | 109 | 114 | 111 |
 | JSON | 86 | 86 | 99 | 88 |
 | JSON BinPack (Schema-driven) | 11 | 31 | 30 | 33 |
-| JSON BinPack (Schema-less) | 65 | 80 | 84 | 83 |
+| JSON BinPack (Schema-less) | 56 | 76 | 75 | 80 |
 | MessagePack | 52 | 73 | 71 | 76 |
 | Protocol Buffers (Binary Wire Format) | 21 | 41 | 40 | 43 |
 | Smile | 63 | 82 | 82 | 84 |
@@ -407,7 +407,7 @@ Results
 | FlexBuffers | 39 | 56 | 58 | 60 |
 | JSON | 34 | 54 | 53 | 58 |
 | JSON BinPack (Schema-driven) | 8 | 28 | 27 | 31 |
-| JSON BinPack (Schema-less) | 29 | 47 | 48 | 51 |
+| JSON BinPack (Schema-less) | 23 | 43 | 42 | 48 |
 | MessagePack | 21 | 41 | 40 | 46 |
 | Protocol Buffers (Binary Wire Format) | 10 | 30 | 29 | 33 |
 | Smile | 27 | 48 | 46 | 52 |
@@ -431,7 +431,7 @@ Results
 | FlexBuffers | 598 | 406 | 475 | 400 |
 | JSON | 573 | 327 | 418 | 341 |
 | JSON BinPack (Schema-driven) | 309 | 256 | 274 | 252 |
-| JSON BinPack (Schema-less) | 530 | 338 | 411 | 343 |
+| JSON BinPack (Schema-less) | 527 | 336 | 408 | 341 |
 | MessagePack | 517 | 331 | 398 | 337 |
 | Protocol Buffers (Binary Wire Format) | 413 | 261 | 302 | 264 |
 | Smile | 521 | 335 | 403 | 341 |
@@ -455,7 +455,7 @@ Results
 | FlexBuffers | 3049 | 1966 | 2560 | 1936 |
 | JSON | 3048 | 1556 | 2204 | 1586 |
 | JSON BinPack (Schema-driven) | 1477 | 1182 | 1364 | 1146 |
-| JSON BinPack (Schema-less) | 2745 | 1708 | 2275 | 1696 |
+| JSON BinPack (Schema-less) | 2730 | 1702 | 2270 | 1699 |
 | MessagePack | 2749 | 1600 | 2163 | 1615 |
 | Protocol Buffers (Binary Wire Format) | 2225 | 1370 | 1832 | 1371 |
 | Smile | 2620 | 1581 | 2169 | 1621 |
@@ -479,7 +479,7 @@ Results
 | FlexBuffers | 890 | 559 | 664 | 552 |
 | JSON | 1049 | 411 | 548 | 425 |
 | JSON BinPack (Schema-driven) | 134 | 130 | 146 | 125 |
-| JSON BinPack (Schema-less) | 788 | 501 | 589 | 489 |
+| JSON BinPack (Schema-less) | 781 | 498 | 584 | 482 |
 | MessagePack | 919 | 458 | 565 | 443 |
 | Protocol Buffers (Binary Wire Format) | 284 | 155 | 195 | 152 |
 | Smile | 870 | 453 | 558 | 450 |
@@ -503,7 +503,7 @@ Results
 | FlexBuffers | 1389 | 869 | 1140 | 873 |
 | JSON | 1507 | 649 | 926 | 682 |
 | JSON BinPack (Schema-driven) | 83 | 104 | 102 | 105 |
-| JSON BinPack (Schema-less) | 1124 | 711 | 924 | 717 |
+| JSON BinPack (Schema-less) | 1113 | 707 | 913 | 714 |
 | MessagePack | 1172 | 670 | 872 | 678 |
 | Protocol Buffers (Binary Wire Format) | 109 | 129 | 128 | 132 |
 | Smile | 1090 | 683 | 886 | 701 |
@@ -527,7 +527,7 @@ Results
 | FlexBuffers | 660 | 502 | 590 | 483 |
 | JSON | 494 | 341 | 470 | 361 |
 | JSON BinPack (Schema-driven) | 113 | 134 | 132 | 138 |
-| JSON BinPack (Schema-less) | 368 | 335 | 382 | 335 |
+| JSON BinPack (Schema-less) | 359 | 334 | 373 | 329 |
 | MessagePack | 382 | 358 | 393 | 350 |
 | Protocol Buffers (Binary Wire Format) | 188 | 199 | 207 | 203 |
 | Smile | 412 | 389 | 418 | 372 |
@@ -551,7 +551,7 @@ Results
 | FlexBuffers | 488 | 376 | 420 | 357 |
 | JSON | 375 | 250 | 302 | 252 |
 | JSON BinPack (Schema-driven) | 100 | 119 | 119 | 119 |
-| JSON BinPack (Schema-less) | 276 | 270 | 294 | 268 |
+| JSON BinPack (Schema-less) | 269 | 267 | 287 | 264 |
 | MessagePack | 339 | 276 | 297 | 259 |
 | Protocol Buffers (Binary Wire Format) | 173 | 171 | 183 | 172 |
 | Smile | 326 | 299 | 324 | 290 |
@@ -575,7 +575,7 @@ Results
 | FlexBuffers | 2320 | 1395 | 1767 | 1381 |
 | JSON | 2259 | 1093 | 1520 | 1129 |
 | JSON BinPack (Schema-driven) | 952 | 845 | 893 | 799 |
-| JSON BinPack (Schema-less) | 2028 | 1160 | 1526 | 1170 |
+| JSON BinPack (Schema-less) | 2021 | 1158 | 1522 | 1168 |
 | MessagePack | 1995 | 1131 | 1483 | 1143 |
 | Protocol Buffers (Binary Wire Format) | 1581 | 888 | 1149 | 903 |
 | Smile | 1983 | 1119 | 1473 | 1138 |
@@ -599,7 +599,7 @@ Results
 | FlexBuffers | 942 | 522 | 629 | 510 |
 | JSON | 1159 | 321 | 441 | 344 |
 | JSON BinPack (Schema-driven) | 90 | 80 | 85 | 81 |
-| JSON BinPack (Schema-less) | 845 | 467 | 569 | 436 |
+| JSON BinPack (Schema-less) | 844 | 466 | 568 | 436 |
 | MessagePack | 989 | 366 | 476 | 365 |
 | Protocol Buffers (Binary Wire Format) | 454 | 197 | 252 | 172 |
 | Smile | 1002 | 380 | 499 | 388 |
@@ -623,7 +623,7 @@ Results
 | FlexBuffers | 37 | 52 | 56 | 55 |
 | JSON | 44 | 50 | 58 | 55 |
 | JSON BinPack (Schema-driven) | 0 | 20 | 15 | 23 |
-| JSON BinPack (Schema-less) | 26 | 46 | 45 | 49 |
+| JSON BinPack (Schema-less) | 25 | 45 | 44 | 48 |
 | MessagePack | 25 | 45 | 44 | 49 |
 | Protocol Buffers (Binary Wire Format) | 0 | 20 | 15 | 23 |
 | Smile | 30 | 50 | 49 | 54 |
@@ -647,7 +647,7 @@ Results
 | FlexBuffers | 228 | 214 | 244 | 207 |
 | JSON | 673 | 154 | 195 | 164 |
 | JSON BinPack (Schema-driven) | 89 | 98 | 108 | 99 |
-| JSON BinPack (Schema-less) | 204 | 181 | 219 | 186 |
+| JSON BinPack (Schema-less) | 194 | 179 | 212 | 181 |
 | MessagePack | 627 | 157 | 192 | 163 |
 | Protocol Buffers (Binary Wire Format) | 521 | 114 | 133 | 109 |
 | Smile | 604 | 168 | 199 | 173 |
@@ -671,7 +671,7 @@ Results
 | FlexBuffers | 77 | 76 | 88 | 80 |
 | JSON | 67 | 68 | 74 | 70 |
 | JSON BinPack (Schema-driven) | 1 | 21 | 20 | 24 |
-| JSON BinPack (Schema-less) | 55 | 63 | 74 | 65 |
+| JSON BinPack (Schema-less) | 51 | 61 | 70 | 64 |
 | MessagePack | 51 | 62 | 70 | 64 |
 | Protocol Buffers (Binary Wire Format) | 8 | 28 | 27 | 31 |
 | Smile | 59 | 68 | 73 | 71 |
@@ -695,7 +695,7 @@ Results
 | FlexBuffers | 70 | 78 | 81 | 80 |
 | JSON | 63 | 70 | 72 | 73 |
 | JSON BinPack (Schema-driven) | 46 | 54 | 56 | 57 |
-| JSON BinPack (Schema-less) | 59 | 67 | 69 | 70 |
+| JSON BinPack (Schema-less) | 58 | 66 | 68 | 68 |
 | MessagePack | 55 | 63 | 65 | 65 |
 | Protocol Buffers (Binary Wire Format) | 47 | 55 | 57 | 58 |
 | Smile | 61 | 69 | 71 | 72 |
@@ -719,7 +719,7 @@ Results
 | FlexBuffers | 102 | 106 | 116 | 109 |
 | JSON | 98 | 90 | 99 | 92 |
 | JSON BinPack (Schema-driven) | 1 | 21 | 20 | 24 |
-| JSON BinPack (Schema-less) | 74 | 83 | 93 | 87 |
+| JSON BinPack (Schema-less) | 70 | 80 | 89 | 83 |
 | MessagePack | 68 | 81 | 87 | 82 |
 | Protocol Buffers (Binary Wire Format) | 14 | 34 | 33 | 36 |
 | Smile | 78 | 88 | 92 | 92 |
