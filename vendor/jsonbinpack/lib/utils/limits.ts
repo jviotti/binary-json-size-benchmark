@@ -15,8 +15,12 @@
  */
 
 export const BYTE_BITS: number = 8
-export const HALF_BYTE_BITS: number = BYTE_BITS / 2
+
 export const UINT8_MIN: number = 0
 export const UINT8_MAX: number = Math.pow(2, BYTE_BITS) - 1
-export const UINT4_MIN: number = 0
-export const UINT4_MAX: number = Math.pow(2, HALF_BYTE_BITS) - 1
+
+export const UINT5_MIN: number = 0
+export const UINT5_MAX: number = Math.pow(2, 5) - 1
+
+export const UINT3_MIN: number = 0
+export const UINT3_MAX: number = Math.pow(2, 3) - 1

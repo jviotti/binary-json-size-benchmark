@@ -18,10 +18,12 @@ import SubstringMap from './substring-map'
 
 export interface EncodingContext {
   readonly strings: SubstringMap;
+  readonly keys: SubstringMap;
 }
 
 export const getDefaultEncodingContext = (): EncodingContext => {
   return {
-    strings: new SubstringMap()
+    strings: new SubstringMap(),
+    keys: new SubstringMap()
   }
 }

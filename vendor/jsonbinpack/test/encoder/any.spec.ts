@@ -41,9 +41,9 @@ tap.test('ANY__TYPE_PREFIX: should handle " "', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(2048))
   const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, ' ', {}, context)
-  test.is(bytesWritten, 3)
+  test.is(bytesWritten, 2)
   const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
-  test.is(result.bytes, 3)
+  test.is(result.bytes, 2)
   test.is(result.value, ' ')
   test.end()
 })
@@ -56,9 +56,9 @@ tap.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', (test) => {
     baz: 1
   }, {}, context)
 
-  test.is(bytesWritten, 15)
+  test.is(bytesWritten, 14)
   const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
-  test.is(result.bytes, 15)
+  test.is(result.bytes, 14)
   test.strictSame(result.value, {
     foo: 'bar',
     baz: 1
@@ -74,9 +74,9 @@ tap.test('ANY__TYPE_PREFIX: should handle [ "foo", true, 2000 ]', (test) => {
     'foo', true, 2000
   ], {}, context)
 
-  test.is(bytesWritten, 11)
+  test.is(bytesWritten, 9)
   const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
-  test.is(result.bytes, 11)
+  test.is(result.bytes, 9)
   test.strictSame(result.value, [ 'foo', true, 2000 ])
 
   test.end()
@@ -107,15 +107,13 @@ tap.test('ANY__TYPE_PREFIX: should handle shared strings', (test) => {
   const bytesWritten1: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, 'foo', {}, context)
   const bytesWritten2: number = ENCODE_ANY__TYPE_PREFIX(buffer, bytesWritten1, 'foo', {}, context)
 
-  test.is(bytesWritten1, 5)
-  test.is(bytesWritten2, 3)
+  test.is(bytesWritten1, 4)
+  test.is(bytesWritten2, 2)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x01, // String type tag
-    0x04, 0x66, 0x6f, 0x6f, // String length + foo
-    0x00, // Start of pointer
-    0x04, // String length
-    0x05 // Pointer (current = 7 - location = 2)
+    0x21, 0x66, 0x6f, 0x6f, // Tag + length + foo
+    0x20, // Start of pointer
+    0x04 // Pointer (current = 6 - location = 2)
   ]))
 
   const decode1: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})

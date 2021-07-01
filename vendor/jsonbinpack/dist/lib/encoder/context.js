@@ -7,7 +7,8 @@ exports.getDefaultEncodingContext = void 0;
 var substring_map_1 = __importDefault(require("./substring-map"));
 var getDefaultEncodingContext = function () {
     return {
-        strings: new substring_map_1.default()
+        strings: new substring_map_1.default(),
+        keys: new substring_map_1.default()
     };
 };
 exports.getDefaultEncodingContext = getDefaultEncodingContext;

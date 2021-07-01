@@ -9,8 +9,10 @@
                 "options": {
                     "encoding": {
                         "type": "string",
-                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                        "options": {}
+                        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                        "options": {
+                            "minimum": 0
+                        }
                     },
                     "prefixEncodings": []
                 }
@@ -80,8 +82,10 @@
                                             "propertyEncodings": {
                                                 "name": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "staff": {
                                                     "type": "boolean",
@@ -150,8 +154,10 @@
                                                         "propertyEncodings": {
                                                             "info": {
                                                                 "type": "string",
-                                                                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                                "options": {}
+                                                                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                                "options": {
+                                                                    "minimum": 0
+                                                                }
                                                             }
                                                         },
                                                         "requiredProperties": [

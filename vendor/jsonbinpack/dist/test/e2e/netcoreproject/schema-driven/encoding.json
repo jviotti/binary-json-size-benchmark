@@ -5,8 +5,10 @@
         "propertyEncodings": {
             "version": {
                 "type": "string",
-                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                "options": {}
+                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "options": {
+                    "minimum": 0
+                }
             },
             "compilationOptions": {
                 "type": "enum",
@@ -29,28 +31,38 @@
                     "propertyEncodings": {
                         "Microsoft.Bcl.Immutable": {
                             "type": "string",
-                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                            "options": {}
+                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "options": {
+                                "minimum": 0
+                            }
                         },
                         "Microsoft.AspNet.ConfigurationModel": {
                             "type": "string",
-                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                            "options": {}
+                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "options": {
+                                "minimum": 0
+                            }
                         },
                         "Microsoft.AspNet.DependencyInjection": {
                             "type": "string",
-                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                            "options": {}
+                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "options": {
+                                "minimum": 0
+                            }
                         },
                         "Microsoft.AspNet.Logging": {
                             "type": "string",
-                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                            "options": {}
+                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "options": {
+                                "minimum": 0
+                            }
                         },
                         "System.Data.Common": {
                             "type": "string",
-                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                            "options": {}
+                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "options": {
+                                "minimum": 0
+                            }
                         }
                     },
                     "requiredProperties": [
@@ -65,8 +77,10 @@
             },
             "code": {
                 "type": "string",
-                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                "options": {}
+                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "options": {
+                    "minimum": 0
+                }
             },
             "frameworks": {
                 "type": "object",
@@ -85,13 +99,17 @@
                                             "propertyEncodings": {
                                                 "System.Runtime": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Collections": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 }
                                             },
                                             "requiredProperties": [
@@ -120,88 +138,122 @@
                                             "propertyEncodings": {
                                                 "System.Collections": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Collections.Concurrent": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.ComponentModel": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Console": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Diagnostics.Contracts": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Diagnostics.Debug": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Globalization": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Linq": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Linq.Expressions": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Linq.Queryable": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Reflection": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Reflection.Extensions": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Resources.ResourceManager": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Runtime": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Runtime.Extensions": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Threading": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 },
                                                 "System.Threading.Tasks": {
                                                     "type": "string",
-                                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                                    "options": {}
+                                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                    "options": {
+                                                        "minimum": 0
+                                                    }
                                                 }
                                             },
                                             "requiredProperties": [

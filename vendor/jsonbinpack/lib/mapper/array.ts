@@ -44,7 +44,8 @@ import {
   TypedOptions,
   TypedFloorOptions,
   TypedRoofOptions,
-  TypedBoundedOptions
+  TypedBoundedOptions,
+  SizeSemiTypedFloorOptions
 } from '../encoder/array/options'
 
 import {
@@ -76,6 +77,12 @@ export interface BOUNDED_SEMITYPED__LENGTH_PREFIX_ENCODING extends BaseEncodingD
   readonly type: EncodingType.Array;
   readonly encoding: 'BOUNDED_SEMITYPED__LENGTH_PREFIX';
   readonly options: SemiTypedBoundedOptions;
+}
+
+export interface FLOOR_SEMITYPED__NO_LENGTH_PREFIX_ENCODING extends BaseEncodingDefinition {
+  readonly type: EncodingType.Array;
+  readonly encoding: 'FLOOR_SEMITYPED__NO_LENGTH_PREFIX';
+  readonly options: SizeSemiTypedFloorOptions;
 }
 
 export interface FLOOR_SEMITYPED__LENGTH_PREFIX_ENCODING extends BaseEncodingDefinition {
@@ -142,6 +149,7 @@ export type ArrayEncodingNames =
   EnumEncodingNames |
   'BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX' |
   'BOUNDED_SEMITYPED__LENGTH_PREFIX' |
+  'FLOOR_SEMITYPED__NO_LENGTH_PREFIX' |
   'FLOOR_SEMITYPED__LENGTH_PREFIX' |
   'ROOF_8BITS_SEMITYPED__LENGTH_PREFIX' |
   'ROOF_SEMITYPED__LENGTH_PREFIX' |
@@ -157,6 +165,7 @@ export type ArrayEncoding =
   EnumEncoding |
   BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX_ENCODING |
   BOUNDED_SEMITYPED__LENGTH_PREFIX_ENCODING |
+  FLOOR_SEMITYPED__NO_LENGTH_PREFIX_ENCODING |
   FLOOR_SEMITYPED__LENGTH_PREFIX_ENCODING |
   ROOF_8BITS_SEMITYPED__LENGTH_PREFIX_ENCODING |
   ROOF_SEMITYPED__LENGTH_PREFIX_ENCODING |

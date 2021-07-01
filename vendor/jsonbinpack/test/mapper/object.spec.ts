@@ -116,8 +116,9 @@ tap.test('should encode a bounded object with partially defined required keys', 
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
@@ -160,15 +161,18 @@ tap.test('should encode a bounded object with fully defined required keys', (tes
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
         bar: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         }
       },
       requiredProperties: [ 'bar', 'foo' ]
@@ -222,8 +226,9 @@ tap.test('should encode a bounded object with optional properties', (test) => {
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         }
@@ -259,15 +264,18 @@ tap.test('should encode a bounded object with more than one optional keys', (tes
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
         bar: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         }
       },
       optionalProperties: [ 'bar', 'foo' ]
@@ -302,15 +310,18 @@ tap.test('should encode a bounded object with more than one optional keys and em
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
         bar: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         }
       },
       optionalProperties: [ 'bar', 'foo' ]
@@ -342,8 +353,9 @@ tap.test('should encode a bounded object with an optional and a required propert
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
@@ -387,15 +399,18 @@ tap.test('should encode a bounded object with an optional and a typed required p
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
         bar: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         }
       },
       optionalProperties: [ 'foo' ],
@@ -420,7 +435,7 @@ tap.test('should encode a simple unbounded object', (test) => {
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
@@ -448,7 +463,7 @@ tap.test('should encode a simple unbounded object with empty required', (test) =
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
@@ -476,7 +491,7 @@ tap.test('should encode a simple unbounded object with additionalProperties: tru
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
@@ -506,13 +521,15 @@ tap.test('should encode a simple unbounded object with additionalProperties: sch
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-        options: {}
+        encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+        options: {
+          minimum: 0
+        }
       }
     }
   })
@@ -537,8 +554,9 @@ tap.test('should encode a simple unbounded object with propertyNames', (test) =>
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+        encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
         options: {
+          minimum: 0,
           maximum: 5
         }
       },
@@ -571,8 +589,9 @@ tap.test('should encode a simple unbounded object with propertyNames and additio
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+        encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
         options: {
+          minimum: 0,
           maximum: 5
         }
       },
@@ -607,15 +626,18 @@ tap.test('should encode a simple unbounded object with propertyNames and additio
     options: {
       keyEncoding: {
         type: 'string',
-        encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+        encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
         options: {
+          minimum: 0,
           maximum: 5
         }
       },
       encoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-        options: {}
+        encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+        options: {
+          minimum: 0
+        }
       }
     }
   })
@@ -646,7 +668,7 @@ tap.test('should encode a simple unbounded object with a required property', (te
       },
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
@@ -682,13 +704,15 @@ tap.test('should encode a simple unbounded object with a required typed property
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         }
       },
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
@@ -726,20 +750,23 @@ tap.test('should encode a simple unbounded object with two optional properties',
       propertyEncodings: {
         foo: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         },
         bar: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         }
       },
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       },
       encoding: {
@@ -792,15 +819,18 @@ tap.test('should encode a complex unbounded object', (test) => {
         },
         bar: {
           type: 'string',
-          encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
           options: {
+            minimum: 0,
             maximum: 5
           }
         },
         baz: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         }
       },
       keyEncoding: {
@@ -1008,8 +1038,10 @@ tap.test('should encode an unbounded object with bounded integers', (test) => {
       propertyEncodings: {
         name: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         },
         age: {
           type: 'integer',
@@ -1029,7 +1061,7 @@ tap.test('should encode an unbounded object with bounded integers', (test) => {
       booleanRequiredProperties: [ 'flag' ],
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       }
     }
@@ -1081,8 +1113,10 @@ tap.test('should encode an unbounded object with bounded integers with maxProper
       propertyEncodings: {
         name: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         },
         flag: {
           type: 'boolean',
@@ -1095,7 +1129,7 @@ tap.test('should encode an unbounded object with bounded integers with maxProper
       booleanRequiredProperties: [ 'flag' ],
       keyEncoding: {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+        encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
         options: {}
       }
     }
@@ -1147,8 +1181,10 @@ tap.test('should encode an unbounded object with bounded integers with maxProper
       propertyEncodings: {
         name: {
           type: 'string',
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-          options: {}
+          encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+          options: {
+            minimum: 0
+          }
         },
         flag: {
           type: 'boolean',

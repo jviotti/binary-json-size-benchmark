@@ -123,8 +123,10 @@
       },
       "output_folder": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "src_folders": {
         "type": "null",
@@ -174,8 +176,10 @@
             },
             "log_path": {
               "type": "string",
-              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-              "options": {}
+              "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
             },
             "check_process_delay": {
               "type": "integer",
@@ -229,8 +233,10 @@
       },
       "test_runner": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "webdriver": {
         "type": "object",
@@ -258,8 +264,10 @@
             },
             "log_path": {
               "type": "string",
-              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-              "options": {}
+              "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
             },
             "check_process_delay": {
               "type": "integer",
@@ -325,8 +333,10 @@
       },
       "launch_url": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "silent": {
         "type": "boolean",
@@ -370,8 +380,10 @@
           "propertyEncodings": {
             "browserName": {
               "type": "string",
-              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-              "options": {}
+              "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
             }
           },
           "requiredProperties": [
@@ -392,8 +404,10 @@
       },
       "skipgroup": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "sync_test_names": {
         "type": "boolean",
@@ -402,8 +416,10 @@
       },
       "skiptags": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "use_xpath": {
         "type": "boolean",
@@ -417,8 +433,10 @@
       },
       "report_prefix": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "unit_tests_mode": {
         "type": "boolean",
@@ -427,8 +445,10 @@
       },
       "default_reporter": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       }
     },
     "requiredProperties": [

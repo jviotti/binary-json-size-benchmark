@@ -68,16 +68,16 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: should encode untyped {foo:"bar",baz:1}',
     0x04, 0x66, 0x6f, 0x6f,
 
     // String tag + length + 'bar'
-    0x01, 0x04, 0x62, 0x61, 0x72,
+    0x21, 0x62, 0x61, 0x72,
 
     // Key length + 'baz'
     0x04, 0x62, 0x61, 0x7a,
 
     // Value 1 + 1 with positive integer type tag
-    0x2a
+    0x15
   ]))
 
-  test.is(bytesWritten, 15)
+  test.is(bytesWritten, 14)
   test.end()
 })
 
@@ -107,16 +107,16 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: should encode typed {foo:"bar",baz:1}', (
     0x01, 0x66, 0x6f, 0x6f,
 
     // String tag + length + 'bar'
-    0x01, 0x04, 0x62, 0x61, 0x72,
+    0x21, 0x62, 0x61, 0x72,
 
     // Key length + 'baz'
     0x01, 0x62, 0x61, 0x7a,
 
     // Value 1 + 1 with positive integer type tag
-    0x2a
+    0x15
   ]))
 
-  test.is(bytesWritten, 15)
+  test.is(bytesWritten, 14)
   test.end()
 })
 
@@ -509,7 +509,7 @@ tap.test('REQUIRED_UNBOUNDED_TYPED_OBJECT: should encode semityped {foo:"bar",ba
     0x04, 0x62, 0x61, 0x7a,
 
     // Value 1 + 1 with positive integer type tag
-    0x2a
+    0x15
   ]))
 
   test.is(bytesWritten, 10)
@@ -588,7 +588,7 @@ tap.test('OPTIONAL_UNBOUNDED_TYPED_OBJECT: should encode semityped {foo:"bar",ba
     0x04, 0x62, 0x61, 0x7a,
 
     // Value 1 + 1 with positive integer type tag
-    0x2a
+    0x15
   ]))
 
   test.is(bytesWritten, 12)
@@ -642,7 +642,7 @@ tap.test('MIXED_UNBOUNDED_TYPED_OBJECT: should encode mixed {foo:"bar",baz:1,qux
     0x04, 0x71, 0x75, 0x78,
 
     // Null type tag
-    0x07
+    0x17
   ]))
 
   test.is(bytesWritten, 13)

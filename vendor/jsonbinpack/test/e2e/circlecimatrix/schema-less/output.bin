@@ -1,2 +1,2 @@
-2version*
-workflows"test"jobs"m1"matrix"parameters"a*:J
+version/*
+workflowstestjobsm1matrixparametersa$%

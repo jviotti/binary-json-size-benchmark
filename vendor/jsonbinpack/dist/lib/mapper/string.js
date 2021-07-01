@@ -57,10 +57,19 @@ var getStringEncoding = function (schema, _level) {
         };
     }
     else if (typeof schema.minLength === 'undefined' && typeof schema.maxLength !== 'undefined') {
+        if (schema.maxLength <= limits_1.UINT8_MAX - 1) {
+            return {
+                type: encoder_1.EncodingType.String,
+                encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+                options: {
+                    minimum: 0,
+                    maximum: schema.maxLength
+                }
+            };
+        }
         return {
             type: encoder_1.EncodingType.String,
-            encoding: schema.maxLength <= limits_1.UINT8_MAX - 1
-                ? 'ROOF__PREFIX_LENGTH_8BIT_FIXED' : 'ROOF__PREFIX_LENGTH_ENUM_VARINT',
+            encoding: 'ROOF__PREFIX_LENGTH_ENUM_VARINT',
             options: {
                 maximum: schema.maxLength
             }
@@ -75,8 +84,10 @@ var getStringEncoding = function (schema, _level) {
     }
     return {
         type: encoder_1.EncodingType.String,
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-        options: {}
+        encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+        options: {
+            minimum: 0
+        }
     };
 };
 exports.getStringEncoding = getStringEncoding;

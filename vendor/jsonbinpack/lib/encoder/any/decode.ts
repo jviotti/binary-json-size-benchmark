@@ -22,7 +22,8 @@ import {
 
 import {
   UINT8_MIN,
-  UINT8_MAX
+  UINT8_MAX,
+  UINT5_MAX
 } from '../../utils/limits'
 
 import {
@@ -45,7 +46,9 @@ import {
 
 import {
   StringResult,
-  ARBITRARY__PREFIX_LENGTH_VARINT
+  UTF8_STRING_NO_LENGTH,
+  SHARED_STRING_POINTER_RELATIVE_OFFSET,
+  FLOOR__PREFIX_LENGTH_ENUM_VARINT
 } from '../string/decode'
 
 import {
@@ -61,12 +64,20 @@ import {
 
 import {
   ArrayResult,
-  UNBOUNDED_SEMITYPED__LENGTH_PREFIX
+  FLOOR_SEMITYPED__LENGTH_PREFIX,
+  FLOOR_SEMITYPED__NO_LENGTH_PREFIX
 } from '../array/decode'
 
 import {
   Type,
+  Subtype,
+  isTrue,
+  isFalse,
+  isNull,
   isType,
+  isNumber,
+  isPositiveInteger,
+  isNegativeInteger,
   getMetadata
 } from './types'
 
@@ -84,8 +95,15 @@ export const ANY__TYPE_PREFIX = (
   })
 
   if (isType(Type.Array, tag.value)) {
-    const result: ArrayResult =
-      UNBOUNDED_SEMITYPED__LENGTH_PREFIX(buffer, offset + tag.bytes, {
+    const size: number = getMetadata(tag.value)
+    const result: ArrayResult = size === 0
+      ? FLOOR_SEMITYPED__LENGTH_PREFIX(buffer, offset + tag.bytes, {
+        minimum: 0,
+        prefixEncodings: []
+      })
+      : FLOOR_SEMITYPED__NO_LENGTH_PREFIX(buffer, offset + tag.bytes, {
+        size: size - 1,
+        minimum: 0,
         prefixEncodings: []
       })
 
@@ -100,7 +118,7 @@ export const ANY__TYPE_PREFIX = (
       ? ARBITRARY_TYPED_KEYS_OBJECT(buffer, offset + tag.bytes, {
         keyEncoding: {
           type: EncodingType.String,
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+          encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
           options: {}
         },
         encoding: {
@@ -113,7 +131,7 @@ export const ANY__TYPE_PREFIX = (
         size: size - 1,
         keyEncoding: {
           type: EncodingType.String,
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+          encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
           options: {}
         },
         encoding: {
@@ -127,36 +145,97 @@ export const ANY__TYPE_PREFIX = (
       value: result.value,
       bytes: tag.bytes + result.bytes
     }
-  } else if (isType(Type.Null, tag.value)) {
+  } else if (isNull(tag.value)) {
     return {
       value: null,
       bytes: tag.bytes
     }
-  } else if (isType(Type.True, tag.value)) {
+  } else if (isTrue(tag.value)) {
     return {
       value: true,
       bytes: tag.bytes
     }
-  } else if (isType(Type.False, tag.value)) {
+  } else if (isFalse(tag.value)) {
     return {
       value: false,
       bytes: tag.bytes
     }
   } else if (isType(Type.SharedString, tag.value)) {
-    const result: StringResult =
-      ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset, {})
+    const size: number = getMetadata(tag.value)
+    if (size === 0) {
+      const result: StringResult =
+        FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+          minimum: 0
+        })
+      return {
+        value: result.value,
+        bytes: result.bytes
+      }
+    }
+
+    const result: StringResult = SHARED_STRING_POINTER_RELATIVE_OFFSET(
+      buffer, offset + tag.bytes, {
+        size: size - 1
+      })
+
     return {
       value: result.value,
-      bytes: result.bytes
+      bytes: result.bytes + tag.bytes
     }
   } else if (isType(Type.String, tag.value)) {
-    const result: StringResult =
-      ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + tag.bytes, {})
+    const size: number = getMetadata(tag.value)
+    if (size === 0) {
+      const result: StringResult =
+        FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tag.bytes, {
+          minimum: 0
+        })
+      return {
+        value: result.value,
+        bytes: tag.bytes + result.bytes
+      }
+    }
+
+    const result: StringResult = UTF8_STRING_NO_LENGTH(
+      buffer, offset + tag.bytes, {
+        size: size - 1
+      })
+
     return {
       value: result.value,
-      bytes: tag.bytes + result.bytes
+      bytes: result.bytes + tag.bytes
     }
-  } else if (isType(Type.PositiveInteger, tag.value)) {
+  } else if (isType(Type.LongString, tag.value)) {
+    const size: number = getMetadata(tag.value) + UINT5_MAX
+    const result: StringResult = UTF8_STRING_NO_LENGTH(
+      buffer, offset + tag.bytes, {
+        size: size
+      })
+
+    return {
+      value: result.value,
+      bytes: result.bytes + tag.bytes
+    }
+  } else if (isType(Type.Other, tag.value) && (
+    getMetadata(tag.value) === Subtype.LongStringBaseExponent7 ||
+    getMetadata(tag.value) === Subtype.LongStringBaseExponent8 ||
+    getMetadata(tag.value) === Subtype.LongStringBaseExponent9 ||
+    getMetadata(tag.value) === Subtype.LongStringBaseExponent10
+  )) {
+    const size: IntegerResult =
+      FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+        minimum: Math.pow(2, getMetadata(tag.value))
+      })
+
+    const result: StringResult = UTF8_STRING_NO_LENGTH(
+      buffer, offset + tag.bytes + size.bytes, {
+        size: size.value
+      })
+
+    return {
+      value: result.value,
+      bytes: result.bytes + tag.bytes + size.bytes
+    }
+  } else if (isPositiveInteger(tag.value)) {
     const result: IntegerResult =
       FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
         minimum: 0
@@ -165,7 +244,7 @@ export const ANY__TYPE_PREFIX = (
       value: result.value,
       bytes: tag.bytes + result.bytes
     }
-  } else if (isType(Type.NegativeInteger, tag.value)) {
+  } else if (isNegativeInteger(tag.value)) {
     const result: IntegerResult =
       FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
         minimum: 0
@@ -210,7 +289,7 @@ export const ANY__TYPE_PREFIX = (
       value: (result.value + 1) * -1,
       bytes: tag.bytes + result.bytes
     }
-  } else if (isType(Type.Number, tag.value)) {
+  } else if (isNumber(tag.value)) {
     const result: NumberResult =
         DOUBLE_VARINT_TUPLE(buffer, offset + tag.bytes, {})
     return {

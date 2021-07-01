@@ -42,8 +42,10 @@ tap_1.default.test('should encode a simple string', function (test) {
     test.is(mapper_1.getStates(schema), Infinity);
     test.strictSame(result, {
         type: 'string',
-        encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
-        options: {}
+        encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+        options: {
+            minimum: 0
+        }
     });
     test.end();
 });
@@ -88,8 +90,9 @@ tap_1.default.test('should encode a string with maxLength < 255', function (test
     test.is(mapper_1.getStates(schema), Infinity);
     test.strictSame(result, {
         type: 'string',
-        encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+        encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
         options: {
+            minimum: 0,
             maximum: 254
         }
     });

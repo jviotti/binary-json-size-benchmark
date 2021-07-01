@@ -15,8 +15,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [
@@ -32,8 +34,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [
@@ -49,8 +53,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [
@@ -66,8 +72,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [
@@ -83,8 +91,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [
@@ -100,8 +110,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [
@@ -117,8 +129,10 @@
                 "propertyEncodings": {
                   "secure": {
                     "type": "string",
-                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                    "options": {}
+                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
                   }
                 },
                 "requiredProperties": [

@@ -44,18 +44,24 @@
                                 },
                                 "main": {
                                     "type": "string",
-                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                    "options": {}
+                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                    "options": {
+                                        "minimum": 0
+                                    }
                                 },
                                 "description": {
                                     "type": "string",
-                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                    "options": {}
+                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                    "options": {
+                                        "minimum": 0
+                                    }
                                 },
                                 "icon": {
                                     "type": "string",
-                                    "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                                    "options": {}
+                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                    "options": {
+                                        "minimum": 0
+                                    }
                                 }
                             },
                             "requiredProperties": [
@@ -72,8 +78,10 @@
             },
             "base": {
                 "type": "string",
-                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                "options": {}
+                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "options": {
+                    "minimum": 0
+                }
             },
             "main": {
                 "type": "object",
@@ -210,8 +218,10 @@
                         },
                         "country": {
                             "type": "string",
-                            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                            "options": {}
+                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "options": {
+                                "minimum": 0
+                            }
                         },
                         "sunrise": {
                             "type": "integer",
@@ -253,8 +263,10 @@
             },
             "name": {
                 "type": "string",
-                "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                "options": {}
+                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "options": {
+                    "minimum": 0
+                }
             },
             "cod": {
                 "type": "integer",

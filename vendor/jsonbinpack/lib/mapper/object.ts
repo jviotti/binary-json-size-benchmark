@@ -290,10 +290,13 @@ export const getObjectEncoding = (schema: ObjectEncodingSchema, level: number): 
     }
   }
 
-  const keyEncoding: StringEncoding =
-    getStringEncoding(schema.propertyNames ?? {
-      type: 'string'
-    }, level + 1)
+  const keyEncoding: StringEncoding = typeof schema.propertyNames !== 'undefined'
+    ? getStringEncoding(schema.propertyNames, level + 1)
+    : {
+      type: EncodingType.String,
+      encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+      options: {}
+    }
 
   // Bounded encodings
   if (additionalProperties === null) {

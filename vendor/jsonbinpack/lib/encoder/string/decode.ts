@@ -42,6 +42,7 @@ import {
   BoundedOptions,
   RoofOptions,
   FloorOptions,
+  SizeOptions,
   DictionaryOptions
 } from './options'
 
@@ -149,11 +150,17 @@ export const URL_PROTOCOL_HOST_REST = (
   buffer: ResizableBuffer, offset: number, _options: NoOptions
 ): StringResult => {
   const protocol: StringResult =
-    ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset, {})
+    FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+      minimum: 0
+    })
   const host: StringResult =
-    ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + protocol.bytes, {})
+    FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + protocol.bytes, {
+      minimum: 0
+    })
   const rest: StringResult =
-    ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + protocol.bytes + host.bytes, {})
+    FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + protocol.bytes + host.bytes, {
+      minimum: 0
+    })
 
   return {
     value: `${protocol.value}//${host.value}${rest.value}`,
@@ -237,17 +244,6 @@ export const BOUNDED__PREFIX_LENGTH_ENUM_VARINT = (
   }
 }
 
-export const ROOF__PREFIX_LENGTH_8BIT_FIXED = (
-  buffer: ResizableBuffer, offset: number, options: RoofOptions
-): StringResult => {
-  assert(options.maximum >= 0)
-  assert(options.maximum <= UINT8_MAX)
-  return BOUNDED__PREFIX_LENGTH_8BIT_FIXED(buffer, offset, {
-    minimum: 0,
-    maximum: options.maximum
-  })
-}
-
 export const ROOF__PREFIX_LENGTH_ENUM_VARINT = (
   buffer: ResizableBuffer, offset: number, options: RoofOptions
 ): StringResult => {
@@ -267,6 +263,29 @@ export const ROOF__PREFIX_LENGTH_ENUM_VARINT = (
   }
 }
 
+export const UTF8_STRING_NO_LENGTH = (
+  buffer: ResizableBuffer, offset: number, options: SizeOptions
+): StringResult => {
+  assert(options.size >= 0)
+  return {
+    value: buffer.toString(
+      STRING_ENCODING, offset, offset + options.size),
+    bytes: options.size
+  }
+}
+
+export const SHARED_STRING_POINTER_RELATIVE_OFFSET = (
+  buffer: ResizableBuffer, offset: number, options: SizeOptions
+): StringResult => {
+  return readSharedString(buffer, offset, {
+    value: 0,
+    bytes: 0
+  }, {
+    value: options.size,
+    bytes: 0
+  }, 0)
+}
+
 export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
   buffer: ResizableBuffer, offset: number, options: FloorOptions
 ): StringResult => {
@@ -279,17 +298,61 @@ export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
     return readSharedString(buffer, offset, prefix, length, -1)
   }
 
+  const result: StringResult = UTF8_STRING_NO_LENGTH(buffer, offset + prefix.bytes, {
+    size: prefix.value - 1
+  })
+
   return {
-    value: buffer.toString(
-      STRING_ENCODING, offset + prefix.bytes, offset + prefix.bytes + prefix.value - 1),
-    bytes: prefix.bytes + prefix.value - 1
+    value: result.value,
+    bytes: result.bytes + prefix.bytes
   }
 }
 
-export const ARBITRARY__PREFIX_LENGTH_VARINT = (
-  buffer: ResizableBuffer, offset: number, _options: NoOptions
+export const UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = (
+  buffer: ResizableBuffer, offset: number, options: NoOptions
 ): StringResult => {
-  return FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+  const prefix: IntegerResult = FLOOR__ENUM_VARINT(buffer, offset, {
     minimum: 0
   })
+
+  if (prefix.value === 0) {
+    const pointer: IntegerResult = FLOOR__ENUM_VARINT(buffer, offset + prefix.bytes, {
+      minimum: 0
+    })
+
+    const cursor: number = offset + prefix.bytes - pointer.value
+
+    const length: IntegerResult = FLOOR__ENUM_VARINT(buffer, cursor, {
+      minimum: 0
+    })
+
+    // Recurse to the nested pointer in this case to keep pointers low
+    // TODO: We should try to do the same for non-keys for locality
+    // purposes too?
+    if (length.value === 0) {
+      const result: StringResult = UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH(buffer, cursor, options)
+      return {
+        value: result.value,
+        bytes: prefix.bytes + pointer.bytes
+      }
+    }
+
+    const result: StringResult = UTF8_STRING_NO_LENGTH(buffer, cursor + length.bytes, {
+      size: length.value - 1
+    })
+
+    return {
+      value: result.value,
+      bytes: prefix.bytes + pointer.bytes
+    }
+  }
+
+  const result: StringResult = UTF8_STRING_NO_LENGTH(buffer, offset + prefix.bytes, {
+    size: prefix.value - 1
+  })
+
+  return {
+    value: result.value,
+    bytes: result.bytes + prefix.bytes
+  }
 }
