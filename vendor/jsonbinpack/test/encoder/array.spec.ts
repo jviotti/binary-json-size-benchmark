@@ -67,7 +67,7 @@ tap.test('BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX: [ "foo", true, 2000 ] (2..3 []
   const result: ArrayResult =
     DECODE_BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX(buffer, 0, options)
 
-  test.is(bytesWritten, 10)
+  test.is(bytesWritten, 9)
   test.is(bytesWritten, result.bytes)
   test.strictSame(result.value, value)
   test.end()

@@ -216,12 +216,10 @@ tap_1.default.test('BOUNDED__PREFIX_LENGTH_8BIT_FIXED (ASCII)', function (test) 
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(offset + limits_1.UINT8_MAX + 1));
         var bytesWritten = encode_1.BOUNDED__PREFIX_LENGTH_8BIT_FIXED(buffer, offset, value, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         }, context);
         var result = decode_1.BOUNDED__PREFIX_LENGTH_8BIT_FIXED(buffer, offset, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -241,12 +239,10 @@ tap_1.default.test('BOUNDED__PREFIX_LENGTH_ENUM_VARINT (ASCII)', function (test)
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2048));
         var bytesWritten = encode_1.BOUNDED__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, value, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         }, context);
         var result = decode_1.BOUNDED__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
-            minimum: minimum,
-            maximum: maximum
+            minimum: minimum, maximum: maximum
         });
         return bytesWritten > 0 && result.bytes === bytesWritten && result.value === value;
     }), {
@@ -471,5 +467,33 @@ tap_1.default.test('ARBITRARY__PREFIX_LENGTH_VARINT: shared string', function (t
     var decode2 = decode_1.ARBITRARY__PREFIX_LENGTH_VARINT(buffer, decode1.bytes, {});
     test.is(decode2.bytes, bytesWritten2);
     test.is(decode2.value, 'foo');
+    test.end();
+});
+tap_1.default.test('UTF8_STRING_NO_LENGTH: should handle a string', function (test) {
+    var context = encoder_1.getDefaultEncodingContext();
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(3));
+    var value = 'foo';
+    var options = {
+        size: 3
+    };
+    var bytesWritten = encode_1.UTF8_STRING_NO_LENGTH(buffer, 0, value, options, context);
+    var result = decode_1.UTF8_STRING_NO_LENGTH(buffer, 0, options);
+    test.is(bytesWritten, result.bytes);
+    test.is(result.value, value);
+    test.end();
+});
+tap_1.default.test('SHARED_STRING_POINTER_RELATIVE_OFFSET: should handle a shared string', function (test) {
+    var context = encoder_1.getDefaultEncodingContext();
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(4));
+    var value = 'foo';
+    var options = {
+        size: 3
+    };
+    var bytesWritten1 = encode_1.UTF8_STRING_NO_LENGTH(buffer, 0, value, options, context);
+    test.is(context.strings.get('foo'), 0);
+    var bytesWritten2 = encode_1.SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, bytesWritten1, value, options, context);
+    var result = decode_1.SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, bytesWritten1, options);
+    test.is(result.value, value);
+    test.is(result.bytes, bytesWritten2);
     test.end();
 });

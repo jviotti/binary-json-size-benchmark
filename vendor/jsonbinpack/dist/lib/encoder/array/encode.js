@@ -27,7 +27,7 @@ var __read = (this && this.__read) || function (o, n) {
     return ar;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UNBOUNDED_TYPED__LENGTH_PREFIX = exports.FLOOR_TYPED__LENGTH_PREFIX = exports.ROOF_8BITS_TYPED__LENGTH_PREFIX = exports.ROOF_TYPED__LENGTH_PREFIX = exports.BOUNDED_8BITS_TYPED__LENGTH_PREFIX = exports.BOUNDED_TYPED__LENGTH_PREFIX = exports.UNBOUNDED_SEMITYPED__LENGTH_PREFIX = exports.ROOF_8BITS_SEMITYPED__LENGTH_PREFIX = exports.ROOF_SEMITYPED__LENGTH_PREFIX = exports.FLOOR_SEMITYPED__LENGTH_PREFIX = exports.BOUNDED_SEMITYPED__LENGTH_PREFIX = exports.BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX = void 0;
+exports.UNBOUNDED_TYPED__LENGTH_PREFIX = exports.FLOOR_TYPED__LENGTH_PREFIX = exports.ROOF_8BITS_TYPED__LENGTH_PREFIX = exports.ROOF_TYPED__LENGTH_PREFIX = exports.BOUNDED_8BITS_TYPED__LENGTH_PREFIX = exports.BOUNDED_TYPED__LENGTH_PREFIX = exports.UNBOUNDED_SEMITYPED__LENGTH_PREFIX = exports.ROOF_8BITS_SEMITYPED__LENGTH_PREFIX = exports.ROOF_SEMITYPED__LENGTH_PREFIX = exports.FLOOR_SEMITYPED__LENGTH_PREFIX = exports.FLOOR_SEMITYPED__NO_LENGTH_PREFIX = exports.BOUNDED_SEMITYPED__LENGTH_PREFIX = exports.BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX = void 0;
 var assert_1 = require("assert");
 var limits_1 = require("../../utils/limits");
 var index_1 = require("../index");
@@ -92,13 +92,22 @@ var BOUNDED_SEMITYPED__LENGTH_PREFIX = function (buffer, offset, value, options,
     return lengthBytes + encodeArray(buffer, offset + lengthBytes, value, options.prefixEncodings, context);
 };
 exports.BOUNDED_SEMITYPED__LENGTH_PREFIX = BOUNDED_SEMITYPED__LENGTH_PREFIX;
+var FLOOR_SEMITYPED__NO_LENGTH_PREFIX = function (buffer, offset, value, options, context) {
+    assert_1.strict(options.minimum >= 0);
+    assert_1.strict(options.size >= options.minimum);
+    return encodeArray(buffer, offset, value, options.prefixEncodings, context);
+};
+exports.FLOOR_SEMITYPED__NO_LENGTH_PREFIX = FLOOR_SEMITYPED__NO_LENGTH_PREFIX;
 var FLOOR_SEMITYPED__LENGTH_PREFIX = function (buffer, offset, value, options, context) {
     assert_1.strict(options.minimum >= 0);
-    assert_1.strict(value.length >= options.minimum);
     var lengthBytes = encode_1.FLOOR__ENUM_VARINT(buffer, offset, value.length, {
         minimum: options.minimum
     }, context);
-    return lengthBytes + encodeArray(buffer, offset + lengthBytes, value, options.prefixEncodings, context);
+    return lengthBytes + exports.FLOOR_SEMITYPED__NO_LENGTH_PREFIX(buffer, offset + lengthBytes, value, {
+        minimum: options.minimum,
+        size: value.length,
+        prefixEncodings: options.prefixEncodings
+    }, context);
 };
 exports.FLOOR_SEMITYPED__LENGTH_PREFIX = FLOOR_SEMITYPED__LENGTH_PREFIX;
 var ROOF_SEMITYPED__LENGTH_PREFIX = function (buffer, offset, value, options, context) {

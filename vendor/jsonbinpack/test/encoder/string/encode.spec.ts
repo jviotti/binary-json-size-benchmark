@@ -24,6 +24,8 @@ import {
   BOUNDED__PREFIX_LENGTH_ENUM_VARINT,
   ROOF__PREFIX_LENGTH_8BIT_FIXED,
   ROOF__PREFIX_LENGTH_ENUM_VARINT,
+  UTF8_STRING_NO_LENGTH,
+  SHARED_STRING_POINTER_RELATIVE_OFFSET,
   FLOOR__PREFIX_LENGTH_ENUM_VARINT,
   ARBITRARY__PREFIX_LENGTH_VARINT
 } from '../../../lib/encoder/string/encode'
@@ -427,6 +429,55 @@ tap.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
   test.is(bytesWritten1, 4)
   test.is(bytesWritten2, 3)
 
+  test.end()
+})
+
+tap.test('UTF8_STRING_NO_LENGTH: should encode a string', (
+  test
+) => {
+  const context: EncodingContext = getDefaultEncodingContext()
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(3))
+  const bytesWritten: number = UTF8_STRING_NO_LENGTH(
+    buffer, 0, 'foo', {
+      size: 3
+    }, context)
+
+  test.strictSame(buffer.getBuffer(), Buffer.from([
+    // 'foo'
+    0x66, 0x6f, 0x6f
+  ]))
+
+  test.is(context.strings.get('foo'), 0)
+  test.is(bytesWritten, 3)
+  test.end()
+})
+
+tap.test('SHARED_STRING_POINTER_RELATIVE_OFFSET: should encode a shared string', (
+  test
+) => {
+  const context: EncodingContext = getDefaultEncodingContext()
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
+
+  const bytesWritten1: number = UTF8_STRING_NO_LENGTH(
+    buffer, 0, 'foo', {
+      size: 3
+    }, context)
+  const bytesWritten2: number = SHARED_STRING_POINTER_RELATIVE_OFFSET(
+    buffer, bytesWritten1, 'foo', {
+      size: 3
+    }, context)
+
+  test.strictSame(buffer.getBuffer(), Buffer.from([
+    // 'foo'
+    0x66, 0x6f, 0x6f,
+
+    // Offset
+    0x03
+  ]))
+
+  test.is(context.strings.get('foo'), 0)
+  test.is(bytesWritten1, 3)
+  test.is(bytesWritten2, 1)
   test.end()
 })
 

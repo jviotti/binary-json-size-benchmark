@@ -11,7 +11,7 @@ var __values = (this && this.__values) || function(o) {
     throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ARBITRARY__PREFIX_LENGTH_VARINT = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_8BIT_FIXED = exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED = exports.RFC3339_DATE_INTEGER_TRIPLET = exports.URL_PROTOCOL_HOST_REST = exports.STRING_DICTIONARY_COMPRESSOR = exports.STRING_BROTLI = void 0;
+exports.ARBITRARY__PREFIX_LENGTH_VARINT = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = exports.SHARED_STRING_POINTER_RELATIVE_OFFSET = exports.UTF8_STRING_NO_LENGTH = exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_8BIT_FIXED = exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED = exports.RFC3339_DATE_INTEGER_TRIPLET = exports.URL_PROTOCOL_HOST_REST = exports.STRING_DICTIONARY_COMPRESSOR = exports.STRING_BROTLI = void 0;
 var assert_1 = require("assert");
 var zlib_1 = require("zlib");
 var encode_1 = require("../integer/encode");
@@ -27,14 +27,13 @@ var maybeWriteSharedPrefix = function (buffer, offset, value, context) {
         : 0;
 };
 var writeMaybeSharedString = function (buffer, offset, value, length, context) {
-    var stringOffset = context.strings.get(value);
-    if (typeof stringOffset === 'undefined') {
-        var bytesWritten = buffer.write(value, offset, length, STRING_ENCODING);
-        context.strings.set(value, offset);
-        return bytesWritten;
+    if (context.strings.has(value)) {
+        return exports.SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, offset, value, {
+            size: length
+        }, context);
     }
-    return encode_1.FLOOR__ENUM_VARINT(buffer, offset, offset - stringOffset, {
-        minimum: 0
+    return exports.UTF8_STRING_NO_LENGTH(buffer, offset, value, {
+        size: length
     }, context);
 };
 var writeRawString = function (buffer, offset, value, context) {
@@ -182,14 +181,29 @@ var ROOF__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, value, options, 
     return result + prefixBytes + bytesWritten;
 };
 exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = ROOF__PREFIX_LENGTH_ENUM_VARINT;
+var UTF8_STRING_NO_LENGTH = function (buffer, offset, value, options, context) {
+    assert_1.strict(options.size >= 0);
+    var bytesWritten = buffer.write(value, offset, options.size, STRING_ENCODING);
+    context.strings.set(value, offset);
+    return bytesWritten;
+};
+exports.UTF8_STRING_NO_LENGTH = UTF8_STRING_NO_LENGTH;
+var SHARED_STRING_POINTER_RELATIVE_OFFSET = function (buffer, offset, value, _options, context) {
+    var stringOffset = context.strings.get(value);
+    assert_1.strict(typeof stringOffset !== 'undefined');
+    return encode_1.FLOOR__ENUM_VARINT(buffer, offset, offset - stringOffset, {
+        minimum: 0
+    }, context);
+};
+exports.SHARED_STRING_POINTER_RELATIVE_OFFSET = SHARED_STRING_POINTER_RELATIVE_OFFSET;
 var FLOOR__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, value, options, context) {
     assert_1.strict(options.minimum >= 0);
     var length = Buffer.byteLength(value, STRING_ENCODING);
     assert_1.strict(length >= options.minimum);
     var prefixBytes = maybeWriteSharedPrefix(buffer, offset, value, context);
-    var bytesWritten = encode_1.FLOOR__ENUM_VARINT(buffer, offset + prefixBytes, length + 1, options, context);
-    var result = writeMaybeSharedString(buffer, offset + prefixBytes + bytesWritten, value, length, context);
-    return result + prefixBytes + bytesWritten;
+    var lengthBytes = encode_1.FLOOR__ENUM_VARINT(buffer, offset + prefixBytes, length + 1, options, context);
+    var bytesWritten = writeMaybeSharedString(buffer, offset + prefixBytes + lengthBytes, value, length, context);
+    return bytesWritten + prefixBytes + lengthBytes;
 };
 exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = FLOOR__PREFIX_LENGTH_ENUM_VARINT;
 var ARBITRARY__PREFIX_LENGTH_VARINT = function (buffer, offset, value, _options, context) {

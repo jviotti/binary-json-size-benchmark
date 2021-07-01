@@ -31,7 +31,9 @@ import {
   ROOF__PREFIX_LENGTH_8BIT_FIXED as ENCODE_ROOF__PREFIX_LENGTH_8BIT_FIXED,
   ROOF__PREFIX_LENGTH_ENUM_VARINT as ENCODE_ROOF__PREFIX_LENGTH_ENUM_VARINT,
   FLOOR__PREFIX_LENGTH_ENUM_VARINT as ENCODE_FLOOR__PREFIX_LENGTH_ENUM_VARINT,
-  ARBITRARY__PREFIX_LENGTH_VARINT as ENCODE_ARBITRARY__PREFIX_LENGTH_VARINT
+  ARBITRARY__PREFIX_LENGTH_VARINT as ENCODE_ARBITRARY__PREFIX_LENGTH_VARINT,
+  UTF8_STRING_NO_LENGTH as ENCODE_UTF8_STRING_NO_LENGTH,
+  SHARED_STRING_POINTER_RELATIVE_OFFSET as ENCODE_SHARED_STRING_POINTER_RELATIVE_OFFSET
 } from '../../lib/encoder/string/encode'
 
 import {
@@ -45,14 +47,17 @@ import {
   ROOF__PREFIX_LENGTH_8BIT_FIXED as DECODE_ROOF__PREFIX_LENGTH_8BIT_FIXED,
   ROOF__PREFIX_LENGTH_ENUM_VARINT as DECODE_ROOF__PREFIX_LENGTH_ENUM_VARINT,
   FLOOR__PREFIX_LENGTH_ENUM_VARINT as DECODE_FLOOR__PREFIX_LENGTH_ENUM_VARINT,
-  ARBITRARY__PREFIX_LENGTH_VARINT as DECODE_ARBITRARY__PREFIX_LENGTH_VARINT
+  ARBITRARY__PREFIX_LENGTH_VARINT as DECODE_ARBITRARY__PREFIX_LENGTH_VARINT,
+  UTF8_STRING_NO_LENGTH as DECODE_UTF8_STRING_NO_LENGTH,
+  SHARED_STRING_POINTER_RELATIVE_OFFSET as DECODE_SHARED_STRING_POINTER_RELATIVE_OFFSET
 } from '../../lib/encoder/string/decode'
 
 import {
   BoundedOptions,
   RoofOptions,
   FloorOptions,
-  DictionaryOptions
+  DictionaryOptions,
+  SizeOptions
 } from '../../lib/encoder/string/options'
 
 import {
@@ -669,6 +674,51 @@ tap.test('ARBITRARY__PREFIX_LENGTH_VARINT: shared string', (
 
   test.is(decode2.bytes, bytesWritten2)
   test.is(decode2.value, 'foo')
+
+  test.end()
+})
+
+tap.test('UTF8_STRING_NO_LENGTH: should handle a string', (
+  test
+) => {
+  const context: EncodingContext = getDefaultEncodingContext()
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(3))
+  const value: string = 'foo'
+  const options: SizeOptions = {
+    size: 3
+  }
+
+  const bytesWritten: number = ENCODE_UTF8_STRING_NO_LENGTH(
+    buffer, 0, value, options, context)
+  const result: StringResult = DECODE_UTF8_STRING_NO_LENGTH(
+    buffer, 0, options)
+
+  test.is(bytesWritten, result.bytes)
+  test.is(result.value, value)
+  test.end()
+})
+
+tap.test('SHARED_STRING_POINTER_RELATIVE_OFFSET: should handle a shared string', (
+  test
+) => {
+  const context: EncodingContext = getDefaultEncodingContext()
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
+  const value: string = 'foo'
+  const options: SizeOptions = {
+    size: 3
+  }
+
+  const bytesWritten1: number = ENCODE_UTF8_STRING_NO_LENGTH(
+    buffer, 0, value, options, context)
+  test.is(context.strings.get('foo'), 0)
+  const bytesWritten2: number = ENCODE_SHARED_STRING_POINTER_RELATIVE_OFFSET(
+    buffer, bytesWritten1, value, options, context)
+
+  const result: StringResult = DECODE_SHARED_STRING_POINTER_RELATIVE_OFFSET(
+    buffer, bytesWritten1, options)
+
+  test.is(result.value, value)
+  test.is(result.bytes, bytesWritten2)
 
   test.end()
 })

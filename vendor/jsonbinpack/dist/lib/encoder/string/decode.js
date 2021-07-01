@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ARBITRARY__PREFIX_LENGTH_VARINT = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_8BIT_FIXED = exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED = exports.RFC3339_DATE_INTEGER_TRIPLET = exports.URL_PROTOCOL_HOST_REST = exports.STRING_DICTIONARY_COMPRESSOR = exports.STRING_BROTLI = void 0;
+exports.ARBITRARY__PREFIX_LENGTH_VARINT = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = exports.SHARED_STRING_POINTER_RELATIVE_OFFSET = exports.UTF8_STRING_NO_LENGTH = exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_8BIT_FIXED = exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED = exports.RFC3339_DATE_INTEGER_TRIPLET = exports.URL_PROTOCOL_HOST_REST = exports.STRING_DICTIONARY_COMPRESSOR = exports.STRING_BROTLI = void 0;
 var assert_1 = require("assert");
 var zlib_1 = require("zlib");
 var decode_1 = require("../integer/decode");
@@ -155,6 +155,24 @@ var ROOF__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
     };
 };
 exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = ROOF__PREFIX_LENGTH_ENUM_VARINT;
+var UTF8_STRING_NO_LENGTH = function (buffer, offset, options) {
+    assert_1.strict(options.size >= 0);
+    return {
+        value: buffer.toString(STRING_ENCODING, offset, offset + options.size),
+        bytes: options.size
+    };
+};
+exports.UTF8_STRING_NO_LENGTH = UTF8_STRING_NO_LENGTH;
+var SHARED_STRING_POINTER_RELATIVE_OFFSET = function (buffer, offset, options) {
+    return readSharedString(buffer, offset, {
+        value: 0,
+        bytes: 0
+    }, {
+        value: options.size,
+        bytes: 0
+    }, 0);
+};
+exports.SHARED_STRING_POINTER_RELATIVE_OFFSET = SHARED_STRING_POINTER_RELATIVE_OFFSET;
 var FLOOR__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
     assert_1.strict(options.minimum >= 0);
     var prefix = decode_1.FLOOR__ENUM_VARINT(buffer, offset, options);
@@ -162,9 +180,12 @@ var FLOOR__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
         var length_4 = decode_1.FLOOR__ENUM_VARINT(buffer, offset + prefix.bytes, options);
         return readSharedString(buffer, offset, prefix, length_4, -1);
     }
+    var result = exports.UTF8_STRING_NO_LENGTH(buffer, offset + prefix.bytes, {
+        size: prefix.value - 1
+    });
     return {
-        value: buffer.toString(STRING_ENCODING, offset + prefix.bytes, offset + prefix.bytes + prefix.value - 1),
-        bytes: prefix.bytes + prefix.value - 1
+        value: result.value,
+        bytes: result.bytes + prefix.bytes
     };
 };
 exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = FLOOR__PREFIX_LENGTH_ENUM_VARINT;

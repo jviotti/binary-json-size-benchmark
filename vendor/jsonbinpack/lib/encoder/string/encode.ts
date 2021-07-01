@@ -51,6 +51,7 @@ import {
   BoundedOptions,
   RoofOptions,
   FloorOptions,
+  SizeOptions,
   DictionaryOptions
 } from './options'
 
@@ -76,16 +77,14 @@ const writeMaybeSharedString = (
   buffer: ResizableBuffer, offset: number,
   value: JSONString, length: number, context: EncodingContext
 ): number => {
-  const stringOffset: number | undefined = context.strings.get(value)
-  if (typeof stringOffset === 'undefined') {
-    const bytesWritten: number = buffer.write(
-      value, offset, length, STRING_ENCODING)
-    context.strings.set(value, offset)
-    return bytesWritten
+  if (context.strings.has(value)) {
+    return SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, offset, value, {
+      size: length
+    }, context)
   }
 
-  return FLOOR__ENUM_VARINT(buffer, offset, offset - stringOffset, {
-    minimum: 0
+  return UTF8_STRING_NO_LENGTH(buffer, offset, value, {
+    size: length
   }, context)
 }
 
@@ -278,21 +277,59 @@ export const ROOF__PREFIX_LENGTH_ENUM_VARINT = (
   return result + prefixBytes + bytesWritten
 }
 
+export const UTF8_STRING_NO_LENGTH = (
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  options: SizeOptions, context: EncodingContext
+): number => {
+  assert(options.size >= 0)
+  const bytesWritten: number = buffer.write(
+    value, offset, options.size, STRING_ENCODING)
+  context.strings.set(value, offset)
+  return bytesWritten
+}
+
+export const SHARED_STRING_POINTER_RELATIVE_OFFSET = (
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  _options: SizeOptions, context: EncodingContext
+): number => {
+  const stringOffset: number | undefined = context.strings.get(value)
+  assert(typeof stringOffset !== 'undefined')
+  return FLOOR__ENUM_VARINT(buffer, offset, offset - stringOffset, {
+    minimum: 0
+  }, context)
+}
+
 export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
-  buffer: ResizableBuffer, offset: number, value: JSONString, options: FloorOptions, context: EncodingContext
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  options: FloorOptions, context: EncodingContext
 ): number => {
   assert(options.minimum >= 0)
   const length: JSONNumber = Buffer.byteLength(value, STRING_ENCODING)
   assert(length >= options.minimum)
+
+  /*
+   * (1) Write 0x00 if shared, else do nothing
+   */
   const prefixBytes: number = maybeWriteSharedPrefix(buffer, offset, value, context)
-  const bytesWritten: number = FLOOR__ENUM_VARINT(buffer, offset + prefixBytes, length + 1, options, context)
-  const result: number = writeMaybeSharedString(
-    buffer, offset + prefixBytes + bytesWritten, value, length, context)
-  return result + prefixBytes + bytesWritten
+
+  /*
+   * (2) Write length of the string + 1
+   */
+  const lengthBytes: number = FLOOR__ENUM_VARINT(
+    buffer, offset + prefixBytes, length + 1, options, context)
+
+  /*
+   * (3) Write offset if shared, else write plain string
+   */
+  const bytesWritten: number = writeMaybeSharedString(
+    buffer, offset + prefixBytes + lengthBytes, value, length, context)
+
+  return bytesWritten + prefixBytes + lengthBytes
 }
 
 export const ARBITRARY__PREFIX_LENGTH_VARINT = (
-  buffer: ResizableBuffer, offset: number, value: JSONString, _options: NoOptions, context: EncodingContext
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  _options: NoOptions, context: EncodingContext
 ): number => {
   return FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, value, {
     minimum: 0

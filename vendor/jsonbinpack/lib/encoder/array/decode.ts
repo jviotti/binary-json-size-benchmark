@@ -56,7 +56,8 @@ import {
   SemiTypedOptions,
   SemiTypedRoofOptions,
   SemiTypedFloorOptions,
-  SemiTypedBoundedOptions
+  SemiTypedBoundedOptions,
+  SizeSemiTypedFloorOptions
 } from './options'
 
 import {
@@ -136,6 +137,15 @@ export const BOUNDED_SEMITYPED__LENGTH_PREFIX = (
 
   return decodeArray(
     buffer, offset, lengthResult.bytes, lengthResult.value, options.prefixEncodings)
+}
+
+export const FLOOR_SEMITYPED__NO_LENGTH_PREFIX = (
+  buffer: ResizableBuffer, offset: number, options: SizeSemiTypedFloorOptions
+): ArrayResult => {
+  assert(options.minimum >= 0)
+  assert(options.size >= 0)
+  return decodeArray(
+    buffer, offset, 0, options.size, options.prefixEncodings)
 }
 
 export const FLOOR_SEMITYPED__LENGTH_PREFIX = (

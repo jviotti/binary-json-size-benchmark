@@ -18,6 +18,11 @@
 // that supports searching for any substring of a string
 // in a bucket
 
+// Encoding a shared string has some overhead, such as the
+// shared string marker + the offset, so its not worth
+// doing for strings that are too small.
+const MINIMUM_LENGTH: number = 3
+
 // TODO: The limit should probably be based on number
 // of bytes rather than number of strings
 const LIMIT: number = 100
@@ -38,7 +43,7 @@ export default class SubstringMap {
   }
 
   public set (value: string, offset: number): void {
-    if (this.data.size >= LIMIT) {
+    if (value.length < MINIMUM_LENGTH || this.data.size >= LIMIT) {
       return
     }
 

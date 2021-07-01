@@ -9,8 +9,8 @@
 8,flatbuffers,"FlatBuffers",464,302,390,257
 9,flexbuffers,"FlexBuffers",1389,869,1140,873
 10,json,"JSON",1507,649,926,682
-11,jsonbinpack,"JSON BinPack\n(Schema-driven)",83,104,102,105
-12,jsonbinpack-schemaless,"JSON BinPack\n(Schema-less)",1124,711,924,717
+11,jsonbinpack,"JSON BinPack\n(Schema-driven)",73,94,92,97
+12,jsonbinpack-schemaless,"JSON BinPack\n(Schema-less)",1092,683,893,694
 13,messagepack,"MessagePack",1172,670,872,678
 14,protobuf,"Protocol Buffers\n(Binary Wire Format)",109,129,128,132
 15,smile,"Smile",1090,683,886,701

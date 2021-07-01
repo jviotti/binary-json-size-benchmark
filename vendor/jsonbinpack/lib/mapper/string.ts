@@ -47,7 +47,8 @@ import {
   BoundedOptions,
   RoofOptions,
   FloorOptions,
-  DictionaryOptions
+  DictionaryOptions,
+  SizeOptions
 } from '../encoder/string/options'
 
 export interface STRING_BROTLI_ENCODING extends BaseEncodingDefinition {
@@ -110,6 +111,18 @@ export interface ARBITRARY__PREFIX_LENGTH_VARINT_ENCODING extends BaseEncodingDe
   readonly options: NoOptions;
 }
 
+export interface UTF8_STRING_NO_LENGTH_ENCODING extends BaseEncodingDefinition {
+  readonly type: EncodingType.String;
+  readonly encoding: 'UTF8_STRING_NO_LENGTH';
+  readonly options: SizeOptions;
+}
+
+export interface SHARED_STRING_POINTER_RELATIVE_OFFSET_ENCODING extends BaseEncodingDefinition {
+  readonly type: EncodingType.String;
+  readonly encoding: 'SHARED_STRING_POINTER_RELATIVE_OFFSET';
+  readonly options: SizeOptions;
+}
+
 export type StringEncodingNames =
   'STRING_BROTLI' |
   'STRING_DICTIONARY_COMPRESSOR' |
@@ -120,7 +133,9 @@ export type StringEncodingNames =
   'ROOF__PREFIX_LENGTH_8BIT_FIXED' |
   'ROOF__PREFIX_LENGTH_ENUM_VARINT' |
   'FLOOR__PREFIX_LENGTH_ENUM_VARINT' |
-  'ARBITRARY__PREFIX_LENGTH_VARINT'
+  'ARBITRARY__PREFIX_LENGTH_VARINT' |
+  'UTF8_STRING_NO_LENGTH' |
+  'SHARED_STRING_POINTER_RELATIVE_OFFSET'
 export type StringEncoding =
   STRING_BROTLI_ENCODING |
   STRING_DICTIONARY_COMPRESSOR_ENCODING |
@@ -131,7 +146,9 @@ export type StringEncoding =
   ROOF__PREFIX_LENGTH_8BIT_FIXED_ENCODING |
   ROOF__PREFIX_LENGTH_ENUM_VARINT_ENCODING |
   FLOOR__PREFIX_LENGTH_ENUM_VARINT_ENCODING |
-  ARBITRARY__PREFIX_LENGTH_VARINT_ENCODING
+  ARBITRARY__PREFIX_LENGTH_VARINT_ENCODING |
+  UTF8_STRING_NO_LENGTH_ENCODING |
+  SHARED_STRING_POINTER_RELATIVE_OFFSET_ENCODING
 
 export const getStringStates = (_schema: StringEncodingSchema): number | JSONValue[] => {
   return Infinity

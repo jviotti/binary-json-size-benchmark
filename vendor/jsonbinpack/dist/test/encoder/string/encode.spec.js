@@ -279,6 +279,37 @@ tap_1.default.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode a shared stri
     test.is(bytesWritten2, 3);
     test.end();
 });
+tap_1.default.test('UTF8_STRING_NO_LENGTH: should encode a string', function (test) {
+    var context = encoder_1.getDefaultEncodingContext();
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(3));
+    var bytesWritten = encode_1.UTF8_STRING_NO_LENGTH(buffer, 0, 'foo', {
+        size: 3
+    }, context);
+    test.strictSame(buffer.getBuffer(), Buffer.from([
+        0x66, 0x6f, 0x6f
+    ]));
+    test.is(context.strings.get('foo'), 0);
+    test.is(bytesWritten, 3);
+    test.end();
+});
+tap_1.default.test('SHARED_STRING_POINTER_RELATIVE_OFFSET: should encode a shared string', function (test) {
+    var context = encoder_1.getDefaultEncodingContext();
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(4));
+    var bytesWritten1 = encode_1.UTF8_STRING_NO_LENGTH(buffer, 0, 'foo', {
+        size: 3
+    }, context);
+    var bytesWritten2 = encode_1.SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, bytesWritten1, 'foo', {
+        size: 3
+    }, context);
+    test.strictSame(buffer.getBuffer(), Buffer.from([
+        0x66, 0x6f, 0x6f,
+        0x03
+    ]));
+    test.is(context.strings.get('foo'), 0);
+    test.is(bytesWritten1, 3);
+    test.is(bytesWritten2, 1);
+    test.end();
+});
 tap_1.default.test('FLOOR__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(10));

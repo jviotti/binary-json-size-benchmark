@@ -42,6 +42,7 @@ import {
   BoundedOptions,
   RoofOptions,
   FloorOptions,
+  SizeOptions,
   DictionaryOptions
 } from './options'
 
@@ -267,6 +268,29 @@ export const ROOF__PREFIX_LENGTH_ENUM_VARINT = (
   }
 }
 
+export const UTF8_STRING_NO_LENGTH = (
+  buffer: ResizableBuffer, offset: number, options: SizeOptions
+): StringResult => {
+  assert(options.size >= 0)
+  return {
+    value: buffer.toString(
+      STRING_ENCODING, offset, offset + options.size),
+    bytes: options.size
+  }
+}
+
+export const SHARED_STRING_POINTER_RELATIVE_OFFSET = (
+  buffer: ResizableBuffer, offset: number, options: SizeOptions
+): StringResult => {
+  return readSharedString(buffer, offset, {
+    value: 0,
+    bytes: 0
+  }, {
+    value: options.size,
+    bytes: 0
+  }, 0)
+}
+
 export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
   buffer: ResizableBuffer, offset: number, options: FloorOptions
 ): StringResult => {
@@ -279,10 +303,13 @@ export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
     return readSharedString(buffer, offset, prefix, length, -1)
   }
 
+  const result: StringResult = UTF8_STRING_NO_LENGTH(buffer, offset + prefix.bytes, {
+    size: prefix.value - 1
+  })
+
   return {
-    value: buffer.toString(
-      STRING_ENCODING, offset + prefix.bytes, offset + prefix.bytes + prefix.value - 1),
-    bytes: prefix.bytes + prefix.value - 1
+    value: result.value,
+    bytes: result.bytes + prefix.bytes
   }
 }
 
