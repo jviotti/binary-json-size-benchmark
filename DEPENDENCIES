@@ -6,5 +6,5 @@ lz4 https://github.com/lz4/lz4 v1.9.3
 thrift https://github.com/apache/thrift 65fb49bb41f852375b278c9057d52c9472f0cb3a
 protobuf https://github.com/protocolbuffers/protobuf v3.15.3
 bond https://github.com/microsoft/bond 9.0.4
-jsonbinpack git@github.com:jviotti/jsonbinpack.git 1bb17c743e556ed0daad1becc92f4d5fc32e434b
+jsonbinpack git@github.com:jviotti/jsonbinpack.git 94b9d3330a2e2d5fa7b780075f8dba5e40da2d7e
 npm https://github.com/npm/cli 7b1a5399cfbfcc7a7194c4aa4bbadfbce6cbbe66

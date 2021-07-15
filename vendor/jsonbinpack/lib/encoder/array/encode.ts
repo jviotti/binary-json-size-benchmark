@@ -44,7 +44,8 @@ import {
   TypedOptions,
   TypedBoundedOptions,
   TypedFloorOptions,
-  TypedRoofOptions
+  TypedRoofOptions,
+  SizeSemiTypedFloorOptions
 } from './options'
 
 import {
@@ -123,18 +124,30 @@ export const BOUNDED_SEMITYPED__LENGTH_PREFIX = (
   return lengthBytes + encodeArray(buffer, offset + lengthBytes, value, options.prefixEncodings, context)
 }
 
-export const FLOOR_SEMITYPED__LENGTH_PREFIX = (
-  buffer: ResizableBuffer, offset: number, value: JSONValue[], options: SemiTypedFloorOptions, context: EncodingContext
+export const FLOOR_SEMITYPED__NO_LENGTH_PREFIX = (
+  buffer: ResizableBuffer, offset: number, value: JSONValue[],
+  options: SizeSemiTypedFloorOptions, context: EncodingContext
 ): number => {
   assert(options.minimum >= 0)
-  assert(value.length >= options.minimum)
+  assert(options.size >= options.minimum)
+  return encodeArray(buffer, offset, value, options.prefixEncodings, context)
+}
 
+export const FLOOR_SEMITYPED__LENGTH_PREFIX = (
+  buffer: ResizableBuffer, offset: number, value: JSONValue[],
+  options: SemiTypedFloorOptions, context: EncodingContext
+): number => {
+  assert(options.minimum >= 0)
   const lengthBytes: number =
     FLOOR__ENUM_VARINT(buffer, offset, value.length, {
       minimum: options.minimum
     }, context)
 
-  return lengthBytes + encodeArray(buffer, offset + lengthBytes, value, options.prefixEncodings, context)
+  return lengthBytes + FLOOR_SEMITYPED__NO_LENGTH_PREFIX(buffer, offset + lengthBytes, value, {
+    minimum: options.minimum,
+    size: value.length,
+    prefixEncodings: options.prefixEncodings
+  }, context)
 }
 
 export const ROOF_SEMITYPED__LENGTH_PREFIX = (

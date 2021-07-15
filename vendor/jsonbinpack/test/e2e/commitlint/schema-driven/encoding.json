@@ -38,8 +38,10 @@
                     "options": {
                       "encoding": {
                         "type": "string",
-                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                        "options": {}
+                        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                        "options": {
+                          "minimum": 0
+                        }
                       },
                       "prefixEncodings": []
                     }
@@ -77,8 +79,10 @@
                     "options": {
                       "encoding": {
                         "type": "string",
-                        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                        "options": {}
+                        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                        "options": {
+                          "minimum": 0
+                        }
                       },
                       "prefixEncodings": []
                     }

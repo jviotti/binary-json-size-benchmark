@@ -22,42 +22,52 @@ import {
   Type
 } from '../../../lib/encoder/any/types'
 
-tap.test('Type.Null should match 0000 0111', (test) => {
-  test.true(isType(Type.Null, 0b00000111))
+tap.test('Type.Object should match 00000 011', (test) => {
+  test.true(isType(Type.Object, 0b00000011))
   test.end()
 })
 
-tap.test('Type.Null should match 1100 0111', (test) => {
-  test.true(isType(Type.Null, 0b11000111))
+tap.test('Type.Object should match 11000 011', (test) => {
+  test.true(isType(Type.Object, 0b11000011))
   test.end()
 })
 
-tap.test('Type.Null should match 1101 0111', (test) => {
-  test.true(isType(Type.Null, 0b11010111))
+tap.test('Type.Object should match 11010 011', (test) => {
+  test.true(isType(Type.Object, 0b11010011))
   test.end()
 })
 
-tap.test('Type.Null should match 1111 0111', (test) => {
-  test.true(isType(Type.Null, 0b11110111))
+tap.test('Type.Object should match 11110 011', (test) => {
+  test.true(isType(Type.Object, 0b11110011))
   test.end()
 })
 
-tap.test('Type.Null should not match 1111 `111', (test) => {
-  test.false(isType(Type.Null, 0b11111111))
+tap.test('Type.Object should match 11111 011', (test) => {
+  test.true(isType(Type.Object, 0b11111011))
   test.end()
 })
 
-tap.test('getTypeTag() Null + 0000', (test) => {
-  test.true(isType(Type.Null, getTypeTag(Type.Null, 0b00000000)))
+tap.test('Type.Object should not match 11111 111', (test) => {
+  test.false(isType(Type.Object, 0b11111111))
   test.end()
 })
 
-tap.test('getTypeTag() Null + 0001', (test) => {
-  test.true(isType(Type.Null, getTypeTag(Type.Null, 0b00000001)))
+tap.test('getTypeTag() Object + 00000', (test) => {
+  test.true(isType(Type.Object, getTypeTag(Type.Object, 0b00000000)))
   test.end()
 })
 
-tap.test('getTypeTag() Null + 1111', (test) => {
-  test.true(isType(Type.Null, getTypeTag(Type.Null, 0b00001111)))
+tap.test('getTypeTag() Object + 00001', (test) => {
+  test.true(isType(Type.Object, getTypeTag(Type.Object, 0b00000001)))
+  test.end()
+})
+
+tap.test('getTypeTag() Object + 01111', (test) => {
+  test.true(isType(Type.Object, getTypeTag(Type.Object, 0b00001111)))
+  test.end()
+})
+
+tap.test('getTypeTag() Object + 11111', (test) => {
+  test.true(isType(Type.Object, getTypeTag(Type.Object, 0b00011111)))
   test.end()
 })

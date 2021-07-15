@@ -33,9 +33,14 @@ export interface DictionaryOptions {
   readonly index: string[];
 }
 
+export interface SizeOptions {
+  readonly size: number;
+}
+
 export type StringOptions =
   NoOptions |
   DictionaryOptions |
   BoundedOptions |
   RoofOptions |
-  FloorOptions
+  FloorOptions |
+  SizeOptions

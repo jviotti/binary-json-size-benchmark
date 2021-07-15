@@ -22,13 +22,17 @@
       },
       "defaultNavBehavior": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "defaultResBehavior": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "rules": {
         "type": "array",
@@ -78,8 +82,10 @@
                       "propertyEncodings": {
                         "path": {
                           "type": "string",
-                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                          "options": {}
+                          "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                          "options": {
+                            "minimum": 0
+                          }
                         },
                         "types": {
                           "type": "array",
@@ -157,8 +163,10 @@
                       "propertyEncodings": {
                         "regex": {
                           "type": "string",
-                          "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                          "options": {}
+                          "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                          "options": {
+                            "minimum": 0
+                          }
                         },
                         "types": {
                           "type": "array",

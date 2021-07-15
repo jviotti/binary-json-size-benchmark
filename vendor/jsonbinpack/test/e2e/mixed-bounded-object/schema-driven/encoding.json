@@ -5,8 +5,10 @@
     "propertyEncodings": {
       "foo": {
         "type": "string",
-        "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-        "options": {}
+        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
       },
       "baz": {
         "type": "object",
@@ -28,7 +30,7 @@
           },
           "keyEncoding": {
             "type": "string",
-            "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
+            "encoding": "UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH",
             "options": {}
           },
           "requiredProperties": [

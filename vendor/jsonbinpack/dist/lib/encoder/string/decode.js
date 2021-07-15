@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ARBITRARY__PREFIX_LENGTH_VARINT = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = exports.ROOF__PREFIX_LENGTH_8BIT_FIXED = exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED = exports.RFC3339_DATE_INTEGER_TRIPLET = exports.URL_PROTOCOL_HOST_REST = exports.STRING_DICTIONARY_COMPRESSOR = exports.STRING_BROTLI = void 0;
+exports.UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = exports.SHARED_STRING_POINTER_RELATIVE_OFFSET = exports.UTF8_STRING_NO_LENGTH = exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED = exports.RFC3339_DATE_INTEGER_TRIPLET = exports.URL_PROTOCOL_HOST_REST = exports.STRING_DICTIONARY_COMPRESSOR = exports.STRING_BROTLI = void 0;
 var assert_1 = require("assert");
 var zlib_1 = require("zlib");
 var decode_1 = require("../integer/decode");
@@ -67,9 +67,15 @@ var STRING_DICTIONARY_COMPRESSOR = function (buffer, offset, options) {
 };
 exports.STRING_DICTIONARY_COMPRESSOR = STRING_DICTIONARY_COMPRESSOR;
 var URL_PROTOCOL_HOST_REST = function (buffer, offset, _options) {
-    var protocol = exports.ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset, {});
-    var host = exports.ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + protocol.bytes, {});
-    var rest = exports.ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + protocol.bytes + host.bytes, {});
+    var protocol = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+        minimum: 0
+    });
+    var host = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + protocol.bytes, {
+        minimum: 0
+    });
+    var rest = exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + protocol.bytes + host.bytes, {
+        minimum: 0
+    });
     return {
         value: protocol.value + "//" + host.value + rest.value,
         bytes: protocol.bytes + host.bytes + rest.bytes
@@ -133,15 +139,6 @@ var BOUNDED__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
     };
 };
 exports.BOUNDED__PREFIX_LENGTH_ENUM_VARINT = BOUNDED__PREFIX_LENGTH_ENUM_VARINT;
-var ROOF__PREFIX_LENGTH_8BIT_FIXED = function (buffer, offset, options) {
-    assert_1.strict(options.maximum >= 0);
-    assert_1.strict(options.maximum <= limits_1.UINT8_MAX);
-    return exports.BOUNDED__PREFIX_LENGTH_8BIT_FIXED(buffer, offset, {
-        minimum: 0,
-        maximum: options.maximum
-    });
-};
-exports.ROOF__PREFIX_LENGTH_8BIT_FIXED = ROOF__PREFIX_LENGTH_8BIT_FIXED;
 var ROOF__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
     assert_1.strict(options.maximum >= 0);
     var prefix = decode_1.ROOF__MIRROR_ENUM_VARINT(buffer, offset, options);
@@ -155,6 +152,24 @@ var ROOF__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
     };
 };
 exports.ROOF__PREFIX_LENGTH_ENUM_VARINT = ROOF__PREFIX_LENGTH_ENUM_VARINT;
+var UTF8_STRING_NO_LENGTH = function (buffer, offset, options) {
+    assert_1.strict(options.size >= 0);
+    return {
+        value: buffer.toString(STRING_ENCODING, offset, offset + options.size),
+        bytes: options.size
+    };
+};
+exports.UTF8_STRING_NO_LENGTH = UTF8_STRING_NO_LENGTH;
+var SHARED_STRING_POINTER_RELATIVE_OFFSET = function (buffer, offset, options) {
+    return readSharedString(buffer, offset, {
+        value: 0,
+        bytes: 0
+    }, {
+        value: options.size,
+        bytes: 0
+    }, 0);
+};
+exports.SHARED_STRING_POINTER_RELATIVE_OFFSET = SHARED_STRING_POINTER_RELATIVE_OFFSET;
 var FLOOR__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
     assert_1.strict(options.minimum >= 0);
     var prefix = decode_1.FLOOR__ENUM_VARINT(buffer, offset, options);
@@ -162,15 +177,48 @@ var FLOOR__PREFIX_LENGTH_ENUM_VARINT = function (buffer, offset, options) {
         var length_4 = decode_1.FLOOR__ENUM_VARINT(buffer, offset + prefix.bytes, options);
         return readSharedString(buffer, offset, prefix, length_4, -1);
     }
+    var result = exports.UTF8_STRING_NO_LENGTH(buffer, offset + prefix.bytes, {
+        size: prefix.value - 1
+    });
     return {
-        value: buffer.toString(STRING_ENCODING, offset + prefix.bytes, offset + prefix.bytes + prefix.value - 1),
-        bytes: prefix.bytes + prefix.value - 1
+        value: result.value,
+        bytes: result.bytes + prefix.bytes
     };
 };
 exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT = FLOOR__PREFIX_LENGTH_ENUM_VARINT;
-var ARBITRARY__PREFIX_LENGTH_VARINT = function (buffer, offset, _options) {
-    return exports.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+var UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = function (buffer, offset, options) {
+    var prefix = decode_1.FLOOR__ENUM_VARINT(buffer, offset, {
         minimum: 0
     });
+    if (prefix.value === 0) {
+        var pointer = decode_1.FLOOR__ENUM_VARINT(buffer, offset + prefix.bytes, {
+            minimum: 0
+        });
+        var cursor = offset + prefix.bytes - pointer.value;
+        var length_5 = decode_1.FLOOR__ENUM_VARINT(buffer, cursor, {
+            minimum: 0
+        });
+        if (length_5.value === 0) {
+            var result_1 = exports.UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH(buffer, cursor, options);
+            return {
+                value: result_1.value,
+                bytes: prefix.bytes + pointer.bytes
+            };
+        }
+        var result_2 = exports.UTF8_STRING_NO_LENGTH(buffer, cursor + length_5.bytes, {
+            size: length_5.value - 1
+        });
+        return {
+            value: result_2.value,
+            bytes: prefix.bytes + pointer.bytes
+        };
+    }
+    var result = exports.UTF8_STRING_NO_LENGTH(buffer, offset + prefix.bytes, {
+        size: prefix.value - 1
+    });
+    return {
+        value: result.value,
+        bytes: result.bytes + prefix.bytes
+    };
 };
-exports.ARBITRARY__PREFIX_LENGTH_VARINT = ARBITRARY__PREFIX_LENGTH_VARINT;
+exports.UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH;

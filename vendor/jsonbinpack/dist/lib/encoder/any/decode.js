@@ -15,9 +15,17 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
         maximum: limits_1.UINT8_MAX
     });
     if (types_1.isType(types_1.Type.Array, tag.value)) {
-        var result = decode_5.UNBOUNDED_SEMITYPED__LENGTH_PREFIX(buffer, offset + tag.bytes, {
-            prefixEncodings: []
-        });
+        var size = types_1.getMetadata(tag.value);
+        var result = size === 0
+            ? decode_5.FLOOR_SEMITYPED__LENGTH_PREFIX(buffer, offset + tag.bytes, {
+                minimum: 0,
+                prefixEncodings: []
+            })
+            : decode_5.FLOOR_SEMITYPED__NO_LENGTH_PREFIX(buffer, offset + tag.bytes, {
+                size: size - 1,
+                minimum: 0,
+                prefixEncodings: []
+            });
         return {
             value: result.value,
             bytes: tag.bytes + result.bytes
@@ -29,7 +37,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
             ? decode_4.ARBITRARY_TYPED_KEYS_OBJECT(buffer, offset + tag.bytes, {
                 keyEncoding: {
                     type: encoding_type_1.EncodingType.String,
-                    encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+                    encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
                     options: {}
                 },
                 encoding: {
@@ -42,7 +50,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
                 size: size - 1,
                 keyEncoding: {
                     type: encoding_type_1.EncodingType.String,
-                    encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+                    encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
                     options: {}
                 },
                 encoding: {
@@ -56,39 +64,88 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
             bytes: tag.bytes + result.bytes
         };
     }
-    else if (types_1.isType(types_1.Type.Null, tag.value)) {
+    else if (types_1.isNull(tag.value)) {
         return {
             value: null,
             bytes: tag.bytes
         };
     }
-    else if (types_1.isType(types_1.Type.True, tag.value)) {
+    else if (types_1.isTrue(tag.value)) {
         return {
             value: true,
             bytes: tag.bytes
         };
     }
-    else if (types_1.isType(types_1.Type.False, tag.value)) {
+    else if (types_1.isFalse(tag.value)) {
         return {
             value: false,
             bytes: tag.bytes
         };
     }
     else if (types_1.isType(types_1.Type.SharedString, tag.value)) {
-        var result = decode_2.ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset, {});
+        var size = types_1.getMetadata(tag.value);
+        if (size === 0) {
+            var result_1 = decode_2.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+                minimum: 0
+            });
+            return {
+                value: result_1.value,
+                bytes: result_1.bytes
+            };
+        }
+        var result = decode_2.SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, offset + tag.bytes, {
+            size: size - 1
+        });
         return {
             value: result.value,
-            bytes: result.bytes
+            bytes: result.bytes + tag.bytes
         };
     }
     else if (types_1.isType(types_1.Type.String, tag.value)) {
-        var result = decode_2.ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + tag.bytes, {});
+        var size = types_1.getMetadata(tag.value);
+        if (size === 0) {
+            var result_2 = decode_2.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tag.bytes, {
+                minimum: 0
+            });
+            return {
+                value: result_2.value,
+                bytes: tag.bytes + result_2.bytes
+            };
+        }
+        var result = decode_2.UTF8_STRING_NO_LENGTH(buffer, offset + tag.bytes, {
+            size: size - 1
+        });
         return {
             value: result.value,
-            bytes: tag.bytes + result.bytes
+            bytes: result.bytes + tag.bytes
         };
     }
-    else if (types_1.isType(types_1.Type.PositiveInteger, tag.value)) {
+    else if (types_1.isType(types_1.Type.LongString, tag.value)) {
+        var size = types_1.getMetadata(tag.value) + limits_1.UINT5_MAX;
+        var result = decode_2.UTF8_STRING_NO_LENGTH(buffer, offset + tag.bytes, {
+            size: size
+        });
+        return {
+            value: result.value,
+            bytes: result.bytes + tag.bytes
+        };
+    }
+    else if (types_1.isType(types_1.Type.Other, tag.value) && (types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent7 ||
+        types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent8 ||
+        types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent9 ||
+        types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent10)) {
+        var size = decode_1.FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+            minimum: Math.pow(2, types_1.getMetadata(tag.value))
+        });
+        var result = decode_2.UTF8_STRING_NO_LENGTH(buffer, offset + tag.bytes + size.bytes, {
+            size: size.value
+        });
+        return {
+            value: result.value,
+            bytes: result.bytes + tag.bytes + size.bytes
+        };
+    }
+    else if (types_1.isPositiveInteger(tag.value)) {
         var result = decode_1.FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
             minimum: 0
         });
@@ -97,7 +154,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
             bytes: tag.bytes + result.bytes
         };
     }
-    else if (types_1.isType(types_1.Type.NegativeInteger, tag.value)) {
+    else if (types_1.isNegativeInteger(tag.value)) {
         var result = decode_1.FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
             minimum: 0
         });
@@ -140,7 +197,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
             bytes: tag.bytes + result.bytes
         };
     }
-    else if (types_1.isType(types_1.Type.Number, tag.value)) {
+    else if (types_1.isNumber(tag.value)) {
         var result = decode_3.DOUBLE_VARINT_TUPLE(buffer, offset + tag.bytes, {});
         return {
             value: result.value,

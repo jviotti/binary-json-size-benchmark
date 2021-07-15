@@ -40,7 +40,7 @@ tap_1.default.test('BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX: [ "foo", true, 2000 
     };
     var bytesWritten = encode_1.BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX(buffer, 0, value, options, context);
     var result = decode_1.BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX(buffer, 0, options);
-    test.is(bytesWritten, 10);
+    test.is(bytesWritten, 9);
     test.is(bytesWritten, result.bytes);
     test.strictSame(result.value, value);
     test.end();

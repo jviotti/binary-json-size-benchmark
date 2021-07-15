@@ -32,9 +32,9 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle " "', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2048));
     var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, ' ', {}, context);
-    test.is(bytesWritten, 3);
+    test.is(bytesWritten, 2);
     var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
-    test.is(result.bytes, 3);
+    test.is(result.bytes, 2);
     test.is(result.value, ' ');
     test.end();
 });
@@ -45,9 +45,9 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', func
         foo: 'bar',
         baz: 1
     }, {}, context);
-    test.is(bytesWritten, 15);
+    test.is(bytesWritten, 14);
     var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
-    test.is(result.bytes, 15);
+    test.is(result.bytes, 14);
     test.strictSame(result.value, {
         foo: 'bar',
         baz: 1
@@ -60,9 +60,9 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle [ "foo", true, 2000 ]', func
     var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, [
         'foo', true, 2000
     ], {}, context);
-    test.is(bytesWritten, 11);
+    test.is(bytesWritten, 9);
     var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
-    test.is(result.bytes, 11);
+    test.is(result.bytes, 9);
     test.strictSame(result.value, ['foo', true, 2000]);
     test.end();
 });
@@ -85,14 +85,12 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle shared strings', function (t
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(100));
     var bytesWritten1 = encode_1.ANY__TYPE_PREFIX(buffer, 0, 'foo', {}, context);
     var bytesWritten2 = encode_1.ANY__TYPE_PREFIX(buffer, bytesWritten1, 'foo', {}, context);
-    test.is(bytesWritten1, 5);
-    test.is(bytesWritten2, 3);
+    test.is(bytesWritten1, 4);
+    test.is(bytesWritten2, 2);
     test.strictSame(buffer.getBuffer(), Buffer.from([
-        0x01,
-        0x04, 0x66, 0x6f, 0x6f,
-        0x00,
-        0x04,
-        0x05
+        0x21, 0x66, 0x6f, 0x6f,
+        0x20,
+        0x04
     ]));
     var decode1 = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
     test.is(decode1.bytes, bytesWritten1);

@@ -27,7 +27,7 @@ import {
 import {
   UINT8_MIN,
   UINT8_MAX,
-  UINT4_MAX
+  UINT5_MAX
 } from '../../utils/limits'
 
 import {
@@ -36,7 +36,10 @@ import {
 
 import {
   Type,
-  getTypeTag
+  Subtype,
+  getTypeTag,
+  LONG_STRING_BASE_EXPONENT_MINIMUM,
+  LONG_STRING_BASE_EXPONENT_MAXIMUM
 } from './types'
 
 import {
@@ -49,7 +52,9 @@ import {
 } from '../integer/encode'
 
 import {
-  ARBITRARY__PREFIX_LENGTH_VARINT
+  UTF8_STRING_NO_LENGTH,
+  SHARED_STRING_POINTER_RELATIVE_OFFSET,
+  FLOOR__PREFIX_LENGTH_ENUM_VARINT
 } from '../string/encode'
 
 import {
@@ -62,18 +67,42 @@ import {
 } from '../object/encode'
 
 import {
-  UNBOUNDED_SEMITYPED__LENGTH_PREFIX
+  FLOOR_SEMITYPED__LENGTH_PREFIX,
+  FLOOR_SEMITYPED__NO_LENGTH_PREFIX
 } from '../array/encode'
 
 import {
   EncodingContext
 } from '../context'
 
-const encodeTypeTag = (buffer: ResizableBuffer, offset: number, tag: number, context: EncodingContext): number => {
+const STRING_ENCODING: BufferEncoding = 'utf8'
+
+const encodeTypeTag = (
+  buffer: ResizableBuffer, offset: number,
+  tag: number, context: EncodingContext
+): number => {
   return BOUNDED_8BITS__ENUM_FIXED(buffer, offset, tag, {
     minimum: UINT8_MIN,
     maximum: UINT8_MAX
   }, context)
+}
+
+const findHighest2Exponent = (
+  value: number, start: number, limit: number
+): number | null => {
+  let exponent: number = start - 1
+  if (((2 << exponent) >>> 0) > value) {
+    return null
+  }
+
+  while (((2 << exponent) >>> 0) <= value) {
+    exponent += 1
+    if (exponent > limit) {
+      return null
+    }
+  }
+
+  return exponent
 }
 
 export const ANY__TYPE_PREFIX = (
@@ -81,10 +110,26 @@ export const ANY__TYPE_PREFIX = (
 ): number => {
   // Encode an array value
   if (Array.isArray(value)) {
-    const typeTag: number = getTypeTag(Type.Array, 0)
+    const size: number = value.length
+
+    if (size > UINT5_MAX - 1) {
+      const typeTag: number = getTypeTag(Type.Array, 0)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+      const valueBytes: number = FLOOR_SEMITYPED__LENGTH_PREFIX(
+        buffer, offset + tagBytes, value, {
+          minimum: 0,
+          prefixEncodings: []
+        }, context)
+
+      return tagBytes + valueBytes
+    }
+
+    const typeTag: number = getTypeTag(Type.Array, value.length + 1)
     const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
-    const valueBytes: number = UNBOUNDED_SEMITYPED__LENGTH_PREFIX(
+    const valueBytes: number = FLOOR_SEMITYPED__NO_LENGTH_PREFIX(
       buffer, offset + tagBytes, value, {
+        size,
+        minimum: 0,
         prefixEncodings: []
       }, context)
 
@@ -94,14 +139,14 @@ export const ANY__TYPE_PREFIX = (
   } else if (typeof value === 'object' && value !== null) {
     const size: number = Object.keys(value).length
 
-    if (size > UINT4_MAX - 1) {
+    if (size > UINT5_MAX - 1) {
       const typeTag: number = getTypeTag(Type.Object, 0)
       const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
       const valueBytes: number = ARBITRARY_TYPED_KEYS_OBJECT(
         buffer, offset + tagBytes, value, {
           keyEncoding: {
             type: EncodingType.String,
-            encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+            encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
             options: {}
           },
           encoding: {
@@ -121,7 +166,7 @@ export const ANY__TYPE_PREFIX = (
         size,
         keyEncoding: {
           type: EncodingType.String,
-          encoding: 'ARBITRARY__PREFIX_LENGTH_VARINT',
+          encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
           options: {}
         },
         encoding: {
@@ -135,27 +180,67 @@ export const ANY__TYPE_PREFIX = (
 
   // Encode a null value (at the type level)
   } else if (value === null) {
-    const typeTag: number = getTypeTag(Type.Null, 0)
+    const typeTag: number = getTypeTag(Type.Other, Subtype.Null)
     return encodeTypeTag(buffer, offset, typeTag, context)
 
   // Encode a boolean value (at the type level)
   } else if (typeof value === 'boolean') {
     const typeTag: number = value
-      ? getTypeTag(Type.True, 0) : getTypeTag(Type.False, 0)
+      ? getTypeTag(Type.Other, Subtype.True)
+      : getTypeTag(Type.Other, Subtype.False)
     return encodeTypeTag(buffer, offset, typeTag, context)
 
   // Encode a string value
   } else if (typeof value === 'string') {
-    const typeTag: number = getTypeTag(Type.String, 0)
+    const length: number = Buffer.byteLength(value, STRING_ENCODING)
 
-    // Exploit the fact that a shared string always starts with an impossible length
-    // marker (0) to avoid having to encode an additional tag
-    const tagBytes: number = context.strings.has(value)
-      ? 0
-      : encodeTypeTag(buffer, offset, typeTag, context)
-    const valueBytes: number =
-      ARBITRARY__PREFIX_LENGTH_VARINT(buffer, offset + tagBytes, value, {}, context)
-    return tagBytes + valueBytes
+    if (length < UINT5_MAX && context.strings.has(value)) {
+      const typeTag: number = getTypeTag(Type.SharedString, length + 1)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+      return tagBytes + SHARED_STRING_POINTER_RELATIVE_OFFSET(buffer, offset + tagBytes, value, {
+        size: length
+      }, context)
+    } else if (length < UINT5_MAX && !context.strings.has(value)) {
+      const typeTag: number = getTypeTag(Type.String, length + 1)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+      return tagBytes + UTF8_STRING_NO_LENGTH(buffer, offset + tagBytes, value, {
+        size: length
+      }, context)
+    } else if (length >= UINT5_MAX && length < UINT5_MAX * 2 && !context.strings.has(value)) {
+      const typeTag: number = getTypeTag(Type.LongString, length - UINT5_MAX)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+      return tagBytes + UTF8_STRING_NO_LENGTH(buffer, offset + tagBytes, value, {
+        size: length
+      }, context)
+    } else if (length >= Math.pow(2, LONG_STRING_BASE_EXPONENT_MINIMUM) &&
+      length <= Math.pow(2, LONG_STRING_BASE_EXPONENT_MAXIMUM) &&
+      !context.strings.has(value)) {
+      const exponent: number | null = findHighest2Exponent(length,
+        LONG_STRING_BASE_EXPONENT_MINIMUM, LONG_STRING_BASE_EXPONENT_MAXIMUM)
+      assert(typeof exponent === 'number' && Math.pow(2, exponent) <= length)
+      const typeTag: number = getTypeTag(Type.Other, exponent)
+      const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
+      const lengthBytes: number = FLOOR__ENUM_VARINT(buffer, offset + tagBytes, length, {
+        minimum: Math.pow(2, exponent)
+      }, context)
+      return tagBytes + lengthBytes + UTF8_STRING_NO_LENGTH(
+        buffer, offset + tagBytes + lengthBytes, value, {
+          size: length
+        }, context)
+    } else {
+      const typeTag: number = getTypeTag(Type.String, 0)
+
+      // Exploit the fact that a shared string always starts with an impossible length
+      // marker (0) to avoid having to encode an additional tag
+      const tagBytes: number = context.strings.has(value)
+        ? 0
+        : encodeTypeTag(buffer, offset, typeTag, context)
+      const valueBytes: number =
+        FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tagBytes, value, {
+          minimum: 0
+        }, context)
+      return tagBytes + valueBytes
+    }
 
   // Encode an integer value
   } else if (Number.isInteger(value)) {
@@ -166,7 +251,7 @@ export const ANY__TYPE_PREFIX = (
       const type: Type = isPositive
         ? Type.PositiveIntegerByte : Type.NegativeIntegerByte
 
-      if (absoluteValue <= UINT4_MAX - 1) {
+      if (absoluteValue <= UINT5_MAX - 1) {
         const typeTag: number = getTypeTag(type, absoluteValue + 1)
         return encodeTypeTag(buffer, offset, typeTag, context)
       }
@@ -181,26 +266,26 @@ export const ANY__TYPE_PREFIX = (
       return tagBytes + valueBytes
     }
 
-    const type: Type = isPositive
-      ? Type.PositiveInteger : Type.NegativeInteger
+    const type: Type = Type.Other
+    const subtype: Subtype = isPositive
+      ? Subtype.PositiveInteger : Subtype.NegativeInteger
 
     // This assertion means that we have an integer that cannot
     // be correctly represented in JavaScript. We will leave this
     // problem aside until we switch over to C++
-    assert(type === Type.PositiveInteger || -(absoluteValue + 1) === value)
+    assert(subtype === Subtype.PositiveInteger || -(absoluteValue + 1) === value)
 
-    const typeTag: number = getTypeTag(type, 0)
+    const typeTag: number = getTypeTag(type, subtype)
     const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
     const valueBytes: number =
       FLOOR__ENUM_VARINT(buffer, offset + tagBytes, absoluteValue, {
         minimum: 0
       }, context)
     return tagBytes + valueBytes
-
   }
 
   // Encode an number value
-  const typeTag: number = getTypeTag(Type.Number, 0)
+  const typeTag: number = getTypeTag(Type.Other, Subtype.Number)
   const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
   const valueBytes: number =
       DOUBLE_VARINT_TUPLE(buffer, offset + tagBytes, value, {}, context)

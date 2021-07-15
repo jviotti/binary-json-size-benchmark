@@ -125,7 +125,7 @@ var getObjectStates = function (schema) {
 exports.getObjectStates = getObjectStates;
 var getObjectEncoding = function (schema, level) {
     var e_3, _a, e_4, _b, e_5, _c;
-    var _d, _e, _f, _g, _h, _j, _k;
+    var _d, _e, _f, _g, _h, _j;
     var states = exports.getObjectStates(schema);
     if (Array.isArray(states) && ((states.length > 1 && states.length < limits_1.UINT8_MAX) || level === 0)) {
         return enum_1.getEnumEncoding({
@@ -142,8 +142,8 @@ var getObjectEncoding = function (schema, level) {
     var unsortedRequiredBooleanProperties = [];
     var nonBooleanRequiredProperties = [];
     try {
-        for (var _l = __values((_e = schema.required) !== null && _e !== void 0 ? _e : []), _m = _l.next(); !_m.done; _m = _l.next()) {
-            var key = _m.value;
+        for (var _k = __values((_e = schema.required) !== null && _e !== void 0 ? _e : []), _l = _k.next(); !_l.done; _l = _k.next()) {
+            var key = _l.value;
             var encoding = (_g = (_f = propertyEncodings[key]) !== null && _f !== void 0 ? _f : additionalProperties) !== null && _g !== void 0 ? _g : null;
             if (encoding !== null && encoding.type === encoder_1.EncodingType.Boolean) {
                 unsortedRequiredBooleanProperties.push(key);
@@ -156,7 +156,7 @@ var getObjectEncoding = function (schema, level) {
     catch (e_3_1) { e_3 = { error: e_3_1 }; }
     finally {
         try {
-            if (_m && !_m.done && (_a = _l.return)) _a.call(_l);
+            if (_l && !_l.done && (_a = _k.return)) _a.call(_k);
         }
         finally { if (e_3) throw e_3.error; }
     }
@@ -189,9 +189,13 @@ var getObjectEncoding = function (schema, level) {
         }
         finally { if (e_4) throw e_4.error; }
     }
-    var keyEncoding = string_1.getStringEncoding((_h = schema.propertyNames) !== null && _h !== void 0 ? _h : {
-        type: 'string'
-    }, level + 1);
+    var keyEncoding = typeof schema.propertyNames !== 'undefined'
+        ? string_1.getStringEncoding(schema.propertyNames, level + 1)
+        : {
+            type: encoder_1.EncodingType.String,
+            encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+            options: {}
+        };
     if (additionalProperties === null) {
         if (optionalProperties.length === 0) {
             return {
@@ -229,12 +233,12 @@ var getObjectEncoding = function (schema, level) {
         requiredProperties.length > 0 &&
         additionalProperties.type === encoder_1.EncodingType.Integer &&
         additionalProperties.encoding === 'BOUNDED_8BITS__ENUM_FIXED') {
-        var propertiesDefinition = (_j = schema.properties) !== null && _j !== void 0 ? _j : {};
+        var propertiesDefinition = (_h = schema.properties) !== null && _h !== void 0 ? _h : {};
         var packedRequiredProperties_1 = [];
         var unpackedRequiredProperties = [];
         try {
-            for (var _o = __values((_k = schema.required) !== null && _k !== void 0 ? _k : []), _p = _o.next(); !_p.done; _p = _o.next()) {
-                var key = _p.value;
+            for (var _m = __values((_j = schema.required) !== null && _j !== void 0 ? _j : []), _o = _m.next(); !_o.done; _o = _m.next()) {
+                var key = _o.value;
                 if (booleanRequiredProperties.includes(key)) {
                     continue;
                 }
@@ -252,7 +256,7 @@ var getObjectEncoding = function (schema, level) {
         catch (e_5_1) { e_5 = { error: e_5_1 }; }
         finally {
             try {
-                if (_p && !_p.done && (_c = _o.return)) _c.call(_o);
+                if (_o && !_o.done && (_c = _m.return)) _c.call(_m);
             }
             finally { if (e_5) throw e_5.error; }
         }

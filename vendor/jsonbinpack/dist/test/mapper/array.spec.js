@@ -153,8 +153,9 @@ tap_1.default.test('should encode a semi-typed scalar heterogeneous array', func
                 },
                 {
                     type: 'string',
-                    encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+                    encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
                     options: {
+                        minimum: 0,
                         maximum: 5
                     }
                 }
@@ -192,8 +193,9 @@ tap_1.default.test('should encode a semi-typed array with minItems', function (t
                 },
                 {
                     type: 'string',
-                    encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+                    encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
                     options: {
+                        minimum: 0,
                         maximum: 5
                     }
                 }
@@ -241,8 +243,9 @@ tap_1.default.test('should encode a semi + fully typed array with minItems', fun
                 },
                 {
                     type: 'string',
-                    encoding: 'ROOF__PREFIX_LENGTH_8BIT_FIXED',
+                    encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
                     options: {
+                        minimum: 0,
                         maximum: 5
                     }
                 }

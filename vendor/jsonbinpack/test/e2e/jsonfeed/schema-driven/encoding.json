@@ -80057,8 +80057,10 @@
           "propertyEncodings": {
             "name": {
               "type": "string",
-              "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-              "options": {}
+              "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+              "options": {
+                "minimum": 0
+              }
             },
             "url": {
               "type": "string",
@@ -80090,8 +80092,10 @@
               "propertyEncodings": {
                 "id": {
                   "type": "string",
-                  "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                  "options": {}
+                  "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                  "options": {
+                    "minimum": 0
+                  }
                 },
                 "url": {
                   "type": "string",
@@ -120116,8 +120120,10 @@
                 },
                 "date_published": {
                   "type": "string",
-                  "encoding": "ARBITRARY__PREFIX_LENGTH_VARINT",
-                  "options": {}
+                  "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                  "options": {
+                    "minimum": 0
+                  }
                 }
               },
               "requiredProperties": [
