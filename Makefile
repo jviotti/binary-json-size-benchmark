@@ -87,11 +87,8 @@ benchmark/%/TAXONOMY: scripts/taxonomy.js benchmark/%/document.json
 charts:
 	mkdir $@
 
-charts/%.png: plot.gpi output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | charts
-	gnuplot \
-		-e "description=\"$(shell cat $(word 3,$^))\n{/*0.75 $(shell cat $(word 4,$^))}\"" \
-		-e "filename=\"$(word 2,$^)\"" \
-		$< > $@
+charts/%.png: plot.py output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | charts
+	python3 $< $(word 2,$^) "$(shell cat $(word 3,$^))" "$(shell cat $(word 4,$^))" $@
 
 %.gz: %
 	gzip --no-name -9 < $< > $@
