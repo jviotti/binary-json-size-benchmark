@@ -66,9 +66,8 @@ do
   echo "![$TITLE chart](https://www.jviotti.com/binary-json-size-benchmark/charts/$DOCUMENT_ID.png)"
   echo ""
 
-awk -f data.awk "output/$DOCUMENT_ID/data.dat"
-echo ""
-
+  awk -v document="$DOCUMENT_ID" -f data.awk "output/$DOCUMENT_ID/data.dat"
+  echo ""
 done
 
 echo "
