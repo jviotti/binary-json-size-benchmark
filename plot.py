@@ -30,8 +30,8 @@ width = 0.21
 fig, ax = plt.subplots()
 fillcolor = '#444'
 rects1 = ax.bar(x - width * 1.5, uncompressed, width, label=headers[3], edgecolor='#763EB2', color='#AB63FA', hatch="oo")
-rects2 = ax.bar(x - width * 0.5, gzip, width, label=headers[4], edgecolor='#984C3F', color='#EF553B', hatch="//")
-rects3 = ax.bar(x + width * 0.5, lz4, width, label=headers[5], edgecolor='#2C8B9B', color='#15D3F3', hatch="..")
+rects2 = ax.bar(x - width * 0.5, gzip, width, label=headers[4], edgecolor='#2C8B9B', color='#15D3F3', hatch="//")
+rects3 = ax.bar(x + width * 0.5, lz4, width, label=headers[5], edgecolor='#984C3F', color='#EF553B', hatch="..")
 rects4 = ax.bar(x + width * 1.5, lzma, width, label=headers[6], edgecolor='#20896D', color='#00CC96', hatch="---")
 
 plt.grid(b=True, axis='both', linewidth=0.1)
