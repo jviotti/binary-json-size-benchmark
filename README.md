@@ -95,7 +95,6 @@ Results
 | FlexBuffers | None | 18 | 38 | 37 | 41 |
 | JSON | None | 14 | 34 | 33 | 38 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/jsonbinpack/schema.json) | 2 | 22 | 21 | 25 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/jsonbinpack-schemaless/schema.json) | 10 | 30 | 29 | 34 |
 | MessagePack | None | 10 | 30 | 29 | 34 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/protobuf/schema.proto) | 5 | 25 | 24 | 27 |
 | Smile | None | 15 | 35 | 34 | 39 |
@@ -119,7 +118,6 @@ Results
 | FlexBuffers | None | 157 | 134 | 151 | 131 |
 | JSON | None | 95 | 99 | 112 | 101 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/jsonbinpack/schema.json) | 7 | 27 | 26 | 30 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/jsonbinpack-schemaless/schema.json) | 66 | 85 | 85 | 88 |
 | MessagePack | None | 72 | 90 | 91 | 92 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/protobuf/schema.proto) | 26 | 43 | 45 | 46 |
 | Smile | None | 87 | 104 | 106 | 105 |
@@ -143,7 +141,6 @@ Results
 | FlexBuffers | None | 90 | 97 | 105 | 99 |
 | JSON | None | 96 | 80 | 86 | 83 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/jsonbinpack/schema.json) | 20 | 40 | 39 | 43 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/jsonbinpack-schemaless/schema.json) | 60 | 72 | 75 | 76 |
 | MessagePack | None | 74 | 68 | 76 | 71 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/protobuf/schema.proto) | 62 | 60 | 70 | 63 |
 | Smile | None | 84 | 76 | 82 | 80 |
@@ -167,7 +164,6 @@ Results
 | FlexBuffers | None | 25 | 45 | 44 | 49 |
 | JSON | None | 25 | 45 | 44 | 49 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/jsonbinpack/schema.json) | 0 | 20 | 15 | 23 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/jsonbinpack-schemaless/schema.json) | 17 | 37 | 36 | 41 |
 | MessagePack | None | 17 | 37 | 36 | 41 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/protobuf/schema.proto) | 0 | 20 | 15 | 23 |
 | Smile | None | 22 | 42 | 41 | 47 |
@@ -191,7 +187,6 @@ Results
 | FlexBuffers | None | 429 | 355 | 417 | 342 |
 | JSON | None | 520 | 264 | 332 | 272 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/jsonbinpack/schema.json) | 183 | 172 | 202 | 172 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/jsonbinpack-schemaless/schema.json) | 321 | 282 | 318 | 274 |
 | MessagePack | None | 412 | 262 | 307 | 254 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/protobuf/schema.proto) | 247 | 196 | 222 | 189 |
 | Smile | None | 356 | 266 | 311 | 261 |
@@ -215,7 +210,6 @@ Results
 | FlexBuffers | None | 1201 | 635 | 824 | 636 |
 | JSON | None | 1141 | 488 | 703 | 521 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/jsonbinpack/schema.json) | 65 | 81 | 84 | 84 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/jsonbinpack-schemaless/schema.json) | 969 | 511 | 710 | 538 |
 | MessagePack | None | 971 | 525 | 712 | 546 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/protobuf/schema.proto) | 161 | 164 | 180 | 155 |
 | Smile | None | 979 | 544 | 724 | 565 |
@@ -239,7 +233,6 @@ Results
 | FlexBuffers | None | 91 | 107 | 110 | 109 |
 | JSON | None | 102 | 101 | 117 | 103 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/jsonbinpack/schema.json) | 12 | 32 | 31 | 35 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/jsonbinpack-schemaless/schema.json) | 64 | 80 | 83 | 84 |
 | MessagePack | None | 64 | 82 | 83 | 85 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/protobuf/schema.proto) | 23 | 43 | 42 | 47 |
 | Smile | None | 70 | 87 | 89 | 91 |
@@ -263,7 +256,6 @@ Results
 | FlexBuffers | None | 309 | 167 | 200 | 163 |
 | JSON | None | 190 | 121 | 146 | 116 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/jsonbinpack/schema.json) | 82 | 69 | 82 | 66 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/jsonbinpack-schemaless/schema.json) | 117 | 101 | 122 | 100 |
 | MessagePack | None | 162 | 111 | 132 | 109 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/protobuf/schema.proto) | 325 | 115 | 145 | 107 |
 | Smile | None | 228 | 131 | 158 | 128 |
@@ -287,7 +279,6 @@ Results
 | FlexBuffers | None | 152 | 143 | 168 | 148 |
 | JSON | None | 183 | 134 | 167 | 144 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/jsonbinpack/schema.json) | 16 | 36 | 35 | 39 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/jsonbinpack-schemaless/schema.json) | 124 | 124 | 143 | 135 |
 | MessagePack | None | 124 | 124 | 143 | 136 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/protobuf/schema.proto) | 17 | 37 | 36 | 41 |
 | Smile | None | 129 | 134 | 148 | 139 |
@@ -311,7 +302,6 @@ Results
 | FlexBuffers | None | 396 | 309 | 369 | 318 |
 | JSON | None | 356 | 228 | 292 | 247 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/jsonbinpack/schema.json) | 165 | 151 | 163 | 152 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/jsonbinpack-schemaless/schema.json) | 277 | 233 | 261 | 228 |
 | MessagePack | None | 287 | 222 | 256 | 224 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/protobuf/schema.proto) | 189 | 176 | 195 | 175 |
 | Smile | None | 287 | 235 | 268 | 240 |
@@ -335,7 +325,6 @@ Results
 | FlexBuffers | None | 94 | 110 | 113 | 115 |
 | JSON | None | 93 | 94 | 106 | 95 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/jsonbinpack/schema.json) | 11 | 31 | 30 | 35 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/jsonbinpack-schemaless/schema.json) | 57 | 76 | 76 | 79 |
 | MessagePack | None | 60 | 76 | 79 | 78 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/protobuf/schema.proto) | 20 | 36 | 39 | 41 |
 | Smile | None | 70 | 85 | 88 | 88 |
@@ -359,7 +348,6 @@ Results
 | FlexBuffers | None | 89 | 102 | 107 | 103 |
 | JSON | None | 82 | 88 | 96 | 90 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/jsonbinpack/schema.json) | 21 | 41 | 40 | 44 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/jsonbinpack-schemaless/schema.json) | 61 | 76 | 78 | 78 |
 | MessagePack | None | 61 | 77 | 78 | 78 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/protobuf/schema.proto) | 23 | 43 | 42 | 47 |
 | Smile | None | 70 | 86 | 88 | 88 |
@@ -383,7 +371,6 @@ Results
 | FlexBuffers | None | 95 | 109 | 114 | 111 |
 | JSON | None | 86 | 86 | 99 | 88 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/jsonbinpack/schema.json) | 10 | 30 | 29 | 33 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/jsonbinpack-schemaless/schema.json) | 52 | 72 | 71 | 76 |
 | MessagePack | None | 52 | 73 | 71 | 76 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/protobuf/schema.proto) | 21 | 41 | 40 | 43 |
 | Smile | None | 63 | 82 | 82 | 84 |
@@ -407,7 +394,6 @@ Results
 | FlexBuffers | None | 39 | 56 | 58 | 60 |
 | JSON | None | 34 | 54 | 53 | 58 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/jsonbinpack/schema.json) | 8 | 28 | 27 | 31 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/jsonbinpack-schemaless/schema.json) | 21 | 41 | 40 | 46 |
 | MessagePack | None | 21 | 41 | 40 | 46 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/protobuf/schema.proto) | 10 | 30 | 29 | 33 |
 | Smile | None | 27 | 48 | 46 | 52 |
@@ -431,7 +417,6 @@ Results
 | FlexBuffers | None | 598 | 406 | 475 | 400 |
 | JSON | None | 573 | 327 | 418 | 341 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/jsonbinpack/schema.json) | 308 | 255 | 273 | 251 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/jsonbinpack-schemaless/schema.json) | 514 | 330 | 396 | 335 |
 | MessagePack | None | 517 | 331 | 398 | 337 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/protobuf/schema.proto) | 413 | 261 | 302 | 264 |
 | Smile | None | 521 | 335 | 403 | 341 |
@@ -455,7 +440,6 @@ Results
 | FlexBuffers | None | 3049 | 1966 | 2560 | 1936 |
 | JSON | None | 3048 | 1556 | 2204 | 1586 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/jsonbinpack/schema.json) | 1469 | 1173 | 1358 | 1141 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/jsonbinpack-schemaless/schema.json) | 2619 | 1633 | 2179 | 1640 |
 | MessagePack | None | 2749 | 1600 | 2163 | 1615 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/protobuf/schema.proto) | 2225 | 1370 | 1832 | 1371 |
 | Smile | None | 2620 | 1581 | 2169 | 1621 |
@@ -479,7 +463,6 @@ Results
 | FlexBuffers | None | 890 | 559 | 664 | 552 |
 | JSON | None | 1049 | 411 | 548 | 425 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/jsonbinpack/schema.json) | 132 | 129 | 144 | 123 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/jsonbinpack-schemaless/schema.json) | 748 | 481 | 557 | 465 |
 | MessagePack | None | 919 | 458 | 565 | 443 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/protobuf/schema.proto) | 284 | 155 | 195 | 152 |
 | Smile | None | 870 | 453 | 558 | 450 |
@@ -503,7 +486,6 @@ Results
 | FlexBuffers | None | 1389 | 869 | 1140 | 873 |
 | JSON | None | 1507 | 649 | 926 | 682 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/jsonbinpack/schema.json) | 73 | 94 | 92 | 97 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/jsonbinpack-schemaless/schema.json) | 1085 | 678 | 886 | 688 |
 | MessagePack | None | 1172 | 670 | 872 | 678 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/protobuf/schema.proto) | 109 | 129 | 128 | 132 |
 | Smile | None | 1090 | 683 | 886 | 701 |
@@ -527,7 +509,6 @@ Results
 | FlexBuffers | None | 660 | 502 | 590 | 483 |
 | JSON | None | 494 | 341 | 470 | 361 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/jsonbinpack/schema.json) | 113 | 134 | 132 | 138 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/jsonbinpack-schemaless/schema.json) | 349 | 331 | 362 | 321 |
 | MessagePack | None | 382 | 358 | 393 | 350 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/protobuf/schema.proto) | 188 | 199 | 207 | 203 |
 | Smile | None | 412 | 389 | 418 | 372 |
@@ -551,7 +532,6 @@ Results
 | FlexBuffers | None | 488 | 376 | 420 | 357 |
 | JSON | None | 375 | 250 | 302 | 252 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/jsonbinpack/schema.json) | 100 | 119 | 119 | 119 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/jsonbinpack-schemaless/schema.json) | 254 | 260 | 270 | 250 |
 | MessagePack | None | 339 | 276 | 297 | 259 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/protobuf/schema.proto) | 173 | 171 | 183 | 172 |
 | Smile | None | 326 | 299 | 324 | 290 |
@@ -575,7 +555,6 @@ Results
 | FlexBuffers | None | 2320 | 1395 | 1767 | 1381 |
 | JSON | None | 2259 | 1093 | 1520 | 1129 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/jsonbinpack/schema.json) | 950 | 840 | 889 | 796 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/jsonbinpack-schemaless/schema.json) | 1957 | 1129 | 1472 | 1139 |
 | MessagePack | None | 1995 | 1131 | 1483 | 1143 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/protobuf/schema.proto) | 1581 | 888 | 1149 | 903 |
 | Smile | None | 1983 | 1119 | 1473 | 1138 |
@@ -599,7 +578,6 @@ Results
 | FlexBuffers | None | 942 | 522 | 629 | 510 |
 | JSON | None | 1159 | 321 | 441 | 344 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/jsonbinpack/schema.json) | 90 | 80 | 85 | 81 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/jsonbinpack-schemaless/schema.json) | 791 | 457 | 542 | 430 |
 | MessagePack | None | 989 | 366 | 476 | 365 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/protobuf/schema.proto) | 454 | 197 | 252 | 172 |
 | Smile | None | 1002 | 380 | 499 | 388 |
@@ -623,7 +601,6 @@ Results
 | FlexBuffers | None | 37 | 52 | 56 | 55 |
 | JSON | None | 44 | 50 | 58 | 55 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/jsonbinpack/schema.json) | 0 | 20 | 15 | 23 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/jsonbinpack-schemaless/schema.json) | 25 | 45 | 44 | 49 |
 | MessagePack | None | 25 | 45 | 44 | 49 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/protobuf/schema.proto) | 0 | 20 | 15 | 23 |
 | Smile | None | 30 | 50 | 49 | 54 |
@@ -647,7 +624,6 @@ Results
 | FlexBuffers | None | 228 | 214 | 244 | 207 |
 | JSON | None | 673 | 154 | 195 | 164 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/jsonbinpack/schema.json) | 89 | 98 | 108 | 99 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/jsonbinpack-schemaless/schema.json) | 185 | 175 | 202 | 177 |
 | MessagePack | None | 627 | 157 | 192 | 163 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/protobuf/schema.proto) | 521 | 114 | 133 | 109 |
 | Smile | None | 604 | 168 | 199 | 173 |
@@ -671,7 +647,6 @@ Results
 | FlexBuffers | None | 77 | 76 | 88 | 80 |
 | JSON | None | 67 | 68 | 74 | 70 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/jsonbinpack/schema.json) | 1 | 21 | 20 | 24 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/jsonbinpack-schemaless/schema.json) | 51 | 61 | 70 | 64 |
 | MessagePack | None | 51 | 62 | 70 | 64 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/protobuf/schema.proto) | 8 | 28 | 27 | 31 |
 | Smile | None | 59 | 68 | 73 | 71 |
@@ -695,7 +670,6 @@ Results
 | FlexBuffers | None | 70 | 78 | 81 | 80 |
 | JSON | None | 63 | 70 | 72 | 73 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/jsonbinpack/schema.json) | 46 | 54 | 56 | 57 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/jsonbinpack-schemaless/schema.json) | 55 | 63 | 65 | 65 |
 | MessagePack | None | 55 | 63 | 65 | 65 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/protobuf/schema.proto) | 47 | 55 | 57 | 58 |
 | Smile | None | 61 | 69 | 71 | 72 |
@@ -719,7 +693,6 @@ Results
 | FlexBuffers | None | 102 | 106 | 116 | 109 |
 | JSON | None | 98 | 90 | 99 | 92 |
 | JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/jsonbinpack/schema.json) | 1 | 21 | 20 | 24 |
-| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/jsonbinpack-schemaless/schema.json) | 68 | 80 | 87 | 82 |
 | MessagePack | None | 68 | 81 | 87 | 82 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/protobuf/schema.proto) | 14 | 34 | 33 | 36 |
 | Smile | None | 78 | 88 | 92 | 92 |

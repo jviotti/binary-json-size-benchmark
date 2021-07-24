@@ -100,16 +100,21 @@ charts/%.png: plot.py output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | 
 	lzma -9 --stdout < $< > $@
 
 ALL_FORMATS = $(notdir $(wildcard skeleton/*))
-ifdef ASN1STEP
-FORMATS = $(ALL_FORMATS)
-else
-FORMATS = $(filter-out asn1,$(ALL_FORMATS))
+
+ifndef ASN1STEP
+IGNORE_FORMATS += asn1
 endif
 
 ifeq ($(APPLE_SILICON),1)
-FORMATS = $(filter-out bond,$(ALL_FORMATS))
-FORMATS = $(filter-out smile,$(ALL_FORMATS))
+IGNORE_FORMATS += bond
+IGNORE_FORMATS += smile
 endif
+
+# TODO: Remove this one after the benchmark paper is published
+IGNORE_FORMATS += jsonbinpack
+IGNORE_FORMATS += jsonbinpack-schemaless
+
+FORMATS = $(filter-out $(IGNORE_FORMATS),$(ALL_FORMATS))
 
 DOCUMENTS = $(notdir $(wildcard benchmark/*))
 
@@ -376,3 +381,6 @@ benchmark-%:
 	DEPSDIR="$(DEPSDIR)" make output/$(subst -,/,$(subst benchmark-,,$@))/output.json
 
 all: $(CHARTS) README.md
+
+help:
+	echo $(FORMATS)
