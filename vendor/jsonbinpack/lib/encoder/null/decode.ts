@@ -33,7 +33,7 @@ export interface NullResult extends DecodeResult {
   readonly bytes: number;
 }
 
-export const NULL_8BITS__ENUM_FIXED = (
+export const NULL_8BITS_ENUM_FIXED = (
   _buffer: ResizableBuffer, _offset: number, _options: NoOptions
 ): NullResult => {
   return {

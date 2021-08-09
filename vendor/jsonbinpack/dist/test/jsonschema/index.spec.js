@@ -80,8 +80,6 @@ try {
             'anchor.json',
             'unknownKeyword.json',
             'format.json',
-            'time.json',
-            'iri.json',
             'dynamicRef.json',
             'float-overflow.json'
         ].includes(name_1)) {

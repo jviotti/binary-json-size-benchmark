@@ -8,9 +8,11 @@ var DOUBLE_VARINT_TUPLE = function (buffer, offset, _options) {
     var pointResult = varint_1.varintDecode(buffer, offset + integralResult.bytes);
     var integralValue = zigzag_1.zigzagDecode(integralResult.value);
     var integral = integralValue.toString();
-    var point = Number(zigzag_1.zigzagDecode(pointResult.value));
+    var point = integralValue < BigInt(0)
+        ? Number(zigzag_1.zigzagDecode(pointResult.value)) + 1
+        : Number(zigzag_1.zigzagDecode(pointResult.value));
     var bytes = integralResult.bytes + pointResult.bytes;
-    if (point === 0) {
+    if (point === 0 || (point === 1 && integralValue < BigInt(0))) {
         return {
             value: Number(integralValue),
             bytes: bytes

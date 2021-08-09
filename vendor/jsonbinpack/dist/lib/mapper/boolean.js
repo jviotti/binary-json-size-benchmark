@@ -9,7 +9,7 @@ exports.getBooleanStates = getBooleanStates;
 var getBooleanEncoding = function (_schema, _level) {
     return {
         type: encoder_1.EncodingType.Boolean,
-        encoding: 'BOOLEAN_8BITS__ENUM_FIXED',
+        encoding: 'BOOLEAN_8BITS_ENUM_FIXED',
         options: {}
     };
 };

@@ -34,10 +34,8 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.integerListDecode = exports.integerListEncode = void 0;
 var assert_1 = require("assert");
-var encode_1 = require("../integer/encode");
-var decode_1 = require("../integer/decode");
 var bitset_1 = require("./bitset");
-var integerListEncode = function (buffer, offset, integers, options, context) {
+var integerListEncode = function (buffer, offset, integers, options) {
     var e_1, _a;
     var bits = Math.floor(Math.log2(options.maximum - options.minimum) + 1);
     var result = [];
@@ -61,22 +59,16 @@ var integerListEncode = function (buffer, offset, integers, options, context) {
         }
         finally { if (e_1) throw e_1.error; }
     }
-    var lengthBytes = encode_1.FLOOR__ENUM_VARINT(buffer, offset, integers.length, {
-        minimum: 0
-    }, context);
-    return lengthBytes + bitset_1.bitsetEncode(buffer, offset + lengthBytes, result);
+    return bitset_1.bitsetEncode(buffer, offset, result);
 };
 exports.integerListEncode = integerListEncode;
-var integerListDecode = function (buffer, offset, options) {
-    var length = decode_1.FLOOR__ENUM_VARINT(buffer, offset, {
-        minimum: 0
-    });
+var integerListDecode = function (buffer, offset, size, options) {
     var range = options.maximum - options.minimum;
     var bits = range === 0 ? 1 : Math.floor(Math.log2(range) + 1);
-    var bitset = bitset_1.bitsetDecode(buffer, offset + length.bytes, length.value * bits);
+    var bitset = bitset_1.bitsetDecode(buffer, offset, size * bits);
     var result = [];
     var index = 0;
-    while (result.length < length.value) {
+    while (result.length < size) {
         var value = parseInt(bitset.value.slice(index, index + bits).map(function (digit) {
             return digit ? '1' : '0';
         }).join(''), 2);
@@ -85,7 +77,7 @@ var integerListDecode = function (buffer, offset, options) {
     }
     return {
         value: result,
-        bytes: length.bytes + bitset.bytes
+        bytes: bitset.bytes
     };
 };
 exports.integerListDecode = integerListDecode;

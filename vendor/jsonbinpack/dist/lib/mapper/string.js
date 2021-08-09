@@ -37,20 +37,28 @@ var getStringEncoding = function (schema, _level) {
         typeof schema.maxLength === 'undefined' ||
         schema.maxLength >= schema.minLength);
     if (typeof schema.minLength !== 'undefined' && typeof schema.maxLength !== 'undefined') {
+        if (schema.maxLength - schema.minLength <= limits_1.UINT8_MAX - 1) {
+            return {
+                type: encoder_1.EncodingType.String,
+                encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
+                options: {
+                    minimum: schema.minLength,
+                    maximum: schema.maxLength
+                }
+            };
+        }
         return {
             type: encoder_1.EncodingType.String,
-            encoding: (schema.maxLength - schema.minLength <= limits_1.UINT8_MAX - 1)
-                ? 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED' : 'BOUNDED__PREFIX_LENGTH_ENUM_VARINT',
+            encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
             options: {
-                minimum: schema.minLength,
-                maximum: schema.maxLength
+                minimum: schema.minLength
             }
         };
     }
     else if (typeof schema.minLength !== 'undefined' && typeof schema.maxLength === 'undefined') {
         return {
             type: encoder_1.EncodingType.String,
-            encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+            encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
             options: {
                 minimum: schema.minLength
             }
@@ -60,7 +68,7 @@ var getStringEncoding = function (schema, _level) {
         if (schema.maxLength <= limits_1.UINT8_MAX - 1) {
             return {
                 type: encoder_1.EncodingType.String,
-                encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+                encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
                 options: {
                     minimum: 0,
                     maximum: schema.maxLength
@@ -69,7 +77,7 @@ var getStringEncoding = function (schema, _level) {
         }
         return {
             type: encoder_1.EncodingType.String,
-            encoding: 'ROOF__PREFIX_LENGTH_ENUM_VARINT',
+            encoding: 'ROOF_PREFIX_LENGTH_ENUM_VARINT',
             options: {
                 maximum: schema.maxLength
             }
@@ -84,7 +92,7 @@ var getStringEncoding = function (schema, _level) {
     }
     return {
         type: encoder_1.EncodingType.String,
-        encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+        encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
         options: {
             minimum: 0
         }

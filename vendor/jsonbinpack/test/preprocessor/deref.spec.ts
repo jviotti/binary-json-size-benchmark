@@ -101,4 +101,3 @@ tap.test('should de-reference a simple oneOf schema', async (test) => {
 
   test.end()
 })
-

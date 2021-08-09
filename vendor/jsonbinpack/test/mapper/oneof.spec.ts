@@ -51,7 +51,7 @@ tap.test('should encode a oneOf schema with multiple choices', (test) => {
     type: 'oneOf',
     encoding: 'ONEOF_CHOICE_INDEX_PREFIX',
     options: {
-      schemas: [
+      choices: [
         {
           schema: {
             type: 'string'
@@ -112,7 +112,7 @@ tap.test('should encode a oneOf schema with multiple boolean choices', (test) =>
     type: 'oneOf',
     encoding: 'ONEOF_CHOICE_INDEX_PREFIX',
     options: {
-      schemas: [
+      choices: [
         {
           schema: {
             type: 'boolean'
@@ -167,7 +167,7 @@ tap.test('should encode a oneOf schema with multiple bounded choices', (test) =>
     type: 'oneOf',
     encoding: 'ONEOF_CHOICE_INDEX_PREFIX',
     options: {
-      schemas: [
+      choices: [
         {
           schema: {
             type: 'boolean'
@@ -213,7 +213,7 @@ tap.test('should encode a oneOf schema with one bounded and one unbounded choice
     type: 'oneOf',
     encoding: 'ONEOF_CHOICE_INDEX_PREFIX',
     options: {
-      schemas: [
+      choices: [
         {
           schema: {
             type: 'boolean'

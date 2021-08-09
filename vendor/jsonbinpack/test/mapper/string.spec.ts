@@ -73,7 +73,7 @@ tap.test('should encode a simple string', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+    encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
     options: {
       minimum: 0
     }
@@ -92,7 +92,7 @@ tap.test('should encode a string with minLength', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+    encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
     options: {
       minimum: 5
     }
@@ -111,7 +111,7 @@ tap.test('should encode a string with maxLength >= 255', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'ROOF__PREFIX_LENGTH_ENUM_VARINT',
+    encoding: 'ROOF_PREFIX_LENGTH_ENUM_VARINT',
     options: {
       maximum: 256
     }
@@ -130,7 +130,7 @@ tap.test('should encode a string with maxLength < 255', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+    encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
     options: {
       minimum: 0,
       maximum: 254
@@ -150,7 +150,7 @@ tap.test('should encode a string with maxLength = 255', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'ROOF__PREFIX_LENGTH_ENUM_VARINT',
+    encoding: 'ROOF_PREFIX_LENGTH_ENUM_VARINT',
     options: {
       maximum: 255
     }
@@ -172,7 +172,7 @@ tap.test('should encode a string with minLength and maxLength < 255', (
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+    encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
     options: {
       minimum: 100,
       maximum: 300
@@ -195,10 +195,9 @@ tap.test('should encode a string with minLength and maxLength > 255', (
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'string',
-    encoding: 'BOUNDED__PREFIX_LENGTH_ENUM_VARINT',
+    encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
     options: {
-      minimum: 100,
-      maximum: 600
+      minimum: 100
     }
   })
 

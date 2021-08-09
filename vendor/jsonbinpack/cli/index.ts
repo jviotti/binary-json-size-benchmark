@@ -78,7 +78,7 @@ if (COMMAND === 'compile') {
   process.stdout.write(buffer, () => {
     process.exit(0)
   })
-} else if (COMMAND === 'decode') {
+} else {
   const encodingPath: string | undefined = process.argv[3]
   if (typeof encodingPath !== 'string') {
     console.error('Missing input encoding document')
@@ -96,7 +96,4 @@ if (COMMAND === 'compile') {
   const result: JSONValue = decode(encoding, binary)
   console.log(JSON.stringify(result, null, 2))
   process.exit(0)
-} else {
-  console.error(`Unknown command: ${COMMAND}`)
-  process.exit(1)
 }

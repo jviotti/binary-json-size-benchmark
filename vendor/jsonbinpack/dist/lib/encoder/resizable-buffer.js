@@ -5,14 +5,6 @@ var ResizableBuffer = (function () {
         this.buffer = buffer;
         this.written = 0;
     }
-    ResizableBuffer.prototype.grow = function (bytes) {
-        if (this.written + bytes > this.buffer.length) {
-            this.buffer = Buffer.concat([
-                this.buffer,
-                Buffer.allocUnsafe((this.buffer.length * 2) + bytes)
-            ]);
-        }
-    };
     ResizableBuffer.prototype.getOriginalSize = function () {
         return this.buffer.length;
     };
@@ -75,6 +67,14 @@ var ResizableBuffer = (function () {
         var bytesWritten = buffer.copy(this.buffer, offset);
         this.written = Math.max(this.written + buffer.length, offset + buffer.length);
         return bytesWritten;
+    };
+    ResizableBuffer.prototype.grow = function (bytes) {
+        if (this.written + bytes > this.buffer.length) {
+            this.buffer = Buffer.concat([
+                this.buffer,
+                Buffer.allocUnsafe((this.buffer.length * 2) + bytes)
+            ]);
+        }
     };
     return ResizableBuffer;
 }());

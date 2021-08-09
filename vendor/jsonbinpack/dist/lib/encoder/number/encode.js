@@ -44,8 +44,10 @@ var stringPrefixCount = function (value, prefix) {
 };
 var DOUBLE_VARINT_TUPLE = function (buffer, offset, value, _options, _context) {
     var valueString = from_exponential_1.default(value);
-    var pointIndex = valueString.indexOf('.');
-    var point = pointIndex === -1 ? 0 : pointIndex;
+    var pointIndex = valueString.startsWith('-')
+        ? valueString.indexOf('.') - 1
+        : valueString.indexOf('.');
+    var point = pointIndex > 0 ? pointIndex : 0;
     assert_1.strict(point >= 0);
     var integralString = valueString.replace('.', '');
     var zeroPrefix = stringPrefixCount(integralString.startsWith('-')
@@ -54,7 +56,7 @@ var DOUBLE_VARINT_TUPLE = function (buffer, offset, value, _options, _context) {
     var integralBytes = varint_1.varintEncode(buffer, offset, zigzag_1.zigzagEncode(BigInt(integralString)));
     var pointValue = zeroPrefix === 0 || zeroPrefix === integralString.length
         ? zigzag_1.zigzagEncode(BigInt(point))
-        : zigzag_1.zigzagEncode(BigInt(-zeroPrefix));
+        : zigzag_1.zigzagEncode(BigInt(-zeroPrefix - (valueString.startsWith('-') ? 1 : 0)));
     return integralBytes + varint_1.varintEncode(buffer, offset + integralBytes, pointValue);
 };
 exports.DOUBLE_VARINT_TUPLE = DOUBLE_VARINT_TUPLE;

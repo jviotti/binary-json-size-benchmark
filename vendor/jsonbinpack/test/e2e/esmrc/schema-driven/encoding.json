@@ -5,16 +5,17 @@
     "propertyEncodings": {
       "cjs": {
         "type": "boolean",
-        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
         "options": {}
       },
       "mainFields": {
         "type": "array",
-        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
         "options": {
+          "minimum": 0,
           "encoding": {
             "type": "string",
-            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
             "options": {
               "minimum": 0
             }
@@ -35,17 +36,17 @@
       },
       "force": {
         "type": "boolean",
-        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
         "options": {}
       },
       "cache": {
         "type": "boolean",
-        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
         "options": {}
       },
       "sourceMap": {
         "type": "boolean",
-        "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+        "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
         "options": {}
       }
     },

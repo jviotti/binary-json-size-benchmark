@@ -123,7 +123,8 @@ tap.test('BOUNDED_CHOICE_INDEX', (test) => {
     const context: EncodingContext = getDefaultEncodingContext()
 
     const choices: JSONValue[] = array.map((json: string) => {
-      return JSON.parse(json)
+      const value: JSONValue = JSON.parse(json)
+      return value
     })
 
     const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
@@ -160,7 +161,8 @@ tap.test('LARGE_BOUNDED_CHOICE_INDEX', (test) => {
     const context: EncodingContext = getDefaultEncodingContext()
 
     const choices: JSONValue[] = array.map((json: string) => {
-      return JSON.parse(json)
+      const value: JSONValue = JSON.parse(json)
+      return value
     })
 
     const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))

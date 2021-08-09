@@ -5,14 +5,14 @@
         "propertyEncodings": {
             "extends": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "parser": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -33,11 +33,12 @@
             },
             "plugins": {
                 "type": "array",
-                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                 "options": {
+                    "minimum": 0,
                     "encoding": {
                         "type": "string",
-                        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                        "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                         "options": {
                             "minimum": 0
                         }
@@ -99,7 +100,7 @@
                 "options": {
                     "packedEncoding": {
                         "type": "integer",
-                        "encoding": "BOUNDED_8BITS__ENUM_FIXED",
+                        "encoding": "BOUNDED_8BITS_ENUM_FIXED",
                         "options": {
                             "minimum": 0,
                             "maximum": 2

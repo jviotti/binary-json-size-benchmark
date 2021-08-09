@@ -40,15 +40,15 @@ import {
 
 import {
   IntegerResult,
-  BOUNDED_8BITS__ENUM_FIXED,
-  FLOOR__ENUM_VARINT
+  BOUNDED_8BITS_ENUM_FIXED,
+  FLOOR_ENUM_VARINT
 } from '../integer/decode'
 
 import {
   StringResult,
   UTF8_STRING_NO_LENGTH,
   SHARED_STRING_POINTER_RELATIVE_OFFSET,
-  FLOOR__PREFIX_LENGTH_ENUM_VARINT
+  FLOOR_PREFIX_LENGTH_ENUM_VARINT
 } from '../string/decode'
 
 import {
@@ -64,8 +64,8 @@ import {
 
 import {
   ArrayResult,
-  FLOOR_SEMITYPED__LENGTH_PREFIX,
-  FLOOR_SEMITYPED__NO_LENGTH_PREFIX
+  FLOOR_TYPED_LENGTH_PREFIX,
+  FIXED_TYPED_ARRAY
 } from '../array/decode'
 
 import {
@@ -86,10 +86,10 @@ export interface AnyResult extends DecodeResult {
   readonly bytes: number;
 }
 
-export const ANY__TYPE_PREFIX = (
+export const ANY_PACKED_TYPE_TAG_BYTE_PREFIX = (
   buffer: ResizableBuffer, offset: number, _options: NoOptions
 ): AnyResult => {
-  const tag: IntegerResult = BOUNDED_8BITS__ENUM_FIXED(buffer, offset, {
+  const tag: IntegerResult = BOUNDED_8BITS_ENUM_FIXED(buffer, offset, {
     minimum: UINT8_MIN,
     maximum: UINT8_MAX
   })
@@ -97,14 +97,23 @@ export const ANY__TYPE_PREFIX = (
   if (isType(Type.Array, tag.value)) {
     const size: number = getMetadata(tag.value)
     const result: ArrayResult = size === 0
-      ? FLOOR_SEMITYPED__LENGTH_PREFIX(buffer, offset + tag.bytes, {
+      ? FLOOR_TYPED_LENGTH_PREFIX(buffer, offset + tag.bytes, {
         minimum: 0,
-        prefixEncodings: []
+        prefixEncodings: [],
+        encoding: {
+          type: EncodingType.Any,
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+          options: {}
+        }
       })
-      : FLOOR_SEMITYPED__NO_LENGTH_PREFIX(buffer, offset + tag.bytes, {
+      : FIXED_TYPED_ARRAY(buffer, offset + tag.bytes, {
         size: size - 1,
-        minimum: 0,
-        prefixEncodings: []
+        prefixEncodings: [],
+        encoding: {
+          type: EncodingType.Any,
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+          options: {}
+        }
       })
 
     return {
@@ -118,12 +127,12 @@ export const ANY__TYPE_PREFIX = (
       ? ARBITRARY_TYPED_KEYS_OBJECT(buffer, offset + tag.bytes, {
         keyEncoding: {
           type: EncodingType.String,
-          encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+          encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
           options: {}
         },
         encoding: {
           type: EncodingType.Any,
-          encoding: 'ANY__TYPE_PREFIX',
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
           options: {}
         }
       })
@@ -131,12 +140,12 @@ export const ANY__TYPE_PREFIX = (
         size: size - 1,
         keyEncoding: {
           type: EncodingType.String,
-          encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+          encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
           options: {}
         },
         encoding: {
           type: EncodingType.Any,
-          encoding: 'ANY__TYPE_PREFIX',
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
           options: {}
         }
       })
@@ -164,7 +173,7 @@ export const ANY__TYPE_PREFIX = (
     const size: number = getMetadata(tag.value)
     if (size === 0) {
       const result: StringResult =
-        FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+        FLOOR_PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
           minimum: 0
         })
       return {
@@ -186,7 +195,7 @@ export const ANY__TYPE_PREFIX = (
     const size: number = getMetadata(tag.value)
     if (size === 0) {
       const result: StringResult =
-        FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tag.bytes, {
+        FLOOR_PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tag.bytes, {
           minimum: 0
         })
       return {
@@ -208,7 +217,7 @@ export const ANY__TYPE_PREFIX = (
     const size: number = getMetadata(tag.value) + UINT5_MAX
     const result: StringResult = UTF8_STRING_NO_LENGTH(
       buffer, offset + tag.bytes, {
-        size: size
+        size
       })
 
     return {
@@ -222,7 +231,7 @@ export const ANY__TYPE_PREFIX = (
     getMetadata(tag.value) === Subtype.LongStringBaseExponent10
   )) {
     const size: IntegerResult =
-      FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+      FLOOR_ENUM_VARINT(buffer, offset + tag.bytes, {
         minimum: Math.pow(2, getMetadata(tag.value))
       })
 
@@ -237,7 +246,7 @@ export const ANY__TYPE_PREFIX = (
     }
   } else if (isPositiveInteger(tag.value)) {
     const result: IntegerResult =
-      FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+      FLOOR_ENUM_VARINT(buffer, offset + tag.bytes, {
         minimum: 0
       })
     return {
@@ -246,7 +255,7 @@ export const ANY__TYPE_PREFIX = (
     }
   } else if (isNegativeInteger(tag.value)) {
     const result: IntegerResult =
-      FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+      FLOOR_ENUM_VARINT(buffer, offset + tag.bytes, {
         minimum: 0
       })
     return {
@@ -263,7 +272,7 @@ export const ANY__TYPE_PREFIX = (
     }
 
     const result: IntegerResult =
-      BOUNDED_8BITS__ENUM_FIXED(buffer, offset + tag.bytes, {
+      BOUNDED_8BITS_ENUM_FIXED(buffer, offset + tag.bytes, {
         minimum: UINT8_MIN,
         maximum: UINT8_MAX
       })
@@ -281,7 +290,7 @@ export const ANY__TYPE_PREFIX = (
     }
 
     const result: IntegerResult =
-      BOUNDED_8BITS__ENUM_FIXED(buffer, offset + tag.bytes, {
+      BOUNDED_8BITS_ENUM_FIXED(buffer, offset + tag.bytes, {
         minimum: UINT8_MIN,
         maximum: UINT8_MAX
       })

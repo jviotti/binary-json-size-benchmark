@@ -46,6 +46,7 @@ export const varintDecode = (buffer: ResizableBuffer, offset: number): VarintDec
   let result: bigint = ZERO
   let cursor: number = offset
 
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   while (true) {
     const value: bigint = BigInt(buffer.readUInt8(cursor))
     result += ((value & LEAST_SIGNIFICANT_BITS) << (SHIFT * BigInt(cursor - offset)))

@@ -21,21 +21,8 @@ import {
 import ResizableBuffer from '../resizable-buffer'
 
 import {
-  EncodingContext
-} from '../context'
-
-import {
   BoundedOptions
 } from '../integer/options'
-
-import {
-  FLOOR__ENUM_VARINT as ENCODE_FLOOR__ENUM_VARINT
-} from '../integer/encode'
-
-import {
-  IntegerResult,
-  FLOOR__ENUM_VARINT as DECODE_FLOOR__ENUM_VARINT
-} from '../integer/decode'
 
 import {
   BitsetResult,
@@ -49,8 +36,7 @@ import {
 
 export const integerListEncode = (
   buffer: ResizableBuffer, offset: number,
-  integers: number[], options: BoundedOptions,
-  context: EncodingContext
+  integers: number[], options: BoundedOptions
 ): number => {
   const bits: number =
     Math.floor(Math.log2(options.maximum - options.minimum) + 1)
@@ -69,11 +55,7 @@ export const integerListEncode = (
     result.push(...bitset)
   }
 
-  const lengthBytes: number = ENCODE_FLOOR__ENUM_VARINT(
-    buffer, offset, integers.length, {
-      minimum: 0
-    }, context)
-  return lengthBytes + bitsetEncode(buffer, offset + lengthBytes, result)
+  return bitsetEncode(buffer, offset, result)
 }
 
 export interface IntegerListResult extends DecodeResult {
@@ -81,21 +63,16 @@ export interface IntegerListResult extends DecodeResult {
 }
 
 export const integerListDecode = (
-  buffer: ResizableBuffer, offset: number, options: BoundedOptions
+  buffer: ResizableBuffer, offset: number, size: number, options: BoundedOptions
 ): IntegerListResult => {
-  const length: IntegerResult = DECODE_FLOOR__ENUM_VARINT(
-    buffer, offset, {
-      minimum: 0
-    })
-
   const range: number = options.maximum - options.minimum
   const bits: number = range === 0 ? 1 : Math.floor(Math.log2(range) + 1)
   const bitset: BitsetResult =
-    bitsetDecode(buffer, offset + length.bytes, length.value * bits)
+    bitsetDecode(buffer, offset, size * bits)
 
   const result: number[] = []
   let index: number = 0
-  while (result.length < length.value) {
+  while (result.length < size) {
     const value: number = parseInt(
       bitset.value.slice(index, index + bits).map((digit: boolean) => {
         return digit ? '1' : '0'
@@ -106,6 +83,6 @@ export const integerListDecode = (
 
   return {
     value: result,
-    bytes: length.bytes + bitset.bytes
+    bytes: bitset.bytes
   }
 }

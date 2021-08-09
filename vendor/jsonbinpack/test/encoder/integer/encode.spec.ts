@@ -17,16 +17,14 @@
 import tap from 'tap'
 
 import {
-  BOUNDED_8BITS__ENUM_FIXED,
-  BOUNDED_MULTIPLE_8BITS__ENUM_FIXED,
-  BOUNDED__ENUM_VARINT,
-  BOUNDED_MULTIPLE__ENUM_VARINT,
-  FLOOR__ENUM_VARINT,
-  FLOOR_MULTIPLE__ENUM_VARINT,
-  ROOF__MIRROR_ENUM_VARINT,
-  ROOF_MULTIPLE__MIRROR_ENUM_VARINT,
-  ARBITRARY__ZIGZAG_VARINT,
-  ARBITRARY_MULTIPLE__ZIGZAG_VARINT
+  BOUNDED_8BITS_ENUM_FIXED,
+  BOUNDED_MULTIPLE_8BITS_ENUM_FIXED,
+  FLOOR_ENUM_VARINT,
+  FLOOR_MULTIPLE_ENUM_VARINT,
+  ROOF_MIRROR_ENUM_VARINT,
+  ROOF_MULTIPLE_MIRROR_ENUM_VARINT,
+  ARBITRARY_ZIGZAG_VARINT,
+  ARBITRARY_MULTIPLE_ZIGZAG_VARINT
 } from '../../../lib/encoder/integer/encode'
 
 import {
@@ -35,10 +33,10 @@ import {
   getDefaultEncodingContext
 } from '../../../lib/encoder'
 
-tap.test('BOUNDED_8BITS__ENUM_FIXED: should encode -5 (-5..-1) as 0x00', (test) => {
+tap.test('BOUNDED_8BITS_ENUM_FIXED: should encode -5 (-5..-1) as 0x00', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_8BITS__ENUM_FIXED(buffer, 0, -5, {
+  const bytesWritten: number = BOUNDED_8BITS_ENUM_FIXED(buffer, 0, -5, {
     minimum: -5,
     maximum: -1
   }, context)
@@ -47,10 +45,10 @@ tap.test('BOUNDED_8BITS__ENUM_FIXED: should encode -5 (-5..-1) as 0x00', (test) 
   test.end()
 })
 
-tap.test('BOUNDED_8BITS__ENUM_FIXED: should encode 2 (-5..5) as 0x07', (test) => {
+tap.test('BOUNDED_8BITS_ENUM_FIXED: should encode 2 (-5..5) as 0x07', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_8BITS__ENUM_FIXED(buffer, 0, 2, {
+  const bytesWritten: number = BOUNDED_8BITS_ENUM_FIXED(buffer, 0, 2, {
     minimum: -5,
     maximum: 5
   }, context)
@@ -59,10 +57,10 @@ tap.test('BOUNDED_8BITS__ENUM_FIXED: should encode 2 (-5..5) as 0x07', (test) =>
   test.end()
 })
 
-tap.test('BOUNDED_8BITS__ENUM_FIXED: should encode 5 (2..8) as 0x03', (test) => {
+tap.test('BOUNDED_8BITS_ENUM_FIXED: should encode 5 (2..8) as 0x03', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_8BITS__ENUM_FIXED(buffer, 0, 5, {
+  const bytesWritten: number = BOUNDED_8BITS_ENUM_FIXED(buffer, 0, 5, {
     minimum: 2,
     maximum: 8
   }, context)
@@ -71,10 +69,10 @@ tap.test('BOUNDED_8BITS__ENUM_FIXED: should encode 5 (2..8) as 0x03', (test) => 
   test.end()
 })
 
-tap.test('BOUNDED_MULTIPLE_8BITS__ENUM_FIXED: should encode 5 (1..19) / 5 as 0x00', (test) => {
+tap.test('BOUNDED_MULTIPLE_8BITS_ENUM_FIXED: should encode 5 (1..19) / 5 as 0x00', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_MULTIPLE_8BITS__ENUM_FIXED(buffer, 0, 5, {
+  const bytesWritten: number = BOUNDED_MULTIPLE_8BITS_ENUM_FIXED(buffer, 0, 5, {
     minimum: 1,
     maximum: 19,
     multiplier: 5
@@ -84,10 +82,10 @@ tap.test('BOUNDED_MULTIPLE_8BITS__ENUM_FIXED: should encode 5 (1..19) / 5 as 0x0
   test.end()
 })
 
-tap.test('BOUNDED_MULTIPLE_8BITS__ENUM_FIXED: should encode 15 (1..19) / 5 as 0x02', (test) => {
+tap.test('BOUNDED_MULTIPLE_8BITS_ENUM_FIXED: should encode 15 (1..19) / 5 as 0x02', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_MULTIPLE_8BITS__ENUM_FIXED(buffer, 0, 15, {
+  const bytesWritten: number = BOUNDED_MULTIPLE_8BITS_ENUM_FIXED(buffer, 0, 15, {
     minimum: 1,
     maximum: 19,
     multiplier: 5
@@ -97,72 +95,10 @@ tap.test('BOUNDED_MULTIPLE_8BITS__ENUM_FIXED: should encode 15 (1..19) / 5 as 0x
   test.end()
 })
 
-tap.test('BOUNDED__ENUM_VARINT: should encode -5 (-5..-1) as 0x00', (test) => {
+tap.test('FLOOR_ENUM_VARINT: should encode -3 (-10..) as 0x07', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED__ENUM_VARINT(buffer, 0, -5, {
-    minimum: -5,
-    maximum: -1
-  }, context)
-  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x00 ]))
-  test.is(bytesWritten, 1)
-  test.end()
-})
-
-tap.test('BOUNDED__ENUM_VARINT: should encode 2 (-5..5) as 0x07', (test) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED__ENUM_VARINT(buffer, 0, 2, {
-    minimum: -5,
-    maximum: 5
-  }, context)
-  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x07 ]))
-  test.is(bytesWritten, 1)
-  test.end()
-})
-
-tap.test('BOUNDED__ENUM_VARINT: should encode 5 (2..8) as 0x03', (test) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED__ENUM_VARINT(buffer, 0, 5, {
-    minimum: 2,
-    maximum: 8
-  }, context)
-  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x03 ]))
-  test.is(bytesWritten, 1)
-  test.end()
-})
-
-tap.test('BOUNDED_MULTIPLE__ENUM_VARINT: should encode 5 (1..19) / 5 as 0x00', (test) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_MULTIPLE__ENUM_VARINT(buffer, 0, 5, {
-    minimum: 1,
-    maximum: 19,
-    multiplier: 5
-  }, context)
-  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x00 ]))
-  test.is(bytesWritten, 1)
-  test.end()
-})
-
-tap.test('BOUNDED_MULTIPLE__ENUM_VARINT: should encode 15 (1..19) / 5 as 0x02', (test) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = BOUNDED_MULTIPLE__ENUM_VARINT(buffer, 0, 15, {
-    minimum: 1,
-    maximum: 19,
-    multiplier: 5
-  }, context)
-  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x02 ]))
-  test.is(bytesWritten, 1)
-  test.end()
-})
-
-tap.test('FLOOR__ENUM_VARINT: should encode -3 (-10..) as 0x07', (test) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = FLOOR__ENUM_VARINT(buffer, 0, -3, {
+  const bytesWritten: number = FLOOR_ENUM_VARINT(buffer, 0, -3, {
     minimum: -10
   }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x07 ]))
@@ -170,10 +106,10 @@ tap.test('FLOOR__ENUM_VARINT: should encode -3 (-10..) as 0x07', (test) => {
   test.end()
 })
 
-tap.test('FLOOR__ENUM_VARINT: should encode 5 (2..) as 0x03', (test) => {
+tap.test('FLOOR_ENUM_VARINT: should encode 5 (2..) as 0x03', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = FLOOR__ENUM_VARINT(buffer, 0, 5, {
+  const bytesWritten: number = FLOOR_ENUM_VARINT(buffer, 0, 5, {
     minimum: 2
   }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x03 ]))
@@ -181,10 +117,10 @@ tap.test('FLOOR__ENUM_VARINT: should encode 5 (2..) as 0x03', (test) => {
   test.end()
 })
 
-tap.test('FLOOR_MULTIPLE__ENUM_VARINT: should encode 10 (5..) / 5 as 0x01', (test) => {
+tap.test('FLOOR_MULTIPLE_ENUM_VARINT: should encode 10 (5..) / 5 as 0x01', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = FLOOR_MULTIPLE__ENUM_VARINT(buffer, 0, 10, {
+  const bytesWritten: number = FLOOR_MULTIPLE_ENUM_VARINT(buffer, 0, 10, {
     minimum: 5,
     multiplier: 5
   }, context)
@@ -193,10 +129,10 @@ tap.test('FLOOR_MULTIPLE__ENUM_VARINT: should encode 10 (5..) / 5 as 0x01', (tes
   test.end()
 })
 
-tap.test('FLOOR_MULTIPLE__ENUM_VARINT: should encode 10 (2..) / 5 as 0x01', (test) => {
+tap.test('FLOOR_MULTIPLE_ENUM_VARINT: should encode 10 (2..) / 5 as 0x01', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = FLOOR_MULTIPLE__ENUM_VARINT(buffer, 0, 10, {
+  const bytesWritten: number = FLOOR_MULTIPLE_ENUM_VARINT(buffer, 0, 10, {
     minimum: 2,
     multiplier: 5
   }, context)
@@ -205,10 +141,10 @@ tap.test('FLOOR_MULTIPLE__ENUM_VARINT: should encode 10 (2..) / 5 as 0x01', (tes
   test.end()
 })
 
-tap.test('ROOF__MIRROR_ENUM_VARINT: should encode -3 (..-2) as 0x01', (test) => {
+tap.test('ROOF_MIRROR_ENUM_VARINT: should encode -3 (..-2) as 0x01', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ROOF__MIRROR_ENUM_VARINT(buffer, 0, -3, {
+  const bytesWritten: number = ROOF_MIRROR_ENUM_VARINT(buffer, 0, -3, {
     maximum: -2
   }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x01 ]))
@@ -216,10 +152,10 @@ tap.test('ROOF__MIRROR_ENUM_VARINT: should encode -3 (..-2) as 0x01', (test) => 
   test.end()
 })
 
-tap.test('ROOF__MIRROR_ENUM_VARINT: should encode 8 (..10) as 0x02', (test) => {
+tap.test('ROOF_MIRROR_ENUM_VARINT: should encode 8 (..10) as 0x02', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ROOF__MIRROR_ENUM_VARINT(buffer, 0, 8, {
+  const bytesWritten: number = ROOF_MIRROR_ENUM_VARINT(buffer, 0, 8, {
     maximum: 10
   }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x02 ]))
@@ -227,10 +163,10 @@ tap.test('ROOF__MIRROR_ENUM_VARINT: should encode 8 (..10) as 0x02', (test) => {
   test.end()
 })
 
-tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode -15 (..-5) / -5 as 0x02', (test) => {
+tap.test('ROOF_MULTIPLE_MIRROR_ENUM_VARINT: should encode -15 (..-5) / -5 as 0x02', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ROOF_MULTIPLE__MIRROR_ENUM_VARINT(buffer, 0, -15, {
+  const bytesWritten: number = ROOF_MULTIPLE_MIRROR_ENUM_VARINT(buffer, 0, -15, {
     maximum: -5,
     multiplier: -5
   }, context)
@@ -239,10 +175,10 @@ tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode -15 (..-5) / -5 as 0x
   test.end()
 })
 
-tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode 5 (..16) / 5 as 0x02', (test) => {
+tap.test('ROOF_MULTIPLE_MIRROR_ENUM_VARINT: should encode 5 (..16) / 5 as 0x02', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ROOF_MULTIPLE__MIRROR_ENUM_VARINT(buffer, 0, 5, {
+  const bytesWritten: number = ROOF_MULTIPLE_MIRROR_ENUM_VARINT(buffer, 0, 5, {
     maximum: 16,
     multiplier: 5
   }, context)
@@ -251,10 +187,10 @@ tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode 5 (..16) / 5 as 0x02'
   test.end()
 })
 
-tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode 10 (..15) / 5 as 0x01', (test) => {
+tap.test('ROOF_MULTIPLE_MIRROR_ENUM_VARINT: should encode 10 (..15) / 5 as 0x01', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ROOF_MULTIPLE__MIRROR_ENUM_VARINT(buffer, 0, 10, {
+  const bytesWritten: number = ROOF_MULTIPLE_MIRROR_ENUM_VARINT(buffer, 0, 10, {
     maximum: 15,
     multiplier: 5
   }, context)
@@ -263,10 +199,10 @@ tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode 10 (..15) / 5 as 0x01
   test.end()
 })
 
-tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode 10 (..15) / -5 as 0x01', (test) => {
+tap.test('ROOF_MULTIPLE_MIRROR_ENUM_VARINT: should encode 10 (..15) / -5 as 0x01', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ROOF_MULTIPLE__MIRROR_ENUM_VARINT(buffer, 0, 10, {
+  const bytesWritten: number = ROOF_MULTIPLE_MIRROR_ENUM_VARINT(buffer, 0, 10, {
     maximum: 15,
     multiplier: -5
   }, context)
@@ -275,19 +211,19 @@ tap.test('ROOF_MULTIPLE__MIRROR_ENUM_VARINT: should encode 10 (..15) / -5 as 0x0
   test.end()
 })
 
-tap.test('ARBITRARY__ZIGZAG_VARINT: should encode -25200 as 0xdf 0x89 0x03', (test) => {
+tap.test('ARBITRARY_ZIGZAG_VARINT: should encode -25200 as 0xdf 0x89 0x03', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(3))
-  const bytesWritten: number = ARBITRARY__ZIGZAG_VARINT(buffer, 0, -25200, {}, context)
+  const bytesWritten: number = ARBITRARY_ZIGZAG_VARINT(buffer, 0, -25200, {}, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0xdf, 0x89, 0x03 ]))
   test.is(bytesWritten, 3)
   test.end()
 })
 
-tap.test('ARBITRARY_MULTIPLE__ZIGZAG_VARINT: should encode 10 / 5  as 0x04', (test) => {
+tap.test('ARBITRARY_MULTIPLE_ZIGZAG_VARINT: should encode 10 / 5  as 0x04', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-  const bytesWritten: number = ARBITRARY_MULTIPLE__ZIGZAG_VARINT(buffer, 0, 10, {
+  const bytesWritten: number = ARBITRARY_MULTIPLE_ZIGZAG_VARINT(buffer, 0, 10, {
     multiplier: 5
   }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x04 ]))

@@ -78,7 +78,7 @@ exports.REQUIRED_ONLY_BOUNDED_TYPED_OBJECT = REQUIRED_ONLY_BOUNDED_TYPED_OBJECT;
 var NON_REQUIRED_BOUNDED_TYPED_OBJECT = function (buffer, offset, value, options, context) {
     var e_3, _a, e_4, _b;
     assert_1.strict(Object.keys(value).length <= options.optionalProperties.length);
-    var lengthBytes = encode_1.FLOOR__ENUM_VARINT(buffer, offset, options.optionalProperties.length, {
+    var lengthBytes = encode_1.FLOOR_ENUM_VARINT(buffer, offset, options.optionalProperties.length, {
         minimum: 0
     }, context);
     var keys = [];
@@ -188,7 +188,7 @@ var ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = function (buffer, offset, value
 exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH = ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH;
 var ARBITRARY_TYPED_KEYS_OBJECT = function (buffer, offset, value, options, context) {
     var size = Object.keys(value).length;
-    var lengthBytes = encode_1.FLOOR__ENUM_VARINT(buffer, offset, size, {
+    var lengthBytes = encode_1.FLOOR_ENUM_VARINT(buffer, offset, size, {
         minimum: 0
     }, context);
     return lengthBytes + exports.ARBITRARY_TYPED_KEYS_OBJECT_WITHOUT_LENGTH(buffer, offset + lengthBytes, value, {
@@ -320,16 +320,19 @@ var PACKED_UNBOUNDED_OBJECT = function (buffer, offset, value, options, context)
         }
         finally { if (e_11) throw e_11.error; }
     }
-    var packedBytes = integer_list_1.integerListEncode(buffer, offset, packedValues, {
+    var packedLengthBytes = encode_1.FLOOR_ENUM_VARINT(buffer, offset, packedValues.length, {
+        minimum: 0
+    }, context);
+    var packedBytes = integer_list_1.integerListEncode(buffer, offset + packedLengthBytes, packedValues, {
         minimum: options.packedEncoding.options.minimum,
         maximum: options.packedEncoding.options.maximum
-    }, context);
-    return packedBytes + exports.MIXED_UNBOUNDED_TYPED_OBJECT(buffer, offset + packedBytes, unpackedSubset, {
+    });
+    return packedLengthBytes + packedBytes + exports.MIXED_UNBOUNDED_TYPED_OBJECT(buffer, offset + packedLengthBytes + packedBytes, unpackedSubset, {
         requiredProperties: options.requiredProperties,
         booleanRequiredProperties: options.booleanRequiredProperties,
         optionalProperties: options.optionalProperties,
         keyEncoding: options.keyEncoding,
-        encoding: options.packedEncoding,
+        encoding: options.encoding,
         propertyEncodings: options.propertyEncodings
     }, context);
 };
@@ -357,7 +360,7 @@ var PACKED_BOUNDED_REQUIRED_OBJECT = function (buffer, offset, value, options, c
     var packedBytes = integer_list_1.integerListEncode(buffer, offset, packedValues, {
         minimum: options.packedEncoding.options.minimum,
         maximum: options.packedEncoding.options.maximum
-    }, context);
+    });
     var requiredBytes = exports.REQUIRED_ONLY_BOUNDED_TYPED_OBJECT(buffer, offset + packedBytes, unpackedSubset, {
         propertyEncodings: options.propertyEncodings,
         requiredProperties: options.requiredProperties,

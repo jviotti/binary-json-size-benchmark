@@ -195,7 +195,7 @@ export const getObjectStates = (schema: ObjectEncodingSchema): number | JSONValu
         return Infinity
       }
 
-      let absoluteStates: number | Array<JSONValue | undefined> = states
+      let absoluteStates: number | (JSONValue | undefined)[] = states
 
       // As non being present (optional) counts as yet another state
       if (!requiredProperties.includes(key)) {
@@ -223,7 +223,9 @@ export const getObjectStates = (schema: ObjectEncodingSchema): number | JSONValu
       return choices
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return generatePermutations(...choices).map((result: JSONValue[]) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return
       return Object.assign({}, ...result)
     })
   }
@@ -290,13 +292,13 @@ export const getObjectEncoding = (schema: ObjectEncodingSchema, level: number): 
     }
   }
 
-  const keyEncoding: StringEncoding = typeof schema.propertyNames !== 'undefined'
-    ? getStringEncoding(schema.propertyNames, level + 1)
-    : {
+  const keyEncoding: StringEncoding = typeof schema.propertyNames === 'undefined'
+    ? {
       type: EncodingType.String,
-      encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+      encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
       options: {}
     }
+    : getStringEncoding(schema.propertyNames, level + 1)
 
   // Bounded encodings
   if (additionalProperties === null) {
@@ -335,8 +337,7 @@ export const getObjectEncoding = (schema: ObjectEncodingSchema, level: number): 
   if (additionalProperties !== null &&
     requiredProperties.length > 0 &&
     additionalProperties.type === EncodingType.Integer &&
-    additionalProperties.encoding === 'BOUNDED_8BITS__ENUM_FIXED') {
-
+    additionalProperties.encoding === 'BOUNDED_8BITS_ENUM_FIXED') {
     const propertiesDefinition: Record<string, EncodingSchema> =
       schema.properties ?? {}
     const packedRequiredProperties: string[] = []
@@ -397,6 +398,11 @@ export const getObjectEncoding = (schema: ObjectEncodingSchema, level: number): 
           (left: string, right: string) => {
             return left.localeCompare(right)
           }),
+        encoding: {
+          type: EncodingType.Any,
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+          options: {}
+        },
         propertyEncodings: packedPropertyEncodings,
         optionalProperties,
         requiredProperties: unpackedRequiredProperties.sort(

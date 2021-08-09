@@ -53,7 +53,7 @@ tap.test('should qualify the survey test object', (test) => {
   }
 
   const qualifiers: string[] = [
-    'minified >= 100 < 1000 bytes',
+    'tier 2 minified >= 100 < 1000 bytes',
     'numeric',
     'non-redundant',
     'nested'

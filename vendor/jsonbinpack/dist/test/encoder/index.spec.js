@@ -11,7 +11,7 @@ tap_1.default.test('should dynamically encode a boolean value', function (test) 
     var offset = 0;
     var encoding = {
         type: encoder_1.EncodingType.Boolean,
-        encoding: 'BOOLEAN_8BITS__ENUM_FIXED',
+        encoding: 'BOOLEAN_8BITS_ENUM_FIXED',
         options: {}
     };
     var value = true;

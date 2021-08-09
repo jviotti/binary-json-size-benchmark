@@ -45,6 +45,15 @@ tap.test('should encode 300 as 0xAC 0x02', (test) => {
   test.end()
 })
 
+tap.test('should encode 23 as 0x17', (test) => {
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
+  const offset: number = 0
+  const bytesWritten: number = varintEncode(buffer, offset, BigInt(23))
+  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x17 ]))
+  test.is(bytesWritten, 1)
+  test.end()
+})
+
 tap.test('should encode 50399 as 0xDF 0x89 0x03', (test) => {
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(3))
   const offset: number = 0

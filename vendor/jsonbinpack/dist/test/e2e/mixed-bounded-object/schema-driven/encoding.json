@@ -5,7 +5,7 @@
         "propertyEncodings": {
             "foo": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -16,21 +16,27 @@
                 "options": {
                     "encoding": {
                         "type": "any",
-                        "encoding": "ANY__TYPE_PREFIX",
+                        "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
                         "options": {}
                     },
                     "propertyEncodings": {
                         "qux": {
                             "type": "array",
-                            "encoding": "UNBOUNDED_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                             "options": {
-                                "prefixEncodings": []
+                                "minimum": 0,
+                                "prefixEncodings": [],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         }
                     },
                     "keyEncoding": {
                         "type": "string",
-                        "encoding": "UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH",
+                        "encoding": "STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH",
                         "options": {}
                     },
                     "requiredProperties": [

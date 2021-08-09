@@ -30,11 +30,10 @@ import {
 } from '../../json'
 
 import {
-  BOUNDED_8BITS__ENUM_FIXED,
-  BOUNDED__ENUM_VARINT,
-  FLOOR__ENUM_VARINT,
-  ROOF__MIRROR_ENUM_VARINT,
-  ARBITRARY__ZIGZAG_VARINT
+  BOUNDED_8BITS_ENUM_FIXED,
+  FLOOR_ENUM_VARINT,
+  ROOF_MIRROR_ENUM_VARINT,
+  ARBITRARY_ZIGZAG_VARINT
 } from '../integer/encode'
 
 import {
@@ -66,11 +65,33 @@ const maybeWriteSharedPrefix = (
   value: JSONString, context: EncodingContext
 ): number => {
   return context.strings.has(value)
-    ? BOUNDED_8BITS__ENUM_FIXED(buffer, offset, Type.SharedString, {
+    ? BOUNDED_8BITS_ENUM_FIXED(buffer, offset, Type.SharedString, {
       minimum: Type.SharedString,
       maximum: Type.SharedString
     }, context)
     : 0
+}
+
+export const SHARED_STRING_POINTER_RELATIVE_OFFSET = (
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  _options: SizeOptions, context: EncodingContext
+): number => {
+  const stringOffset: number | undefined = context.strings.get(value)
+  assert(typeof stringOffset !== 'undefined')
+  return FLOOR_ENUM_VARINT(buffer, offset, offset - stringOffset, {
+    minimum: 0
+  }, context)
+}
+
+export const UTF8_STRING_NO_LENGTH = (
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  options: SizeOptions, context: EncodingContext
+): number => {
+  assert(options.size >= 0)
+  const bytesWritten: number = buffer.write(
+    value, offset, options.size, STRING_ENCODING)
+  context.strings.set(value, offset)
+  return bytesWritten
 }
 
 const writeMaybeSharedString = (
@@ -100,13 +121,14 @@ const writeRawString = (
   const length: number = Buffer.byteLength(value, STRING_ENCODING)
 
   const lengthBytes: number = prefixBytes > 0
+
     // The string is shared
-    ? FLOOR__ENUM_VARINT(buffer, offset + prefixBytes, length, {
+    ? FLOOR_ENUM_VARINT(buffer, offset + prefixBytes, length, {
       minimum: 0
     }, context)
 
     // The string is not shared
-    : ARBITRARY__ZIGZAG_VARINT(buffer, offset + prefixBytes,
+    : ARBITRARY_ZIGZAG_VARINT(buffer, offset + prefixBytes,
       -length - 1, {}, context)
 
   // Write the string
@@ -121,7 +143,7 @@ export const STRING_BROTLI = (
   _options: NoOptions, context: EncodingContext
 ): number => {
   const compressed = brotliCompressSync(Buffer.from(value))
-  const bytes = FLOOR__ENUM_VARINT(buffer, offset, compressed.length, {
+  const bytes = FLOOR_ENUM_VARINT(buffer, offset, compressed.length, {
     minimum: 0
   }, context)
   return bytes + buffer.writeBuffer(offset + bytes, compressed)
@@ -136,7 +158,7 @@ export const STRING_DICTIONARY_COMPRESSOR = (
 
   // Write the length of whole string
   const length: number = Buffer.byteLength(value, STRING_ENCODING)
-  let bytes = FLOOR__ENUM_VARINT(buffer, offset, length, {
+  let bytes = FLOOR_ENUM_VARINT(buffer, offset, length, {
     minimum: 0
   }, context)
 
@@ -163,7 +185,7 @@ export const STRING_DICTIONARY_COMPRESSOR = (
 
     // Write the dictionary entry index + 1
     assert(entry >= 0)
-    bytes += ARBITRARY__ZIGZAG_VARINT(
+    bytes += ARBITRARY_ZIGZAG_VARINT(
       buffer, offset + bytes, entry + 1, {}, context)
   }
 
@@ -174,27 +196,6 @@ export const STRING_DICTIONARY_COMPRESSOR = (
   }
 
   return bytes
-}
-
-export const URL_PROTOCOL_HOST_REST = (
-  buffer: ResizableBuffer, offset: number, value: JSONString,
-  _options: NoOptions, context: EncodingContext
-): number => {
-  const url = new URL(value)
-  const protocolBytes: number = FLOOR__PREFIX_LENGTH_ENUM_VARINT(
-    buffer, offset, url.protocol, {
-      minimum: 0
-    }, context)
-  const hostBytes: number = FLOOR__PREFIX_LENGTH_ENUM_VARINT(
-    buffer, offset + protocolBytes, url.host, {
-      minimum: 0
-    }, context)
-  const rest: string = value.replace(`${url.protocol}//${url.host}`, '')
-  const restBytes: number = FLOOR__PREFIX_LENGTH_ENUM_VARINT(
-    buffer, offset + protocolBytes + hostBytes, rest, {
-      minimum: 0
-    }, context)
-  return protocolBytes + hostBytes + restBytes
 }
 
 export const RFC3339_DATE_INTEGER_TRIPLET = (
@@ -219,7 +220,7 @@ export const RFC3339_DATE_INTEGER_TRIPLET = (
   return buffer.writeUInt8(date[2], dayOffset) - offset
 }
 
-export const BOUNDED__PREFIX_LENGTH_8BIT_FIXED = (
+export const BOUNDED_PREFIX_LENGTH_8BIT_FIXED = (
   buffer: ResizableBuffer, offset: number, value: JSONString,
   options: BoundedOptions, context: EncodingContext
 ): number => {
@@ -233,7 +234,7 @@ export const BOUNDED__PREFIX_LENGTH_8BIT_FIXED = (
   const prefixBytes: number =
     maybeWriteSharedPrefix(buffer, offset, value, context)
   const bytesWritten: number =
-    BOUNDED_8BITS__ENUM_FIXED(buffer, offset + prefixBytes, length + 1, {
+    BOUNDED_8BITS_ENUM_FIXED(buffer, offset + prefixBytes, length + 1, {
       minimum: options.minimum,
       maximum: options.maximum + 1
     }, context)
@@ -242,31 +243,7 @@ export const BOUNDED__PREFIX_LENGTH_8BIT_FIXED = (
   return result + prefixBytes + bytesWritten
 }
 
-export const BOUNDED__PREFIX_LENGTH_ENUM_VARINT = (
-  buffer: ResizableBuffer, offset: number, value: JSONString,
-  options: BoundedOptions, context: EncodingContext
-): number => {
-  assert(options.minimum >= 0)
-  assert(options.minimum <= options.maximum)
-  assert(options.maximum >= 0)
-  const length: JSONNumber = Buffer.byteLength(value, STRING_ENCODING)
-  assert(length >= options.minimum)
-  assert(length <= options.maximum)
-
-  const prefixBytes: number =
-    maybeWriteSharedPrefix(buffer, offset, value, context)
-  const bytesWritten: number =
-    BOUNDED__ENUM_VARINT(buffer, offset + prefixBytes, length + 1, {
-      minimum: options.minimum,
-      maximum: options.maximum + 1
-    }, context)
-
-  const result: number = writeMaybeSharedString(
-    buffer, offset + prefixBytes + bytesWritten, value, length, context)
-  return result + prefixBytes + bytesWritten
-}
-
-export const ROOF__PREFIX_LENGTH_ENUM_VARINT = (
+export const ROOF_PREFIX_LENGTH_ENUM_VARINT = (
   buffer: ResizableBuffer, offset: number, value: JSONString,
   options: RoofOptions, context: EncodingContext
 ): number => {
@@ -275,36 +252,14 @@ export const ROOF__PREFIX_LENGTH_ENUM_VARINT = (
   assert(length <= options.maximum)
   const prefixBytes: number =
     maybeWriteSharedPrefix(buffer, offset, value, context)
-  const bytesWritten: number = ROOF__MIRROR_ENUM_VARINT(
+  const bytesWritten: number = ROOF_MIRROR_ENUM_VARINT(
     buffer, offset + prefixBytes, length - 1, options, context)
   const result: number = writeMaybeSharedString(
     buffer, offset + prefixBytes + bytesWritten, value, length, context)
   return result + prefixBytes + bytesWritten
 }
 
-export const UTF8_STRING_NO_LENGTH = (
-  buffer: ResizableBuffer, offset: number, value: JSONString,
-  options: SizeOptions, context: EncodingContext
-): number => {
-  assert(options.size >= 0)
-  const bytesWritten: number = buffer.write(
-    value, offset, options.size, STRING_ENCODING)
-  context.strings.set(value, offset)
-  return bytesWritten
-}
-
-export const SHARED_STRING_POINTER_RELATIVE_OFFSET = (
-  buffer: ResizableBuffer, offset: number, value: JSONString,
-  _options: SizeOptions, context: EncodingContext
-): number => {
-  const stringOffset: number | undefined = context.strings.get(value)
-  assert(typeof stringOffset !== 'undefined')
-  return FLOOR__ENUM_VARINT(buffer, offset, offset - stringOffset, {
-    minimum: 0
-  }, context)
-}
-
-export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
+export const FLOOR_PREFIX_LENGTH_ENUM_VARINT = (
   buffer: ResizableBuffer, offset: number, value: JSONString,
   options: FloorOptions, context: EncodingContext
 ): number => {
@@ -321,7 +276,7 @@ export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
   /*
    * (2) Write length of the string + 1
    */
-  const lengthBytes: number = FLOOR__ENUM_VARINT(
+  const lengthBytes: number = FLOOR_ENUM_VARINT(
     buffer, offset + prefixBytes, length + 1, options, context)
 
   /*
@@ -333,12 +288,12 @@ export const FLOOR__PREFIX_LENGTH_ENUM_VARINT = (
   return bytesWritten + prefixBytes + lengthBytes
 }
 
-export const UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = (
+export const STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH = (
   buffer: ResizableBuffer, offset: number, value: JSONString,
   _options: NoOptions, context: EncodingContext
 ): number => {
   if (context.keys.has(value)) {
-    const prefixBytes: number = BOUNDED_8BITS__ENUM_FIXED(buffer, offset, 0, {
+    const prefixBytes: number = BOUNDED_8BITS_ENUM_FIXED(buffer, offset, 0, {
       minimum: 0,
       maximum: 0
     }, context)
@@ -346,18 +301,19 @@ export const UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = (
     const pointer: number | undefined = context.keys.get(value)
     assert(typeof pointer === 'number')
     context.keys.set(value, offset)
-    return prefixBytes + FLOOR__ENUM_VARINT(buffer, cursor, cursor - pointer, {
+    return prefixBytes + FLOOR_ENUM_VARINT(buffer, cursor, cursor - pointer, {
       minimum: 0
     }, context)
   }
 
   const length: JSONNumber = Buffer.byteLength(value, STRING_ENCODING)
   const lengthBytes: number =
-    FLOOR__ENUM_VARINT(buffer, offset, length + 1, {
+    FLOOR_ENUM_VARINT(buffer, offset, length + 1, {
       minimum: 0
     }, context)
 
   context.keys.set(value, offset)
+
   // Its fine to override as it means that future pointers will be smaller
   context.strings.set(value, offset + lengthBytes)
 
@@ -365,4 +321,25 @@ export const UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH = (
     buffer, offset + lengthBytes, value, {
       size: length
     }, context)
+}
+
+export const URL_PROTOCOL_HOST_REST = (
+  buffer: ResizableBuffer, offset: number, value: JSONString,
+  _options: NoOptions, context: EncodingContext
+): number => {
+  const url = new URL(value)
+  const protocolBytes: number = FLOOR_PREFIX_LENGTH_ENUM_VARINT(
+    buffer, offset, url.protocol.slice(0, url.protocol.length - 1), {
+      minimum: 0
+    }, context)
+  const hostBytes: number = FLOOR_PREFIX_LENGTH_ENUM_VARINT(
+    buffer, offset + protocolBytes, url.host, {
+      minimum: 0
+    }, context)
+  const rest: string = value.replace(`${url.protocol}//${url.host}`, '')
+  const restBytes: number = FLOOR_PREFIX_LENGTH_ENUM_VARINT(
+    buffer, offset + protocolBytes + hostBytes, rest, {
+      minimum: 0
+    }, context)
+  return protocolBytes + hostBytes + restBytes
 }

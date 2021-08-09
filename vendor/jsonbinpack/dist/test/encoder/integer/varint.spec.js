@@ -42,6 +42,14 @@ tap_1.default.test('should encode 300 as 0xAC 0x02', function (test) {
     test.is(bytesWritten, 2);
     test.end();
 });
+tap_1.default.test('should encode 23 as 0x17', function (test) {
+    var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(1));
+    var offset = 0;
+    var bytesWritten = varint_1.varintEncode(buffer, offset, BigInt(23));
+    test.strictSame(buffer.getBuffer(), Buffer.from([0x17]));
+    test.is(bytesWritten, 1);
+    test.end();
+});
 tap_1.default.test('should encode 50399 as 0xDF 0x89 0x03', function (test) {
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(3));
     var offset = 0;

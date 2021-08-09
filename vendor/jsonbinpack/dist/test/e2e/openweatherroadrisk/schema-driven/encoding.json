@@ -1,7 +1,8 @@
 {
     "type": "array",
-    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+    "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
     "options": {
+        "minimum": 0,
         "encoding": {
             "type": "object",
             "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
@@ -9,14 +10,14 @@
                 "propertyEncodings": {
                     "dt": {
                         "type": "integer",
-                        "encoding": "FLOOR__ENUM_VARINT",
+                        "encoding": "FLOOR_ENUM_VARINT",
                         "options": {
                             "minimum": 0
                         }
                     },
                     "coord": {
                         "type": "array",
-                        "encoding": "BOUNDED_8BITS_TYPED__LENGTH_PREFIX",
+                        "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                         "options": {
                             "minimum": 2,
                             "maximum": 2,
@@ -45,7 +46,7 @@
                                 },
                                 "wind_deg": {
                                     "type": "integer",
-                                    "encoding": "FLOOR__ENUM_VARINT",
+                                    "encoding": "FLOOR_ENUM_VARINT",
                                     "options": {
                                         "minimum": 0
                                     }
@@ -75,8 +76,9 @@
                     },
                     "alerts": {
                         "type": "array",
-                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                         "options": {
+                            "minimum": 0,
                             "encoding": {
                                 "type": "object",
                                 "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
@@ -84,21 +86,21 @@
                                     "propertyEncodings": {
                                         "sender_name": {
                                             "type": "string",
-                                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                             "options": {
                                                 "minimum": 0
                                             }
                                         },
                                         "event": {
                                             "type": "string",
-                                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                             "options": {
                                                 "minimum": 0
                                             }
                                         },
                                         "event_level": {
                                             "type": "integer",
-                                            "encoding": "FLOOR__ENUM_VARINT",
+                                            "encoding": "FLOOR_ENUM_VARINT",
                                             "options": {
                                                 "minimum": 0
                                             }

@@ -41,7 +41,7 @@ rules:
   '@typescript-eslint/no-inferrable-types':
     - off
   '@typescript-eslint/no-unused-vars':
-    - error
+    - off
   '@typescript-eslint/explicit-function-return-type':
     - error
   '@typescript-eslint/member-delimiter-style':
@@ -56,6 +56,8 @@ rules:
     - error
   '@typescript-eslint/naming-convention':
     - error
+    - selector: 'typeLike'
+      format: [ 'PascalCase', 'UPPER_CASE' ]
   '@typescript-eslint/no-base-to-string':
     - error
   '@typescript-eslint/no-dynamic-delete':
@@ -93,17 +95,17 @@ rules:
   '@typescript-eslint/no-unnecessary-boolean-literal-compare':
     - error
   '@typescript-eslint/no-unnecessary-condition':
-    - error
+    - off
   '@typescript-eslint/no-unnecessary-type-arguments':
     - error
   '@typescript-eslint/no-unnecessary-type-assertion':
     - error
   '@typescript-eslint/no-unsafe-call':
-    - error
+    - off
   '@typescript-eslint/no-unsafe-member-access':
     - error
   '@typescript-eslint/no-unsafe-return':
-    - error
+    - off
   '@typescript-eslint/no-unused-vars-experimental':
     - error
   '@typescript-eslint/no-var-requires':
@@ -364,7 +366,7 @@ rules:
   newline-per-chained-call:
     - off
   no-bitwise:
-    - error
+    - off
   no-continue:
     - off
   no-inline-comments:

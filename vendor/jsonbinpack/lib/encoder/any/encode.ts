@@ -47,14 +47,14 @@ import {
 } from '../encoding-type'
 
 import {
-  BOUNDED_8BITS__ENUM_FIXED,
-  FLOOR__ENUM_VARINT
+  BOUNDED_8BITS_ENUM_FIXED,
+  FLOOR_ENUM_VARINT
 } from '../integer/encode'
 
 import {
   UTF8_STRING_NO_LENGTH,
   SHARED_STRING_POINTER_RELATIVE_OFFSET,
-  FLOOR__PREFIX_LENGTH_ENUM_VARINT
+  FLOOR_PREFIX_LENGTH_ENUM_VARINT
 } from '../string/encode'
 
 import {
@@ -67,8 +67,8 @@ import {
 } from '../object/encode'
 
 import {
-  FLOOR_SEMITYPED__LENGTH_PREFIX,
-  FLOOR_SEMITYPED__NO_LENGTH_PREFIX
+  FLOOR_TYPED_LENGTH_PREFIX,
+  FIXED_TYPED_ARRAY
 } from '../array/encode'
 
 import {
@@ -81,7 +81,7 @@ const encodeTypeTag = (
   buffer: ResizableBuffer, offset: number,
   tag: number, context: EncodingContext
 ): number => {
-  return BOUNDED_8BITS__ENUM_FIXED(buffer, offset, tag, {
+  return BOUNDED_8BITS_ENUM_FIXED(buffer, offset, tag, {
     minimum: UINT8_MIN,
     maximum: UINT8_MAX
   }, context)
@@ -105,7 +105,7 @@ const findHighest2Exponent = (
   return exponent
 }
 
-export const ANY__TYPE_PREFIX = (
+export const ANY_PACKED_TYPE_TAG_BYTE_PREFIX = (
   buffer: ResizableBuffer, offset: number, value: JSONValue, _options: NoOptions, context: EncodingContext
 ): number => {
   // Encode an array value
@@ -115,10 +115,15 @@ export const ANY__TYPE_PREFIX = (
     if (size > UINT5_MAX - 1) {
       const typeTag: number = getTypeTag(Type.Array, 0)
       const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
-      const valueBytes: number = FLOOR_SEMITYPED__LENGTH_PREFIX(
+      const valueBytes: number = FLOOR_TYPED_LENGTH_PREFIX(
         buffer, offset + tagBytes, value, {
           minimum: 0,
-          prefixEncodings: []
+          prefixEncodings: [],
+          encoding: {
+            type: EncodingType.Any,
+            encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+            options: {}
+          }
         }, context)
 
       return tagBytes + valueBytes
@@ -126,11 +131,15 @@ export const ANY__TYPE_PREFIX = (
 
     const typeTag: number = getTypeTag(Type.Array, value.length + 1)
     const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
-    const valueBytes: number = FLOOR_SEMITYPED__NO_LENGTH_PREFIX(
+    const valueBytes: number = FIXED_TYPED_ARRAY(
       buffer, offset + tagBytes, value, {
         size,
-        minimum: 0,
-        prefixEncodings: []
+        prefixEncodings: [],
+        encoding: {
+          type: EncodingType.Any,
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+          options: {}
+        }
       }, context)
 
     return tagBytes + valueBytes
@@ -146,12 +155,12 @@ export const ANY__TYPE_PREFIX = (
         buffer, offset + tagBytes, value, {
           keyEncoding: {
             type: EncodingType.String,
-            encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+            encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
             options: {}
           },
           encoding: {
             type: EncodingType.Any,
-            encoding: 'ANY__TYPE_PREFIX',
+            encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
             options: {}
           }
         }, context)
@@ -166,12 +175,12 @@ export const ANY__TYPE_PREFIX = (
         size,
         keyEncoding: {
           type: EncodingType.String,
-          encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+          encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
           options: {}
         },
         encoding: {
           type: EncodingType.Any,
-          encoding: 'ANY__TYPE_PREFIX',
+          encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
           options: {}
         }
       }, context)
@@ -220,27 +229,26 @@ export const ANY__TYPE_PREFIX = (
       assert(typeof exponent === 'number' && Math.pow(2, exponent) <= length)
       const typeTag: number = getTypeTag(Type.Other, exponent)
       const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
-      const lengthBytes: number = FLOOR__ENUM_VARINT(buffer, offset + tagBytes, length, {
+      const lengthBytes: number = FLOOR_ENUM_VARINT(buffer, offset + tagBytes, length, {
         minimum: Math.pow(2, exponent)
       }, context)
       return tagBytes + lengthBytes + UTF8_STRING_NO_LENGTH(
         buffer, offset + tagBytes + lengthBytes, value, {
           size: length
         }, context)
-    } else {
-      const typeTag: number = getTypeTag(Type.String, 0)
+    }
+    const typeTag: number = getTypeTag(Type.String, 0)
 
-      // Exploit the fact that a shared string always starts with an impossible length
-      // marker (0) to avoid having to encode an additional tag
-      const tagBytes: number = context.strings.has(value)
-        ? 0
-        : encodeTypeTag(buffer, offset, typeTag, context)
-      const valueBytes: number =
-        FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tagBytes, value, {
+    // Exploit the fact that a shared string always starts with an impossible length
+    // marker (0) to avoid having to encode an additional tag
+    const tagBytes: number = context.strings.has(value)
+      ? 0
+      : encodeTypeTag(buffer, offset, typeTag, context)
+    const valueBytes: number =
+        FLOOR_PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tagBytes, value, {
           minimum: 0
         }, context)
-      return tagBytes + valueBytes
-    }
+    return tagBytes + valueBytes
 
   // Encode an integer value
   } else if (Number.isInteger(value)) {
@@ -259,7 +267,7 @@ export const ANY__TYPE_PREFIX = (
       const typeTag: number = getTypeTag(type, 0)
       const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
       const valueBytes: number =
-        BOUNDED_8BITS__ENUM_FIXED(buffer, offset + tagBytes, absoluteValue, {
+        BOUNDED_8BITS_ENUM_FIXED(buffer, offset + tagBytes, absoluteValue, {
           minimum: UINT8_MIN,
           maximum: UINT8_MAX
         }, context)
@@ -278,7 +286,7 @@ export const ANY__TYPE_PREFIX = (
     const typeTag: number = getTypeTag(type, subtype)
     const tagBytes: number = encodeTypeTag(buffer, offset, typeTag, context)
     const valueBytes: number =
-      FLOOR__ENUM_VARINT(buffer, offset + tagBytes, absoluteValue, {
+      FLOOR_ENUM_VARINT(buffer, offset + tagBytes, absoluteValue, {
         minimum: 0
       }, context)
     return tagBytes + valueBytes

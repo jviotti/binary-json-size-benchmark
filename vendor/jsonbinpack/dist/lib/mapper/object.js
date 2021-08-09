@@ -189,13 +189,13 @@ var getObjectEncoding = function (schema, level) {
         }
         finally { if (e_4) throw e_4.error; }
     }
-    var keyEncoding = typeof schema.propertyNames !== 'undefined'
-        ? string_1.getStringEncoding(schema.propertyNames, level + 1)
-        : {
+    var keyEncoding = typeof schema.propertyNames === 'undefined'
+        ? {
             type: encoder_1.EncodingType.String,
-            encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+            encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
             options: {}
-        };
+        }
+        : string_1.getStringEncoding(schema.propertyNames, level + 1);
     if (additionalProperties === null) {
         if (optionalProperties.length === 0) {
             return {
@@ -232,7 +232,7 @@ var getObjectEncoding = function (schema, level) {
     if (additionalProperties !== null &&
         requiredProperties.length > 0 &&
         additionalProperties.type === encoder_1.EncodingType.Integer &&
-        additionalProperties.encoding === 'BOUNDED_8BITS__ENUM_FIXED') {
+        additionalProperties.encoding === 'BOUNDED_8BITS_ENUM_FIXED') {
         var propertiesDefinition = (_h = schema.properties) !== null && _h !== void 0 ? _h : {};
         var packedRequiredProperties_1 = [];
         var unpackedRequiredProperties = [];
@@ -294,6 +294,11 @@ var getObjectEncoding = function (schema, level) {
                 packedRequiredProperties: packedRequiredProperties_1.sort(function (left, right) {
                     return left.localeCompare(right);
                 }),
+                encoding: {
+                    type: encoder_1.EncodingType.Any,
+                    encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+                    options: {}
+                },
                 propertyEncodings: packedPropertyEncodings,
                 optionalProperties: optionalProperties,
                 requiredProperties: unpackedRequiredProperties.sort(function (left, right) {

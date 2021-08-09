@@ -56,6 +56,7 @@ const safeReadFile = (filePath: string): string | null => {
   try {
     return readFileSync(filePath, 'utf8')
   } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (error.code === 'ENOENT') {
       return null
     }

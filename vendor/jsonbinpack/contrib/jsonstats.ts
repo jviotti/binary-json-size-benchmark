@@ -108,10 +108,6 @@ export const analyze = (
       2 + (numberOfKeys * 2) - Math.min(numberOfKeys, 1)
 
     for (const [ key, value ] of Object.entries(document)) {
-      if (value === undefined) {
-        continue
-      }
-
       keys.add(key)
       accumulator.keys.count += 1
       accumulator.keys.byteSize += getJSONSize(key)
@@ -157,9 +153,9 @@ const percentage = (total: number, local: number): number => {
 }
 
 export enum JSONStatsSizeQualifier {
-  tiny = 'minified < 100 bytes',
-  small = 'minified >= 100 < 1000 bytes',
-  large = 'minified >= 1000 bytes'
+  tiny = 'tier 1 minified < 100 bytes',
+  small = 'tier 2 minified >= 100 < 1000 bytes',
+  large = 'tier 3 minified >= 1000 bytes'
 }
 
 export interface JSONStatsSummary {

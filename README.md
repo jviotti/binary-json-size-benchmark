@@ -25,33 +25,33 @@ tool](https://www.jsonbinpack.org/stats/).
 
 | Name | Type | Document | SchemaStore |
 |------|------|----------|-------------|
-| [CircleCI definition (blank)](#circleciblank) | minified < 100 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/version-2.0.json) |
-| [CircleCI matrix definition](#circlecimatrix) | minified < 100 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/matrix-simple.json) |
-| [CommitLint configuration](#commitlint) | minified < 100 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test5.json) |
-| [CommitLint configuration (basic)](#commitlintbasic) | minified < 100 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
-| [Entry Point Regulation manifest](#epr) | minified >= 100 < 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
-| [ESLint configuration document](#eslintrc) | minified >= 1000 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
-| [ECMAScript module loader definition](#esmrc) | minified >= 100 < 1000 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
-| [GeoJSON example JSON document](#geojson) | minified >= 100 < 1000 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
-| [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | minified >= 100 < 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
-| [GitHub Workflow Definition](#githubworkflow) | minified >= 100 < 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
-| [Grunt.js "clean" task definition](#gruntcontribclean) | minified < 100 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
-| [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob) | minified < 100 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
-| [JSON-e templating engine reverse sort example](#jsonereversesort) | minified < 100 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
-| [JSON-e templating engine sort example](#jsonesort) | minified < 100 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
-| [JSON Feed example document](#jsonfeed) | minified >= 100 < 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/feed/microblog.json) |
-| [JSON Resume](#jsonresume) | minified >= 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/resume/richardhendriks.json) |
-| [.NET Core project.json](#netcoreproject) | minified >= 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/project/EF-project.json) |
-| [Nightwatch.js Test Framework Configuration](#nightwatch) | minified >= 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/nightwatch/default.json) |
-| [OpenWeatherMap API example JSON document](#openweathermap) | minified >= 100 < 1000 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.current/example.json) |
-| [OpenWeather Road Risk API example](#openweatherroadrisk) | minified >= 100 < 1000 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.roadrisk/example.json) |
-| [NPM Package.json example manifest](#packagejson) | minified >= 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/package/package-test.json) |
-| [NPM Package.json Linter configuration manifest](#packagejsonlintrc) | minified >= 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/npmpackagejsonlintrc/npmpackagejsonlintrc-test.json) |
-| [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline) | minified < 100 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/cloud-sdk-pipeline-config-schema/empty.json) |
-| [TravisCI notifications configuration](#travisnotifications) | minified >= 100 < 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/travis/notification-secure.json) |
-| [TSLint linter definition (basic)](#tslintbasic) | minified < 100 bytes boolean non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test19.json) |
-| [TSLint linter definition (extends only)](#tslintextend) | minified < 100 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test5.json) |
-| [TSLint linter definition (multi-rule)](#tslintmulti) | minified < 100 bytes boolean redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test25.json) |
+| [CircleCI definition (blank)](#circleciblank) | tier 1 minified < 100 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/version-2.0.json) |
+| [CircleCI matrix definition](#circlecimatrix) | tier 1 minified < 100 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/matrix-simple.json) |
+| [CommitLint configuration](#commitlint) | tier 1 minified < 100 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test5.json) |
+| [CommitLint configuration (basic)](#commitlintbasic) | tier 1 minified < 100 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
+| [Entry Point Regulation manifest](#epr) | tier 2 minified >= 100 < 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
+| [ESLint configuration document](#eslintrc) | tier 3 minified >= 1000 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
+| [ECMAScript module loader definition](#esmrc) | tier 2 minified >= 100 < 1000 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
+| [GeoJSON example JSON document](#geojson) | tier 2 minified >= 100 < 1000 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
+| [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | tier 2 minified >= 100 < 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
+| [GitHub Workflow Definition](#githubworkflow) | tier 2 minified >= 100 < 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
+| [Grunt.js "clean" task definition](#gruntcontribclean) | tier 1 minified < 100 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
+| [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob) | tier 1 minified < 100 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
+| [JSON-e templating engine reverse sort example](#jsonereversesort) | tier 1 minified < 100 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
+| [JSON-e templating engine sort example](#jsonesort) | tier 1 minified < 100 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
+| [JSON Feed example document](#jsonfeed) | tier 2 minified >= 100 < 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/feed/microblog.json) |
+| [JSON Resume](#jsonresume) | tier 3 minified >= 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/resume/richardhendriks.json) |
+| [.NET Core project.json](#netcoreproject) | tier 3 minified >= 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/project/EF-project.json) |
+| [Nightwatch.js Test Framework Configuration](#nightwatch) | tier 3 minified >= 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/nightwatch/default.json) |
+| [OpenWeatherMap API example JSON document](#openweathermap) | tier 2 minified >= 100 < 1000 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.current/example.json) |
+| [OpenWeather Road Risk API example](#openweatherroadrisk) | tier 2 minified >= 100 < 1000 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.roadrisk/example.json) |
+| [NPM Package.json example manifest](#packagejson) | tier 3 minified >= 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/package/package-test.json) |
+| [NPM Package.json Linter configuration manifest](#packagejsonlintrc) | tier 3 minified >= 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/npmpackagejsonlintrc/npmpackagejsonlintrc-test.json) |
+| [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline) | tier 1 minified < 100 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/cloud-sdk-pipeline-config-schema/empty.json) |
+| [TravisCI notifications configuration](#travisnotifications) | tier 2 minified >= 100 < 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/travis/notification-secure.json) |
+| [TSLint linter definition (basic)](#tslintbasic) | tier 1 minified < 100 bytes boolean non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test19.json) |
+| [TSLint linter definition (extends only)](#tslintextend) | tier 1 minified < 100 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test5.json) |
+| [TSLint linter definition (multi-rule)](#tslintmulti) | tier 1 minified < 100 bytes boolean redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test25.json) |
 
 Serialization formats
 ---------------------
@@ -94,7 +94,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/flatbuffers/schema.fbs) | 20 | 32 | 39 | 35 |
 | FlexBuffers | None | 18 | 38 | 37 | 41 |
 | JSON | None | 14 | 34 | 33 | 38 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/jsonbinpack/schema.json) | 2 | 22 | 21 | 25 |
 | MessagePack | None | 10 | 30 | 29 | 34 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/protobuf/schema.proto) | 5 | 25 | 24 | 27 |
 | Smile | None | 15 | 35 | 34 | 39 |
@@ -117,7 +116,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/flatbuffers/schema.fbs) | 104 | 82 | 104 | 77 |
 | FlexBuffers | None | 157 | 134 | 151 | 131 |
 | JSON | None | 95 | 99 | 112 | 101 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/jsonbinpack/schema.json) | 7 | 27 | 26 | 30 |
 | MessagePack | None | 72 | 90 | 91 | 92 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/protobuf/schema.proto) | 26 | 43 | 45 | 46 |
 | Smile | None | 87 | 104 | 106 | 105 |
@@ -140,7 +138,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/flatbuffers/schema.fbs) | 156 | 95 | 122 | 91 |
 | FlexBuffers | None | 90 | 97 | 105 | 99 |
 | JSON | None | 96 | 80 | 86 | 83 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/jsonbinpack/schema.json) | 20 | 40 | 39 | 43 |
 | MessagePack | None | 74 | 68 | 76 | 71 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/protobuf/schema.proto) | 62 | 60 | 70 | 63 |
 | Smile | None | 84 | 76 | 82 | 80 |
@@ -163,7 +160,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/flatbuffers/schema.fbs) | 20 | 31 | 39 | 34 |
 | FlexBuffers | None | 25 | 45 | 44 | 49 |
 | JSON | None | 25 | 45 | 44 | 49 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/jsonbinpack/schema.json) | 0 | 20 | 15 | 23 |
 | MessagePack | None | 17 | 37 | 36 | 41 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/protobuf/schema.proto) | 0 | 20 | 15 | 23 |
 | Smile | None | 22 | 42 | 41 | 47 |
@@ -186,7 +182,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/flatbuffers/schema.fbs) | 504 | 290 | 369 | 273 |
 | FlexBuffers | None | 429 | 355 | 417 | 342 |
 | JSON | None | 520 | 264 | 332 | 272 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/jsonbinpack/schema.json) | 183 | 172 | 202 | 172 |
 | MessagePack | None | 412 | 262 | 307 | 254 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/protobuf/schema.proto) | 247 | 196 | 222 | 189 |
 | Smile | None | 356 | 266 | 311 | 261 |
@@ -209,7 +204,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/flatbuffers/schema.fbs) | 320 | 228 | 305 | 217 |
 | FlexBuffers | None | 1201 | 635 | 824 | 636 |
 | JSON | None | 1141 | 488 | 703 | 521 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/jsonbinpack/schema.json) | 65 | 81 | 84 | 84 |
 | MessagePack | None | 971 | 525 | 712 | 546 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/protobuf/schema.proto) | 161 | 164 | 180 | 155 |
 | Smile | None | 979 | 544 | 724 | 565 |
@@ -232,7 +226,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/flatbuffers/schema.fbs) | 80 | 77 | 94 | 74 |
 | FlexBuffers | None | 91 | 107 | 110 | 109 |
 | JSON | None | 102 | 101 | 117 | 103 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/jsonbinpack/schema.json) | 12 | 32 | 31 | 35 |
 | MessagePack | None | 64 | 82 | 83 | 85 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/protobuf/schema.proto) | 23 | 43 | 42 | 47 |
 | Smile | None | 70 | 87 | 89 | 91 |
@@ -255,7 +248,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/flatbuffers/schema.fbs) | 680 | 220 | 291 | 195 |
 | FlexBuffers | None | 309 | 167 | 200 | 163 |
 | JSON | None | 190 | 121 | 146 | 116 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/jsonbinpack/schema.json) | 82 | 69 | 82 | 66 |
 | MessagePack | None | 162 | 111 | 132 | 109 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/protobuf/schema.proto) | 325 | 115 | 145 | 107 |
 | Smile | None | 228 | 131 | 158 | 128 |
@@ -278,7 +270,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/flatbuffers/schema.fbs) | 68 | 71 | 79 | 71 |
 | FlexBuffers | None | 152 | 143 | 168 | 148 |
 | JSON | None | 183 | 134 | 167 | 144 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/jsonbinpack/schema.json) | 16 | 36 | 35 | 39 |
 | MessagePack | None | 124 | 124 | 143 | 136 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/protobuf/schema.proto) | 17 | 37 | 36 | 41 |
 | Smile | None | 129 | 134 | 148 | 139 |
@@ -301,7 +292,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/flatbuffers/schema.fbs) | 440 | 275 | 352 | 256 |
 | FlexBuffers | None | 396 | 309 | 369 | 318 |
 | JSON | None | 356 | 228 | 292 | 247 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/jsonbinpack/schema.json) | 165 | 151 | 163 | 152 |
 | MessagePack | None | 287 | 222 | 256 | 224 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/protobuf/schema.proto) | 189 | 176 | 195 | 175 |
 | Smile | None | 287 | 235 | 268 | 240 |
@@ -324,7 +314,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/flatbuffers/schema.fbs) | 116 | 77 | 104 | 74 |
 | FlexBuffers | None | 94 | 110 | 113 | 115 |
 | JSON | None | 93 | 94 | 106 | 95 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/jsonbinpack/schema.json) | 11 | 31 | 30 | 35 |
 | MessagePack | None | 60 | 76 | 79 | 78 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/protobuf/schema.proto) | 20 | 36 | 39 | 41 |
 | Smile | None | 70 | 85 | 88 | 88 |
@@ -347,7 +336,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/flatbuffers/schema.fbs) | 100 | 80 | 101 | 79 |
 | FlexBuffers | None | 89 | 102 | 107 | 103 |
 | JSON | None | 82 | 88 | 96 | 90 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/jsonbinpack/schema.json) | 21 | 41 | 40 | 44 |
 | MessagePack | None | 61 | 77 | 78 | 78 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/protobuf/schema.proto) | 23 | 43 | 42 | 47 |
 | Smile | None | 70 | 86 | 88 | 88 |
@@ -370,7 +358,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/flatbuffers/schema.fbs) | 136 | 89 | 126 | 87 |
 | FlexBuffers | None | 95 | 109 | 114 | 111 |
 | JSON | None | 86 | 86 | 99 | 88 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/jsonbinpack/schema.json) | 10 | 30 | 29 | 33 |
 | MessagePack | None | 52 | 73 | 71 | 76 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/protobuf/schema.proto) | 21 | 41 | 40 | 43 |
 | Smile | None | 63 | 82 | 82 | 84 |
@@ -393,7 +380,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/flatbuffers/schema.fbs) | 44 | 51 | 63 | 51 |
 | FlexBuffers | None | 39 | 56 | 58 | 60 |
 | JSON | None | 34 | 54 | 53 | 58 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/jsonbinpack/schema.json) | 8 | 28 | 27 | 31 |
 | MessagePack | None | 21 | 41 | 40 | 46 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/protobuf/schema.proto) | 10 | 30 | 29 | 33 |
 | Smile | None | 27 | 48 | 46 | 52 |
@@ -416,7 +402,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/flatbuffers/schema.fbs) | 584 | 340 | 429 | 331 |
 | FlexBuffers | None | 598 | 406 | 475 | 400 |
 | JSON | None | 573 | 327 | 418 | 341 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/jsonbinpack/schema.json) | 308 | 255 | 273 | 251 |
 | MessagePack | None | 517 | 331 | 398 | 337 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/protobuf/schema.proto) | 413 | 261 | 302 | 264 |
 | Smile | None | 521 | 335 | 403 | 341 |
@@ -439,7 +424,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/flatbuffers/schema.fbs) | 3116 | 1686 | 2290 | 1627 |
 | FlexBuffers | None | 3049 | 1966 | 2560 | 1936 |
 | JSON | None | 3048 | 1556 | 2204 | 1586 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/jsonbinpack/schema.json) | 1469 | 1173 | 1358 | 1141 |
 | MessagePack | None | 2749 | 1600 | 2163 | 1615 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/protobuf/schema.proto) | 2225 | 1370 | 1832 | 1371 |
 | Smile | None | 2620 | 1581 | 2169 | 1621 |
@@ -462,7 +446,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/flatbuffers/schema.fbs) | 636 | 279 | 365 | 247 |
 | FlexBuffers | None | 890 | 559 | 664 | 552 |
 | JSON | None | 1049 | 411 | 548 | 425 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/jsonbinpack/schema.json) | 132 | 129 | 144 | 123 |
 | MessagePack | None | 919 | 458 | 565 | 443 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/protobuf/schema.proto) | 284 | 155 | 195 | 152 |
 | Smile | None | 870 | 453 | 558 | 450 |
@@ -485,7 +468,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/flatbuffers/schema.fbs) | 464 | 302 | 390 | 257 |
 | FlexBuffers | None | 1389 | 869 | 1140 | 873 |
 | JSON | None | 1507 | 649 | 926 | 682 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/jsonbinpack/schema.json) | 73 | 94 | 92 | 97 |
 | MessagePack | None | 1172 | 670 | 872 | 678 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/protobuf/schema.proto) | 109 | 129 | 128 | 132 |
 | Smile | None | 1090 | 683 | 886 | 701 |
@@ -508,7 +490,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/flatbuffers/schema.fbs) | 384 | 307 | 367 | 285 |
 | FlexBuffers | None | 660 | 502 | 590 | 483 |
 | JSON | None | 494 | 341 | 470 | 361 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/jsonbinpack/schema.json) | 113 | 134 | 132 | 138 |
 | MessagePack | None | 382 | 358 | 393 | 350 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/protobuf/schema.proto) | 188 | 199 | 207 | 203 |
 | Smile | None | 412 | 389 | 418 | 372 |
@@ -531,7 +512,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/flatbuffers/schema.fbs) | 328 | 251 | 297 | 235 |
 | FlexBuffers | None | 488 | 376 | 420 | 357 |
 | JSON | None | 375 | 250 | 302 | 252 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/jsonbinpack/schema.json) | 100 | 119 | 119 | 119 |
 | MessagePack | None | 339 | 276 | 297 | 259 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/protobuf/schema.proto) | 173 | 171 | 183 | 172 |
 | Smile | None | 326 | 299 | 324 | 290 |
@@ -554,7 +534,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/flatbuffers/schema.fbs) | 2268 | 1132 | 1512 | 1064 |
 | FlexBuffers | None | 2320 | 1395 | 1767 | 1381 |
 | JSON | None | 2259 | 1093 | 1520 | 1129 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/jsonbinpack/schema.json) | 950 | 840 | 889 | 796 |
 | MessagePack | None | 1995 | 1131 | 1483 | 1143 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/protobuf/schema.proto) | 1581 | 888 | 1149 | 903 |
 | Smile | None | 1983 | 1119 | 1473 | 1138 |
@@ -577,7 +556,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/flatbuffers/schema.fbs) | 960 | 288 | 389 | 248 |
 | FlexBuffers | None | 942 | 522 | 629 | 510 |
 | JSON | None | 1159 | 321 | 441 | 344 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/jsonbinpack/schema.json) | 90 | 80 | 85 | 81 |
 | MessagePack | None | 989 | 366 | 476 | 365 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/protobuf/schema.proto) | 454 | 197 | 252 | 172 |
 | Smile | None | 1002 | 380 | 499 | 388 |
@@ -600,7 +578,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/flatbuffers/schema.fbs) | 24 | 35 | 43 | 38 |
 | FlexBuffers | None | 37 | 52 | 56 | 55 |
 | JSON | None | 44 | 50 | 58 | 55 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/jsonbinpack/schema.json) | 0 | 20 | 15 | 23 |
 | MessagePack | None | 25 | 45 | 44 | 49 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/protobuf/schema.proto) | 0 | 20 | 15 | 23 |
 | Smile | None | 30 | 50 | 49 | 54 |
@@ -623,7 +600,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/flatbuffers/schema.fbs) | 668 | 175 | 215 | 164 |
 | FlexBuffers | None | 228 | 214 | 244 | 207 |
 | JSON | None | 673 | 154 | 195 | 164 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/jsonbinpack/schema.json) | 89 | 98 | 108 | 99 |
 | MessagePack | None | 627 | 157 | 192 | 163 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/protobuf/schema.proto) | 521 | 114 | 133 | 109 |
 | Smile | None | 604 | 168 | 199 | 173 |
@@ -646,7 +622,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/flatbuffers/schema.fbs) | 60 | 53 | 64 | 49 |
 | FlexBuffers | None | 77 | 76 | 88 | 80 |
 | JSON | None | 67 | 68 | 74 | 70 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/jsonbinpack/schema.json) | 1 | 21 | 20 | 24 |
 | MessagePack | None | 51 | 62 | 70 | 64 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/protobuf/schema.proto) | 8 | 28 | 27 | 31 |
 | Smile | None | 59 | 68 | 73 | 71 |
@@ -669,7 +644,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/flatbuffers/schema.fbs) | 88 | 78 | 91 | 78 |
 | FlexBuffers | None | 70 | 78 | 81 | 80 |
 | JSON | None | 63 | 70 | 72 | 73 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/jsonbinpack/schema.json) | 46 | 54 | 56 | 57 |
 | MessagePack | None | 55 | 63 | 65 | 65 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/protobuf/schema.proto) | 47 | 55 | 57 | 58 |
 | Smile | None | 61 | 69 | 71 | 72 |
@@ -692,7 +666,6 @@ Results
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/flatbuffers/schema.fbs) | 84 | 71 | 94 | 69 |
 | FlexBuffers | None | 102 | 106 | 116 | 109 |
 | JSON | None | 98 | 90 | 99 | 92 |
-| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/jsonbinpack/schema.json) | 1 | 21 | 20 | 24 |
 | MessagePack | None | 68 | 81 | 87 | 82 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/protobuf/schema.proto) | 14 | 34 | 33 | 36 |
 | Smile | None | 78 | 88 | 92 | 92 |

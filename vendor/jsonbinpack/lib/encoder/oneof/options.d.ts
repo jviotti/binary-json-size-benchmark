@@ -32,7 +32,7 @@ interface SchemaDefinition {
 }
 
 export interface SchemasOptions extends NoOptions {
-  readonly schemas: SchemaDefinition[];
+  readonly choices: SchemaDefinition[];
 }
 
 export type OneOfOptions = SchemasOptions

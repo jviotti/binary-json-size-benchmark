@@ -15,10 +15,6 @@
  */
 
 import {
-  NoOptions
-} from '../null/options'
-
-import {
   BoundedOptions,
   FloorOptions,
   RoofOptions
@@ -28,20 +24,16 @@ import {
   Encoding
 } from '../../mapper'
 
-export interface SemiTypedOptions {
+interface SemiTypedOptions {
   readonly prefixEncodings: Encoding[];
-}
-
-export interface SemiTypedFloorOptions extends FloorOptions, SemiTypedOptions {}
-export interface SemiTypedRoofOptions extends RoofOptions, SemiTypedOptions {}
-export interface SemiTypedBoundedOptions extends BoundedOptions, SemiTypedOptions {}
-
-export interface SizeSemiTypedFloorOptions extends SemiTypedFloorOptions {
-  readonly size: number;
 }
 
 interface TypedOptions extends SemiTypedOptions {
   readonly encoding: Encoding;
+}
+
+export interface SizeTypedOptions extends TypedOptions {
+  readonly size: number;
 }
 
 interface TypedFloorOptions extends FloorOptions, TypedOptions {}
@@ -49,12 +41,7 @@ interface TypedRoofOptions extends RoofOptions, TypedOptions {}
 interface TypedBoundedOptions extends BoundedOptions, TypedOptions {}
 
 export type ArrayOptions =
-  SemiTypedOptions |
-  SemiTypedFloorOptions |
-  SemiTypedRoofOptions |
-  SemiTypedBoundedOptions |
-  TypedOptions |
   TypedFloorOptions |
   TypedRoofOptions |
   TypedBoundedOptions |
-  SizeSemiTypedFloorOptions
+  SizeTypedOptions

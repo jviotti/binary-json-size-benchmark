@@ -26,7 +26,7 @@ import {
 
 import {
   IntegerResult,
-  BOUNDED_8BITS__ENUM_FIXED
+  BOUNDED_8BITS_ENUM_FIXED
 } from '../integer/decode'
 
 import {
@@ -42,10 +42,10 @@ export interface BooleanResult extends DecodeResult {
   readonly bytes: number;
 }
 
-export const BOOLEAN_8BITS__ENUM_FIXED = (
+export const BOOLEAN_8BITS_ENUM_FIXED = (
   buffer: ResizableBuffer, offset: number, _options: NoOptions
 ): BooleanResult => {
-  const result: IntegerResult = BOUNDED_8BITS__ENUM_FIXED(buffer, offset, {
+  const result: IntegerResult = BOUNDED_8BITS_ENUM_FIXED(buffer, offset, {
     minimum: 0,
     maximum: 1
   })

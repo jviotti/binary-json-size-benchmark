@@ -75,27 +75,21 @@ export interface RFC3339_DATE_INTEGER_TRIPLET_ENCODING extends BaseEncodingDefin
   readonly options: NoOptions;
 }
 
-export interface BOUNDED__PREFIX_LENGTH_8BIT_FIXED_ENCODING extends BaseEncodingDefinition {
+export interface BOUNDED_PREFIX_LENGTH_8BIT_FIXED_ENCODING extends BaseEncodingDefinition {
   readonly type: EncodingType.String;
-  readonly encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED';
+  readonly encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED';
   readonly options: BoundedOptions;
 }
 
-export interface BOUNDED__PREFIX_LENGTH_ENUM_VARINT_ENCODING extends BaseEncodingDefinition {
+export interface ROOF_PREFIX_LENGTH_ENUM_VARINT_ENCODING extends BaseEncodingDefinition {
   readonly type: EncodingType.String;
-  readonly encoding: 'BOUNDED__PREFIX_LENGTH_ENUM_VARINT';
-  readonly options: BoundedOptions;
-}
-
-export interface ROOF__PREFIX_LENGTH_ENUM_VARINT_ENCODING extends BaseEncodingDefinition {
-  readonly type: EncodingType.String;
-  readonly encoding: 'ROOF__PREFIX_LENGTH_ENUM_VARINT';
+  readonly encoding: 'ROOF_PREFIX_LENGTH_ENUM_VARINT';
   readonly options: RoofOptions;
 }
 
-export interface FLOOR__PREFIX_LENGTH_ENUM_VARINT_ENCODING extends BaseEncodingDefinition {
+export interface FLOOR_PREFIX_LENGTH_ENUM_VARINT_ENCODING extends BaseEncodingDefinition {
   readonly type: EncodingType.String;
-  readonly encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT';
+  readonly encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT';
   readonly options: FloorOptions;
 }
 
@@ -111,9 +105,9 @@ export interface SHARED_STRING_POINTER_RELATIVE_OFFSET_ENCODING extends BaseEnco
   readonly options: SizeOptions;
 }
 
-export interface UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH_ENCODING extends BaseEncodingDefinition {
+export interface STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH_ENCODING extends BaseEncodingDefinition {
   readonly type: EncodingType.String;
-  readonly encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH';
+  readonly encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH';
   readonly options: NoOptions;
 }
 
@@ -122,25 +116,23 @@ export type StringEncodingNames =
   'STRING_DICTIONARY_COMPRESSOR' |
   'URL_PROTOCOL_HOST_REST' |
   'RFC3339_DATE_INTEGER_TRIPLET' |
-  'BOUNDED__PREFIX_LENGTH_8BIT_FIXED' |
-  'BOUNDED__PREFIX_LENGTH_ENUM_VARINT' |
-  'ROOF__PREFIX_LENGTH_ENUM_VARINT' |
-  'FLOOR__PREFIX_LENGTH_ENUM_VARINT' |
+  'BOUNDED_PREFIX_LENGTH_8BIT_FIXED' |
+  'ROOF_PREFIX_LENGTH_ENUM_VARINT' |
+  'FLOOR_PREFIX_LENGTH_ENUM_VARINT' |
   'UTF8_STRING_NO_LENGTH' |
   'SHARED_STRING_POINTER_RELATIVE_OFFSET' |
-  'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH'
+  'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH'
 export type StringEncoding =
   STRING_BROTLI_ENCODING |
   STRING_DICTIONARY_COMPRESSOR_ENCODING |
   URL_PROTOCOL_HOST_REST_ENCODING |
   RFC3339_DATE_INTEGER_TRIPLET_ENCODING |
-  BOUNDED__PREFIX_LENGTH_8BIT_FIXED_ENCODING |
-  BOUNDED__PREFIX_LENGTH_ENUM_VARINT_ENCODING |
-  ROOF__PREFIX_LENGTH_ENUM_VARINT_ENCODING |
-  FLOOR__PREFIX_LENGTH_ENUM_VARINT_ENCODING |
+  BOUNDED_PREFIX_LENGTH_8BIT_FIXED_ENCODING |
+  ROOF_PREFIX_LENGTH_ENUM_VARINT_ENCODING |
+  FLOOR_PREFIX_LENGTH_ENUM_VARINT_ENCODING |
   UTF8_STRING_NO_LENGTH_ENCODING |
   SHARED_STRING_POINTER_RELATIVE_OFFSET_ENCODING |
-  UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH_ENCODING
+  STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH_ENCODING
 
 export const getStringStates = (_schema: StringEncodingSchema): number | JSONValue[] => {
   return Infinity
@@ -178,19 +170,28 @@ export const getStringEncoding = (schema: StringEncodingSchema, _level: number):
     schema.maxLength >= schema.minLength)
 
   if (typeof schema.minLength !== 'undefined' && typeof schema.maxLength !== 'undefined') {
+    if (schema.maxLength - schema.minLength <= UINT8_MAX - 1) {
+      return {
+        type: EncodingType.String,
+        encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
+        options: {
+          minimum: schema.minLength,
+          maximum: schema.maxLength
+        }
+      }
+    }
+
     return {
       type: EncodingType.String,
-      encoding: (schema.maxLength - schema.minLength <= UINT8_MAX - 1)
-        ? 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED' : 'BOUNDED__PREFIX_LENGTH_ENUM_VARINT',
+      encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
       options: {
-        minimum: schema.minLength,
-        maximum: schema.maxLength
+        minimum: schema.minLength
       }
     }
   } else if (typeof schema.minLength !== 'undefined' && typeof schema.maxLength === 'undefined') {
     return {
       type: EncodingType.String,
-      encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+      encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
       options: {
         minimum: schema.minLength
       }
@@ -199,7 +200,7 @@ export const getStringEncoding = (schema: StringEncodingSchema, _level: number):
     if (schema.maxLength <= UINT8_MAX - 1) {
       return {
         type: EncodingType.String,
-        encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+        encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
         options: {
           minimum: 0,
           maximum: schema.maxLength
@@ -209,7 +210,7 @@ export const getStringEncoding = (schema: StringEncodingSchema, _level: number):
 
     return {
       type: EncodingType.String,
-      encoding: 'ROOF__PREFIX_LENGTH_ENUM_VARINT',
+      encoding: 'ROOF_PREFIX_LENGTH_ENUM_VARINT',
       options: {
         maximum: schema.maxLength
       }
@@ -230,7 +231,7 @@ export const getStringEncoding = (schema: StringEncodingSchema, _level: number):
 
   return {
     type: EncodingType.String,
-    encoding: 'FLOOR__PREFIX_LENGTH_ENUM_VARINT',
+    encoding: 'FLOOR_PREFIX_LENGTH_ENUM_VARINT',
     options: {
       minimum: 0
     }

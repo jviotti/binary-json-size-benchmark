@@ -101,7 +101,8 @@ tap_1.default.test('BOUNDED_CHOICE_INDEX', function (test) {
         fc.pre(index < array.length);
         var context = encoder_1.getDefaultEncodingContext();
         var choices = array.map(function (json) {
-            return JSON.parse(json);
+            var value = JSON.parse(json);
+            return value;
         });
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(1));
         var bytesWritten = encode_1.BOUNDED_CHOICE_INDEX(buffer, 0, choices[index], {
@@ -129,7 +130,8 @@ tap_1.default.test('LARGE_BOUNDED_CHOICE_INDEX', function (test) {
         fc.pre(index < array.length);
         var context = encoder_1.getDefaultEncodingContext();
         var choices = array.map(function (json) {
-            return JSON.parse(json);
+            var value = JSON.parse(json);
+            return value;
         });
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(1));
         var bytesWritten = encode_1.LARGE_BOUNDED_CHOICE_INDEX(buffer, 0, choices[index], {

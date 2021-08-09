@@ -18,15 +18,15 @@ import tap from 'tap'
 
 import {
   STRING_DICTIONARY_COMPRESSOR,
+  STRING_BROTLI,
   URL_PROTOCOL_HOST_REST,
   RFC3339_DATE_INTEGER_TRIPLET,
-  BOUNDED__PREFIX_LENGTH_8BIT_FIXED,
-  BOUNDED__PREFIX_LENGTH_ENUM_VARINT,
-  ROOF__PREFIX_LENGTH_ENUM_VARINT,
+  BOUNDED_PREFIX_LENGTH_8BIT_FIXED,
+  ROOF_PREFIX_LENGTH_ENUM_VARINT,
   UTF8_STRING_NO_LENGTH,
   SHARED_STRING_POINTER_RELATIVE_OFFSET,
-  FLOOR__PREFIX_LENGTH_ENUM_VARINT,
-  UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH
+  FLOOR_PREFIX_LENGTH_ENUM_VARINT,
+  STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH
 } from '../../../lib/encoder/string/encode'
 
 import {
@@ -69,10 +69,17 @@ tap.test('STRING_DICTIONARY_COMPRESSOR: should encode "foo bar baz" with [ bar ]
     }, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x0b, // whole string length
-    0x07, 0x66, 0x6f, 0x6f, // zigzag negative length + 'foo'
-    0x02, // 'bar'
-    0x07, 0x62, 0x61, 0x7a // zigzag negative length + 'baz'
+    // Whole string length
+    0x0b,
+
+    // Zigzag negative length + 'foo'
+    0x07, 0x66, 0x6f, 0x6f,
+
+    // 'bar'
+    0x02,
+
+    // Zigzag negative length + 'baz'
+    0x07, 0x62, 0x61, 0x7a
   ]))
 
   test.is(bytesWritten, 10)
@@ -91,11 +98,20 @@ tap.test('STRING_DICTIONARY_COMPRESSOR: should encode "foo bar foo" with [ bar ]
     }, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x0b, // whole string length
-    0x07, 0x66, 0x6f, 0x6f, // zigzag negative length + 'foo'
-    0x02, // 'bar'
-    0x00, // start of shared string
-    0x03, 0x06 // zigzag negative length + offset 'foo'
+    // Whole string length
+    0x0b,
+
+    // Zigzag negative length + 'foo'
+    0x07, 0x66, 0x6f, 0x6f,
+
+    // 'bar'
+    0x02,
+
+    // Start of shared string
+    0x00,
+
+    // Zigzag negative length + offset 'foo'
+    0x03, 0x06
   ]))
 
   test.is(bytesWritten, 9)
@@ -114,63 +130,138 @@ tap.test('STRING_DICTIONARY_COMPRESSOR: should encode "bar foo foo" with [ bar ]
     }, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x0b, // whole string length
-    0x02, // 'bar'
-    0x0f, // zigzag negative length
-    0x66, 0x6f, 0x6f, 0x20, 0x66, 0x6f, 0x6f // 'foo foo'
+    // Whole string length
+    0x0b,
+
+    // 'bar'
+    0x02,
+
+    // Zigzag negative length
+    0x0f,
+
+    // 'foo foo'
+    0x66, 0x6f, 0x6f, 0x20, 0x66, 0x6f, 0x6f
   ]))
 
   test.is(bytesWritten, 10)
   test.end()
 })
 
+tap.test('STRING_BROTLI: should encode "foo bar baz"', (test) => {
+  const context: EncodingContext = getDefaultEncodingContext()
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(16))
+  const bytesWritten: number = STRING_BROTLI(buffer, 0, 'foo bar baz', {}, context)
+  test.strictSame(buffer.getBuffer(), Buffer.from([
+    0x0f, 0x0b, 0x05, 0x80, 0x66, 0x6f, 0x6f, 0x20,
+    0x62, 0x61, 0x72, 0x20, 0x62, 0x61, 0x7a, 0x03
+  ]))
+  test.is(bytesWritten, 16)
+  test.end()
+})
+
 tap.test('URL_PROTOCOL_HOST_REST: should encode "https://google.com"', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(18))
   const bytesWritten: number =
     URL_PROTOCOL_HOST_REST(buffer, 0, 'https://google.com', {}, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x07, // protocol length
-    0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, // 'https:'
-    0x0b, // host length
-    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d, // 'google.com'
-    0x01 // rest length
+    // Protocol length
+    0x06,
+
+    // 'https'
+    0x68, 0x74, 0x74, 0x70, 0x73,
+
+    // Host length
+    0x0b,
+
+    // 'google.com'
+    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d,
+
+    // Rest length
+    0x01
   ]))
-  test.is(bytesWritten, 19)
+  test.is(bytesWritten, 18)
   test.end()
 })
 
 tap.test('URL_PROTOCOL_HOST_REST: should encode "https://google.com/"', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(19))
   const bytesWritten: number =
     URL_PROTOCOL_HOST_REST(buffer, 0, 'https://google.com/', {}, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x07, // protocol length
-    0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, // 'https:'
-    0x0b, // host length
-    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d, // 'google.com'
-    0x02, // rest length
+    // Protocol length
+    0x06,
+
+    // 'https'
+    0x68, 0x74, 0x74, 0x70, 0x73,
+
+    // Host length
+    0x0b,
+
+    // 'google.com'
+    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d,
+
+    // Rest length
+    0x02,
     0x2f
   ]))
-  test.is(bytesWritten, 20)
+  test.is(bytesWritten, 19)
   test.end()
 })
 
 tap.test('URL_PROTOCOL_HOST_REST: should encode "https://google.com/foo"', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(22))
   const bytesWritten: number =
     URL_PROTOCOL_HOST_REST(buffer, 0, 'https://google.com/foo', {}, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x07, // protocol length
-    0x68, 0x74, 0x74, 0x70, 0x73, 0x3a, // 'https:'
-    0x0b, // host length
-    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d, // 'google.com'
-    0x05, // rest length
+    // Protocol length
+    0x06,
+
+    // 'https'
+    0x68, 0x74, 0x74, 0x70, 0x73,
+
+    // Host length
+    0x0b,
+
+    // 'google.com'
+    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d,
+
+    // Rest length
+    0x05,
     0x2f, 0x66, 0x6f, 0x6f
   ]))
-  test.is(bytesWritten, 23)
+  test.is(bytesWritten, 22)
+  test.end()
+})
+
+tap.test('URL_PROTOCOL_HOST_REST: should encode "https://google.com/foo?bar=1"', (test) => {
+  const context: EncodingContext = getDefaultEncodingContext()
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(28))
+  const bytesWritten: number =
+    URL_PROTOCOL_HOST_REST(buffer, 0, 'https://google.com/foo?bar=1', {}, context)
+  test.strictSame(buffer.getBuffer(), Buffer.from([
+    // Protocol length
+    0x06,
+
+    // 'https'
+    0x68, 0x74, 0x74, 0x70, 0x73,
+
+    // Host length
+    0x0b,
+
+    // 'google.com'
+    0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x63, 0x6f, 0x6d,
+
+    // Rest length
+    0x0b,
+    0x2f, 0x66, 0x6f, 0x6f,
+
+    // Query string
+    0x3f, 0x62, 0x61, 0x72, 0x3d, 0x31
+  ]))
+  test.is(bytesWritten, 28)
   test.end()
 })
 
@@ -184,14 +275,13 @@ tap.test('RFC3339_DATE_INTEGER_TRIPLET: should encode "2014-10-01"', (test) => {
   test.end()
 })
 
-tap.test('BOUNDED__PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (2..4)', (
+tap.test('ROOF_PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (..4)', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
   const bytesWritten: number =
-    BOUNDED__PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'foo', {
-      minimum: 2,
+    ROOF_PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'foo', {
       maximum: 4
     }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x02, 0x66, 0x6f, 0x6f ]))
@@ -199,27 +289,13 @@ tap.test('BOUNDED__PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (2..4)', (
   test.end()
 })
 
-tap.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (..4)', (
+tap.test('ROOF_PREFIX_LENGTH_ENUM_VARINT: should encode "fooo" (..4)', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
   const bytesWritten: number =
-    ROOF__PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'foo', {
-      maximum: 4
-    }, context)
-  test.strictSame(buffer.getBuffer(), Buffer.from([ 0x02, 0x66, 0x6f, 0x6f ]))
-  test.is(bytesWritten, 4)
-  test.end()
-})
-
-tap.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode "fooo" (..4)', (
-  test
-) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
-  const bytesWritten: number =
-    ROOF__PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'fooo', {
+    ROOF_PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'fooo', {
       maximum: 4
     }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x01, 0x66, 0x6f, 0x6f, 0x6f ]))
@@ -227,13 +303,13 @@ tap.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode "fooo" (..4)', (
   test.end()
 })
 
-tap.test('FLOOR__PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (3..)', (
+tap.test('FLOOR_PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (3..)', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
   const bytesWritten: number =
-    FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'foo', {
+    FLOOR_PREFIX_LENGTH_ENUM_VARINT(buffer, 0, 'foo', {
       minimum: 3
     }, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x01, 0x66, 0x6f, 0x6f ]))
@@ -241,7 +317,7 @@ tap.test('FLOOR__PREFIX_LENGTH_ENUM_VARINT: should encode "foo" (3..)', (
   test.end()
 })
 
-tap.test('BOUNDED__PREFIX_LENGTH_8BIT_FIXED: should encode a shared string', (
+tap.test('BOUNDED_PREFIX_LENGTH_8BIT_FIXED: should encode a shared string', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
@@ -251,10 +327,10 @@ tap.test('BOUNDED__PREFIX_LENGTH_8BIT_FIXED: should encode a shared string', (
     maximum: 4
   }
 
-  const bytesWritten1: number = BOUNDED__PREFIX_LENGTH_8BIT_FIXED(
+  const bytesWritten1: number = BOUNDED_PREFIX_LENGTH_8BIT_FIXED(
     buffer, 0, 'foo', options, context)
 
-  const bytesWritten2: number = BOUNDED__PREFIX_LENGTH_8BIT_FIXED(
+  const bytesWritten2: number = BOUNDED_PREFIX_LENGTH_8BIT_FIXED(
     buffer, bytesWritten1, 'foo', options, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
@@ -279,45 +355,7 @@ tap.test('BOUNDED__PREFIX_LENGTH_8BIT_FIXED: should encode a shared string', (
   test.end()
 })
 
-tap.test('BOUNDED__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
-  test
-) => {
-  const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(10))
-  const options: BoundedOptions = {
-    minimum: 0,
-    maximum: 4
-  }
-
-  const bytesWritten1: number = BOUNDED__PREFIX_LENGTH_ENUM_VARINT(
-    buffer, 0, 'foo', options, context)
-
-  const bytesWritten2: number = BOUNDED__PREFIX_LENGTH_ENUM_VARINT(
-    buffer, bytesWritten1, 'foo', options, context)
-
-  test.strictSame(buffer.getBuffer(), Buffer.from([
-    // String length + foo
-    0x04, 0x66, 0x6f, 0x6f,
-
-    // Start of pointer
-    0x00,
-
-    // String length
-    0x04,
-
-    // Pointer (current = 6 - location = 1)
-    0x05
-  ]))
-
-  test.is(context.strings.get('foo'), 1)
-  test.false(context.keys.has('foo'))
-  test.is(bytesWritten1, 4)
-  test.is(bytesWritten2, 3)
-
-  test.end()
-})
-
-tap.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
+tap.test('ROOF_PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
@@ -326,10 +364,10 @@ tap.test('ROOF__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
     maximum: 4
   }
 
-  const bytesWritten1: number = ROOF__PREFIX_LENGTH_ENUM_VARINT(
+  const bytesWritten1: number = ROOF_PREFIX_LENGTH_ENUM_VARINT(
     buffer, 0, 'foo', options, context)
 
-  const bytesWritten2: number = ROOF__PREFIX_LENGTH_ENUM_VARINT(
+  const bytesWritten2: number = ROOF_PREFIX_LENGTH_ENUM_VARINT(
     buffer, bytesWritten1, 'foo', options, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
@@ -405,7 +443,7 @@ tap.test('SHARED_STRING_POINTER_RELATIVE_OFFSET: should encode a shared string',
   test.end()
 })
 
-tap.test('FLOOR__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
+tap.test('FLOOR_PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
@@ -414,10 +452,10 @@ tap.test('FLOOR__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
     minimum: 3
   }
 
-  const bytesWritten1: number = FLOOR__PREFIX_LENGTH_ENUM_VARINT(
+  const bytesWritten1: number = FLOOR_PREFIX_LENGTH_ENUM_VARINT(
     buffer, 0, 'foo', options, context)
 
-  const bytesWritten2: number = FLOOR__PREFIX_LENGTH_ENUM_VARINT(
+  const bytesWritten2: number = FLOOR_PREFIX_LENGTH_ENUM_VARINT(
     buffer, bytesWritten1, 'foo', options, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
@@ -442,28 +480,28 @@ tap.test('FLOOR__PREFIX_LENGTH_ENUM_VARINT: should encode a shared string', (
   test.end()
 })
 
-tap.test('UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH: should encode "foo"', (
+tap.test('STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH: should encode "foo"', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(4))
   const bytesWritten: number =
-    UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH(buffer, 0, 'foo', {}, context)
+    STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH(buffer, 0, 'foo', {}, context)
   test.strictSame(buffer.getBuffer(), Buffer.from([ 0x04, 0x66, 0x6f, 0x6f ]))
   test.is(bytesWritten, 4)
   test.end()
 })
 
-tap.test('UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH: should encode a shared string', (
+tap.test('STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH: should encode a shared string', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(10))
 
-  const bytesWritten1: number = UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH(
+  const bytesWritten1: number = STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH(
     buffer, 0, 'foo', {}, context)
 
-  const bytesWritten2: number = UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH(
+  const bytesWritten2: number = STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH(
     buffer, bytesWritten1, 'foo', {}, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
@@ -485,18 +523,18 @@ tap.test('UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH: should encode a shared string', (
   test.end()
 })
 
-tap.test('UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH: should not encode a shared non-key string', (
+tap.test('STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH: should not encode a shared non-key string', (
   test
 ) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(10))
 
-  const bytesWritten1: number = FLOOR__PREFIX_LENGTH_ENUM_VARINT(
+  const bytesWritten1: number = FLOOR_PREFIX_LENGTH_ENUM_VARINT(
     buffer, 0, 'foo', {
       minimum: 3
     }, context)
 
-  const bytesWritten2: number = UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH(
+  const bytesWritten2: number = STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH(
     buffer, bytesWritten1, 'foo', {}, context)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([

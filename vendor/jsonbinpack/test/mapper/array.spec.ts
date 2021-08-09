@@ -35,9 +35,15 @@ tap.test('should encode an arbitrary array', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'UNBOUNDED_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'FLOOR_TYPED_LENGTH_PREFIX',
     options: {
-      prefixEncodings: []
+      minimum: 0,
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -54,10 +60,15 @@ tap.test('should encode an arbitrary array with minItems', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'FLOOR_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'FLOOR_TYPED_LENGTH_PREFIX',
     options: {
       minimum: 10,
-      prefixEncodings: []
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -74,10 +85,15 @@ tap.test('should encode an arbitrary array with maxItems = 256', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'ROOF_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'ROOF_TYPED_LENGTH_PREFIX',
     options: {
       maximum: 256,
-      prefixEncodings: []
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -94,10 +110,16 @@ tap.test('should encode an arbitrary array with maxItems = 255', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'ROOF_8BITS_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'BOUNDED_8BITS_TYPED_LENGTH_PREFIX',
     options: {
+      minimum: 0,
       maximum: 255,
-      prefixEncodings: []
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -114,10 +136,16 @@ tap.test('should encode an arbitrary array with maxItems < 255', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'ROOF_8BITS_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'BOUNDED_8BITS_TYPED_LENGTH_PREFIX',
     options: {
+      minimum: 0,
       maximum: 10,
-      prefixEncodings: []
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -135,11 +163,16 @@ tap.test('should encode an arbitrary array with maxItems - minItems < 255', (tes
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'BOUNDED_8BITS_TYPED_LENGTH_PREFIX',
     options: {
       minimum: 3,
       maximum: 10,
-      prefixEncodings: []
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -157,11 +190,16 @@ tap.test('should encode an arbitrary array with maxItems - minItems > 255', (tes
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'BOUNDED_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'BOUNDED_TYPED_LENGTH_PREFIX',
     options: {
       minimum: 30,
       maximum: 450,
-      prefixEncodings: []
+      prefixEncodings: [],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -186,23 +224,29 @@ tap.test('should encode a semi-typed scalar heterogeneous array', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'UNBOUNDED_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'FLOOR_TYPED_LENGTH_PREFIX',
     options: {
+      minimum: 0,
       prefixEncodings: [
         {
           type: 'integer',
-          encoding: 'ARBITRARY__ZIGZAG_VARINT',
+          encoding: 'ARBITRARY_ZIGZAG_VARINT',
           options: {}
         },
         {
           type: 'string',
-          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
           options: {
             minimum: 0,
             maximum: 5
           }
         }
-      ]
+      ],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -228,24 +272,29 @@ tap.test('should encode a semi-typed array with minItems', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'FLOOR_SEMITYPED__LENGTH_PREFIX',
+    encoding: 'FLOOR_TYPED_LENGTH_PREFIX',
     options: {
       minimum: 5,
       prefixEncodings: [
         {
           type: 'integer',
-          encoding: 'ARBITRARY__ZIGZAG_VARINT',
+          encoding: 'ARBITRARY_ZIGZAG_VARINT',
           options: {}
         },
         {
           type: 'string',
-          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
           options: {
             minimum: 0,
             maximum: 5
           }
         }
-      ]
+      ],
+      encoding: {
+        type: 'any',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+        options: {}
+      }
     }
   })
 
@@ -274,25 +323,31 @@ tap.test('should encode a semi + fully typed array with minItems', (test) => {
   test.is(getStates(schema), Infinity)
   test.strictSame(result, {
     type: 'array',
-    encoding: 'FLOOR_TYPED__LENGTH_PREFIX',
+    encoding: 'FLOOR_TYPED_LENGTH_PREFIX',
     options: {
       minimum: 5,
       encoding: {
         type: 'array',
-        encoding: 'UNBOUNDED_SEMITYPED__LENGTH_PREFIX',
+        encoding: 'FLOOR_TYPED_LENGTH_PREFIX',
         options: {
-          prefixEncodings: []
+          minimum: 0,
+          prefixEncodings: [],
+          encoding: {
+            type: 'any',
+            encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+            options: {}
+          }
         }
       },
       prefixEncodings: [
         {
           type: 'integer',
-          encoding: 'ARBITRARY__ZIGZAG_VARINT',
+          encoding: 'ARBITRARY_ZIGZAG_VARINT',
           options: {}
         },
         {
           type: 'string',
-          encoding: 'BOUNDED__PREFIX_LENGTH_8BIT_FIXED',
+          encoding: 'BOUNDED_PREFIX_LENGTH_8BIT_FIXED',
           options: {
             minimum: 0,
             maximum: 5
@@ -570,24 +625,48 @@ tap.test('should encode a bounded array with bounded prefixItems', (test) => {
 
   const result: Encoding = getEncoding(schema, 0)
   test.strictSame(getStates(schema), [
-    [ 0, { requireReturn: false } ],
-    [ 0, { requireReturn: true } ],
-    [ 1, { requireReturn: false } ],
-    [ 1, { requireReturn: true } ],
-    [ 2, { requireReturn: false } ],
-    [ 2, { requireReturn: true } ]
+    [ 0, {
+      requireReturn: false
+    } ],
+    [ 0, {
+      requireReturn: true
+    } ],
+    [ 1, {
+      requireReturn: false
+    } ],
+    [ 1, {
+      requireReturn: true
+    } ],
+    [ 2, {
+      requireReturn: false
+    } ],
+    [ 2, {
+      requireReturn: true
+    } ]
   ])
   test.strictSame(result, {
     type: 'enum',
     encoding: 'TOP_LEVEL_8BIT_CHOICE_INDEX',
     options: {
       choices: [
-        [ 0, { requireReturn: false } ],
-        [ 0, { requireReturn: true } ],
-        [ 1, { requireReturn: false } ],
-        [ 1, { requireReturn: true } ],
-        [ 2, { requireReturn: false } ],
-        [ 2, { requireReturn: true } ]
+        [ 0, {
+          requireReturn: false
+        } ],
+        [ 0, {
+          requireReturn: true
+        } ],
+        [ 1, {
+          requireReturn: false
+        } ],
+        [ 1, {
+          requireReturn: true
+        } ],
+        [ 2, {
+          requireReturn: false
+        } ],
+        [ 2, {
+          requireReturn: true
+        } ]
       ]
     }
   })

@@ -13,7 +13,7 @@ tap_1.default.test('should encode a null value', function (test) {
     test.strictSame(mapper_1.getStates(schema), [null]);
     test.strictSame(result, {
         type: 'null',
-        encoding: 'NULL_8BITS__ENUM_FIXED',
+        encoding: 'NULL_8BITS_ENUM_FIXED',
         options: {}
     });
     test.end();

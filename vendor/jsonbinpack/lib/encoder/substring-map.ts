@@ -24,9 +24,9 @@ const MINIMUM_LENGTH: number = 3
 const LIMIT: number = 100
 
 export default class SubstringMap {
-  private data: Map<string, number>;
+  private readonly data: Map<string, number>;
 
-  constructor () {
+  public constructor () {
     this.data = new Map()
   }
 

@@ -35,7 +35,7 @@ tap.test('should encode a null value', (test) => {
   test.strictSame(getStates(schema), [ null ])
   test.strictSame(result, {
     type: 'null',
-    encoding: 'NULL_8BITS__ENUM_FIXED',
+    encoding: 'NULL_8BITS_ENUM_FIXED',
     options: {}
   })
 

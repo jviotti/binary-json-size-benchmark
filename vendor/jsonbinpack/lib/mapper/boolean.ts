@@ -34,14 +34,14 @@ import {
   BooleanEncodingSchema
 } from '../schema'
 
-export interface BOOLEAN_8BITS__ENUM_FIXED_ENCODING extends BaseEncodingDefinition {
+export interface BOOLEAN_8BITS_ENUM_FIXED_ENCODING extends BaseEncodingDefinition {
   readonly type: EncodingType.Boolean;
-  readonly encoding: 'BOOLEAN_8BITS__ENUM_FIXED';
+  readonly encoding: 'BOOLEAN_8BITS_ENUM_FIXED';
   readonly options: NoOptions;
 }
 
-export type BooleanEncodingNames = 'BOOLEAN_8BITS__ENUM_FIXED'
-export type BooleanEncoding = BOOLEAN_8BITS__ENUM_FIXED_ENCODING
+export type BooleanEncodingNames = 'BOOLEAN_8BITS_ENUM_FIXED'
+export type BooleanEncoding = BOOLEAN_8BITS_ENUM_FIXED_ENCODING
 
 export const getBooleanStates = (_schema: BooleanEncodingSchema): number | JSONValue[] => {
   return [ false, true ]
@@ -50,7 +50,7 @@ export const getBooleanStates = (_schema: BooleanEncodingSchema): number | JSONV
 export const getBooleanEncoding = (_schema: BooleanEncodingSchema, _level: number): BooleanEncoding => {
   return {
     type: EncodingType.Boolean,
-    encoding: 'BOOLEAN_8BITS__ENUM_FIXED',
+    encoding: 'BOOLEAN_8BITS_ENUM_FIXED',
     options: {}
   }
 }
