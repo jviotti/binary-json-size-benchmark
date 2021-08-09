@@ -28,25 +28,25 @@ var util = __importStar(require("util"));
 var encode_1 = require("../../lib/encoder/any/encode");
 var decode_1 = require("../../lib/encoder/any/decode");
 var encoder_1 = require("../../lib/encoder");
-tap_1.default.test('ANY__TYPE_PREFIX: should handle " "', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle " "', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2048));
-    var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, ' ', {}, context);
+    var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, ' ', {}, context);
     test.is(bytesWritten, 2);
-    var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+    var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
     test.is(result.bytes, 2);
     test.is(result.value, ' ');
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle {"foo":"bar","baz":1}', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(100));
-    var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, {
+    var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {
         foo: 'bar',
         baz: 1
     }, {}, context);
     test.is(bytesWritten, 14);
-    var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+    var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
     test.is(result.bytes, 14);
     test.strictSame(result.value, {
         foo: 'bar',
@@ -54,37 +54,37 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', func
     });
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: should handle [ "foo", true, 2000 ]', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle [ "foo", true, 2000 ]', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(100));
-    var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, [
+    var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, [
         'foo', true, 2000
     ], {}, context);
     test.is(bytesWritten, 9);
-    var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+    var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
     test.is(result.bytes, 9);
     test.strictSame(result.value, ['foo', true, 2000]);
     test.end();
 });
-tap_1.default.skip('ANY__TYPE_PREFIX: should encode { "": -11492746249590654 }', function (test) {
+tap_1.default.skip('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should encode { "": -11492746249590654 }', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(12));
-    var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, {
+    var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {
         '': -11492746249590654
     }, {}, context);
     test.is(bytesWritten, 12);
-    var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+    var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
     test.is(result.bytes, 12);
     test.strictSame(result.value, {
         '': -11492746249590654
     });
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: should handle shared strings', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle shared strings', function (test) {
     var context = encoder_1.getDefaultEncodingContext();
     var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(100));
-    var bytesWritten1 = encode_1.ANY__TYPE_PREFIX(buffer, 0, 'foo', {}, context);
-    var bytesWritten2 = encode_1.ANY__TYPE_PREFIX(buffer, bytesWritten1, 'foo', {}, context);
+    var bytesWritten1 = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, 'foo', {}, context);
+    var bytesWritten2 = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, bytesWritten1, 'foo', {}, context);
     test.is(bytesWritten1, 4);
     test.is(bytesWritten2, 2);
     test.strictSame(buffer.getBuffer(), Buffer.from([
@@ -92,22 +92,22 @@ tap_1.default.test('ANY__TYPE_PREFIX: should handle shared strings', function (t
         0x20,
         0x04
     ]));
-    var decode1 = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+    var decode1 = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
     test.is(decode1.bytes, bytesWritten1);
     test.is(decode1.value, 'foo');
-    var decode2 = decode_1.ANY__TYPE_PREFIX(buffer, bytesWritten1, {});
+    var decode2 = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, bytesWritten1, {});
     test.is(decode2.bytes, bytesWritten2);
     test.is(decode2.value, 'foo');
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: scalars', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: scalars', function (test) {
     fc.assert(fc.property(fc.nat(10), fc.oneof(fc.constant(null), fc.boolean(), fc.integer(), fc.float(), fc.double(), fc.string({
         maxLength: 1000
     })), function (offset, value) {
         var context = encoder_1.getDefaultEncodingContext();
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2048));
-        var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, offset, value, {}, context);
-        var result = decode_1.ANY__TYPE_PREFIX(buffer, offset, {});
+        var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, offset, value, {}, context);
+        var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, offset, {});
         return bytesWritten > 0 &&
             result.bytes === bytesWritten && result.value === value;
     }), {
@@ -115,13 +115,13 @@ tap_1.default.test('ANY__TYPE_PREFIX: scalars', function (test) {
     });
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: JSON', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: JSON', function (test) {
     fc.assert(fc.property(fc.json(), function (json) {
         var context = encoder_1.getDefaultEncodingContext();
         var value = JSON.parse(json);
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(2048));
-        var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, value, {}, context);
-        var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+        var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, value, {}, context);
+        var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
         return bytesWritten > 0 && result.bytes === bytesWritten &&
             util.isDeepStrictEqual(result.value, value);
     }), {
@@ -129,13 +129,13 @@ tap_1.default.test('ANY__TYPE_PREFIX: JSON', function (test) {
     });
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: JSON with small ResizableBuffer', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: JSON with small ResizableBuffer', function (test) {
     fc.assert(fc.property(fc.json(), function (json) {
         var context = encoder_1.getDefaultEncodingContext();
         var value = JSON.parse(json);
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(1));
-        var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, value, {}, context);
-        var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+        var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, value, {}, context);
+        var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
         return bytesWritten > 0 && result.bytes === bytesWritten &&
             util.isDeepStrictEqual(result.value, value);
     }), {
@@ -143,13 +143,13 @@ tap_1.default.test('ANY__TYPE_PREFIX: JSON with small ResizableBuffer', function
     });
     test.end();
 });
-tap_1.default.test('ANY__TYPE_PREFIX: JSON with 0 ResizableBuffer', function (test) {
+tap_1.default.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: JSON with 0 ResizableBuffer', function (test) {
     fc.assert(fc.property(fc.json(), function (json) {
         var context = encoder_1.getDefaultEncodingContext();
         var value = JSON.parse(json);
         var buffer = new encoder_1.ResizableBuffer(Buffer.allocUnsafe(0));
-        var bytesWritten = encode_1.ANY__TYPE_PREFIX(buffer, 0, value, {}, context);
-        var result = decode_1.ANY__TYPE_PREFIX(buffer, 0, {});
+        var bytesWritten = encode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, value, {}, context);
+        var result = decode_1.ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {});
         return bytesWritten > 0 && result.bytes === bytesWritten &&
             util.isDeepStrictEqual(result.value, value);
     }), {

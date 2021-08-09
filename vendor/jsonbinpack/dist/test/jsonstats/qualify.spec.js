@@ -31,7 +31,7 @@ tap_1.default.test('should qualify the survey test object', function (test) {
         ]
     };
     var qualifiers = [
-        'minified >= 100 < 1000 bytes',
+        'tier 2 minified >= 100 < 1000 bytes',
         'numeric',
         'non-redundant',
         'nested'

@@ -10,7 +10,7 @@
       },
       "maxAge": {
         "type": "integer",
-        "encoding": "FLOOR__ENUM_VARINT",
+        "encoding": "FLOOR_ENUM_VARINT",
         "options": {
           "minimum": 0
         }
@@ -22,27 +22,28 @@
       },
       "defaultNavBehavior": {
         "type": "string",
-        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
         "options": {
           "minimum": 0
         }
       },
       "defaultResBehavior": {
         "type": "string",
-        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+        "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
         "options": {
           "minimum": 0
         }
       },
       "rules": {
         "type": "array",
-        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
         "options": {
+          "minimum": 0,
           "encoding": {
             "type": "oneOf",
             "encoding": "ONEOF_CHOICE_INDEX_PREFIX",
             "options": {
-              "schemas": [
+              "choices": [
                 {
                   "schema": {
                     "type": "object",
@@ -82,15 +83,16 @@
                       "propertyEncodings": {
                         "path": {
                           "type": "string",
-                          "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                          "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                           "options": {
                             "minimum": 0
                           }
                         },
                         "types": {
                           "type": "array",
-                          "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                          "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                           "options": {
+                            "minimum": 0,
                             "encoding": {
                               "type": "enum",
                               "encoding": "BOUNDED_CHOICE_INDEX",
@@ -110,7 +112,7 @@
                         },
                         "allowData": {
                           "type": "boolean",
-                          "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                          "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                           "options": {}
                         }
                       },
@@ -163,15 +165,16 @@
                       "propertyEncodings": {
                         "regex": {
                           "type": "string",
-                          "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                          "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                           "options": {
                             "minimum": 0
                           }
                         },
                         "types": {
                           "type": "array",
-                          "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                          "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                           "options": {
+                            "minimum": 0,
                             "encoding": {
                               "type": "enum",
                               "encoding": "BOUNDED_CHOICE_INDEX",
@@ -191,7 +194,7 @@
                         },
                         "allowData": {
                           "type": "boolean",
-                          "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                          "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                           "options": {}
                         }
                       },

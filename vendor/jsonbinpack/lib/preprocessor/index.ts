@@ -51,7 +51,9 @@ export const preprocessSchema = async (
 ): Promise<EncodingSchema> => {
   const objectSchema: JSONSchema = toObjectSchema(schema)
   const localSchema: JSONSchema = await dereferenceSchema(objectSchema)
+
   // TODO: Find a way to make this cast in a better way
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const castedSchema: JSONObject | JSONBoolean = localSchema
   return canonicalizeSchema(castedSchema)

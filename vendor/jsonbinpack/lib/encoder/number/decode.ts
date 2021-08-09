@@ -50,10 +50,12 @@ export const DOUBLE_VARINT_TUPLE = (
     varintDecode(buffer, offset + integralResult.bytes)
   const integralValue: bigint = zigzagDecode(integralResult.value)
   const integral: string = integralValue.toString()
-  const point: number = Number(zigzagDecode(pointResult.value))
+  const point: number = integralValue < BigInt(0)
+    ? Number(zigzagDecode(pointResult.value)) + 1
+    : Number(zigzagDecode(pointResult.value))
   const bytes: number = integralResult.bytes + pointResult.bytes
 
-  if (point === 0) {
+  if (point === 0 || (point === 1 && integralValue < BigInt(0))) {
     return {
       value: Number(integralValue),
       bytes

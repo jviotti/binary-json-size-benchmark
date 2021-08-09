@@ -110,9 +110,6 @@ var analyze = function (document, level, accumulator, keys, values, levels) {
         try {
             for (var _d = __values(Object.entries(document)), _e = _d.next(); !_e.done; _e = _d.next()) {
                 var _f = __read(_e.value, 2), key = _f[0], value = _f[1];
-                if (value === undefined) {
-                    continue;
-                }
                 keys.add(key);
                 accumulator.keys.count += 1;
                 accumulator.keys.byteSize += json_1.getJSONSize(key);
@@ -170,9 +167,9 @@ var percentage = function (total, local) {
 };
 var JSONStatsSizeQualifier;
 (function (JSONStatsSizeQualifier) {
-    JSONStatsSizeQualifier["tiny"] = "minified < 100 bytes";
-    JSONStatsSizeQualifier["small"] = "minified >= 100 < 1000 bytes";
-    JSONStatsSizeQualifier["large"] = "minified >= 1000 bytes";
+    JSONStatsSizeQualifier["tiny"] = "tier 1 minified < 100 bytes";
+    JSONStatsSizeQualifier["small"] = "tier 2 minified >= 100 < 1000 bytes";
+    JSONStatsSizeQualifier["large"] = "tier 3 minified >= 1000 bytes";
 })(JSONStatsSizeQualifier = exports.JSONStatsSizeQualifier || (exports.JSONStatsSizeQualifier = {}));
 var getSizeQualifier = function (byteSize) {
     if (byteSize < 100) {

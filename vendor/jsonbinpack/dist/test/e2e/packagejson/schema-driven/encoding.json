@@ -5,7 +5,7 @@
         "propertyEncodings": {
             "name": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -40028,7 +40028,7 @@
             },
             "version": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -40040,7 +40040,7 @@
                     "propertyEncodings": {
                         "name": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -40070,7 +40070,7 @@
                     "propertyEncodings": {
                         "type": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -40107,8 +40107,9 @@
             },
             "licenses": {
                 "type": "array",
-                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                 "options": {
+                    "minimum": 0,
                     "encoding": {
                         "type": "object",
                         "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
@@ -40116,7 +40117,7 @@
                             "propertyEncodings": {
                                 "type": {
                                     "type": "string",
-                                    "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                    "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                     "options": {
                                         "minimum": 0
                                     }
@@ -40139,7 +40140,7 @@
             },
             "main": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -40151,7 +40152,7 @@
                     "propertyEncodings": {
                         "test": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -40170,7 +40171,7 @@
                     "propertyEncodings": {
                         "node": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -40184,11 +40185,12 @@
             },
             "keywords": {
                 "type": "array",
-                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                 "options": {
+                    "minimum": 0,
                     "encoding": {
                         "type": "string",
-                        "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                        "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                         "options": {
                             "minimum": 0
                         }
@@ -40203,140 +40205,140 @@
                     "propertyEncodings": {
                         "async": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "coffee-script": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "colors": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "dateformat": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "eventemitter2": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "findup-sync": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "glob": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "hooker": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "iconv-lite": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "minimatch": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "nopt": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "rimraf": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "lodash": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "underscore.string": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "which": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "js-yaml": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "exit": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "getobject": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "grunt-legacy-util": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "grunt-legacy-log": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -40374,49 +40376,49 @@
                     "propertyEncodings": {
                         "temporary": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "grunt-contrib-jshint": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "grunt-contrib-nodeunit": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "grunt-contrib-watch": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "difflet": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "semver": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "shelljs": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -40441,14 +40443,14 @@
             },
             "_id": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "_from": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }

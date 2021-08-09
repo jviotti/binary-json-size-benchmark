@@ -28,7 +28,7 @@ import {
 
 import {
   IntegerResult,
-  BOUNDED__ENUM_VARINT
+  FLOOR_ENUM_VARINT
 } from '../integer/decode'
 
 import {
@@ -45,14 +45,13 @@ export interface OneOfResult extends DecodeResult {
 export const ONEOF_CHOICE_INDEX_PREFIX = (
   buffer: ResizableBuffer, offset: number, options: SchemasOptions
 ): OneOfResult => {
-  const index: IntegerResult = BOUNDED__ENUM_VARINT(buffer, offset, {
-    minimum: 0,
-    maximum: options.schemas.length
+  const index: IntegerResult = FLOOR_ENUM_VARINT(buffer, offset, {
+    minimum: 0
   })
 
   const result: DecodeResult = decode(
     buffer, offset + index.bytes,
-    options.schemas[index.value].encoding)
+    options.choices[index.value].encoding)
 
   return {
     value: result.value,

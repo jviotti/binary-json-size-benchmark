@@ -68,7 +68,7 @@ else if (COMMAND === 'encode') {
         process.exit(0);
     });
 }
-else if (COMMAND === 'decode') {
+else {
     var encodingPath = process.argv[3];
     if (typeof encodingPath !== 'string') {
         console.error('Missing input encoding document');
@@ -84,8 +84,4 @@ else if (COMMAND === 'decode') {
     var result = lib_1.decode(encoding, binary);
     console.log(JSON.stringify(result, null, 2));
     process.exit(0);
-}
-else {
-    console.error("Unknown command: " + COMMAND);
-    process.exit(1);
 }

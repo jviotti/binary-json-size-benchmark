@@ -9,7 +9,7 @@ exports.getAnyStates = getAnyStates;
 var getAnyEncoding = function (_schema, _level) {
     return {
         type: encoder_1.EncodingType.Any,
-        encoding: 'ANY__TYPE_PREFIX',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
         options: {}
     };
 };

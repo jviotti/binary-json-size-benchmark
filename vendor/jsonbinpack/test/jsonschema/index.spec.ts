@@ -90,8 +90,6 @@ for (const suitePath of recursiveReadDirectory(JSON_SCHEMA_TESTS_PATH)) {
     'format.json',
 
     // TODO: Make these suites pass
-    'time.json',
-    'iri.json',
     'dynamicRef.json',
     'float-overflow.json'
   ].includes(name)) {

@@ -34,10 +34,10 @@ var encode_1 = require("../integer/encode");
 var index_1 = require("../index");
 var ONEOF_CHOICE_INDEX_PREFIX = function (buffer, offset, value, options, context) {
     var e_1, _a;
-    assert_1.strict(options.schemas.length > 0);
+    assert_1.strict(options.choices.length > 0);
     var choiceIndex = -1;
     try {
-        for (var _b = __values(options.schemas.entries()), _c = _b.next(); !_c.done; _c = _b.next()) {
+        for (var _b = __values(options.choices.entries()), _c = _b.next(); !_c.done; _c = _b.next()) {
             var _d = __read(_c.value, 2), index = _d[0], definition = _d[1];
             if (schema_1.validateSchema(definition.schema, value)) {
                 choiceIndex = index;
@@ -53,11 +53,10 @@ var ONEOF_CHOICE_INDEX_PREFIX = function (buffer, offset, value, options, contex
         finally { if (e_1) throw e_1.error; }
     }
     assert_1.strict(choiceIndex >= 0);
-    var indexBytes = encode_1.BOUNDED__ENUM_VARINT(buffer, offset, choiceIndex, {
-        minimum: 0,
-        maximum: options.schemas.length
+    var indexBytes = encode_1.FLOOR_ENUM_VARINT(buffer, offset, choiceIndex, {
+        minimum: 0
     }, context);
-    var bytesWritten = index_1.encode(buffer, offset + indexBytes, options.schemas[choiceIndex].encoding, value, context);
+    var bytesWritten = index_1.encode(buffer, offset + indexBytes, options.choices[choiceIndex].encoding, value, context);
     return indexBytes + bytesWritten;
 };
 exports.ONEOF_CHOICE_INDEX_PREFIX = ONEOF_CHOICE_INDEX_PREFIX;

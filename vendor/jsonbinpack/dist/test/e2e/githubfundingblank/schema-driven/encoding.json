@@ -5,54 +5,54 @@
         "propertyEncodings": {
             "github": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "patreon": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "open_collective": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "ko_fi": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "tidelift": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "community_bridge": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "liberapay": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "issuehunt": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "otechie": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "custom": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             }
         },

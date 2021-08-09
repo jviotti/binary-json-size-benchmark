@@ -34,14 +34,14 @@ import {
   NoOptions
 } from '../encoder/any/options'
 
-export interface ANY__TYPE_PREFIX_ENCODING extends BaseEncodingDefinition {
+export interface ANY_PACKED_TYPE_TAG_BYTE_PREFIX_ENCODING extends BaseEncodingDefinition {
   readonly type: EncodingType.Any;
-  readonly encoding: 'ANY__TYPE_PREFIX';
+  readonly encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX';
   readonly options: NoOptions;
 }
 
-export type AnyEncodingNames = 'ANY__TYPE_PREFIX'
-export type AnyEncoding = ANY__TYPE_PREFIX_ENCODING
+export type AnyEncodingNames = 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX'
+export type AnyEncoding = ANY_PACKED_TYPE_TAG_BYTE_PREFIX_ENCODING
 
 // It could literally be anything
 export const getAnyStates = (_schema: AnyEncodingSchema): number | JSONValue[] => {
@@ -51,7 +51,7 @@ export const getAnyStates = (_schema: AnyEncodingSchema): number | JSONValue[] =
 export const getAnyEncoding = (_schema: AnyEncodingSchema, _level: number): AnyEncoding => {
   return {
     type: EncodingType.Any,
-    encoding: 'ANY__TYPE_PREFIX',
+    encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
     options: {}
   }
 }

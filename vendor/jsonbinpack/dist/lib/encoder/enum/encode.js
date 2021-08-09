@@ -60,7 +60,7 @@ var TOP_LEVEL_8BIT_CHOICE_INDEX = function (buffer, offset, value, options, cont
     if (cursor === 0) {
         return 0;
     }
-    return encode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset, cursor, {
+    return encode_1.BOUNDED_8BITS_ENUM_FIXED(buffer, offset, cursor, {
         minimum: 1,
         maximum: options.choices.length
     }, context);
@@ -89,7 +89,7 @@ var BOUNDED_CHOICE_INDEX = function (buffer, offset, value, options, context) {
     }
     assert_1.strict(cursor !== -1);
     assert_1.strict(cursor >= 0 && cursor < options.choices.length);
-    return encode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset, cursor, {
+    return encode_1.BOUNDED_8BITS_ENUM_FIXED(buffer, offset, cursor, {
         minimum: 0,
         maximum: options.choices.length
     }, context);
@@ -117,9 +117,8 @@ var LARGE_BOUNDED_CHOICE_INDEX = function (buffer, offset, value, options, conte
     }
     assert_1.strict(cursor !== -1);
     assert_1.strict(cursor >= 0 && cursor < options.choices.length);
-    return encode_1.BOUNDED__ENUM_VARINT(buffer, offset, cursor, {
-        minimum: 0,
-        maximum: options.choices.length
+    return encode_1.FLOOR_ENUM_VARINT(buffer, offset, cursor, {
+        minimum: 0
     }, context);
 };
 exports.LARGE_BOUNDED_CHOICE_INDEX = LARGE_BOUNDED_CHOICE_INDEX;

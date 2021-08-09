@@ -18,22 +18,9 @@ export default class ResizableBuffer {
   private buffer: Buffer;
   private written: number;
 
-  constructor (buffer: Buffer) {
+  public constructor (buffer: Buffer) {
     this.buffer = buffer
     this.written = 0
-  }
-
-  private grow (bytes: number): void {
-    if (this.written + bytes > this.buffer.length) {
-      this.buffer = Buffer.concat([
-        this.buffer,
-
-        // Allocate the required amount of bytes but also
-        // add some extra room (twice the buffer size)
-        // to minimize future allocations.
-        Buffer.allocUnsafe((this.buffer.length * 2) + bytes)
-      ])
-    }
   }
 
   public getOriginalSize (): number {
@@ -112,5 +99,18 @@ export default class ResizableBuffer {
     const bytesWritten: number = buffer.copy(this.buffer, offset)
     this.written = Math.max(this.written + buffer.length, offset + buffer.length)
     return bytesWritten
+  }
+
+  private grow (bytes: number): void {
+    if (this.written + bytes > this.buffer.length) {
+      this.buffer = Buffer.concat([
+        this.buffer,
+
+        // Allocate the required amount of bytes but also
+        // add some extra room (twice the buffer size)
+        // to minimize future allocations.
+        Buffer.allocUnsafe((this.buffer.length * 2) + bytes)
+      ])
+    }
   }
 }

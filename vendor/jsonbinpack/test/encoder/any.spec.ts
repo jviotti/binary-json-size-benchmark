@@ -23,12 +23,12 @@ import {
 } from '../../lib/json'
 
 import {
-  ANY__TYPE_PREFIX as ENCODE_ANY__TYPE_PREFIX
+  ANY_PACKED_TYPE_TAG_BYTE_PREFIX as ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX
 } from '../../lib/encoder/any/encode'
 
 import {
   AnyResult,
-  ANY__TYPE_PREFIX as DECODE_ANY__TYPE_PREFIX
+  ANY_PACKED_TYPE_TAG_BYTE_PREFIX as DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX
 } from '../../lib/encoder/any/decode'
 
 import {
@@ -37,27 +37,27 @@ import {
   getDefaultEncodingContext
 } from '../../lib/encoder'
 
-tap.test('ANY__TYPE_PREFIX: should handle " "', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle " "', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(2048))
-  const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, ' ', {}, context)
+  const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, ' ', {}, context)
   test.is(bytesWritten, 2)
-  const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+  const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
   test.is(result.bytes, 2)
   test.is(result.value, ' ')
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle {"foo":"bar","baz":1}', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(100))
-  const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, {
+  const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {
     foo: 'bar',
     baz: 1
   }, {}, context)
 
   test.is(bytesWritten, 14)
-  const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+  const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
   test.is(result.bytes, 14)
   test.strictSame(result.value, {
     foo: 'bar',
@@ -67,30 +67,30 @@ tap.test('ANY__TYPE_PREFIX: should handle {"foo":"bar","baz":1}', (test) => {
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: should handle [ "foo", true, 2000 ]', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle [ "foo", true, 2000 ]', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(100))
-  const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, [
+  const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, [
     'foo', true, 2000
   ], {}, context)
 
   test.is(bytesWritten, 9)
-  const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+  const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
   test.is(result.bytes, 9)
   test.strictSame(result.value, [ 'foo', true, 2000 ])
 
   test.end()
 })
 
-tap.skip('ANY__TYPE_PREFIX: should encode { "": -11492746249590654 }', (test) => {
+tap.skip('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should encode { "": -11492746249590654 }', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(12))
-  const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, {
+  const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {
     '': -11492746249590654
   }, {}, context)
 
   test.is(bytesWritten, 12)
-  const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+  const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
 
   test.is(result.bytes, 12)
   test.strictSame(result.value, {
@@ -100,34 +100,39 @@ tap.skip('ANY__TYPE_PREFIX: should encode { "": -11492746249590654 }', (test) =>
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: should handle shared strings', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: should handle shared strings', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
   const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(100))
 
-  const bytesWritten1: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, 'foo', {}, context)
-  const bytesWritten2: number = ENCODE_ANY__TYPE_PREFIX(buffer, bytesWritten1, 'foo', {}, context)
+  const bytesWritten1: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, 'foo', {}, context)
+  const bytesWritten2: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, bytesWritten1, 'foo', {}, context)
 
   test.is(bytesWritten1, 4)
   test.is(bytesWritten2, 2)
 
   test.strictSame(buffer.getBuffer(), Buffer.from([
-    0x21, 0x66, 0x6f, 0x6f, // Tag + length + foo
-    0x20, // Start of pointer
-    0x04 // Pointer (current = 6 - location = 2)
+    // Tag + length + foo
+    0x21, 0x66, 0x6f, 0x6f,
+
+    // Start of pointer
+    0x20,
+
+    // Pointer (current = 6 - location = 2)
+    0x04
   ]))
 
-  const decode1: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+  const decode1: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
   test.is(decode1.bytes, bytesWritten1)
   test.is(decode1.value, 'foo')
 
-  const decode2: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, bytesWritten1, {})
+  const decode2: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, bytesWritten1, {})
   test.is(decode2.bytes, bytesWritten2)
   test.is(decode2.value, 'foo')
 
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: scalars', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: scalars', (test) => {
   fc.assert(fc.property(fc.nat(10), fc.oneof(
     fc.constant(null),
     fc.boolean(),
@@ -140,8 +145,8 @@ tap.test('ANY__TYPE_PREFIX: scalars', (test) => {
   ), (offset: number, value: JSONValue): boolean => {
     const context: EncodingContext = getDefaultEncodingContext()
     const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(2048))
-    const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, offset, value, {}, context)
-    const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, offset, {})
+    const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, offset, value, {}, context)
+    const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, offset, {})
     return bytesWritten > 0 &&
       result.bytes === bytesWritten && result.value === value
   }), {
@@ -151,13 +156,13 @@ tap.test('ANY__TYPE_PREFIX: scalars', (test) => {
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: JSON', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: JSON', (test) => {
   fc.assert(fc.property(fc.json(), (json: string): boolean => {
     const context: EncodingContext = getDefaultEncodingContext()
     const value: JSONValue = JSON.parse(json)
     const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(2048))
-    const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, value, {}, context)
-    const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+    const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, value, {}, context)
+    const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
     return bytesWritten > 0 && result.bytes === bytesWritten &&
       util.isDeepStrictEqual(result.value, value)
   }), {
@@ -167,13 +172,13 @@ tap.test('ANY__TYPE_PREFIX: JSON', (test) => {
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: JSON with small ResizableBuffer', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: JSON with small ResizableBuffer', (test) => {
   fc.assert(fc.property(fc.json(), (json: string): boolean => {
     const context: EncodingContext = getDefaultEncodingContext()
     const value: JSONValue = JSON.parse(json)
     const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(1))
-    const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, value, {}, context)
-    const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+    const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, value, {}, context)
+    const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
     return bytesWritten > 0 && result.bytes === bytesWritten &&
       util.isDeepStrictEqual(result.value, value)
   }), {
@@ -183,13 +188,13 @@ tap.test('ANY__TYPE_PREFIX: JSON with small ResizableBuffer', (test) => {
   test.end()
 })
 
-tap.test('ANY__TYPE_PREFIX: JSON with 0 ResizableBuffer', (test) => {
+tap.test('ANY_PACKED_TYPE_TAG_BYTE_PREFIX: JSON with 0 ResizableBuffer', (test) => {
   fc.assert(fc.property(fc.json(), (json: string): boolean => {
     const context: EncodingContext = getDefaultEncodingContext()
     const value: JSONValue = JSON.parse(json)
     const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(0))
-    const bytesWritten: number = ENCODE_ANY__TYPE_PREFIX(buffer, 0, value, {}, context)
-    const result: AnyResult = DECODE_ANY__TYPE_PREFIX(buffer, 0, {})
+    const bytesWritten: number = ENCODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, value, {}, context)
+    const result: AnyResult = DECODE_ANY_PACKED_TYPE_TAG_BYTE_PREFIX(buffer, 0, {})
     return bytesWritten > 0 && result.bytes === bytesWritten &&
       util.isDeepStrictEqual(result.value, value)
   }), {

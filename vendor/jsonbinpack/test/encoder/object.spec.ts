@@ -82,7 +82,7 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: scalars values', (test) => {
     }, 1),
     encoding: {
       type: EncodingType.Any,
-      encoding: 'ANY__TYPE_PREFIX',
+      encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
       options: {}
     }
   }
@@ -129,7 +129,7 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: untyped {foo:"bar",baz:1}', (test) => {
       keyEncoding,
       encoding: {
         type: EncodingType.Any,
-        encoding: 'ANY__TYPE_PREFIX',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
         options: {}
       }
     }, context)
@@ -139,7 +139,7 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: untyped {foo:"bar",baz:1}', (test) => {
       keyEncoding,
       encoding: {
         type: EncodingType.Any,
-        encoding: 'ANY__TYPE_PREFIX',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
         options: {}
       }
     })
@@ -167,7 +167,7 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: typed {foo:"bar",baz:1}', (test) => {
       keyEncoding,
       encoding: {
         type: EncodingType.Any,
-        encoding: 'ANY__TYPE_PREFIX',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
         options: {}
       }
     }, context)
@@ -177,7 +177,7 @@ tap.test('ARBITRARY_TYPED_KEYS_OBJECT: typed {foo:"bar",baz:1}', (test) => {
       keyEncoding,
       encoding: {
         type: EncodingType.Any,
-        encoding: 'ANY__TYPE_PREFIX',
+        encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
         options: {}
       }
     })
@@ -336,7 +336,7 @@ tap.test('REQUIRED_UNBOUNDED_TYPED_OBJECT: semityped {foo:"bar",baz:1}', (test) 
     }, 1),
     encoding: {
       type: EncodingType.Any,
-      encoding: 'ANY__TYPE_PREFIX',
+      encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
       options: {}
     }
   }
@@ -369,7 +369,7 @@ tap.test('REQUIRED_UNBOUNDED_TYPED_OBJECT: typed {foo:"bar"}', (test) => {
     }, 1),
     encoding: {
       type: EncodingType.Any,
-      encoding: 'ANY__TYPE_PREFIX',
+      encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
       options: {}
     }
   }
@@ -402,7 +402,7 @@ tap.test('OPTIONAL_UNBOUNDED_TYPED_OBJECT: semityped {foo:"bar",baz:1}', (test) 
     }, 1),
     encoding: {
       type: EncodingType.Any,
-      encoding: 'ANY__TYPE_PREFIX',
+      encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
       options: {}
     }
   }
@@ -435,7 +435,7 @@ tap.test('MIXED_UNBOUNDED_TYPED_OBJECT: mixed {foo:"bar",baz:1,qux:null}', (test
     }, 1),
     encoding: {
       type: EncodingType.Any,
-      encoding: 'ANY__TYPE_PREFIX',
+      encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
       options: {}
     },
     propertyEncodings: {
@@ -654,7 +654,7 @@ tap.test('REQUIRED_ONLY_BOUNDED_TYPED_OBJECT: nine boolean properties', (test) =
 
 tap.test('PACKED_UNBOUNDED_OBJECT: complex object', (test) => {
   const context: EncodingContext = getDefaultEncodingContext()
-  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(20))
+  const buffer: ResizableBuffer = new ResizableBuffer(Buffer.allocUnsafe(10))
   const value: JSONObject = {
     foo: 1,
     bar: 2,
@@ -670,11 +670,16 @@ tap.test('PACKED_UNBOUNDED_OBJECT: complex object', (test) => {
     packedRequiredProperties: [ 'bar', 'baz', 'extra', 'foo', 'qux' ],
     packedEncoding: {
       type: EncodingType.Integer,
-      encoding: 'BOUNDED_8BITS__ENUM_FIXED',
+      encoding: 'BOUNDED_8BITS_ENUM_FIXED',
       options: {
         minimum: 0,
         maximum: 2
       }
+    },
+    encoding: {
+      type: EncodingType.Any,
+      encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+      options: {}
     },
     propertyEncodings: {
       name: getEncoding({
@@ -724,7 +729,7 @@ tap.test('PACKED_BOUNDED_REQUIRED_OBJECT: complex object', (test) => {
     packedRequiredProperties: [ 'bar', 'baz', 'extra', 'foo', 'qux' ],
     packedEncoding: {
       type: EncodingType.Integer,
-      encoding: 'BOUNDED_8BITS__ENUM_FIXED',
+      encoding: 'BOUNDED_8BITS_ENUM_FIXED',
       options: {
         minimum: 0,
         maximum: 2

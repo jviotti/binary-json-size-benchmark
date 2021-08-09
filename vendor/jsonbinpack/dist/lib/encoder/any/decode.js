@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ANY__TYPE_PREFIX = void 0;
+exports.ANY_PACKED_TYPE_TAG_BYTE_PREFIX = void 0;
 var limits_1 = require("../../utils/limits");
 var encoding_type_1 = require("../encoding-type");
 var decode_1 = require("../integer/decode");
@@ -9,22 +9,31 @@ var decode_3 = require("../number/decode");
 var decode_4 = require("../object/decode");
 var decode_5 = require("../array/decode");
 var types_1 = require("./types");
-var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
-    var tag = decode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset, {
+var ANY_PACKED_TYPE_TAG_BYTE_PREFIX = function (buffer, offset, _options) {
+    var tag = decode_1.BOUNDED_8BITS_ENUM_FIXED(buffer, offset, {
         minimum: limits_1.UINT8_MIN,
         maximum: limits_1.UINT8_MAX
     });
     if (types_1.isType(types_1.Type.Array, tag.value)) {
         var size = types_1.getMetadata(tag.value);
         var result = size === 0
-            ? decode_5.FLOOR_SEMITYPED__LENGTH_PREFIX(buffer, offset + tag.bytes, {
+            ? decode_5.FLOOR_TYPED_LENGTH_PREFIX(buffer, offset + tag.bytes, {
                 minimum: 0,
-                prefixEncodings: []
+                prefixEncodings: [],
+                encoding: {
+                    type: encoding_type_1.EncodingType.Any,
+                    encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+                    options: {}
+                }
             })
-            : decode_5.FLOOR_SEMITYPED__NO_LENGTH_PREFIX(buffer, offset + tag.bytes, {
+            : decode_5.FIXED_TYPED_ARRAY(buffer, offset + tag.bytes, {
                 size: size - 1,
-                minimum: 0,
-                prefixEncodings: []
+                prefixEncodings: [],
+                encoding: {
+                    type: encoding_type_1.EncodingType.Any,
+                    encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
+                    options: {}
+                }
             });
         return {
             value: result.value,
@@ -37,12 +46,12 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
             ? decode_4.ARBITRARY_TYPED_KEYS_OBJECT(buffer, offset + tag.bytes, {
                 keyEncoding: {
                     type: encoding_type_1.EncodingType.String,
-                    encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+                    encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
                     options: {}
                 },
                 encoding: {
                     type: encoding_type_1.EncodingType.Any,
-                    encoding: 'ANY__TYPE_PREFIX',
+                    encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
                     options: {}
                 }
             })
@@ -50,12 +59,12 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
                 size: size - 1,
                 keyEncoding: {
                     type: encoding_type_1.EncodingType.String,
-                    encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+                    encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
                     options: {}
                 },
                 encoding: {
                     type: encoding_type_1.EncodingType.Any,
-                    encoding: 'ANY__TYPE_PREFIX',
+                    encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
                     options: {}
                 }
             });
@@ -85,7 +94,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
     else if (types_1.isType(types_1.Type.SharedString, tag.value)) {
         var size = types_1.getMetadata(tag.value);
         if (size === 0) {
-            var result_1 = decode_2.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
+            var result_1 = decode_2.FLOOR_PREFIX_LENGTH_ENUM_VARINT(buffer, offset, {
                 minimum: 0
             });
             return {
@@ -104,7 +113,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
     else if (types_1.isType(types_1.Type.String, tag.value)) {
         var size = types_1.getMetadata(tag.value);
         if (size === 0) {
-            var result_2 = decode_2.FLOOR__PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tag.bytes, {
+            var result_2 = decode_2.FLOOR_PREFIX_LENGTH_ENUM_VARINT(buffer, offset + tag.bytes, {
                 minimum: 0
             });
             return {
@@ -134,7 +143,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
         types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent8 ||
         types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent9 ||
         types_1.getMetadata(tag.value) === types_1.Subtype.LongStringBaseExponent10)) {
-        var size = decode_1.FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+        var size = decode_1.FLOOR_ENUM_VARINT(buffer, offset + tag.bytes, {
             minimum: Math.pow(2, types_1.getMetadata(tag.value))
         });
         var result = decode_2.UTF8_STRING_NO_LENGTH(buffer, offset + tag.bytes + size.bytes, {
@@ -146,7 +155,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
         };
     }
     else if (types_1.isPositiveInteger(tag.value)) {
-        var result = decode_1.FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+        var result = decode_1.FLOOR_ENUM_VARINT(buffer, offset + tag.bytes, {
             minimum: 0
         });
         return {
@@ -155,7 +164,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
         };
     }
     else if (types_1.isNegativeInteger(tag.value)) {
-        var result = decode_1.FLOOR__ENUM_VARINT(buffer, offset + tag.bytes, {
+        var result = decode_1.FLOOR_ENUM_VARINT(buffer, offset + tag.bytes, {
             minimum: 0
         });
         return {
@@ -171,7 +180,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
                 bytes: tag.bytes
             };
         }
-        var result = decode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset + tag.bytes, {
+        var result = decode_1.BOUNDED_8BITS_ENUM_FIXED(buffer, offset + tag.bytes, {
             minimum: limits_1.UINT8_MIN,
             maximum: limits_1.UINT8_MAX
         });
@@ -188,7 +197,7 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
                 bytes: tag.bytes
             };
         }
-        var result = decode_1.BOUNDED_8BITS__ENUM_FIXED(buffer, offset + tag.bytes, {
+        var result = decode_1.BOUNDED_8BITS_ENUM_FIXED(buffer, offset + tag.bytes, {
             minimum: limits_1.UINT8_MIN,
             maximum: limits_1.UINT8_MAX
         });
@@ -206,4 +215,4 @@ var ANY__TYPE_PREFIX = function (buffer, offset, _options) {
     }
     throw new Error("Unrecognized type: " + tag.value);
 };
-exports.ANY__TYPE_PREFIX = ANY__TYPE_PREFIX;
+exports.ANY_PACKED_TYPE_TAG_BYTE_PREFIX = ANY_PACKED_TYPE_TAG_BYTE_PREFIX;

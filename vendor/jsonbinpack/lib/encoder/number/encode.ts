@@ -60,17 +60,20 @@ export const DOUBLE_VARINT_TUPLE = (
   _options: NoOptions, _context: EncodingContext
 ): number => {
   const valueString: string = fromExponential(value)
-  const pointIndex: number = valueString.indexOf('.')
-  const point: number = pointIndex === -1 ? 0 : pointIndex
+  const pointIndex: number = valueString.startsWith('-')
+    ? valueString.indexOf('.') - 1
+    : valueString.indexOf('.')
+  const point: number = pointIndex > 0 ? pointIndex : 0
   assert(point >= 0)
   const integralString: string = valueString.replace('.', '')
   const zeroPrefix: number = stringPrefixCount(integralString.startsWith('-')
     ? integralString.slice(1) : integralString, '0')
   assert(zeroPrefix >= 0)
+
   const integralBytes: number =
     varintEncode(buffer, offset, zigzagEncode(BigInt(integralString)))
   const pointValue: bigint = zeroPrefix === 0 || zeroPrefix === integralString.length
     ? zigzagEncode(BigInt(point))
-    : zigzagEncode(BigInt(-zeroPrefix))
+    : zigzagEncode(BigInt(-zeroPrefix - (valueString.startsWith('-') ? 1 : 0)))
   return integralBytes + varintEncode(buffer, offset + integralBytes, pointValue)
 }

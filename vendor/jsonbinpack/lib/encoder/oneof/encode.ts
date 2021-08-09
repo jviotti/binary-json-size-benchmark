@@ -37,7 +37,7 @@ import {
 } from '../../schema'
 
 import {
-  BOUNDED__ENUM_VARINT
+  FLOOR_ENUM_VARINT
 } from '../integer/encode'
 
 import {
@@ -48,11 +48,14 @@ export const ONEOF_CHOICE_INDEX_PREFIX = (
   buffer: ResizableBuffer, offset: number, value: JSONValue,
   options: SchemasOptions, context: EncodingContext
 ): number => {
-  assert(options.schemas.length > 0)
+  assert(options.choices.length > 0)
 
   // Find which of the choices is the one that applies
   let choiceIndex: number = -1
-  for (const [ index, definition ] of options.schemas.entries()) {
+  for (const [ index, definition ] of options.choices.entries()) {
+    // TODO: By no means we should be doing full-blown JSON Schema validation
+    // here. We should instead be compiling the schema into something simpler
+    // that we can check and use that intead.
     if (validateSchema(definition.schema, value)) {
       choiceIndex = index
       break
@@ -61,14 +64,13 @@ export const ONEOF_CHOICE_INDEX_PREFIX = (
   assert(choiceIndex >= 0)
 
   // Record which of the choices was used
-  const indexBytes: number = BOUNDED__ENUM_VARINT(buffer, offset, choiceIndex, {
-    minimum: 0,
-    maximum: options.schemas.length
+  const indexBytes: number = FLOOR_ENUM_VARINT(buffer, offset, choiceIndex, {
+    minimum: 0
   }, context)
 
   // Proceed with encoding against the given choice
   const bytesWritten: number =
     encode(buffer, offset + indexBytes,
-      options.schemas[choiceIndex].encoding, value, context)
+      options.choices[choiceIndex].encoding, value, context)
   return indexBytes + bytesWritten
 }

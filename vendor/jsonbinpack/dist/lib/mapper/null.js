@@ -9,7 +9,7 @@ exports.getNullStates = getNullStates;
 var getNullEncoding = function (_schema, _level) {
     return {
         type: encoder_1.EncodingType.Null,
-        encoding: 'NULL_8BITS__ENUM_FIXED',
+        encoding: 'NULL_8BITS_ENUM_FIXED',
         options: {}
     };
 };

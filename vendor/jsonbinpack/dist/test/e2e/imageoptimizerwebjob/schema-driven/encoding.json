@@ -5,8 +5,9 @@
         "propertyEncodings": {
             "optimizations": {
                 "type": "array",
-                "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                 "options": {
+                    "minimum": 0,
                     "encoding": {
                         "type": "object",
                         "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
@@ -14,11 +15,12 @@
                             "propertyEncodings": {
                                 "includes": {
                                     "type": "array",
-                                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                    "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                     "options": {
+                                        "minimum": 0,
                                         "encoding": {
                                             "type": "string",
-                                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                             "options": {
                                                 "minimum": 0
                                             }
@@ -28,11 +30,12 @@
                                 },
                                 "excludes": {
                                     "type": "array",
-                                    "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                    "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                     "options": {
+                                        "minimum": 0,
                                         "encoding": {
                                             "type": "string",
-                                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                             "options": {
                                                 "minimum": 0
                                             }
@@ -42,7 +45,7 @@
                                 },
                                 "lossy": {
                                     "type": "boolean",
-                                    "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                                    "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                                     "options": {}
                                 }
                             },

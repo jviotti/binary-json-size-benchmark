@@ -211,7 +211,7 @@ tap_1.default.test('should canonicalize an any array without a type', function (
                 type: 'boolean'
             },
             {
-                type: 'integer',
+                type: 'integer'
             },
             {
                 type: 'null'
@@ -251,7 +251,7 @@ tap_1.default.test('should canonicalize an any array with prefixItems and unique
                 type: 'boolean'
             },
             {
-                type: 'integer',
+                type: 'integer'
             },
             {
                 type: 'null'
@@ -294,7 +294,7 @@ tap_1.default.test('should canonicalize an any object with truthy properties', f
                 type: 'boolean'
             },
             {
-                type: 'integer',
+                type: 'integer'
             },
             {
                 type: 'null'

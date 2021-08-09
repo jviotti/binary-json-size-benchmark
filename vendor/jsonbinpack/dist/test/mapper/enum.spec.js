@@ -23,12 +23,12 @@ tap_1.default.test('should encode an object with an enum with one value', functi
             optionalProperties: ['test'],
             encoding: {
                 type: 'any',
-                encoding: 'ANY__TYPE_PREFIX',
+                encoding: 'ANY_PACKED_TYPE_TAG_BYTE_PREFIX',
                 options: {}
             },
             keyEncoding: {
                 type: 'string',
-                encoding: 'UNBOUNDED_OBJECT_KEY__PREFIX_LENGTH',
+                encoding: 'STRING_UNBOUNDED_SCOPED_PREFIX_LENGTH',
                 options: {}
             },
             propertyEncodings: {

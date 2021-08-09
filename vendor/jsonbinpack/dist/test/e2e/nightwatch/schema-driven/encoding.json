@@ -5,22 +5,22 @@
         "propertyEncodings": {
             "custom_commands_path": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "custom_assertions_path": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "page_objects_path": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "globals_path": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "globals": {
@@ -30,62 +30,62 @@
                     "propertyEncodings": {
                         "abortOnAssertionFailure": {
                             "type": "boolean",
-                            "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                            "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "abortOnElementLocateError": {
                             "type": "boolean",
-                            "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                            "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "waitForConditionPollInterval": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "waitForConditionTimeout": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "throwOnMultipleElementsReturned": {
                             "type": "boolean",
-                            "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                            "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "suppressWarningsOnMultipleElementsReturned": {
                             "type": "boolean",
-                            "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                            "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "asyncHookTimeout": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "unitTestsTimeout": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "customReporterCallbackTimeout": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "retryAssertionTimeout": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -118,34 +118,34 @@
             },
             "persist_globals": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "output_folder": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "src_folders": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "live_output": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "disable_colors": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "parallel_process_delay": {
                 "type": "integer",
-                "encoding": "FLOOR__ENUM_VARINT",
+                "encoding": "FLOOR_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -157,7 +157,7 @@
                     "propertyEncodings": {
                         "start_process": {
                             "type": "boolean",
-                            "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                            "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "cli_args": {
@@ -171,33 +171,33 @@
                         },
                         "server_path": {
                             "type": "null",
-                            "encoding": "NULL_8BITS__ENUM_FIXED",
+                            "encoding": "NULL_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "log_path": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "check_process_delay": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "max_status_poll_tries": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "status_poll_interval": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -218,22 +218,22 @@
             },
             "start_session": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "end_session_on_fail": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "test_workers": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "test_runner": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
@@ -245,7 +245,7 @@
                     "propertyEncodings": {
                         "start_process": {
                             "type": "boolean",
-                            "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                            "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "cli_args": {
@@ -259,40 +259,40 @@
                         },
                         "server_path": {
                             "type": "null",
-                            "encoding": "NULL_8BITS__ENUM_FIXED",
+                            "encoding": "NULL_8BITS_ENUM_FIXED",
                             "options": {}
                         },
                         "log_path": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "check_process_delay": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "max_status_poll_tries": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "status_poll_interval": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
                         },
                         "process_create_timeout": {
                             "type": "integer",
-                            "encoding": "FLOOR__ENUM_VARINT",
+                            "encoding": "FLOOR_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -333,44 +333,44 @@
             },
             "launch_url": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "silent": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "output": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "detailed_output": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "output_timestamp": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "disable_error_log": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "screenshots": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "log_screenshot_data": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "desiredCapabilities": {
@@ -380,7 +380,7 @@
                     "propertyEncodings": {
                         "browserName": {
                             "type": "string",
-                            "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                             "options": {
                                 "minimum": 0
                             }
@@ -394,58 +394,58 @@
             },
             "exclude": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "filter": {
                 "type": "null",
-                "encoding": "NULL_8BITS__ENUM_FIXED",
+                "encoding": "NULL_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "skipgroup": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "sync_test_names": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "skiptags": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "use_xpath": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "parallel_mode": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "report_prefix": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }
             },
             "unit_tests_mode": {
                 "type": "boolean",
-                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                 "options": {}
             },
             "default_reporter": {
                 "type": "string",
-                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                 "options": {
                     "minimum": 0
                 }

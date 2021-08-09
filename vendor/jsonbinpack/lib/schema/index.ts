@@ -67,22 +67,32 @@ export interface StringEncodingSchema {
   readonly contentMediaType?: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AnyEncodingSchema {}
 
 export interface ArrayEncodingSchema {
   readonly type: 'array';
   readonly maxItems?: number;
   readonly minItems?: number;
+
+  // eslint-disable-next-line no-use-before-define
   readonly items?: EncodingSchema;
+
+  // eslint-disable-next-line no-use-before-define
   readonly prefixItems?: EncodingSchema[];
 }
 
 export interface ObjectEncodingSchema {
   readonly type: 'object';
+
+  // eslint-disable-next-line no-use-before-define
   readonly additionalProperties?: boolean | EncodingSchema;
   readonly required?: string[];
   readonly propertyNames?: StringEncodingSchema;
+
+  // eslint-disable-next-line no-use-before-define
   readonly properties?: Record<string, EncodingSchema>;
+
   readonly maxProperties?: number;
 }
 
@@ -91,6 +101,7 @@ export interface EnumEncodingSchema {
 }
 
 export interface OneOfEncodingSchema {
+  // eslint-disable-next-line no-use-before-define
   readonly oneOf: EncodingSchema[];
 }
 

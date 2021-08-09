@@ -40,7 +40,7 @@ tap.test('should dynamically encode a boolean value', (test) => {
   const offset: number = 0
   const encoding: Encoding = {
     type: EncodingType.Boolean,
-    encoding: 'BOOLEAN_8BITS__ENUM_FIXED',
+    encoding: 'BOOLEAN_8BITS_ENUM_FIXED',
     options: {}
   }
 

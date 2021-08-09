@@ -318,7 +318,7 @@
                         },
                         "valid-values-author": {
                             "type": "array",
-                            "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                             "options": {
                                 "minimum": 2,
                                 "maximum": 2,
@@ -336,11 +336,12 @@
                                     },
                                     {
                                         "type": "array",
-                                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                         "options": {
+                                            "minimum": 0,
                                             "encoding": {
                                                 "type": "string",
-                                                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                                 "options": {
                                                     "minimum": 0
                                                 }
@@ -348,12 +349,17 @@
                                             "prefixEncodings": []
                                         }
                                     }
-                                ]
+                                ],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         },
                         "valid-values-private": {
                             "type": "array",
-                            "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                             "options": {
                                 "minimum": 2,
                                 "maximum": 2,
@@ -371,22 +377,28 @@
                                     },
                                     {
                                         "type": "array",
-                                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                         "options": {
+                                            "minimum": 0,
                                             "encoding": {
                                                 "type": "boolean",
-                                                "encoding": "BOOLEAN_8BITS__ENUM_FIXED",
+                                                "encoding": "BOOLEAN_8BITS_ENUM_FIXED",
                                                 "options": {}
                                             },
                                             "prefixEncodings": []
                                         }
                                     }
-                                ]
+                                ],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         },
                         "no-restricted-dependencies": {
                             "type": "array",
-                            "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                             "options": {
                                 "minimum": 2,
                                 "maximum": 2,
@@ -404,11 +416,12 @@
                                     },
                                     {
                                         "type": "array",
-                                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                         "options": {
+                                            "minimum": 0,
                                             "encoding": {
                                                 "type": "string",
-                                                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                                 "options": {
                                                     "minimum": 0
                                                 }
@@ -416,12 +429,17 @@
                                             "prefixEncodings": []
                                         }
                                     }
-                                ]
+                                ],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         },
                         "no-restricted-pre-release-dependencies": {
                             "type": "array",
-                            "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                             "options": {
                                 "minimum": 2,
                                 "maximum": 2,
@@ -439,11 +457,12 @@
                                     },
                                     {
                                         "type": "array",
-                                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                         "options": {
+                                            "minimum": 0,
                                             "encoding": {
                                                 "type": "string",
-                                                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                                 "options": {
                                                     "minimum": 0
                                                 }
@@ -451,12 +470,17 @@
                                             "prefixEncodings": []
                                         }
                                     }
-                                ]
+                                ],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         },
                         "no-restricted-invalid-devDependencies": {
                             "type": "array",
-                            "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                             "options": {
                                 "minimum": 2,
                                 "maximum": 2,
@@ -474,11 +498,12 @@
                                     },
                                     {
                                         "type": "array",
-                                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                         "options": {
+                                            "minimum": 0,
                                             "encoding": {
                                                 "type": "string",
-                                                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                                 "options": {
                                                     "minimum": 0
                                                 }
@@ -486,12 +511,17 @@
                                             "prefixEncodings": []
                                         }
                                     }
-                                ]
+                                ],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         },
                         "no-restricted-pre-release-devDependencies": {
                             "type": "array",
-                            "encoding": "BOUNDED_8BITS_SEMITYPED__LENGTH_PREFIX",
+                            "encoding": "BOUNDED_8BITS_TYPED_LENGTH_PREFIX",
                             "options": {
                                 "minimum": 2,
                                 "maximum": 2,
@@ -509,11 +539,12 @@
                                     },
                                     {
                                         "type": "array",
-                                        "encoding": "UNBOUNDED_TYPED__LENGTH_PREFIX",
+                                        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
                                         "options": {
+                                            "minimum": 0,
                                             "encoding": {
                                                 "type": "string",
-                                                "encoding": "FLOOR__PREFIX_LENGTH_ENUM_VARINT",
+                                                "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
                                                 "options": {
                                                     "minimum": 0
                                                 }
@@ -521,7 +552,12 @@
                                             "prefixEncodings": []
                                         }
                                     }
-                                ]
+                                ],
+                                "encoding": {
+                                    "type": "any",
+                                    "encoding": "ANY_PACKED_TYPE_TAG_BYTE_PREFIX",
+                                    "options": {}
+                                }
                             }
                         },
                         "name-format": {

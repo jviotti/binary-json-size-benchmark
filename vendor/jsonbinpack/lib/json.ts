@@ -22,6 +22,7 @@ export type JSONNull = null
 export type JSONScalar = JSONNumber | JSONBoolean | JSONString | JSONNull
 
 export interface JSONObject {
+  // eslint-disable-next-line no-use-before-define
   readonly [key: string]: JSONValue;
 }
 

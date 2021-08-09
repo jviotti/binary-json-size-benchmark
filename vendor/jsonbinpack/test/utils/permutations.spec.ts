@@ -21,7 +21,7 @@ import {
 } from '../../lib/json'
 
 import {
-  generatePermutations,
+  generatePermutations
 } from '../../lib/utils/permutation'
 
 tap.test('should generate a 0-permutation', (test) => {
