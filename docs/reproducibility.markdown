@@ -1,13 +1,12 @@
 The benchmark has only been ran on macOS and GNU/Linux. The following
 dependencies must be available in order to locally run the benchmark:
 
-- GNU Plot
 - GNU Make
 - Awk
 - CMake
 - Clojure's `clj` command line tool
 - Python 3 and `pip`
-- Node.js and `npm`
+- Node.js
 - `clang`
 - `gzip`
 - XZ Utils
