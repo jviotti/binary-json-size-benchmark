@@ -68,12 +68,12 @@ do
 
   awk -v document="$DOCUMENT_ID" -f data.awk "output/$DOCUMENT_ID/data.dat"
 
-  echo "#### Schema-driven analysis"
+  echo "#### Schema-driven statistics"
   echo ""
   awk -f stats-table.awk "output/$DOCUMENT_ID/stats-schema-driven.dat"
   echo ""
 
-  echo "#### Schema-less analysis"
+  echo "#### Schema-less statistics"
   echo ""
   awk -f stats-table.awk "output/$DOCUMENT_ID/stats-schema-less.dat"
   echo ""

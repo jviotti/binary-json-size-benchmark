@@ -99,7 +99,7 @@ Results
 | MessagePack | None | 10 | 30 | 29 | 34 |
 | Smile | None | 15 | 35 | 34 | 39 |
 | UBJSON | None | 13 | 33 | 32 | 37 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -108,7 +108,7 @@ Results
 | "LZ4 (-9)" | 29.125 | 27 | 18 | 6.679 |
 | "LZMA (-9)" | 29.125 | 28 | 9 | 2.976 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -138,7 +138,7 @@ Results
 | MessagePack | None | 72 | 90 | 91 | 92 |
 | Smile | None | 87 | 104 | 106 | 105 |
 | UBJSON | None | 92 | 103 | 111 | 104 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -147,7 +147,7 @@ Results
 | "LZ4 (-9)" | 55.250 | 48 | 70 | 21.376 |
 | "LZMA (-9)" | 48.500 | 45.500 | 41 | 12.104 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -177,7 +177,7 @@ Results
 | MessagePack | None | 74 | 68 | 76 | 71 |
 | Smile | None | 84 | 76 | 82 | 80 |
 | UBJSON | None | 93 | 79 | 86 | 83 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -186,7 +186,7 @@ Results
 | "LZ4 (-9)" | 73.500 | 66 | 73 | 22.798 |
 | "LZMA (-9)" | 64 | 61.500 | 46 | 13.370 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -216,7 +216,7 @@ Results
 | MessagePack | None | 17 | 37 | 36 | 41 |
 | Smile | None | 22 | 42 | 41 | 47 |
 | UBJSON | None | 19 | 39 | 38 | 43 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -225,7 +225,7 @@ Results
 | "LZ4 (-9)" | 25.375 | 21.500 | 26 | 8.845 |
 | "LZMA (-9)" | 27 | 25.500 | 11 | 3.674 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -255,7 +255,7 @@ Results
 | MessagePack | None | 412 | 262 | 307 | 254 |
 | Smile | None | 356 | 266 | 311 | 261 |
 | UBJSON | None | 469 | 272 | 326 | 265 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -264,7 +264,7 @@ Results
 | "LZ4 (-9)" | 255.875 | 223.500 | 172 | 58.569 |
 | "LZMA (-9)" | 206.875 | 190 | 106 | 35.059 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -294,7 +294,7 @@ Results
 | MessagePack | None | 971 | 525 | 712 | 546 |
 | Smile | None | 979 | 544 | 724 | 565 |
 | UBJSON | None | 1070 | 550 | 771 | 563 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -303,7 +303,7 @@ Results
 | "LZ4 (-9)" | 167.750 | 160.500 | 221 | 65.019 |
 | "LZMA (-9)" | 136.500 | 128.500 | 134 | 42.620 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -333,7 +333,7 @@ Results
 | MessagePack | None | 64 | 82 | 83 | 85 |
 | Smile | None | 70 | 87 | 89 | 91 |
 | UBJSON | None | 78 | 93 | 97 | 94 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -342,7 +342,7 @@ Results
 | "LZ4 (-9)" | 53.625 | 45.500 | 63 | 21.136 |
 | "LZMA (-9)" | 52.875 | 51 | 39 | 12.524 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -372,7 +372,7 @@ Results
 | MessagePack | None | 162 | 111 | 132 | 109 |
 | Smile | None | 228 | 131 | 158 | 128 |
 | UBJSON | None | 208 | 126 | 153 | 120 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -381,7 +381,7 @@ Results
 | "LZ4 (-9)" | 167.500 | 144 | 161 | 50.806 |
 | "LZMA (-9)" | 122 | 106.500 | 103 | 31.064 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -411,7 +411,7 @@ Results
 | MessagePack | None | 124 | 124 | 143 | 136 |
 | Smile | None | 129 | 134 | 148 | 139 |
 | UBJSON | None | 137 | 135 | 156 | 144 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -420,7 +420,7 @@ Results
 | "LZ4 (-9)" | 48.750 | 40.500 | 44 | 15.967 |
 | "LZMA (-9)" | 49.625 | 46 | 32 | 11.313 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -450,7 +450,7 @@ Results
 | MessagePack | None | 287 | 222 | 256 | 224 |
 | Smile | None | 287 | 235 | 268 | 240 |
 | UBJSON | None | 339 | 243 | 291 | 249 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -459,7 +459,7 @@ Results
 | "LZ4 (-9)" | 226.250 | 195 | 188 | 63.174 |
 | "LZMA (-9)" | 192.250 | 177 | 104 | 36.338 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -489,7 +489,7 @@ Results
 | MessagePack | None | 60 | 76 | 79 | 78 |
 | Smile | None | 70 | 85 | 88 | 88 |
 | UBJSON | None | 77 | 88 | 92 | 89 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -498,7 +498,7 @@ Results
 | "LZ4 (-9)" | 54.375 | 41 | 72 | 24.728 |
 | "LZMA (-9)" | 48.750 | 43.500 | 42 | 14.202 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -528,7 +528,7 @@ Results
 | MessagePack | None | 61 | 77 | 78 | 78 |
 | Smile | None | 70 | 86 | 88 | 88 |
 | UBJSON | None | 74 | 87 | 90 | 87 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -537,7 +537,7 @@ Results
 | "LZ4 (-9)" | 60 | 47 | 61 | 23.500 |
 | "LZMA (-9)" | 57.750 | 52 | 34 | 12.387 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -567,7 +567,7 @@ Results
 | MessagePack | None | 52 | 73 | 71 | 76 |
 | Smile | None | 63 | 82 | 82 | 84 |
 | UBJSON | None | 70 | 83 | 89 | 87 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -576,7 +576,7 @@ Results
 | "LZ4 (-9)" | 59.375 | 41.500 | 96 | 32.821 |
 | "LZMA (-9)" | 51.500 | 42.500 | 54 | 18.228 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -606,7 +606,7 @@ Results
 | MessagePack | None | 21 | 41 | 40 | 46 |
 | Smile | None | 27 | 48 | 46 | 52 |
 | UBJSON | None | 30 | 48 | 49 | 53 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -615,7 +615,7 @@ Results
 | "LZ4 (-9)" | 38.500 | 31.500 | 35 | 13.010 |
 | "LZMA (-9)" | 38.125 | 35.500 | 19 | 6.489 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -645,7 +645,7 @@ Results
 | MessagePack | None | 517 | 331 | 398 | 337 |
 | Smile | None | 521 | 335 | 403 | 341 |
 | UBJSON | None | 557 | 348 | 428 | 354 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -654,7 +654,7 @@ Results
 | "LZ4 (-9)" | 337.500 | 304 | 142 | 54.706 |
 | "LZMA (-9)" | 282.375 | 265 | 83 | 33.087 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -684,7 +684,7 @@ Results
 | MessagePack | None | 2749 | 1600 | 2163 | 1615 |
 | Smile | None | 2620 | 1581 | 2169 | 1621 |
 | UBJSON | None | 2977 | 1658 | 2277 | 1665 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -693,7 +693,7 @@ Results
 | "LZ4 (-9)" | 1964.375 | 1846 | 536 | 208.459 |
 | "LZMA (-9)" | 1450 | 1384.500 | 366 | 137.258 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -723,7 +723,7 @@ Results
 | MessagePack | None | 919 | 458 | 565 | 443 |
 | Smile | None | 870 | 453 | 558 | 450 |
 | UBJSON | None | 1008 | 464 | 582 | 458 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -732,7 +732,7 @@ Results
 | "LZ4 (-9)" | 201.875 | 194.500 | 245 | 78.273 |
 | "LZMA (-9)" | 153 | 153 | 149 | 47.157 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -762,7 +762,7 @@ Results
 | MessagePack | None | 1172 | 670 | 872 | 678 |
 | Smile | None | 1090 | 683 | 886 | 701 |
 | UBJSON | None | 1268 | 692 | 936 | 710 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -771,7 +771,7 @@ Results
 | "LZ4 (-9)" | 186.625 | 155 | 282 | 87.853 |
 | "LZMA (-9)" | 159.250 | 146.500 | 150 | 49.487 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -801,7 +801,7 @@ Results
 | MessagePack | None | 382 | 358 | 393 | 350 |
 | Smile | None | 412 | 389 | 418 | 372 |
 | UBJSON | None | 439 | 382 | 446 | 379 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -810,7 +810,7 @@ Results
 | "LZ4 (-9)" | 232.875 | 212.500 | 200 | 60.563 |
 | "LZMA (-9)" | 211.750 | 208 | 119 | 32.847 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -840,7 +840,7 @@ Results
 | MessagePack | None | 339 | 276 | 297 | 259 |
 | Smile | None | 326 | 299 | 324 | 290 |
 | UBJSON | None | 375 | 295 | 318 | 278 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -849,7 +849,7 @@ Results
 | "LZ4 (-9)" | 210.375 | 186 | 129 | 43.212 |
 | "LZMA (-9)" | 185.375 | 174.500 | 79 | 24.854 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -879,7 +879,7 @@ Results
 | MessagePack | None | 1995 | 1131 | 1483 | 1143 |
 | Smile | None | 1983 | 1119 | 1473 | 1138 |
 | UBJSON | None | 2171 | 1173 | 1572 | 1178 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -888,7 +888,7 @@ Results
 | "LZ4 (-9)" | 1211.875 | 1155 | 452 | 150.355 |
 | "LZMA (-9)" | 921.250 | 910 | 244 | 83.510 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -918,7 +918,7 @@ Results
 | MessagePack | None | 989 | 366 | 476 | 365 |
 | Smile | None | 1002 | 380 | 499 | 388 |
 | UBJSON | None | 1117 | 374 | 489 | 377 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -927,7 +927,7 @@ Results
 | "LZ4 (-9)" | 182.750 | 150.500 | 303 | 97.339 |
 | "LZMA (-9)" | 135.375 | 121 | 170 | 52.875 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -957,7 +957,7 @@ Results
 | MessagePack | None | 25 | 45 | 44 | 49 |
 | Smile | None | 30 | 50 | 49 | 54 |
 | UBJSON | None | 29 | 49 | 48 | 52 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -966,7 +966,7 @@ Results
 | "LZ4 (-9)" | 25.375 | 23 | 28 | 9.286 |
 | "LZMA (-9)" | 28.125 | 26.500 | 15 | 5.183 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -996,7 +996,7 @@ Results
 | MessagePack | None | 627 | 157 | 192 | 163 |
 | Smile | None | 604 | 168 | 199 | 173 |
 | UBJSON | None | 658 | 163 | 198 | 169 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1005,7 +1005,7 @@ Results
 | "LZ4 (-9)" | 134.750 | 132.500 | 113 | 34.741 |
 | "LZMA (-9)" | 112.625 | 110 | 74 | 22.416 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1035,7 +1035,7 @@ Results
 | MessagePack | None | 51 | 62 | 70 | 64 |
 | Smile | None | 59 | 68 | 73 | 71 |
 | UBJSON | None | 59 | 66 | 72 | 67 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1044,7 +1044,7 @@ Results
 | "LZ4 (-9)" | 32.750 | 27.500 | 44 | 13.890 |
 | "LZMA (-9)" | 31.250 | 30 | 25 | 7.446 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1074,7 +1074,7 @@ Results
 | MessagePack | None | 55 | 63 | 65 | 65 |
 | Smile | None | 61 | 69 | 71 | 72 |
 | UBJSON | None | 62 | 70 | 72 | 72 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1083,7 +1083,7 @@ Results
 | "LZ4 (-9)" | 67.250 | 58.500 | 35 | 14.051 |
 | "LZMA (-9)" | 64.750 | 59.500 | 21 | 8.333 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1113,7 +1113,7 @@ Results
 | MessagePack | None | 68 | 81 | 87 | 82 |
 | Smile | None | 78 | 88 | 92 | 92 |
 | UBJSON | None | 80 | 84 | 94 | 89 |
-#### Schema-driven analysis
+#### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
@@ -1122,7 +1122,7 @@ Results
 | "LZ4 (-9)" | 43.250 | 34.500 | 71 | 21.782 |
 | "LZMA (-9)" | 39.625 | 36 | 42 | 12.369 |
 
-#### Schema-less analysis
+#### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
