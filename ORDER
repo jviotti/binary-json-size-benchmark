@@ -1,0 +1,15 @@
+asn1
+avro
+bond
+bson
+capnproto
+capnproto-packed
+cbor
+flatbuffers
+flexbuffers
+json
+messagepack
+protobuf
+smile
+thrift
+ubjson

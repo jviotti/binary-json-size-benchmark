@@ -15,8 +15,9 @@ printf "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n" \
   "LZ4 (-9)" \
   "LZMA (-9)"
 
-for format in "$DATA_DIRECTORY"/*
+while IFS= read -r line
 do
+  format="$DATA_DIRECTORY/$line"
   if [ ! -d "$format" ]
   then
     continue
@@ -34,4 +35,4 @@ do
     "$(./scripts/byte-size.sh "$format/output.bin.lzma")"
 
   INDEX="$(echo "$INDEX + 1" | bc)"
-done
+done < ./ORDER
