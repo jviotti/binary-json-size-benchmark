@@ -112,7 +112,7 @@ ax2.set_xticks(x2)
 ax3.set_xticks(x3)
 
 ax1.set_xticklabels(PLOT1['labels'], ha='center')
-ax2.set_xticklabels(PLOT2['labels'], ha='center')
+ax2.set_xticklabels(PLOT2['labels'], ha='center', fontweight='bold')
 ax3.set_xticklabels(PLOT3['labels'], ha='center')
 
 ax1.tick_params(axis="x", rotation=90)
