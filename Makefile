@@ -90,6 +90,12 @@ charts:
 charts/%.png: plot.py output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | charts
 	python3 $< $(word 2,$^) "$(shell cat $(word 3,$^))" "$(shell cat $(word 4,$^))" $@
 
+output/%/stats-schema-driven.dat: scripts/stats.js output/%/data.dat
+	node $< $(word 2,$^) json left > $@
+
+output/%/stats-schema-less.dat: scripts/stats.js output/%/data.dat
+	node $< $(word 2,$^) json right > $@
+
 %.gz: %
 	gzip --no-name -9 < $< > $@
 
@@ -372,6 +378,8 @@ README.md: scripts/readme.sh docs/versions.markdown docs/reproducibility.markdow
 	$(wildcard benchmark/*/SOURCE) \
 	$(wildcard benchmark/*/TAXONOMY) \
 	$(wildcard benchmark/*/document.json) \
+	$(addsuffix /stats-schema-driven.dat,$(addprefix output/,$(DOCUMENTS))) \
+	$(addsuffix /stats-schema-less.dat,$(addprefix output/,$(DOCUMENTS))) \
 	$(DATA)
 	./$< > $@
 
