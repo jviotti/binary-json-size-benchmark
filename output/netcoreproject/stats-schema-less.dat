@@ -1,0 +1,5 @@
+category,average,median,range,stddev
+uncompressed,949,921,214,74.166
+gzip,468.500,455.500,124,41.604
+lz4,585.333,571.500,106,36.063
+lzma,465,451.500,118,39.648
