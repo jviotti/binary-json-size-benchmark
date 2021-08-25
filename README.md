@@ -35,7 +35,7 @@ tool](https://www.jsonbinpack.org/stats/).
 | [GeoJSON example JSON document](#geojson) | tier 2 minified >= 100 < 1000 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
 | [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | tier 2 minified >= 100 < 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
 | [GitHub Workflow Definition](#githubworkflow) | tier 2 minified >= 100 < 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
-| [Grunt.js "clean" task definition](#gruntcontribclean) | tier 1 minified < 100 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
+| [Grunt.js clean task definition](#gruntcontribclean) | tier 1 minified < 100 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
 | [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob) | tier 1 minified < 100 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
 | [JSON-e templating engine reverse sort example](#jsonereversesort) | tier 1 minified < 100 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
 | [JSON-e templating engine sort example](#jsonesort) | tier 1 minified < 100 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
@@ -298,9 +298,9 @@ Results
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/thrift/schema.thrift) | 187 | 170 | 186 | 170 |
 | UBJSON | None | 339 | 243 | 291 | 249 |
 
-<h3 id="gruntcontribclean">Grunt.js "clean" task definition</h3>
+<h3 id="gruntcontribclean">Grunt.js clean task definition</h3>
 
-![Grunt.js "clean" task definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/gruntcontribclean.png)
+![Grunt.js clean task definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/gruntcontribclean.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
