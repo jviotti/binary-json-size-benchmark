@@ -58,6 +58,6 @@ fig.tight_layout()
 fig.set_figheight(5)
 fig.set_figwidth(10)
 
-plt.subplots_adjust(top=0.8, bottom=0.35, left=0.08, right=0.92)
+plt.subplots_adjust(top=0.8, bottom=0.35, left=0.07, right=0.97)
 plt.savefig(sys.argv[4], dpi=500)
 #  plt.show()
