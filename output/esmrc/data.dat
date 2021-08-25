@@ -2,15 +2,15 @@
 1,asn1,"ASN.1\n(PER Unaligned)",12,32,31,35
 2,avro,"Apache Avro\n(unframed)",16,36,35,39
 3,bond,"Microsoft Bond\n(Compact Binary v1)",29,49,48,54
-4,bson,"BSON",96,101,115,105
-5,capnproto,"Cap'n Proto\n(Binary Encoding)",80,68,82,67
-6,capnproto-packed,"Cap'n Proto\n(Packed Encoding)",35,55,54,59
-7,cbor,"CBOR",64,81,83,82
-8,flatbuffers,"FlatBuffers",80,77,94,74
-9,flexbuffers,"FlexBuffers",91,107,110,109
-10,json,"JSON",102,101,117,103
-11,messagepack,"MessagePack",64,82,83,85
-12,protobuf,"Protocol Buffers\n(Binary Wire Format)",23,43,42,47
-13,smile,"Smile",70,87,89,91
-14,thrift,"Apache Thrift\n(Compact Protocol)",24,44,43,48
+4,capnproto,"Cap'n Proto\n(Binary Encoding)",80,68,82,67
+5,capnproto-packed,"Cap'n Proto\n(Packed Encoding)",35,55,54,59
+6,flatbuffers,"FlatBuffers",80,77,94,74
+7,protobuf,"Protocol Buffers\n(Binary Wire Format)",23,43,42,47
+8,thrift,"Apache Thrift\n(Compact Protocol)",24,44,43,48
+9,json,"JSON",102,101,117,103
+10,bson,"BSON",96,101,115,105
+11,cbor,"CBOR",64,81,83,82
+12,flexbuffers,"FlexBuffers",91,107,110,109
+13,messagepack,"MessagePack",64,82,83,85
+14,smile,"Smile",70,87,89,91
 15,ubjson,"UBJSON",78,93,97,94
