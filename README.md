@@ -99,6 +99,23 @@ Results
 | MessagePack | None | 10 | 30 | 29 | 34 |
 | Smile | None | 15 | 35 | 34 | 39 |
 | UBJSON | None | 13 | 33 | 32 | 37 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 10.375 | 8 | 20 | 7.140 |
+| "GZIP (-9)" | 26.625 | 25 | 8 | 3.160 |
+| "LZ4 (-9)" | 29.125 | 27 | 18 | 6.679 |
+| "LZMA (-9)" | 29.125 | 28 | 9 | 2.976 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 14 | 14 | 8 | 3.317 |
+| "GZIP (-9)" | 33.667 | 34 | 8 | 2.981 |
+| "LZ4 (-9)" | 33 | 33 | 8 | 3.317 |
+| "LZMA (-9)" | 37.333 | 38 | 7 | 2.625 |
 
 <h3 id="circlecimatrix">CircleCI matrix definition</h3>
 
@@ -121,6 +138,23 @@ Results
 | MessagePack | None | 72 | 90 | 91 | 92 |
 | Smile | None | 87 | 104 | 106 | 105 |
 | UBJSON | None | 92 | 103 | 111 | 104 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 44.125 | 29 | 89 | 32.903 |
+| "GZIP (-9)" | 47.500 | 43 | 50 | 14.790 |
+| "LZ4 (-9)" | 55.250 | 48 | 70 | 21.376 |
+| "LZMA (-9)" | 48.500 | 45.500 | 41 | 12.104 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 102.667 | 89.500 | 85 | 32.412 |
+| "GZIP (-9)" | 107.167 | 103.500 | 45 | 16.446 |
+| "LZ4 (-9)" | 116.667 | 108.500 | 60 | 25.011 |
+| "LZMA (-9)" | 107.167 | 104.500 | 41 | 14.713 |
 
 <h3 id="commitlint">CommitLint configuration</h3>
 
@@ -143,6 +177,23 @@ Results
 | MessagePack | None | 74 | 68 | 76 | 71 |
 | Smile | None | 84 | 76 | 82 | 80 |
 | UBJSON | None | 93 | 79 | 86 | 83 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 82.250 | 62.500 | 116 | 42.558 |
+| "GZIP (-9)" | 61.875 | 58 | 54 | 15.972 |
+| "LZ4 (-9)" | 73.500 | 66 | 73 | 22.798 |
+| "LZMA (-9)" | 64 | 61.500 | 46 | 13.370 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 93.667 | 87 | 73 | 24.918 |
+| "GZIP (-9)" | 80.667 | 77.500 | 30 | 12.284 |
+| "LZ4 (-9)" | 89.500 | 84 | 36 | 14.021 |
+| "LZMA (-9)" | 83.333 | 81.500 | 29 | 11.353 |
 
 <h3 id="commitlintbasic">CommitLint configuration (basic)</h3>
 
@@ -165,6 +216,23 @@ Results
 | MessagePack | None | 17 | 37 | 36 | 41 |
 | Smile | None | 22 | 42 | 41 | 47 |
 | UBJSON | None | 19 | 39 | 38 | 43 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 7.125 | 2.500 | 24 | 8.810 |
+| "GZIP (-9)" | 24.375 | 22.500 | 11 | 4.181 |
+| "LZ4 (-9)" | 25.375 | 21.500 | 26 | 8.845 |
+| "LZMA (-9)" | 27 | 25.500 | 11 | 3.674 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 20.333 | 20.500 | 8 | 2.925 |
+| "GZIP (-9)" | 40.167 | 40 | 8 | 2.853 |
+| "LZ4 (-9)" | 39.333 | 39.500 | 8 | 2.925 |
+| "LZMA (-9)" | 44.167 | 43.500 | 8 | 2.967 |
 
 <h3 id="epr">Entry Point Regulation manifest</h3>
 
@@ -187,6 +255,23 @@ Results
 | MessagePack | None | 412 | 262 | 307 | 254 |
 | Smile | None | 356 | 266 | 311 | 261 |
 | UBJSON | None | 469 | 272 | 326 | 265 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 318 | 256.500 | 341 | 121.184 |
+| "GZIP (-9)" | 217.625 | 197.500 | 122 | 41.632 |
+| "LZ4 (-9)" | 255.875 | 223.500 | 172 | 58.569 |
+| "LZMA (-9)" | 206.875 | 190 | 106 | 35.059 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 440.333 | 420.500 | 208 | 64.500 |
+| "GZIP (-9)" | 284.500 | 269 | 107 | 35.795 |
+| "LZ4 (-9)" | 340.833 | 318.500 | 111 | 42.132 |
+| "LZMA (-9)" | 277.833 | 263 | 96 | 33.153 |
 
 <h3 id="eslintrc">ESLint configuration document</h3>
 
@@ -209,6 +294,23 @@ Results
 | MessagePack | None | 971 | 525 | 712 | 546 |
 | Smile | None | 979 | 544 | 724 | 565 |
 | UBJSON | None | 1070 | 550 | 771 | 563 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 167.125 | 155.500 | 255 | 73.359 |
+| "GZIP (-9)" | 140.750 | 133 | 147 | 46.040 |
+| "LZ4 (-9)" | 167.750 | 160.500 | 221 | 65.019 |
+| "LZMA (-9)" | 136.500 | 128.500 | 134 | 42.620 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 1064 | 1024.500 | 230 | 96.871 |
+| "GZIP (-9)" | 545 | 534.500 | 131 | 43.390 |
+| "LZ4 (-9)" | 745.833 | 725.500 | 112 | 39.897 |
+| "LZMA (-9)" | 565.500 | 554.500 | 97 | 32.968 |
 
 <h3 id="esmrc">ECMAScript module loader definition</h3>
 
@@ -231,6 +333,23 @@ Results
 | MessagePack | None | 64 | 82 | 83 | 85 |
 | Smile | None | 70 | 87 | 89 | 91 |
 | UBJSON | None | 78 | 93 | 97 | 94 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 37.375 | 26.500 | 68 | 25.485 |
+| "GZIP (-9)" | 50.500 | 46.500 | 45 | 14.500 |
+| "LZ4 (-9)" | 53.625 | 45.500 | 63 | 21.136 |
+| "LZMA (-9)" | 52.875 | 51 | 39 | 12.524 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 77.167 | 74 | 32 | 12.549 |
+| "GZIP (-9)" | 91.833 | 90 | 26 | 9.599 |
+| "LZ4 (-9)" | 96.167 | 93 | 32 | 12.549 |
+| "LZMA (-9)" | 94.333 | 92.500 | 27 | 9.826 |
 
 <h3 id="geojson">GeoJSON example JSON document</h3>
 
@@ -253,6 +372,23 @@ Results
 | MessagePack | None | 162 | 111 | 132 | 109 |
 | Smile | None | 228 | 131 | 158 | 128 |
 | UBJSON | None | 208 | 126 | 153 | 120 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 343 | 290.500 | 475 | 144.554 |
+| "GZIP (-9)" | 131.750 | 115.500 | 120 | 36.779 |
+| "LZ4 (-9)" | 167.500 | 144 | 161 | 50.806 |
+| "LZMA (-9)" | 122 | 106.500 | 103 | 31.064 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 255.833 | 218 | 294 | 101.480 |
+| "GZIP (-9)" | 139 | 128.500 | 76 | 28.384 |
+| "LZ4 (-9)" | 169.167 | 155.500 | 102 | 36.269 |
+| "LZMA (-9)" | 132.667 | 124 | 58 | 23.809 |
 
 <h3 id="githubfundingblank">GitHub FUNDING sponsorship definition (empty)</h3>
 
@@ -275,6 +411,23 @@ Results
 | MessagePack | None | 124 | 124 | 143 | 136 |
 | Smile | None | 129 | 134 | 148 | 139 |
 | UBJSON | None | 137 | 135 | 156 | 144 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 31.125 | 21.500 | 52 | 18.114 |
+| "GZIP (-9)" | 47.125 | 41.500 | 35 | 12.752 |
+| "LZ4 (-9)" | 48.750 | 40.500 | 44 | 15.967 |
+| "LZMA (-9)" | 49.625 | 46 | 32 | 11.313 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 133.167 | 131 | 28 | 9.616 |
+| "GZIP (-9)" | 129.167 | 129.500 | 29 | 9.335 |
+| "LZ4 (-9)" | 151.667 | 150 | 25 | 8.654 |
+| "LZMA (-9)" | 139.167 | 138 | 17 | 5.520 |
 
 <h3 id="githubworkflow">GitHub Workflow Definition</h3>
 
@@ -297,6 +450,23 @@ Results
 | MessagePack | None | 287 | 222 | 256 | 224 |
 | Smile | None | 287 | 235 | 268 | 240 |
 | UBJSON | None | 339 | 243 | 291 | 249 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 256.875 | 195 | 299 | 114.993 |
+| "GZIP (-9)" | 197.375 | 177 | 122 | 42.661 |
+| "LZ4 (-9)" | 226.250 | 195 | 188 | 63.174 |
+| "LZMA (-9)" | 192.250 | 177 | 104 | 36.338 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 334.667 | 313.500 | 124 | 52.169 |
+| "GZIP (-9)" | 248.333 | 239 | 101 | 33.703 |
+| "LZ4 (-9)" | 298 | 279.500 | 113 | 44.415 |
+| "LZMA (-9)" | 254.167 | 244.500 | 102 | 34.730 |
 
 <h3 id="gruntcontribclean">Grunt.js clean task definition</h3>
 
@@ -319,6 +489,23 @@ Results
 | MessagePack | None | 60 | 76 | 79 | 78 |
 | Smile | None | 70 | 85 | 88 | 88 |
 | UBJSON | None | 77 | 88 | 92 | 89 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 43.750 | 25 | 103 | 37.019 |
+| "GZIP (-9)" | 46.375 | 39.500 | 48 | 16.248 |
+| "LZ4 (-9)" | 54.375 | 41 | 72 | 24.728 |
+| "LZMA (-9)" | 48.750 | 43.500 | 42 | 14.202 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 77.667 | 73.500 | 45 | 16.819 |
+| "GZIP (-9)" | 88.500 | 86.500 | 35 | 12.148 |
+| "LZ4 (-9)" | 93.500 | 90 | 34 | 13.574 |
+| "LZMA (-9)" | 90.833 | 88.500 | 38 | 12.928 |
 
 <h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob configuration</h3>
 
@@ -341,6 +528,23 @@ Results
 | MessagePack | None | 61 | 77 | 78 | 78 |
 | Smile | None | 70 | 86 | 88 | 88 |
 | UBJSON | None | 74 | 87 | 90 | 87 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 45.500 | 28 | 79 | 31.048 |
+| "GZIP (-9)" | 55.500 | 48 | 39 | 14.629 |
+| "LZ4 (-9)" | 60 | 47 | 61 | 23.500 |
+| "LZMA (-9)" | 57.750 | 52 | 34 | 12.387 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 76.167 | 72 | 41 | 14.916 |
+| "GZIP (-9)" | 88.500 | 86.500 | 27 | 10.720 |
+| "LZ4 (-9)" | 93 | 89 | 39 | 14.468 |
+| "LZMA (-9)" | 88.667 | 87.500 | 27 | 10.094 |
 
 <h3 id="jsonereversesort">JSON-e templating engine reverse sort example</h3>
 
@@ -363,6 +567,23 @@ Results
 | MessagePack | None | 52 | 73 | 71 | 76 |
 | Smile | None | 63 | 82 | 82 | 84 |
 | UBJSON | None | 70 | 83 | 89 | 87 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 63.875 | 22.500 | 229 | 76.734 |
+| "GZIP (-9)" | 50.875 | 41 | 58 | 19.915 |
+| "LZ4 (-9)" | 59.375 | 41.500 | 96 | 32.821 |
+| "LZMA (-9)" | 51.500 | 42.500 | 54 | 18.228 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 75.667 | 66.500 | 69 | 24.817 |
+| "GZIP (-9)" | 87.333 | 82.500 | 36 | 14.174 |
+| "LZ4 (-9)" | 92.833 | 85.500 | 58 | 21.598 |
+| "LZMA (-9)" | 89.167 | 85.500 | 35 | 12.877 |
 
 <h3 id="jsonesort">JSON-e templating engine sort example</h3>
 
@@ -385,6 +606,23 @@ Results
 | MessagePack | None | 21 | 41 | 40 | 46 |
 | Smile | None | 27 | 48 | 46 | 52 |
 | UBJSON | None | 30 | 48 | 49 | 53 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 20.625 | 12.500 | 39 | 14.899 |
+| "GZIP (-9)" | 35.750 | 31.500 | 22 | 7.677 |
+| "LZ4 (-9)" | 38.500 | 31.500 | 35 | 13.010 |
+| "LZMA (-9)" | 38.125 | 35.500 | 19 | 6.489 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 33.833 | 28.500 | 44 | 15.214 |
+| "GZIP (-9)" | 50 | 48 | 25 | 8.775 |
+| "LZ4 (-9)" | 52 | 47.500 | 39 | 13.528 |
+| "LZMA (-9)" | 53.833 | 52.500 | 20 | 7.221 |
 
 <h3 id="jsonfeed">JSON Feed example document</h3>
 
@@ -407,6 +645,23 @@ Results
 | MessagePack | None | 517 | 331 | 398 | 337 |
 | Smile | None | 521 | 335 | 403 | 341 |
 | UBJSON | None | 557 | 348 | 428 | 354 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 458.125 | 416 | 186 | 71.273 |
+| "GZIP (-9)" | 285.250 | 265.500 | 93 | 37.519 |
+| "LZ4 (-9)" | 337.500 | 304 | 142 | 54.706 |
+| "LZMA (-9)" | 282.375 | 265 | 83 | 33.087 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 552 | 540 | 81 | 34.409 |
+| "GZIP (-9)" | 350 | 341.500 | 86 | 28.065 |
+| "LZ4 (-9)" | 426.833 | 415.500 | 77 | 28.945 |
+| "LZMA (-9)" | 356 | 347.500 | 69 | 23.944 |
 
 <h3 id="jsonresume">JSON Resume</h3>
 
@@ -429,6 +684,23 @@ Results
 | MessagePack | None | 2749 | 1600 | 2163 | 1615 |
 | Smile | None | 2620 | 1581 | 2169 | 1621 |
 | UBJSON | None | 2977 | 1658 | 2277 | 1665 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 2479.125 | 2243 | 1009 | 395.795 |
+| "GZIP (-9)" | 1456.375 | 1377.500 | 404 | 161.848 |
+| "LZ4 (-9)" | 1964.375 | 1846 | 536 | 208.459 |
+| "LZMA (-9)" | 1450 | 1384.500 | 366 | 137.258 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 2905.333 | 2865.500 | 663 | 222.548 |
+| "GZIP (-9)" | 1690.333 | 1629 | 411 | 143.683 |
+| "LZ4 (-9)" | 2297 | 2223 | 397 | 155.296 |
+| "LZMA (-9)" | 1696.833 | 1643 | 354 | 121.171 |
 
 <h3 id="netcoreproject">.NET Core project.json</h3>
 
@@ -451,6 +723,23 @@ Results
 | MessagePack | None | 919 | 458 | 565 | 443 |
 | Smile | None | 870 | 453 | 558 | 450 |
 | UBJSON | None | 1008 | 464 | 582 | 458 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 370.750 | 289.500 | 394 | 150.329 |
+| "GZIP (-9)" | 158.500 | 157 | 186 | 58.118 |
+| "LZ4 (-9)" | 201.875 | 194.500 | 245 | 78.273 |
+| "LZMA (-9)" | 153 | 153 | 149 | 47.157 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 949 | 921 | 214 | 74.166 |
+| "GZIP (-9)" | 468.500 | 455.500 | 124 | 41.604 |
+| "LZ4 (-9)" | 585.333 | 571.500 | 106 | 36.063 |
+| "LZMA (-9)" | 465 | 451.500 | 118 | 39.648 |
 
 <h3 id="nightwatch">Nightwatch.js Test Framework Configuration</h3>
 
@@ -473,6 +762,23 @@ Results
 | MessagePack | None | 1172 | 670 | 872 | 678 |
 | Smile | None | 1090 | 683 | 886 | 701 |
 | UBJSON | None | 1268 | 692 | 936 | 710 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 195.250 | 141.500 | 375 | 122.472 |
+| "GZIP (-9)" | 165.750 | 145 | 198 | 63.192 |
+| "LZ4 (-9)" | 186.625 | 155 | 282 | 87.853 |
+| "LZMA (-9)" | 159.250 | 146.500 | 150 | 49.487 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 1237 | 1222 | 299 | 101.423 |
+| "GZIP (-9)" | 703.333 | 676.500 | 229 | 75.832 |
+| "LZ4 (-9)" | 940.167 | 909.500 | 268 | 93.060 |
+| "LZMA (-9)" | 720.500 | 697.500 | 206 | 69.663 |
 
 <h3 id="openweathermap">OpenWeatherMap API example JSON document</h3>
 
@@ -495,6 +801,23 @@ Results
 | MessagePack | None | 382 | 358 | 393 | 350 |
 | Smile | None | 412 | 389 | 418 | 372 |
 | UBJSON | None | 439 | 382 | 446 | 379 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 224.875 | 194 | 236 | 77.059 |
+| "GZIP (-9)" | 213.875 | 204 | 144 | 41.017 |
+| "LZ4 (-9)" | 232.875 | 212.500 | 200 | 60.563 |
+| "LZMA (-9)" | 211.750 | 208 | 119 | 32.847 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 459.333 | 425.500 | 278 | 95.878 |
+| "GZIP (-9)" | 395.333 | 385.500 | 155 | 50.543 |
+| "LZ4 (-9)" | 452 | 432 | 197 | 67.629 |
+| "LZMA (-9)" | 386.333 | 375.500 | 144 | 46.974 |
 
 <h3 id="openweatherroadrisk">OpenWeather Road Risk API example</h3>
 
@@ -517,6 +840,23 @@ Results
 | MessagePack | None | 339 | 276 | 297 | 259 |
 | Smile | None | 326 | 299 | 324 | 290 |
 | UBJSON | None | 375 | 295 | 318 | 278 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 211.500 | 179.500 | 172 | 59.846 |
+| "GZIP (-9)" | 188.875 | 172.500 | 95 | 30.002 |
+| "LZ4 (-9)" | 210.375 | 186 | 129 | 43.212 |
+| "LZMA (-9)" | 185.375 | 174.500 | 79 | 24.854 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 381.667 | 357.500 | 162 | 57.203 |
+| "GZIP (-9)" | 306 | 297 | 101 | 34.186 |
+| "LZ4 (-9)" | 335.167 | 321 | 123 | 42.444 |
+| "LZMA (-9)" | 290.500 | 284 | 101 | 33.955 |
 
 <h3 id="packagejson">NPM Package.json example manifest</h3>
 
@@ -539,6 +879,23 @@ Results
 | MessagePack | None | 1995 | 1131 | 1483 | 1143 |
 | Smile | None | 1983 | 1119 | 1473 | 1138 |
 | UBJSON | None | 2171 | 1173 | 1572 | 1178 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 1745.875 | 1584.500 | 770 | 296.205 |
+| "GZIP (-9)" | 924.125 | 896 | 332 | 109.574 |
+| "LZ4 (-9)" | 1211.875 | 1155 | 452 | 150.355 |
+| "LZMA (-9)" | 921.250 | 910 | 244 | 83.510 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 2140.833 | 2083 | 403 | 164.341 |
+| "GZIP (-9)" | 1188.167 | 1152 | 312 | 103.044 |
+| "LZ4 (-9)" | 1572.167 | 1527.500 | 294 | 109.793 |
+| "LZMA (-9)" | 1195.833 | 1160.500 | 282 | 92.854 |
 
 <h3 id="packagejsonlintrc">NPM Package.json Linter configuration manifest</h3>
 
@@ -561,6 +918,23 @@ Results
 | MessagePack | None | 989 | 366 | 476 | 365 |
 | Smile | None | 1002 | 380 | 499 | 388 |
 | UBJSON | None | 1117 | 374 | 489 | 377 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 533.125 | 458 | 759 | 240.859 |
+| "GZIP (-9)" | 145.375 | 125.500 | 213 | 67.578 |
+| "LZ4 (-9)" | 182.750 | 150.500 | 303 | 97.339 |
+| "LZMA (-9)" | 135.375 | 121 | 170 | 52.875 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 1056.333 | 997.500 | 353 | 119.172 |
+| "GZIP (-9)" | 389.833 | 370 | 174 | 60.278 |
+| "LZ4 (-9)" | 508 | 483.500 | 153 | 54.724 |
+| "LZMA (-9)" | 394 | 371.500 | 152 | 52.760 |
 
 <h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit configuration</h3>
 
@@ -583,6 +957,23 @@ Results
 | MessagePack | None | 25 | 45 | 44 | 49 |
 | Smile | None | 30 | 50 | 49 | 54 |
 | UBJSON | None | 29 | 49 | 48 | 52 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 7.375 | 4 | 24 | 8.276 |
+| "GZIP (-9)" | 25.875 | 24 | 15 | 5.797 |
+| "LZ4 (-9)" | 25.375 | 23 | 28 | 9.286 |
+| "LZMA (-9)" | 28.125 | 26.500 | 15 | 5.183 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 29.167 | 29 | 12 | 4.017 |
+| "GZIP (-9)" | 47.833 | 47.500 | 7 | 2.672 |
+| "LZ4 (-9)" | 48.167 | 48 | 12 | 4.017 |
+| "LZMA (-9)" | 51.167 | 50.500 | 7 | 2.672 |
 
 <h3 id="travisnotifications">TravisCI notifications configuration</h3>
 
@@ -605,6 +996,23 @@ Results
 | MessagePack | None | 627 | 157 | 192 | 163 |
 | Smile | None | 604 | 168 | 199 | 173 |
 | UBJSON | None | 658 | 163 | 198 | 169 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 554.875 | 521.500 | 171 | 60.705 |
+| "GZIP (-9)" | 116.500 | 115 | 87 | 26.538 |
+| "LZ4 (-9)" | 134.750 | 132.500 | 113 | 34.741 |
+| "LZMA (-9)" | 112.625 | 110 | 74 | 22.416 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 573.833 | 627 | 471 | 157.541 |
+| "GZIP (-9)" | 168.167 | 161.500 | 67 | 21.474 |
+| "LZ4 (-9)" | 204.833 | 198.500 | 52 | 18.004 |
+| "LZMA (-9)" | 173.167 | 168 | 47 | 15.689 |
 
 <h3 id="tslintbasic">TSLint linter definition (basic)</h3>
 
@@ -627,6 +1035,23 @@ Results
 | MessagePack | None | 51 | 62 | 70 | 64 |
 | Smile | None | 59 | 68 | 73 | 71 |
 | UBJSON | None | 59 | 66 | 72 | 67 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 18.375 | 8.500 | 59 | 21.089 |
+| "GZIP (-9)" | 29.750 | 27.500 | 32 | 9.549 |
+| "LZ4 (-9)" | 32.750 | 27.500 | 44 | 13.890 |
+| "LZMA (-9)" | 31.250 | 30 | 25 | 7.446 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 61.333 | 59 | 26 | 9.690 |
+| "GZIP (-9)" | 68 | 67 | 14 | 5.416 |
+| "LZ4 (-9)" | 75.833 | 72.500 | 18 | 6.793 |
+| "LZMA (-9)" | 69.833 | 69 | 17 | 5.928 |
 
 <h3 id="tslintextend">TSLint linter definition (extends only)</h3>
 
@@ -649,6 +1074,23 @@ Results
 | MessagePack | None | 55 | 63 | 65 | 65 |
 | Smile | None | 61 | 69 | 71 | 72 |
 | UBJSON | None | 62 | 70 | 72 | 72 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 59.375 | 48.500 | 42 | 17.204 |
+| "GZIP (-9)" | 62.500 | 56.500 | 24 | 9.605 |
+| "LZ4 (-9)" | 67.250 | 58.500 | 35 | 14.051 |
+| "LZMA (-9)" | 64.750 | 59.500 | 21 | 8.333 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 63.500 | 61.500 | 23 | 8.221 |
+| "GZIP (-9)" | 70.333 | 69.500 | 16 | 6.368 |
+| "LZ4 (-9)" | 73.167 | 71.500 | 20 | 7.537 |
+| "LZMA (-9)" | 72.333 | 72 | 15 | 6.128 |
 
 <h3 id="tslintmulti">TSLint linter definition (multi-rule)</h3>
 
@@ -671,6 +1113,23 @@ Results
 | MessagePack | None | 68 | 81 | 87 | 82 |
 | Smile | None | 78 | 88 | 92 | 92 |
 | UBJSON | None | 80 | 84 | 94 | 89 |
+#### Schema-driven analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 30.375 | 15.500 | 80 | 30.311 |
+| "GZIP (-9)" | 37.750 | 34 | 47 | 13.800 |
+| "LZ4 (-9)" | 43.250 | 34.500 | 71 | 21.782 |
+| "LZMA (-9)" | 39.625 | 36 | 42 | 12.369 |
+
+#### Schema-less analysis
+
+| Category | Average | Median | Range | Stddev |
+|--------|--------|--------|--------|--------|
+| "Uncompressed" | 83.333 | 79 | 36 | 14.636 |
+| "GZIP (-9)" | 89.667 | 86 | 26 | 9.638 |
+| "LZ4 (-9)" | 97.500 | 93 | 29 | 11.087 |
+| "LZMA (-9)" | 92.167 | 90.500 | 28 | 9.856 |
 
 
 Running locally

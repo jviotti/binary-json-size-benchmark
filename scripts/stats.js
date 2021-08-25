@@ -80,10 +80,13 @@ const toFixed = (value) => {
   return Number.isInteger(value) ? value : value.toFixed(3)
 }
 
+const titles = fs.readFileSync(DATA_PATH, 'utf8')
+  .split('\n')[0].split(',').slice(3)
+
 console.log([ 'category', 'average', 'median', 'range', 'stddev' ].join(DELIMITER))
-for (const dimension of [ 'uncompressed', 'gzip', 'lz4', 'lzma' ]) {
+for (const [ index, dimension ] of [ 'uncompressed', 'gzip', 'lz4', 'lzma' ].entries()) {
   console.log([
-    dimension,
+    titles[index],
     toFixed(average(entries.map((entry) => {
       return entry[dimension]
     }))),
