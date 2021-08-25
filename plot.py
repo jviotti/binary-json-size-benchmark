@@ -105,7 +105,7 @@ title = sys.argv[2].replace(' ', '\\ ')
 subtitle = sys.argv[3]
 
 ax1.set_ylabel('Byte Size')
-fig.suptitle('$\\bf{' + title + '}$' + '\n' + subtitle)
+fig.suptitle('$\\bf{' + title + '}$' + '\n' + subtitle, y=0.95)
 
 ax1.set_xticks(x1)
 ax2.set_xticks(x2)
@@ -123,7 +123,7 @@ ax2.tick_params(axis="y", left=False, labelleft=False)
 ax3.tick_params(axis="y", left=False, labelleft=False)
 
 handles, legend_labels = ax1.get_legend_handles_labels()
-fig.legend(handles, legend_labels, loc='upper center', ncol=4, bbox_to_anchor=(0.5, 0.9))
+fig.legend(handles, legend_labels, loc='upper center', ncol=4, bbox_to_anchor=(0.5, 0.88))
 
 fontsize = 3
 padding = 3
