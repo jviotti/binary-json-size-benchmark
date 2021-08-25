@@ -351,7 +351,7 @@ output/%/ubjson/decode.json: skeleton/ubjson/decode.py output/%/ubjson/output.bi
 	python3 $< $(word 2,$^) > $@
 
 define RULE_DOCUMENT_DAT
-output/$1/data.dat: scripts/summarize.sh scripts/byte-size.sh \
+output/$1/data.dat: scripts/summarize.sh ORDER scripts/byte-size.sh \
 	$$(wildcard skeleton/*/NAME) \
 	$$(addsuffix /output.json,$$(addprefix output/$1/,$(FORMATS))) \
 	$$(addsuffix /output.bin,$$(addprefix output/$1/,$(FORMATS))) \
