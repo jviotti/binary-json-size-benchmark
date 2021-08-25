@@ -67,15 +67,11 @@ for line in lines[1:]:
       PLOT3['lzma'].append(lzma)
 fd.close()
 
-fig = plt.figure(constrained_layout=True)
-ax = fig.add_gridspec(1, 3)
-ax1 = fig.add_subplot(ax[0, 0])
-ax2 = fig.add_subplot(ax[0, 1])
-ax3 = fig.add_subplot(ax[0, 2])
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, sharey=True, gridspec_kw={
+  'width_ratios': [ len(PLOT1['labels']), len(PLOT2['labels']) + 0.5, len(PLOT3['labels']) ]
+})
 
-#  fig, (ax1, ax2, ax3) = plt.subplots(1, 3, sharey=True)
-
-#  fig, (ax1, ax2, ax3) = plt.subplots(1, 3, sharey=True)
+ax2.set_xlim(-0.8,0.8)
 
 x1 = numpy.arange(len(PLOT1['labels']))
 x2 = numpy.arange(len(PLOT2['labels']))
@@ -101,9 +97,9 @@ ax1.grid(b=True, axis='both', linewidth=0.1)
 ax2.grid(b=True, axis='both', linewidth=0.1)
 ax3.grid(b=True, axis='both', linewidth=0.1)
 
-ax1.set_title('Schema-driven')
-#  ax2.set_title('JSON')
-ax3.set_title('Schema-less')
+subplot_title_font_size = 8
+ax1.set_title('Schema-driven', fontsize=subplot_title_font_size)
+ax3.set_title('Schema-less', fontsize=subplot_title_font_size)
 
 title = sys.argv[2].replace(' ', '\\ ')
 subtitle = sys.argv[3]
@@ -126,7 +122,8 @@ ax3.tick_params(axis="x", rotation=90)
 ax2.tick_params(axis="y", left=False, labelleft=False)
 ax3.tick_params(axis="y", left=False, labelleft=False)
 
-#  ax1.legend(loc='upper center', bbox_to_anchor=(0.5, 1.19), ncol=4)
+handles, legend_labels = ax1.get_legend_handles_labels()
+fig.legend(handles, legend_labels, loc='upper center', ncol=4, bbox_to_anchor=(0.5, 0.9))
 
 fontsize = 3
 padding = 3
@@ -148,6 +145,5 @@ fig.subplots_adjust(wspace=0)
 fig.set_figheight(5)
 fig.set_figwidth(10)
 
-plt.subplots_adjust(top=0.8, bottom=0.35, left=0.07, right=0.97)
+plt.subplots_adjust(top=0.75, bottom=0.35, left=0.07, right=0.97)
 plt.savefig(sys.argv[4], dpi=500)
-#  plt.show()
