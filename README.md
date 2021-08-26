@@ -25,33 +25,33 @@ tool](https://www.jsonbinpack.org/stats/).
 
 | Name | Type | Document | SchemaStore |
 |------|------|----------|-------------|
-| [CircleCI definition (blank)](#circleciblank) | tier 1 minified < 100 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/version-2.0.json) |
-| [CircleCI matrix definition](#circlecimatrix) | tier 1 minified < 100 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/matrix-simple.json) |
-| [CommitLint configuration](#commitlint) | tier 1 minified < 100 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test5.json) |
-| [CommitLint configuration (basic)](#commitlintbasic) | tier 1 minified < 100 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
-| [Entry Point Regulation manifest](#epr) | tier 2 minified >= 100 < 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
-| [ESLint configuration document](#eslintrc) | tier 3 minified >= 1000 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
-| [ECMAScript module loader definition](#esmrc) | tier 2 minified >= 100 < 1000 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
-| [GeoJSON example JSON document](#geojson) | tier 2 minified >= 100 < 1000 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
-| [GitHub FUNDING sponsorship definition (empty)](#githubfundingblank) | tier 2 minified >= 100 < 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
+| [CircleCI Definition (Blank)](#circleciblank) | tier 1 minified < 100 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/version-2.0.json) |
+| [CircleCI Matrix Definition](#circlecimatrix) | tier 1 minified < 100 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/circleciconfig/matrix-simple.json) |
+| [CommitLint Configuration](#commitlint) | tier 1 minified < 100 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test5.json) |
+| [CommitLint Configuration (Basic)](#commitlintbasic) | tier 1 minified < 100 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/commitlintrc/commitlintrc-test3.json) |
+| [Entry Point Regulation Manifest](#epr) | tier 2 minified >= 100 < 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/epr-manifest/official-example.json) |
+| [ESLint Configuration Document](#eslintrc) | tier 3 minified >= 1000 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/eslintrc/WebAnalyzer.json) |
+| [ECMAScript Module Loader Definition](#esmrc) | tier 2 minified >= 100 < 1000 bytes boolean non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/esmrc/.esmrc_.json) |
+| [GeoJSON Example Document](#geojson) | tier 2 minified >= 100 < 1000 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/geojson/multi-polygon.json) |
+| [GitHub FUNDING Sponsorship Definition (Empty)](#githubfundingblank) | tier 2 minified >= 100 < 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-funding/ebookfoundation.json) |
 | [GitHub Workflow Definition](#githubworkflow) | tier 2 minified >= 100 < 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/github-workflow/919.json) |
-| [Grunt.js clean task definition](#gruntcontribclean) | tier 1 minified < 100 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
-| [ImageOptimizer Azure Webjob configuration](#imageoptimizerwebjob) | tier 1 minified < 100 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
-| [JSON-e templating engine reverse sort example](#jsonereversesort) | tier 1 minified < 100 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
-| [JSON-e templating engine sort example](#jsonesort) | tier 1 minified < 100 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
-| [JSON Feed example document](#jsonfeed) | tier 2 minified >= 100 < 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/feed/microblog.json) |
-| [JSON Resume](#jsonresume) | tier 3 minified >= 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/resume/richardhendriks.json) |
-| [.NET Core project.json](#netcoreproject) | tier 3 minified >= 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/project/EF-project.json) |
+| [Grunt.js Clean Task Definition](#gruntcontribclean) | tier 1 minified < 100 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/grunt-clean-task/with-options.json) |
+| [ImageOptimizer Azure Webjob Configuration](#imageoptimizerwebjob) | tier 1 minified < 100 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/imageoptimizer/default.json) |
+| [JSON-e Templating Engine Reverse Sort Example](#jsonereversesort) | tier 1 minified < 100 bytes numeric redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/reverse-sort.json) |
+| [JSON-e Templating Engine Sort Example](#jsonesort) | tier 1 minified < 100 bytes numeric redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/jsone/sort.json) |
+| [JSON Feed Example Document](#jsonfeed) | tier 2 minified >= 100 < 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/feed/microblog.json) |
+| [JSON Resume Example](#jsonresume) | tier 3 minified >= 1000 bytes textual non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/resume/richardhendriks.json) |
+| [.NET Core Project](#netcoreproject) | tier 3 minified >= 1000 bytes textual redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/project/EF-project.json) |
 | [Nightwatch.js Test Framework Configuration](#nightwatch) | tier 3 minified >= 1000 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/nightwatch/default.json) |
-| [OpenWeatherMap API example JSON document](#openweathermap) | tier 2 minified >= 100 < 1000 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.current/example.json) |
-| [OpenWeather Road Risk API example](#openweatherroadrisk) | tier 2 minified >= 100 < 1000 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.roadrisk/example.json) |
-| [NPM Package.json example manifest](#packagejson) | tier 3 minified >= 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/package/package-test.json) |
-| [NPM Package.json Linter configuration manifest](#packagejsonlintrc) | tier 3 minified >= 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/npmpackagejsonlintrc/npmpackagejsonlintrc-test.json) |
-| [SAP Cloud SDK Continuous Delivery Toolkit configuration](#sapcloudsdkpipeline) | tier 1 minified < 100 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/cloud-sdk-pipeline-config-schema/empty.json) |
-| [TravisCI notifications configuration](#travisnotifications) | tier 2 minified >= 100 < 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/travis/notification-secure.json) |
-| [TSLint linter definition (basic)](#tslintbasic) | tier 1 minified < 100 bytes boolean non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test19.json) |
-| [TSLint linter definition (extends only)](#tslintextend) | tier 1 minified < 100 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test5.json) |
-| [TSLint linter definition (multi-rule)](#tslintmulti) | tier 1 minified < 100 bytes boolean redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test25.json) |
+| [OpenWeatherMap API Example Document](#openweathermap) | tier 2 minified >= 100 < 1000 bytes numeric non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.current/example.json) |
+| [OpenWeather Road Risk API Example](#openweatherroadrisk) | tier 2 minified >= 100 < 1000 bytes numeric non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/openweather.roadrisk/example.json) |
+| [NPM Package.json Example Manifest](#packagejson) | tier 3 minified >= 1000 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/package/package-test.json) |
+| [NPM Package.json Linter Configuration Manifest](#packagejsonlintrc) | tier 3 minified >= 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/npmpackagejsonlintrc/npmpackagejsonlintrc-test.json) |
+| [SAP Cloud SDK Continuous Delivery Toolkit Configuration](#sapcloudsdkpipeline) | tier 1 minified < 100 bytes boolean redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/cloud-sdk-pipeline-config-schema/empty.json) |
+| [TravisCI Notifications Configuration](#travisnotifications) | tier 2 minified >= 100 < 1000 bytes textual redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/travis/notification-secure.json) |
+| [TSLint Linter Definition (Basic)](#tslintbasic) | tier 1 minified < 100 bytes boolean non-redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test19.json) |
+| [TSLint Linter Definition (Extends Only)](#tslintextend) | tier 1 minified < 100 bytes textual non-redundant flat | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test5.json) |
+| [TSLint Linter Definition (Multi-rule)](#tslintmulti) | tier 1 minified < 100 bytes boolean redundant nested | [Link](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/document.json) | [Link](https://github.com/SchemaStore/schemastore/blob/0b6bd2a08005e6f7a65a68acaf3064d6e2670872/src/test/tslint/tslint-test25.json) |
 
 Serialization formats
 ---------------------
@@ -78,9 +78,9 @@ encodings described in the table below.
 Results
 -------
 
-<h3 id="circleciblank">CircleCI definition (blank)</h3>
+<h3 id="circleciblank">CircleCI Definition (Blank)</h3>
 
-![CircleCI definition (blank) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circleciblank.png)
+![CircleCI Definition (Blank) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circleciblank.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -117,9 +117,9 @@ Results
 | "LZ4 (-9)" | 33 | 33 | 8 | 3.317 |
 | "LZMA (-9)" | 37.333 | 38 | 7 | 2.625 |
 
-<h3 id="circlecimatrix">CircleCI matrix definition</h3>
+<h3 id="circlecimatrix">CircleCI Matrix Definition</h3>
 
-![CircleCI matrix definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circlecimatrix.png)
+![CircleCI Matrix Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circlecimatrix.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -156,9 +156,9 @@ Results
 | "LZ4 (-9)" | 116.667 | 108.500 | 60 | 25.011 |
 | "LZMA (-9)" | 107.167 | 104.500 | 41 | 14.713 |
 
-<h3 id="commitlint">CommitLint configuration</h3>
+<h3 id="commitlint">CommitLint Configuration</h3>
 
-![CommitLint configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlint.png)
+![CommitLint Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlint.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -195,9 +195,9 @@ Results
 | "LZ4 (-9)" | 89.500 | 84 | 36 | 14.021 |
 | "LZMA (-9)" | 83.333 | 81.500 | 29 | 11.353 |
 
-<h3 id="commitlintbasic">CommitLint configuration (basic)</h3>
+<h3 id="commitlintbasic">CommitLint Configuration (Basic)</h3>
 
-![CommitLint configuration (basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlintbasic.png)
+![CommitLint Configuration (Basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlintbasic.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -234,9 +234,9 @@ Results
 | "LZ4 (-9)" | 39.333 | 39.500 | 8 | 2.925 |
 | "LZMA (-9)" | 44.167 | 43.500 | 8 | 2.967 |
 
-<h3 id="epr">Entry Point Regulation manifest</h3>
+<h3 id="epr">Entry Point Regulation Manifest</h3>
 
-![Entry Point Regulation manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/epr.png)
+![Entry Point Regulation Manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/epr.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -273,9 +273,9 @@ Results
 | "LZ4 (-9)" | 340.833 | 318.500 | 111 | 42.132 |
 | "LZMA (-9)" | 277.833 | 263 | 96 | 33.153 |
 
-<h3 id="eslintrc">ESLint configuration document</h3>
+<h3 id="eslintrc">ESLint Configuration Document</h3>
 
-![ESLint configuration document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/eslintrc.png)
+![ESLint Configuration Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/eslintrc.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -312,9 +312,9 @@ Results
 | "LZ4 (-9)" | 745.833 | 725.500 | 112 | 39.897 |
 | "LZMA (-9)" | 565.500 | 554.500 | 97 | 32.968 |
 
-<h3 id="esmrc">ECMAScript module loader definition</h3>
+<h3 id="esmrc">ECMAScript Module Loader Definition</h3>
 
-![ECMAScript module loader definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/esmrc.png)
+![ECMAScript Module Loader Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/esmrc.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -351,9 +351,9 @@ Results
 | "LZ4 (-9)" | 96.167 | 93 | 32 | 12.549 |
 | "LZMA (-9)" | 94.333 | 92.500 | 27 | 9.826 |
 
-<h3 id="geojson">GeoJSON example JSON document</h3>
+<h3 id="geojson">GeoJSON Example Document</h3>
 
-![GeoJSON example JSON document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/geojson.png)
+![GeoJSON Example Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/geojson.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -390,9 +390,9 @@ Results
 | "LZ4 (-9)" | 169.167 | 155.500 | 102 | 36.269 |
 | "LZMA (-9)" | 132.667 | 124 | 58 | 23.809 |
 
-<h3 id="githubfundingblank">GitHub FUNDING sponsorship definition (empty)</h3>
+<h3 id="githubfundingblank">GitHub FUNDING Sponsorship Definition (Empty)</h3>
 
-![GitHub FUNDING sponsorship definition (empty) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/githubfundingblank.png)
+![GitHub FUNDING Sponsorship Definition (Empty) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/githubfundingblank.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -468,9 +468,9 @@ Results
 | "LZ4 (-9)" | 298 | 279.500 | 113 | 44.415 |
 | "LZMA (-9)" | 254.167 | 244.500 | 102 | 34.730 |
 
-<h3 id="gruntcontribclean">Grunt.js clean task definition</h3>
+<h3 id="gruntcontribclean">Grunt.js Clean Task Definition</h3>
 
-![Grunt.js clean task definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/gruntcontribclean.png)
+![Grunt.js Clean Task Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/gruntcontribclean.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -507,9 +507,9 @@ Results
 | "LZ4 (-9)" | 93.500 | 90 | 34 | 13.574 |
 | "LZMA (-9)" | 90.833 | 88.500 | 38 | 12.928 |
 
-<h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob configuration</h3>
+<h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob Configuration</h3>
 
-![ImageOptimizer Azure Webjob configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/imageoptimizerwebjob.png)
+![ImageOptimizer Azure Webjob Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/imageoptimizerwebjob.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -546,9 +546,9 @@ Results
 | "LZ4 (-9)" | 93 | 89 | 39 | 14.468 |
 | "LZMA (-9)" | 88.667 | 87.500 | 27 | 10.094 |
 
-<h3 id="jsonereversesort">JSON-e templating engine reverse sort example</h3>
+<h3 id="jsonereversesort">JSON-e Templating Engine Reverse Sort Example</h3>
 
-![JSON-e templating engine reverse sort example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonereversesort.png)
+![JSON-e Templating Engine Reverse Sort Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonereversesort.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -585,9 +585,9 @@ Results
 | "LZ4 (-9)" | 92.833 | 85.500 | 58 | 21.598 |
 | "LZMA (-9)" | 89.167 | 85.500 | 35 | 12.877 |
 
-<h3 id="jsonesort">JSON-e templating engine sort example</h3>
+<h3 id="jsonesort">JSON-e Templating Engine Sort Example</h3>
 
-![JSON-e templating engine sort example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonesort.png)
+![JSON-e Templating Engine Sort Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonesort.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -624,9 +624,9 @@ Results
 | "LZ4 (-9)" | 52 | 47.500 | 39 | 13.528 |
 | "LZMA (-9)" | 53.833 | 52.500 | 20 | 7.221 |
 
-<h3 id="jsonfeed">JSON Feed example document</h3>
+<h3 id="jsonfeed">JSON Feed Example Document</h3>
 
-![JSON Feed example document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonfeed.png)
+![JSON Feed Example Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonfeed.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -663,9 +663,9 @@ Results
 | "LZ4 (-9)" | 426.833 | 415.500 | 77 | 28.945 |
 | "LZMA (-9)" | 356 | 347.500 | 69 | 23.944 |
 
-<h3 id="jsonresume">JSON Resume</h3>
+<h3 id="jsonresume">JSON Resume Example</h3>
 
-![JSON Resume chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonresume.png)
+![JSON Resume Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonresume.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -702,9 +702,9 @@ Results
 | "LZ4 (-9)" | 2297 | 2223 | 397 | 155.296 |
 | "LZMA (-9)" | 1696.833 | 1643 | 354 | 121.171 |
 
-<h3 id="netcoreproject">.NET Core project.json</h3>
+<h3 id="netcoreproject">.NET Core Project</h3>
 
-![.NET Core project.json chart](https://www.jviotti.com/binary-json-size-benchmark/charts/netcoreproject.png)
+![.NET Core Project chart](https://www.jviotti.com/binary-json-size-benchmark/charts/netcoreproject.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -780,9 +780,9 @@ Results
 | "LZ4 (-9)" | 940.167 | 909.500 | 268 | 93.060 |
 | "LZMA (-9)" | 720.500 | 697.500 | 206 | 69.663 |
 
-<h3 id="openweathermap">OpenWeatherMap API example JSON document</h3>
+<h3 id="openweathermap">OpenWeatherMap API Example Document</h3>
 
-![OpenWeatherMap API example JSON document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweathermap.png)
+![OpenWeatherMap API Example Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweathermap.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -819,9 +819,9 @@ Results
 | "LZ4 (-9)" | 452 | 432 | 197 | 67.629 |
 | "LZMA (-9)" | 386.333 | 375.500 | 144 | 46.974 |
 
-<h3 id="openweatherroadrisk">OpenWeather Road Risk API example</h3>
+<h3 id="openweatherroadrisk">OpenWeather Road Risk API Example</h3>
 
-![OpenWeather Road Risk API example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweatherroadrisk.png)
+![OpenWeather Road Risk API Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweatherroadrisk.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -858,9 +858,9 @@ Results
 | "LZ4 (-9)" | 335.167 | 321 | 123 | 42.444 |
 | "LZMA (-9)" | 290.500 | 284 | 101 | 33.955 |
 
-<h3 id="packagejson">NPM Package.json example manifest</h3>
+<h3 id="packagejson">NPM Package.json Example Manifest</h3>
 
-![NPM Package.json example manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejson.png)
+![NPM Package.json Example Manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejson.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -897,9 +897,9 @@ Results
 | "LZ4 (-9)" | 1572.167 | 1527.500 | 294 | 109.793 |
 | "LZMA (-9)" | 1195.833 | 1160.500 | 282 | 92.854 |
 
-<h3 id="packagejsonlintrc">NPM Package.json Linter configuration manifest</h3>
+<h3 id="packagejsonlintrc">NPM Package.json Linter Configuration Manifest</h3>
 
-![NPM Package.json Linter configuration manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejsonlintrc.png)
+![NPM Package.json Linter Configuration Manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejsonlintrc.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -936,9 +936,9 @@ Results
 | "LZ4 (-9)" | 508 | 483.500 | 153 | 54.724 |
 | "LZMA (-9)" | 394 | 371.500 | 152 | 52.760 |
 
-<h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit configuration</h3>
+<h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit Configuration</h3>
 
-![SAP Cloud SDK Continuous Delivery Toolkit configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/sapcloudsdkpipeline.png)
+![SAP Cloud SDK Continuous Delivery Toolkit Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/sapcloudsdkpipeline.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -975,9 +975,9 @@ Results
 | "LZ4 (-9)" | 48.167 | 48 | 12 | 4.017 |
 | "LZMA (-9)" | 51.167 | 50.500 | 7 | 2.672 |
 
-<h3 id="travisnotifications">TravisCI notifications configuration</h3>
+<h3 id="travisnotifications">TravisCI Notifications Configuration</h3>
 
-![TravisCI notifications configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/travisnotifications.png)
+![TravisCI Notifications Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/travisnotifications.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -1014,9 +1014,9 @@ Results
 | "LZ4 (-9)" | 204.833 | 198.500 | 52 | 18.004 |
 | "LZMA (-9)" | 173.167 | 168 | 47 | 15.689 |
 
-<h3 id="tslintbasic">TSLint linter definition (basic)</h3>
+<h3 id="tslintbasic">TSLint Linter Definition (Basic)</h3>
 
-![TSLint linter definition (basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintbasic.png)
+![TSLint Linter Definition (Basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintbasic.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -1053,9 +1053,9 @@ Results
 | "LZ4 (-9)" | 75.833 | 72.500 | 18 | 6.793 |
 | "LZMA (-9)" | 69.833 | 69 | 17 | 5.928 |
 
-<h3 id="tslintextend">TSLint linter definition (extends only)</h3>
+<h3 id="tslintextend">TSLint Linter Definition (Extends Only)</h3>
 
-![TSLint linter definition (extends only) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintextend.png)
+![TSLint Linter Definition (Extends Only) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintextend.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
@@ -1092,9 +1092,9 @@ Results
 | "LZ4 (-9)" | 73.167 | 71.500 | 20 | 7.537 |
 | "LZMA (-9)" | 72.333 | 72 | 15 | 6.128 |
 
-<h3 id="tslintmulti">TSLint linter definition (multi-rule)</h3>
+<h3 id="tslintmulti">TSLint Linter Definition (Multi-rule)</h3>
 
-![TSLint linter definition (multi-rule) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintmulti.png)
+![TSLint Linter Definition (Multi-rule) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintmulti.png)
 
 | Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
