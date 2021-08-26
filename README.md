@@ -99,6 +99,7 @@ Results
 | MessagePack | None | 10 | 30 | 29 | 34 |
 | Smile | None | 15 | 35 | 34 | 39 |
 | UBJSON | None | 13 | 33 | 32 | 37 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -138,6 +139,7 @@ Results
 | MessagePack | None | 72 | 90 | 91 | 92 |
 | Smile | None | 87 | 104 | 106 | 105 |
 | UBJSON | None | 92 | 103 | 111 | 104 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -177,6 +179,7 @@ Results
 | MessagePack | None | 74 | 68 | 76 | 71 |
 | Smile | None | 84 | 76 | 82 | 80 |
 | UBJSON | None | 93 | 79 | 86 | 83 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -216,6 +219,7 @@ Results
 | MessagePack | None | 17 | 37 | 36 | 41 |
 | Smile | None | 22 | 42 | 41 | 47 |
 | UBJSON | None | 19 | 39 | 38 | 43 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -255,6 +259,7 @@ Results
 | MessagePack | None | 412 | 262 | 307 | 254 |
 | Smile | None | 356 | 266 | 311 | 261 |
 | UBJSON | None | 469 | 272 | 326 | 265 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -294,6 +299,7 @@ Results
 | MessagePack | None | 971 | 525 | 712 | 546 |
 | Smile | None | 979 | 544 | 724 | 565 |
 | UBJSON | None | 1070 | 550 | 771 | 563 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -333,6 +339,7 @@ Results
 | MessagePack | None | 64 | 82 | 83 | 85 |
 | Smile | None | 70 | 87 | 89 | 91 |
 | UBJSON | None | 78 | 93 | 97 | 94 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -372,6 +379,7 @@ Results
 | MessagePack | None | 162 | 111 | 132 | 109 |
 | Smile | None | 228 | 131 | 158 | 128 |
 | UBJSON | None | 208 | 126 | 153 | 120 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -411,6 +419,7 @@ Results
 | MessagePack | None | 124 | 124 | 143 | 136 |
 | Smile | None | 129 | 134 | 148 | 139 |
 | UBJSON | None | 137 | 135 | 156 | 144 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -450,6 +459,7 @@ Results
 | MessagePack | None | 287 | 222 | 256 | 224 |
 | Smile | None | 287 | 235 | 268 | 240 |
 | UBJSON | None | 339 | 243 | 291 | 249 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -489,6 +499,7 @@ Results
 | MessagePack | None | 60 | 76 | 79 | 78 |
 | Smile | None | 70 | 85 | 88 | 88 |
 | UBJSON | None | 77 | 88 | 92 | 89 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -528,6 +539,7 @@ Results
 | MessagePack | None | 61 | 77 | 78 | 78 |
 | Smile | None | 70 | 86 | 88 | 88 |
 | UBJSON | None | 74 | 87 | 90 | 87 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -567,6 +579,7 @@ Results
 | MessagePack | None | 52 | 73 | 71 | 76 |
 | Smile | None | 63 | 82 | 82 | 84 |
 | UBJSON | None | 70 | 83 | 89 | 87 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -606,6 +619,7 @@ Results
 | MessagePack | None | 21 | 41 | 40 | 46 |
 | Smile | None | 27 | 48 | 46 | 52 |
 | UBJSON | None | 30 | 48 | 49 | 53 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -645,6 +659,7 @@ Results
 | MessagePack | None | 517 | 331 | 398 | 337 |
 | Smile | None | 521 | 335 | 403 | 341 |
 | UBJSON | None | 557 | 348 | 428 | 354 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -684,6 +699,7 @@ Results
 | MessagePack | None | 2749 | 1600 | 2163 | 1615 |
 | Smile | None | 2620 | 1581 | 2169 | 1621 |
 | UBJSON | None | 2977 | 1658 | 2277 | 1665 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -723,6 +739,7 @@ Results
 | MessagePack | None | 919 | 458 | 565 | 443 |
 | Smile | None | 870 | 453 | 558 | 450 |
 | UBJSON | None | 1008 | 464 | 582 | 458 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -762,6 +779,7 @@ Results
 | MessagePack | None | 1172 | 670 | 872 | 678 |
 | Smile | None | 1090 | 683 | 886 | 701 |
 | UBJSON | None | 1268 | 692 | 936 | 710 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -801,6 +819,7 @@ Results
 | MessagePack | None | 382 | 358 | 393 | 350 |
 | Smile | None | 412 | 389 | 418 | 372 |
 | UBJSON | None | 439 | 382 | 446 | 379 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -840,6 +859,7 @@ Results
 | MessagePack | None | 339 | 276 | 297 | 259 |
 | Smile | None | 326 | 299 | 324 | 290 |
 | UBJSON | None | 375 | 295 | 318 | 278 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -879,6 +899,7 @@ Results
 | MessagePack | None | 1995 | 1131 | 1483 | 1143 |
 | Smile | None | 1983 | 1119 | 1473 | 1138 |
 | UBJSON | None | 2171 | 1173 | 1572 | 1178 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -918,6 +939,7 @@ Results
 | MessagePack | None | 989 | 366 | 476 | 365 |
 | Smile | None | 1002 | 380 | 499 | 388 |
 | UBJSON | None | 1117 | 374 | 489 | 377 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -957,6 +979,7 @@ Results
 | MessagePack | None | 25 | 45 | 44 | 49 |
 | Smile | None | 30 | 50 | 49 | 54 |
 | UBJSON | None | 29 | 49 | 48 | 52 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -996,6 +1019,7 @@ Results
 | MessagePack | None | 627 | 157 | 192 | 163 |
 | Smile | None | 604 | 168 | 199 | 173 |
 | UBJSON | None | 658 | 163 | 198 | 169 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -1035,6 +1059,7 @@ Results
 | MessagePack | None | 51 | 62 | 70 | 64 |
 | Smile | None | 59 | 68 | 73 | 71 |
 | UBJSON | None | 59 | 66 | 72 | 67 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -1074,6 +1099,7 @@ Results
 | MessagePack | None | 55 | 63 | 65 | 65 |
 | Smile | None | 61 | 69 | 71 | 72 |
 | UBJSON | None | 62 | 70 | 72 | 72 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |
@@ -1113,6 +1139,7 @@ Results
 | MessagePack | None | 68 | 81 | 87 | 82 |
 | Smile | None | 78 | 88 | 92 | 92 |
 | UBJSON | None | 80 | 84 | 94 | 89 |
+
 #### Schema-driven statistics
 
 | Category | Average | Median | Range | Stddev |

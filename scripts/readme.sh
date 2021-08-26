@@ -68,6 +68,7 @@ do
 
   awk -v document="$DOCUMENT_ID" -f data.awk "output/$DOCUMENT_ID/data.dat"
 
+  echo ""
   echo "#### Schema-driven statistics"
   echo ""
   awk -f stats-table.awk "output/$DOCUMENT_ID/stats-schema-driven.dat"
