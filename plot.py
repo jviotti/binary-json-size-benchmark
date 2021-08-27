@@ -97,9 +97,10 @@ ax1.grid(b=True, axis='both', linewidth=0.1)
 ax2.grid(b=True, axis='both', linewidth=0.1)
 ax3.grid(b=True, axis='both', linewidth=0.1)
 
-subplot_title_font_size = 8
-ax1.set_title('Schema-driven', fontsize=subplot_title_font_size)
-ax3.set_title('Schema-less', fontsize=subplot_title_font_size)
+subplot_title_font_size = 10
+title_y = -0.97
+ax1.set_title('Schema-driven', fontsize=subplot_title_font_size, y=title_y)
+ax3.set_title('Schema-less', fontsize=subplot_title_font_size, y=title_y)
 
 title = sys.argv[2].replace(' ', '\\ ')
 subtitle = sys.argv[3]
@@ -140,10 +141,16 @@ ax3.bar_label(plot3_rects2, padding=padding, fontsize=fontsize)
 ax3.bar_label(plot3_rects3, padding=padding, fontsize=fontsize)
 ax3.bar_label(plot3_rects4, padding=padding, fontsize=fontsize)
 
+dash_spacing = 4
+ax1.spines['right'].set_linestyle((0,(dash_spacing,dash_spacing)))
+ax2.spines['left'].set_linestyle((0,(dash_spacing,dash_spacing)))
+ax2.spines['right'].set_linestyle((0,(dash_spacing,dash_spacing)))
+ax3.spines['left'].set_linestyle((0,(dash_spacing,dash_spacing)))
+
 fig.tight_layout()
 fig.subplots_adjust(wspace=0)
 fig.set_figheight(5)
 fig.set_figwidth(10)
 
-plt.subplots_adjust(top=0.75, bottom=0.35, left=0.07, right=0.97)
+plt.subplots_adjust(top=0.79, bottom=0.40, left=0.07, right=0.97)
 plt.savefig(sys.argv[4], dpi=500)
