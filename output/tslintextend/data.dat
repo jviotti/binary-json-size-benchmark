@@ -1,4 +1,4 @@
-"Index","Format ID","Serialization Format","Uncompressed","GZIP (-9)","LZ4 (-9)","LZMA (-9)"
+"Index","Format ID","Serialization Format","Uncompressed","GZIP (compression level 9)","LZ4 (compression level 9)","LZMA (compression level 9)"
 1,asn1,"ASN.1\n(PER Unaligned)",46,54,56,57
 2,avro,"Apache Avro\n(unframed)",47,55,57,58
 3,bond,"Microsoft Bond\n(Compact Binary v1)",49,57,59,60

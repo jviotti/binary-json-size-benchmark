@@ -82,7 +82,7 @@ Results
 
 ![CircleCI Definition (Blank) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circleciblank.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/asn1/schema.asn) | 4 | 24 | 23 | 27 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/avro/schema.json) | 4 | 24 | 23 | 26 |
@@ -105,24 +105,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 10.375 | 8 | 20 | 7.140 |
-| "GZIP (-9)" | 26.625 | 25 | 8 | 3.160 |
-| "LZ4 (-9)" | 29.125 | 27 | 18 | 6.679 |
-| "LZMA (-9)" | 29.125 | 28 | 9 | 2.976 |
+| "GZIP (compression level 9)" | 26.625 | 25 | 8 | 3.160 |
+| "LZ4 (compression level 9)" | 29.125 | 27 | 18 | 6.679 |
+| "LZMA (compression level 9)" | 29.125 | 28 | 9 | 2.976 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 14 | 14 | 8 | 3.317 |
-| "GZIP (-9)" | 33.667 | 34 | 8 | 2.981 |
-| "LZ4 (-9)" | 33 | 33 | 8 | 3.317 |
-| "LZMA (-9)" | 37.333 | 38 | 7 | 2.625 |
+| "GZIP (compression level 9)" | 33.667 | 34 | 8 | 2.981 |
+| "LZ4 (compression level 9)" | 33 | 33 | 8 | 3.317 |
+| "LZMA (compression level 9)" | 37.333 | 38 | 7 | 2.625 |
 
 <h3 id="circlecimatrix">CircleCI Matrix Definition</h3>
 
 ![CircleCI Matrix Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/circlecimatrix.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/asn1/schema.asn) | 18 | 36 | 37 | 38 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/avro/schema.json) | 15 | 32 | 34 | 36 |
@@ -145,24 +145,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 44.125 | 29 | 89 | 32.903 |
-| "GZIP (-9)" | 47.500 | 43 | 50 | 14.790 |
-| "LZ4 (-9)" | 55.250 | 48 | 70 | 21.376 |
-| "LZMA (-9)" | 48.500 | 45.500 | 41 | 12.104 |
+| "GZIP (compression level 9)" | 47.500 | 43 | 50 | 14.790 |
+| "LZ4 (compression level 9)" | 55.250 | 48 | 70 | 21.376 |
+| "LZMA (compression level 9)" | 48.500 | 45.500 | 41 | 12.104 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 102.667 | 89.500 | 85 | 32.412 |
-| "GZIP (-9)" | 107.167 | 103.500 | 45 | 16.446 |
-| "LZ4 (-9)" | 116.667 | 108.500 | 60 | 25.011 |
-| "LZMA (-9)" | 107.167 | 104.500 | 41 | 14.713 |
+| "GZIP (compression level 9)" | 107.167 | 103.500 | 45 | 16.446 |
+| "LZ4 (compression level 9)" | 116.667 | 108.500 | 60 | 25.011 |
+| "LZMA (compression level 9)" | 107.167 | 104.500 | 41 | 14.713 |
 
 <h3 id="commitlint">CommitLint Configuration</h3>
 
 ![CommitLint Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlint.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/asn1/schema.asn) | 50 | 48 | 55 | 52 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/avro/schema.json) | 40 | 41 | 49 | 45 |
@@ -185,24 +185,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 82.250 | 62.500 | 116 | 42.558 |
-| "GZIP (-9)" | 61.875 | 58 | 54 | 15.972 |
-| "LZ4 (-9)" | 73.500 | 66 | 73 | 22.798 |
-| "LZMA (-9)" | 64 | 61.500 | 46 | 13.370 |
+| "GZIP (compression level 9)" | 61.875 | 58 | 54 | 15.972 |
+| "LZ4 (compression level 9)" | 73.500 | 66 | 73 | 22.798 |
+| "LZMA (compression level 9)" | 64 | 61.500 | 46 | 13.370 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 93.667 | 87 | 73 | 24.918 |
-| "GZIP (-9)" | 80.667 | 77.500 | 30 | 12.284 |
-| "LZ4 (-9)" | 89.500 | 84 | 36 | 14.021 |
-| "LZMA (-9)" | 83.333 | 81.500 | 29 | 11.353 |
+| "GZIP (compression level 9)" | 80.667 | 77.500 | 30 | 12.284 |
+| "LZ4 (compression level 9)" | 89.500 | 84 | 36 | 14.021 |
+| "LZMA (compression level 9)" | 83.333 | 81.500 | 29 | 11.353 |
 
 <h3 id="commitlintbasic">CommitLint Configuration (Basic)</h3>
 
 ![CommitLint Configuration (Basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/commitlintbasic.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/asn1/schema.asn) | 1 | 21 | 20 | 24 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/avro/schema.json) | 1 | 21 | 20 | 24 |
@@ -225,24 +225,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 7.125 | 2.500 | 24 | 8.810 |
-| "GZIP (-9)" | 24.375 | 22.500 | 11 | 4.181 |
-| "LZ4 (-9)" | 25.375 | 21.500 | 26 | 8.845 |
-| "LZMA (-9)" | 27 | 25.500 | 11 | 3.674 |
+| "GZIP (compression level 9)" | 24.375 | 22.500 | 11 | 4.181 |
+| "LZ4 (compression level 9)" | 25.375 | 21.500 | 26 | 8.845 |
+| "LZMA (compression level 9)" | 27 | 25.500 | 11 | 3.674 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 20.333 | 20.500 | 8 | 2.925 |
-| "GZIP (-9)" | 40.167 | 40 | 8 | 2.853 |
-| "LZ4 (-9)" | 39.333 | 39.500 | 8 | 2.925 |
-| "LZMA (-9)" | 44.167 | 43.500 | 8 | 2.967 |
+| "GZIP (compression level 9)" | 40.167 | 40 | 8 | 2.853 |
+| "LZ4 (compression level 9)" | 39.333 | 39.500 | 8 | 2.925 |
+| "LZMA (compression level 9)" | 44.167 | 43.500 | 8 | 2.967 |
 
 <h3 id="epr">Entry Point Regulation Manifest</h3>
 
 ![Entry Point Regulation Manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/epr.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/asn1/schema.asn) | 231 | 180 | 208 | 175 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/avro/schema.json) | 195 | 168 | 197 | 167 |
@@ -265,24 +265,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 318 | 256.500 | 341 | 121.184 |
-| "GZIP (-9)" | 217.625 | 197.500 | 122 | 41.632 |
-| "LZ4 (-9)" | 255.875 | 223.500 | 172 | 58.569 |
-| "LZMA (-9)" | 206.875 | 190 | 106 | 35.059 |
+| "GZIP (compression level 9)" | 217.625 | 197.500 | 122 | 41.632 |
+| "LZ4 (compression level 9)" | 255.875 | 223.500 | 172 | 58.569 |
+| "LZMA (compression level 9)" | 206.875 | 190 | 106 | 35.059 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 440.333 | 420.500 | 208 | 64.500 |
-| "GZIP (-9)" | 284.500 | 269 | 107 | 35.795 |
-| "LZ4 (-9)" | 340.833 | 318.500 | 111 | 42.132 |
-| "LZMA (-9)" | 277.833 | 263 | 96 | 33.153 |
+| "GZIP (compression level 9)" | 284.500 | 269 | 107 | 35.795 |
+| "LZ4 (compression level 9)" | 340.833 | 318.500 | 111 | 42.132 |
+| "LZMA (compression level 9)" | 277.833 | 263 | 96 | 33.153 |
 
 <h3 id="eslintrc">ESLint Configuration Document</h3>
 
 ![ESLint Configuration Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/eslintrc.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/asn1/schema.asn) | 65 | 81 | 84 | 83 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/avro/schema.json) | 100 | 93 | 107 | 91 |
@@ -305,24 +305,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 167.125 | 155.500 | 255 | 73.359 |
-| "GZIP (-9)" | 140.750 | 133 | 147 | 46.040 |
-| "LZ4 (-9)" | 167.750 | 160.500 | 221 | 65.019 |
-| "LZMA (-9)" | 136.500 | 128.500 | 134 | 42.620 |
+| "GZIP (compression level 9)" | 140.750 | 133 | 147 | 46.040 |
+| "LZ4 (compression level 9)" | 167.750 | 160.500 | 221 | 65.019 |
+| "LZMA (compression level 9)" | 136.500 | 128.500 | 134 | 42.620 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 1064 | 1024.500 | 230 | 96.871 |
-| "GZIP (-9)" | 545 | 534.500 | 131 | 43.390 |
-| "LZ4 (-9)" | 745.833 | 725.500 | 112 | 39.897 |
-| "LZMA (-9)" | 565.500 | 554.500 | 97 | 32.968 |
+| "GZIP (compression level 9)" | 545 | 534.500 | 131 | 43.390 |
+| "LZ4 (compression level 9)" | 745.833 | 725.500 | 112 | 39.897 |
+| "LZMA (compression level 9)" | 565.500 | 554.500 | 97 | 32.968 |
 
 <h3 id="esmrc">ECMAScript Module Loader Definition</h3>
 
 ![ECMAScript Module Loader Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/esmrc.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/asn1/schema.asn) | 12 | 32 | 31 | 35 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/avro/schema.json) | 16 | 36 | 35 | 39 |
@@ -345,24 +345,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 37.375 | 26.500 | 68 | 25.485 |
-| "GZIP (-9)" | 50.500 | 46.500 | 45 | 14.500 |
-| "LZ4 (-9)" | 53.625 | 45.500 | 63 | 21.136 |
-| "LZMA (-9)" | 52.875 | 51 | 39 | 12.524 |
+| "GZIP (compression level 9)" | 50.500 | 46.500 | 45 | 14.500 |
+| "LZ4 (compression level 9)" | 53.625 | 45.500 | 63 | 21.136 |
+| "LZMA (compression level 9)" | 52.875 | 51 | 39 | 12.524 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 77.167 | 74 | 32 | 12.549 |
-| "GZIP (-9)" | 91.833 | 90 | 26 | 9.599 |
-| "LZ4 (-9)" | 96.167 | 93 | 32 | 12.549 |
-| "LZMA (-9)" | 94.333 | 92.500 | 27 | 9.826 |
+| "GZIP (compression level 9)" | 91.833 | 90 | 26 | 9.599 |
+| "LZ4 (compression level 9)" | 96.167 | 93 | 32 | 12.549 |
+| "LZMA (compression level 9)" | 94.333 | 92.500 | 27 | 9.826 |
 
 <h3 id="geojson">GeoJSON Example Document</h3>
 
 ![GeoJSON Example Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/geojson.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/asn1/schema.asn) | 205 | 105 | 136 | 103 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/avro/schema.json) | 283 | 100 | 130 | 92 |
@@ -385,24 +385,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 343 | 290.500 | 475 | 144.554 |
-| "GZIP (-9)" | 131.750 | 115.500 | 120 | 36.779 |
-| "LZ4 (-9)" | 167.500 | 144 | 161 | 50.806 |
-| "LZMA (-9)" | 122 | 106.500 | 103 | 31.064 |
+| "GZIP (compression level 9)" | 131.750 | 115.500 | 120 | 36.779 |
+| "LZ4 (compression level 9)" | 167.500 | 144 | 161 | 50.806 |
+| "LZMA (compression level 9)" | 122 | 106.500 | 103 | 31.064 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 255.833 | 218 | 294 | 101.480 |
-| "GZIP (-9)" | 139 | 128.500 | 76 | 28.384 |
-| "LZ4 (-9)" | 169.167 | 155.500 | 102 | 36.269 |
-| "LZMA (-9)" | 132.667 | 124 | 58 | 23.809 |
+| "GZIP (compression level 9)" | 139 | 128.500 | 76 | 28.384 |
+| "LZ4 (compression level 9)" | 169.167 | 155.500 | 102 | 36.269 |
+| "LZMA (compression level 9)" | 132.667 | 124 | 58 | 23.809 |
 
 <h3 id="githubfundingblank">GitHub FUNDING Sponsorship Definition (Empty)</h3>
 
 ![GitHub FUNDING Sponsorship Definition (Empty) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/githubfundingblank.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/asn1/schema.asn) | 16 | 36 | 35 | 39 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/avro/schema.json) | 16 | 36 | 35 | 39 |
@@ -425,24 +425,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 31.125 | 21.500 | 52 | 18.114 |
-| "GZIP (-9)" | 47.125 | 41.500 | 35 | 12.752 |
-| "LZ4 (-9)" | 48.750 | 40.500 | 44 | 15.967 |
-| "LZMA (-9)" | 49.625 | 46 | 32 | 11.313 |
+| "GZIP (compression level 9)" | 47.125 | 41.500 | 35 | 12.752 |
+| "LZ4 (compression level 9)" | 48.750 | 40.500 | 44 | 15.967 |
+| "LZMA (compression level 9)" | 49.625 | 46 | 32 | 11.313 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 133.167 | 131 | 28 | 9.616 |
-| "GZIP (-9)" | 129.167 | 129.500 | 29 | 9.335 |
-| "LZ4 (-9)" | 151.667 | 150 | 25 | 8.654 |
-| "LZMA (-9)" | 139.167 | 138 | 17 | 5.520 |
+| "GZIP (compression level 9)" | 129.167 | 129.500 | 29 | 9.335 |
+| "LZ4 (compression level 9)" | 151.667 | 150 | 25 | 8.654 |
+| "LZMA (compression level 9)" | 139.167 | 138 | 17 | 5.520 |
 
 <h3 id="githubworkflow">GitHub Workflow Definition</h3>
 
 ![GitHub Workflow Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/githubworkflow.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/asn1/schema.asn) | 165 | 154 | 172 | 152 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/avro/schema.json) | 167 | 153 | 164 | 153 |
@@ -465,24 +465,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 256.875 | 195 | 299 | 114.993 |
-| "GZIP (-9)" | 197.375 | 177 | 122 | 42.661 |
-| "LZ4 (-9)" | 226.250 | 195 | 188 | 63.174 |
-| "LZMA (-9)" | 192.250 | 177 | 104 | 36.338 |
+| "GZIP (compression level 9)" | 197.375 | 177 | 122 | 42.661 |
+| "LZ4 (compression level 9)" | 226.250 | 195 | 188 | 63.174 |
+| "LZMA (compression level 9)" | 192.250 | 177 | 104 | 36.338 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 334.667 | 313.500 | 124 | 52.169 |
-| "GZIP (-9)" | 248.333 | 239 | 101 | 33.703 |
-| "LZ4 (-9)" | 298 | 279.500 | 113 | 44.415 |
-| "LZMA (-9)" | 254.167 | 244.500 | 102 | 34.730 |
+| "GZIP (compression level 9)" | 248.333 | 239 | 101 | 33.703 |
+| "LZ4 (compression level 9)" | 298 | 279.500 | 113 | 44.415 |
+| "LZMA (compression level 9)" | 254.167 | 244.500 | 102 | 34.730 |
 
 <h3 id="gruntcontribclean">Grunt.js Clean Task Definition</h3>
 
 ![Grunt.js Clean Task Definition chart](https://www.jviotti.com/binary-json-size-benchmark/charts/gruntcontribclean.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/asn1/schema.asn) | 13 | 29 | 32 | 32 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/avro/schema.json) | 16 | 31 | 35 | 34 |
@@ -505,24 +505,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 43.750 | 25 | 103 | 37.019 |
-| "GZIP (-9)" | 46.375 | 39.500 | 48 | 16.248 |
-| "LZ4 (-9)" | 54.375 | 41 | 72 | 24.728 |
-| "LZMA (-9)" | 48.750 | 43.500 | 42 | 14.202 |
+| "GZIP (compression level 9)" | 46.375 | 39.500 | 48 | 16.248 |
+| "LZ4 (compression level 9)" | 54.375 | 41 | 72 | 24.728 |
+| "LZMA (compression level 9)" | 48.750 | 43.500 | 42 | 14.202 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 77.667 | 73.500 | 45 | 16.819 |
-| "GZIP (-9)" | 88.500 | 86.500 | 35 | 12.148 |
-| "LZ4 (-9)" | 93.500 | 90 | 34 | 13.574 |
-| "LZMA (-9)" | 90.833 | 88.500 | 38 | 12.928 |
+| "GZIP (compression level 9)" | 88.500 | 86.500 | 35 | 12.148 |
+| "LZ4 (compression level 9)" | 93.500 | 90 | 34 | 13.574 |
+| "LZMA (compression level 9)" | 90.833 | 88.500 | 38 | 12.928 |
 
 <h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob Configuration</h3>
 
 ![ImageOptimizer Azure Webjob Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/imageoptimizerwebjob.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/asn1/schema.asn) | 21 | 41 | 40 | 45 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/avro/schema.json) | 24 | 44 | 43 | 47 |
@@ -545,24 +545,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 45.500 | 28 | 79 | 31.048 |
-| "GZIP (-9)" | 55.500 | 48 | 39 | 14.629 |
-| "LZ4 (-9)" | 60 | 47 | 61 | 23.500 |
-| "LZMA (-9)" | 57.750 | 52 | 34 | 12.387 |
+| "GZIP (compression level 9)" | 55.500 | 48 | 39 | 14.629 |
+| "LZ4 (compression level 9)" | 60 | 47 | 61 | 23.500 |
+| "LZMA (compression level 9)" | 57.750 | 52 | 34 | 12.387 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 76.167 | 72 | 41 | 14.916 |
-| "GZIP (-9)" | 88.500 | 86.500 | 27 | 10.720 |
-| "LZ4 (-9)" | 93 | 89 | 39 | 14.468 |
-| "LZMA (-9)" | 88.667 | 87.500 | 27 | 10.094 |
+| "GZIP (compression level 9)" | 88.500 | 86.500 | 27 | 10.720 |
+| "LZ4 (compression level 9)" | 93 | 89 | 39 | 14.468 |
+| "LZMA (compression level 9)" | 88.667 | 87.500 | 27 | 10.094 |
 
 <h3 id="jsonereversesort">JSON-e Templating Engine Reverse Sort Example</h3>
 
 ![JSON-e Templating Engine Reverse Sort Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonereversesort.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/asn1/schema.asn) | 15 | 31 | 34 | 33 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/avro/schema.json) | 11 | 31 | 30 | 34 |
@@ -585,24 +585,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 63.875 | 22.500 | 229 | 76.734 |
-| "GZIP (-9)" | 50.875 | 41 | 58 | 19.915 |
-| "LZ4 (-9)" | 59.375 | 41.500 | 96 | 32.821 |
-| "LZMA (-9)" | 51.500 | 42.500 | 54 | 18.228 |
+| "GZIP (compression level 9)" | 50.875 | 41 | 58 | 19.915 |
+| "LZ4 (compression level 9)" | 59.375 | 41.500 | 96 | 32.821 |
+| "LZMA (compression level 9)" | 51.500 | 42.500 | 54 | 18.228 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 75.667 | 66.500 | 69 | 24.817 |
-| "GZIP (-9)" | 87.333 | 82.500 | 36 | 14.174 |
-| "LZ4 (-9)" | 92.833 | 85.500 | 58 | 21.598 |
-| "LZMA (-9)" | 89.167 | 85.500 | 35 | 12.877 |
+| "GZIP (compression level 9)" | 87.333 | 82.500 | 36 | 14.174 |
+| "LZ4 (compression level 9)" | 92.833 | 85.500 | 58 | 21.598 |
+| "LZMA (compression level 9)" | 89.167 | 85.500 | 35 | 12.877 |
 
 <h3 id="jsonesort">JSON-e Templating Engine Sort Example</h3>
 
 ![JSON-e Templating Engine Sort Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonesort.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/asn1/schema.asn) | 13 | 30 | 32 | 32 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/avro/schema.json) | 9 | 29 | 28 | 32 |
@@ -625,24 +625,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 20.625 | 12.500 | 39 | 14.899 |
-| "GZIP (-9)" | 35.750 | 31.500 | 22 | 7.677 |
-| "LZ4 (-9)" | 38.500 | 31.500 | 35 | 13.010 |
-| "LZMA (-9)" | 38.125 | 35.500 | 19 | 6.489 |
+| "GZIP (compression level 9)" | 35.750 | 31.500 | 22 | 7.677 |
+| "LZ4 (compression level 9)" | 38.500 | 31.500 | 35 | 13.010 |
+| "LZMA (compression level 9)" | 38.125 | 35.500 | 19 | 6.489 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 33.833 | 28.500 | 44 | 15.214 |
-| "GZIP (-9)" | 50 | 48 | 25 | 8.775 |
-| "LZ4 (-9)" | 52 | 47.500 | 39 | 13.528 |
-| "LZMA (-9)" | 53.833 | 52.500 | 20 | 7.221 |
+| "GZIP (compression level 9)" | 50 | 48 | 25 | 8.775 |
+| "LZ4 (compression level 9)" | 52 | 47.500 | 39 | 13.528 |
+| "LZMA (compression level 9)" | 53.833 | 52.500 | 20 | 7.221 |
 
 <h3 id="jsonfeed">JSON Feed Example Document</h3>
 
 ![JSON Feed Example Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonfeed.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/asn1/schema.asn) | 398 | 247 | 287 | 248 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/avro/schema.json) | 400 | 247 | 289 | 248 |
@@ -665,24 +665,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 458.125 | 416 | 186 | 71.273 |
-| "GZIP (-9)" | 285.250 | 265.500 | 93 | 37.519 |
-| "LZ4 (-9)" | 337.500 | 304 | 142 | 54.706 |
-| "LZMA (-9)" | 282.375 | 265 | 83 | 33.087 |
+| "GZIP (compression level 9)" | 285.250 | 265.500 | 93 | 37.519 |
+| "LZ4 (compression level 9)" | 337.500 | 304 | 142 | 54.706 |
+| "LZMA (compression level 9)" | 282.375 | 265 | 83 | 33.087 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 552 | 540 | 81 | 34.409 |
-| "GZIP (-9)" | 350 | 341.500 | 86 | 28.065 |
-| "LZ4 (-9)" | 426.833 | 415.500 | 77 | 28.945 |
-| "LZMA (-9)" | 356 | 347.500 | 69 | 23.944 |
+| "GZIP (compression level 9)" | 350 | 341.500 | 86 | 28.065 |
+| "LZ4 (compression level 9)" | 426.833 | 415.500 | 77 | 28.945 |
+| "LZMA (compression level 9)" | 356 | 347.500 | 69 | 23.944 |
 
 <h3 id="jsonresume">JSON Resume Example</h3>
 
 ![JSON Resume Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/jsonresume.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/asn1/schema.asn) | 2143 | 1282 | 1754 | 1302 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/avro/schema.json) | 2162 | 1296 | 1772 | 1316 |
@@ -705,24 +705,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 2479.125 | 2243 | 1009 | 395.795 |
-| "GZIP (-9)" | 1456.375 | 1377.500 | 404 | 161.848 |
-| "LZ4 (-9)" | 1964.375 | 1846 | 536 | 208.459 |
-| "LZMA (-9)" | 1450 | 1384.500 | 366 | 137.258 |
+| "GZIP (compression level 9)" | 1456.375 | 1377.500 | 404 | 161.848 |
+| "LZ4 (compression level 9)" | 1964.375 | 1846 | 536 | 208.459 |
+| "LZMA (compression level 9)" | 1450 | 1384.500 | 366 | 137.258 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 2905.333 | 2865.500 | 663 | 222.548 |
-| "GZIP (-9)" | 1690.333 | 1629 | 411 | 143.683 |
-| "LZ4 (-9)" | 2297 | 2223 | 397 | 155.296 |
-| "LZMA (-9)" | 1696.833 | 1643 | 354 | 121.171 |
+| "GZIP (compression level 9)" | 1690.333 | 1629 | 411 | 143.683 |
+| "LZ4 (compression level 9)" | 2297 | 2223 | 397 | 155.296 |
+| "LZMA (compression level 9)" | 1696.833 | 1643 | 354 | 121.171 |
 
 <h3 id="netcoreproject">.NET Core Project</h3>
 
 ![.NET Core Project chart](https://www.jviotti.com/binary-json-size-benchmark/charts/netcoreproject.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/asn1/schema.asn) | 242 | 93 | 120 | 98 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/avro/schema.json) | 242 | 93 | 120 | 98 |
@@ -745,24 +745,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 370.750 | 289.500 | 394 | 150.329 |
-| "GZIP (-9)" | 158.500 | 157 | 186 | 58.118 |
-| "LZ4 (-9)" | 201.875 | 194.500 | 245 | 78.273 |
-| "LZMA (-9)" | 153 | 153 | 149 | 47.157 |
+| "GZIP (compression level 9)" | 158.500 | 157 | 186 | 58.118 |
+| "LZ4 (compression level 9)" | 201.875 | 194.500 | 245 | 78.273 |
+| "LZMA (compression level 9)" | 153 | 153 | 149 | 47.157 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 949 | 921 | 214 | 74.166 |
-| "GZIP (-9)" | 468.500 | 455.500 | 124 | 41.604 |
-| "LZ4 (-9)" | 585.333 | 571.500 | 106 | 36.063 |
-| "LZMA (-9)" | 465 | 451.500 | 118 | 39.648 |
+| "GZIP (compression level 9)" | 468.500 | 455.500 | 124 | 41.604 |
+| "LZ4 (compression level 9)" | 585.333 | 571.500 | 106 | 36.063 |
+| "LZMA (compression level 9)" | 465 | 451.500 | 118 | 39.648 |
 
 <h3 id="nightwatch">Nightwatch.js Test Framework Configuration</h3>
 
 ![Nightwatch.js Test Framework Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/nightwatch.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/asn1/schema.asn) | 89 | 105 | 108 | 108 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/avro/schema.json) | 92 | 104 | 111 | 107 |
@@ -785,24 +785,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 195.250 | 141.500 | 375 | 122.472 |
-| "GZIP (-9)" | 165.750 | 145 | 198 | 63.192 |
-| "LZ4 (-9)" | 186.625 | 155 | 282 | 87.853 |
-| "LZMA (-9)" | 159.250 | 146.500 | 150 | 49.487 |
+| "GZIP (compression level 9)" | 165.750 | 145 | 198 | 63.192 |
+| "LZ4 (compression level 9)" | 186.625 | 155 | 282 | 87.853 |
+| "LZMA (compression level 9)" | 159.250 | 146.500 | 150 | 49.487 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 1237 | 1222 | 299 | 101.423 |
-| "GZIP (-9)" | 703.333 | 676.500 | 229 | 75.832 |
-| "LZ4 (-9)" | 940.167 | 909.500 | 268 | 93.060 |
-| "LZMA (-9)" | 720.500 | 697.500 | 206 | 69.663 |
+| "GZIP (compression level 9)" | 703.333 | 676.500 | 229 | 75.832 |
+| "LZ4 (compression level 9)" | 940.167 | 909.500 | 268 | 93.060 |
+| "LZMA (compression level 9)" | 720.500 | 697.500 | 206 | 69.663 |
 
 <h3 id="openweathermap">OpenWeatherMap API Example Document</h3>
 
 ![OpenWeatherMap API Example Document chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweathermap.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/asn1/schema.asn) | 165 | 179 | 184 | 183 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/avro/schema.json) | 148 | 163 | 167 | 166 |
@@ -825,24 +825,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 224.875 | 194 | 236 | 77.059 |
-| "GZIP (-9)" | 213.875 | 204 | 144 | 41.017 |
-| "LZ4 (-9)" | 232.875 | 212.500 | 200 | 60.563 |
-| "LZMA (-9)" | 211.750 | 208 | 119 | 32.847 |
+| "GZIP (compression level 9)" | 213.875 | 204 | 144 | 41.017 |
+| "LZ4 (compression level 9)" | 232.875 | 212.500 | 200 | 60.563 |
+| "LZMA (compression level 9)" | 211.750 | 208 | 119 | 32.847 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 459.333 | 425.500 | 278 | 95.878 |
-| "GZIP (-9)" | 395.333 | 385.500 | 155 | 50.543 |
-| "LZ4 (-9)" | 452 | 432 | 197 | 67.629 |
-| "LZMA (-9)" | 386.333 | 375.500 | 144 | 46.974 |
+| "GZIP (compression level 9)" | 395.333 | 385.500 | 155 | 50.543 |
+| "LZ4 (compression level 9)" | 452 | 432 | 197 | 67.629 |
+| "LZMA (compression level 9)" | 386.333 | 375.500 | 144 | 46.974 |
 
 <h3 id="openweatherroadrisk">OpenWeather Road Risk API Example</h3>
 
 ![OpenWeather Road Risk API Example chart](https://www.jviotti.com/binary-json-size-benchmark/charts/openweatherroadrisk.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/asn1/schema.asn) | 176 | 168 | 184 | 163 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/avro/schema.json) | 156 | 156 | 168 | 156 |
@@ -865,24 +865,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 211.500 | 179.500 | 172 | 59.846 |
-| "GZIP (-9)" | 188.875 | 172.500 | 95 | 30.002 |
-| "LZ4 (-9)" | 210.375 | 186 | 129 | 43.212 |
-| "LZMA (-9)" | 185.375 | 174.500 | 79 | 24.854 |
+| "GZIP (compression level 9)" | 188.875 | 172.500 | 95 | 30.002 |
+| "LZ4 (compression level 9)" | 210.375 | 186 | 129 | 43.212 |
+| "LZMA (compression level 9)" | 185.375 | 174.500 | 79 | 24.854 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 381.667 | 357.500 | 162 | 57.203 |
-| "GZIP (-9)" | 306 | 297 | 101 | 34.186 |
-| "LZ4 (-9)" | 335.167 | 321 | 123 | 42.444 |
-| "LZMA (-9)" | 290.500 | 284 | 101 | 33.955 |
+| "GZIP (compression level 9)" | 306 | 297 | 101 | 34.186 |
+| "LZ4 (compression level 9)" | 335.167 | 321 | 123 | 42.444 |
+| "LZMA (compression level 9)" | 290.500 | 284 | 101 | 33.955 |
 
 <h3 id="packagejson">NPM Package.json Example Manifest</h3>
 
 ![NPM Package.json Example Manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejson.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/asn1/schema.asn) | 1498 | 801 | 1061 | 820 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/avro/schema.json) | 1500 | 800 | 1060 | 820 |
@@ -905,24 +905,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 1745.875 | 1584.500 | 770 | 296.205 |
-| "GZIP (-9)" | 924.125 | 896 | 332 | 109.574 |
-| "LZ4 (-9)" | 1211.875 | 1155 | 452 | 150.355 |
-| "LZMA (-9)" | 921.250 | 910 | 244 | 83.510 |
+| "GZIP (compression level 9)" | 924.125 | 896 | 332 | 109.574 |
+| "LZ4 (compression level 9)" | 1211.875 | 1155 | 452 | 150.355 |
+| "LZMA (compression level 9)" | 921.250 | 910 | 244 | 83.510 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 2140.833 | 2083 | 403 | 164.341 |
-| "GZIP (-9)" | 1188.167 | 1152 | 312 | 103.044 |
-| "LZ4 (-9)" | 1572.167 | 1527.500 | 294 | 109.793 |
-| "LZMA (-9)" | 1195.833 | 1160.500 | 282 | 92.854 |
+| "GZIP (compression level 9)" | 1188.167 | 1152 | 312 | 103.044 |
+| "LZ4 (compression level 9)" | 1572.167 | 1527.500 | 294 | 109.793 |
+| "LZMA (compression level 9)" | 1195.833 | 1160.500 | 282 | 92.854 |
 
 <h3 id="packagejsonlintrc">NPM Package.json Linter Configuration Manifest</h3>
 
 ![NPM Package.json Linter Configuration Manifest chart](https://www.jviotti.com/binary-json-size-benchmark/charts/packagejsonlintrc.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/asn1/schema.asn) | 369 | 84 | 97 | 87 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/avro/schema.json) | 201 | 75 | 86 | 78 |
@@ -945,24 +945,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 533.125 | 458 | 759 | 240.859 |
-| "GZIP (-9)" | 145.375 | 125.500 | 213 | 67.578 |
-| "LZ4 (-9)" | 182.750 | 150.500 | 303 | 97.339 |
-| "LZMA (-9)" | 135.375 | 121 | 170 | 52.875 |
+| "GZIP (compression level 9)" | 145.375 | 125.500 | 213 | 67.578 |
+| "LZ4 (compression level 9)" | 182.750 | 150.500 | 303 | 97.339 |
+| "LZMA (compression level 9)" | 135.375 | 121 | 170 | 52.875 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 1056.333 | 997.500 | 353 | 119.172 |
-| "GZIP (-9)" | 389.833 | 370 | 174 | 60.278 |
-| "LZ4 (-9)" | 508 | 483.500 | 153 | 54.724 |
-| "LZMA (-9)" | 394 | 371.500 | 152 | 52.760 |
+| "GZIP (compression level 9)" | 389.833 | 370 | 174 | 60.278 |
+| "LZ4 (compression level 9)" | 508 | 483.500 | 153 | 54.724 |
+| "LZMA (compression level 9)" | 394 | 371.500 | 152 | 52.760 |
 
 <h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit Configuration</h3>
 
 ![SAP Cloud SDK Continuous Delivery Toolkit Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/sapcloudsdkpipeline.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/asn1/schema.asn) | 1 | 21 | 20 | 24 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/avro/schema.json) | 0 | 20 | 15 | 23 |
@@ -985,24 +985,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 7.375 | 4 | 24 | 8.276 |
-| "GZIP (-9)" | 25.875 | 24 | 15 | 5.797 |
-| "LZ4 (-9)" | 25.375 | 23 | 28 | 9.286 |
-| "LZMA (-9)" | 28.125 | 26.500 | 15 | 5.183 |
+| "GZIP (compression level 9)" | 25.875 | 24 | 15 | 5.797 |
+| "LZ4 (compression level 9)" | 25.375 | 23 | 28 | 9.286 |
+| "LZMA (compression level 9)" | 28.125 | 26.500 | 15 | 5.183 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 29.167 | 29 | 12 | 4.017 |
-| "GZIP (-9)" | 47.833 | 47.500 | 7 | 2.672 |
-| "LZ4 (-9)" | 48.167 | 48 | 12 | 4.017 |
-| "LZMA (-9)" | 51.167 | 50.500 | 7 | 2.672 |
+| "GZIP (compression level 9)" | 47.833 | 47.500 | 7 | 2.672 |
+| "LZ4 (compression level 9)" | 48.167 | 48 | 12 | 4.017 |
+| "LZMA (compression level 9)" | 51.167 | 50.500 | 7 | 2.672 |
 
 <h3 id="travisnotifications">TravisCI Notifications Configuration</h3>
 
 ![TravisCI Notifications Configuration chart](https://www.jviotti.com/binary-json-size-benchmark/charts/travisnotifications.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/asn1/schema.asn) | 497 | 88 | 102 | 90 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/avro/schema.json) | 504 | 90 | 103 | 91 |
@@ -1025,24 +1025,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 554.875 | 521.500 | 171 | 60.705 |
-| "GZIP (-9)" | 116.500 | 115 | 87 | 26.538 |
-| "LZ4 (-9)" | 134.750 | 132.500 | 113 | 34.741 |
-| "LZMA (-9)" | 112.625 | 110 | 74 | 22.416 |
+| "GZIP (compression level 9)" | 116.500 | 115 | 87 | 26.538 |
+| "LZ4 (compression level 9)" | 134.750 | 132.500 | 113 | 34.741 |
+| "LZMA (compression level 9)" | 112.625 | 110 | 74 | 22.416 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 573.833 | 627 | 471 | 157.541 |
-| "GZIP (-9)" | 168.167 | 161.500 | 67 | 21.474 |
-| "LZ4 (-9)" | 204.833 | 198.500 | 52 | 18.004 |
-| "LZMA (-9)" | 173.167 | 168 | 47 | 15.689 |
+| "GZIP (compression level 9)" | 168.167 | 161.500 | 67 | 21.474 |
+| "LZ4 (compression level 9)" | 204.833 | 198.500 | 52 | 18.004 |
+| "LZMA (compression level 9)" | 173.167 | 168 | 47 | 15.689 |
 
 <h3 id="tslintbasic">TSLint Linter Definition (Basic)</h3>
 
 ![TSLint Linter Definition (Basic) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintbasic.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/asn1/schema.asn) | 1 | 21 | 20 | 24 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/avro/schema.json) | 1 | 21 | 20 | 24 |
@@ -1065,24 +1065,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 18.375 | 8.500 | 59 | 21.089 |
-| "GZIP (-9)" | 29.750 | 27.500 | 32 | 9.549 |
-| "LZ4 (-9)" | 32.750 | 27.500 | 44 | 13.890 |
-| "LZMA (-9)" | 31.250 | 30 | 25 | 7.446 |
+| "GZIP (compression level 9)" | 29.750 | 27.500 | 32 | 9.549 |
+| "LZ4 (compression level 9)" | 32.750 | 27.500 | 44 | 13.890 |
+| "LZMA (compression level 9)" | 31.250 | 30 | 25 | 7.446 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 61.333 | 59 | 26 | 9.690 |
-| "GZIP (-9)" | 68 | 67 | 14 | 5.416 |
-| "LZ4 (-9)" | 75.833 | 72.500 | 18 | 6.793 |
-| "LZMA (-9)" | 69.833 | 69 | 17 | 5.928 |
+| "GZIP (compression level 9)" | 68 | 67 | 14 | 5.416 |
+| "LZ4 (compression level 9)" | 75.833 | 72.500 | 18 | 6.793 |
+| "LZMA (compression level 9)" | 69.833 | 69 | 17 | 5.928 |
 
 <h3 id="tslintextend">TSLint Linter Definition (Extends Only)</h3>
 
 ![TSLint Linter Definition (Extends Only) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintextend.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/asn1/schema.asn) | 46 | 54 | 56 | 57 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/avro/schema.json) | 47 | 55 | 57 | 58 |
@@ -1105,24 +1105,24 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 59.375 | 48.500 | 42 | 17.204 |
-| "GZIP (-9)" | 62.500 | 56.500 | 24 | 9.605 |
-| "LZ4 (-9)" | 67.250 | 58.500 | 35 | 14.051 |
-| "LZMA (-9)" | 64.750 | 59.500 | 21 | 8.333 |
+| "GZIP (compression level 9)" | 62.500 | 56.500 | 24 | 9.605 |
+| "LZ4 (compression level 9)" | 67.250 | 58.500 | 35 | 14.051 |
+| "LZMA (compression level 9)" | 64.750 | 59.500 | 21 | 8.333 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 63.500 | 61.500 | 23 | 8.221 |
-| "GZIP (-9)" | 70.333 | 69.500 | 16 | 6.368 |
-| "LZ4 (-9)" | 73.167 | 71.500 | 20 | 7.537 |
-| "LZMA (-9)" | 72.333 | 72 | 15 | 6.128 |
+| "GZIP (compression level 9)" | 70.333 | 69.500 | 16 | 6.368 |
+| "LZ4 (compression level 9)" | 73.167 | 71.500 | 20 | 7.537 |
+| "LZMA (compression level 9)" | 72.333 | 72 | 15 | 6.128 |
 
 <h3 id="tslintmulti">TSLint Linter Definition (Multi-rule)</h3>
 
 ![TSLint Linter Definition (Multi-rule) chart](https://www.jviotti.com/binary-json-size-benchmark/charts/tslintmulti.png)
 
-| Serialization Format | Schema | Uncompressed | GZIP (-9) | LZ4 (-9) | LZMA (-9) |
+| Serialization Format | Schema | Uncompressed | GZIP (compression level 9) | LZ4 (compression level 9) | LZMA (compression level 9) |
 |----------------------|--------|--------------|-----------|----------|-----------|
 | ASN.1 (PER Unaligned) | [`schema.asn`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/asn1/schema.asn) | 4 | 24 | 23 | 27 |
 | Apache Avro (unframed) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/avro/schema.json) | 7 | 27 | 26 | 29 |
@@ -1145,18 +1145,18 @@ Results
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 30.375 | 15.500 | 80 | 30.311 |
-| "GZIP (-9)" | 37.750 | 34 | 47 | 13.800 |
-| "LZ4 (-9)" | 43.250 | 34.500 | 71 | 21.782 |
-| "LZMA (-9)" | 39.625 | 36 | 42 | 12.369 |
+| "GZIP (compression level 9)" | 37.750 | 34 | 47 | 13.800 |
+| "LZ4 (compression level 9)" | 43.250 | 34.500 | 71 | 21.782 |
+| "LZMA (compression level 9)" | 39.625 | 36 | 42 | 12.369 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Stddev |
 |--------|--------|--------|--------|--------|
 | "Uncompressed" | 83.333 | 79 | 36 | 14.636 |
-| "GZIP (-9)" | 89.667 | 86 | 26 | 9.638 |
-| "LZ4 (-9)" | 97.500 | 93 | 29 | 11.087 |
-| "LZMA (-9)" | 92.167 | 90.500 | 28 | 9.856 |
+| "GZIP (compression level 9)" | 89.667 | 86 | 26 | 9.638 |
+| "LZ4 (compression level 9)" | 97.500 | 93 | 29 | 11.087 |
+| "LZMA (compression level 9)" | 92.167 | 90.500 | 28 | 9.856 |
 
 
 Running locally

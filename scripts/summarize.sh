@@ -11,9 +11,9 @@ printf "\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"\n" \
   "Format ID" \
   "Serialization Format" \
   "Uncompressed" \
-  "GZIP (-9)" \
-  "LZ4 (-9)" \
-  "LZMA (-9)"
+  "GZIP (compression level 9)" \
+  "LZ4 (compression level 9)" \
+  "LZMA (compression level 9)"
 
 while IFS= read -r line
 do
