@@ -4,6 +4,11 @@ BEGIN {
   FS = ","
 }
 
+function unquote(string) {
+  gsub("\"", "", string)
+  return string
+}
+
 function title(string) {
   return toupper( substr( string, 1, 1 ) ) substr( string, 2 );
 }
@@ -14,5 +19,5 @@ NR == 1 {
 }
 
 NR != 1 {
-  print "| " title($1) " | " $2 " | " $3 " | " $4 " | " $5 " |"
+  print "| " title(unquote($1)) " | " $2 " | " $3 " | " $4 " | " $5 " |"
 }
