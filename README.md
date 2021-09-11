@@ -102,7 +102,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 10.375 | 8 | 20 | 7.140 |
 | GZIP (compression level 9) | 26.625 | 25 | 8 | 3.160 |
@@ -111,7 +111,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 14 | 14 | 8 | 3.317 |
 | GZIP (compression level 9) | 33.667 | 34 | 8 | 2.981 |
@@ -142,7 +142,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 44.125 | 29 | 89 | 32.903 |
 | GZIP (compression level 9) | 47.500 | 43 | 50 | 14.790 |
@@ -151,7 +151,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 102.667 | 89.500 | 85 | 32.412 |
 | GZIP (compression level 9) | 107.167 | 103.500 | 45 | 16.446 |
@@ -182,7 +182,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 82.250 | 62.500 | 116 | 42.558 |
 | GZIP (compression level 9) | 61.875 | 58 | 54 | 15.972 |
@@ -191,7 +191,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 93.667 | 87 | 73 | 24.918 |
 | GZIP (compression level 9) | 80.667 | 77.500 | 30 | 12.284 |
@@ -222,7 +222,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 7.125 | 2.500 | 24 | 8.810 |
 | GZIP (compression level 9) | 24.375 | 22.500 | 11 | 4.181 |
@@ -231,7 +231,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 20.333 | 20.500 | 8 | 2.925 |
 | GZIP (compression level 9) | 40.167 | 40 | 8 | 2.853 |
@@ -262,7 +262,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 318 | 256.500 | 341 | 121.184 |
 | GZIP (compression level 9) | 217.625 | 197.500 | 122 | 41.632 |
@@ -271,7 +271,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 440.333 | 420.500 | 208 | 64.500 |
 | GZIP (compression level 9) | 284.500 | 269 | 107 | 35.795 |
@@ -302,7 +302,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 167.125 | 155.500 | 255 | 73.359 |
 | GZIP (compression level 9) | 140.750 | 133 | 147 | 46.040 |
@@ -311,7 +311,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 1064 | 1024.500 | 230 | 96.871 |
 | GZIP (compression level 9) | 545 | 534.500 | 131 | 43.390 |
@@ -342,7 +342,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 37.375 | 26.500 | 68 | 25.485 |
 | GZIP (compression level 9) | 50.500 | 46.500 | 45 | 14.500 |
@@ -351,7 +351,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 77.167 | 74 | 32 | 12.549 |
 | GZIP (compression level 9) | 91.833 | 90 | 26 | 9.599 |
@@ -382,7 +382,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 343 | 290.500 | 475 | 144.554 |
 | GZIP (compression level 9) | 131.750 | 115.500 | 120 | 36.779 |
@@ -391,7 +391,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 255.833 | 218 | 294 | 101.480 |
 | GZIP (compression level 9) | 139 | 128.500 | 76 | 28.384 |
@@ -422,7 +422,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 31.125 | 21.500 | 52 | 18.114 |
 | GZIP (compression level 9) | 47.125 | 41.500 | 35 | 12.752 |
@@ -431,7 +431,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 133.167 | 131 | 28 | 9.616 |
 | GZIP (compression level 9) | 129.167 | 129.500 | 29 | 9.335 |
@@ -462,7 +462,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 256.875 | 195 | 299 | 114.993 |
 | GZIP (compression level 9) | 197.375 | 177 | 122 | 42.661 |
@@ -471,7 +471,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 334.667 | 313.500 | 124 | 52.169 |
 | GZIP (compression level 9) | 248.333 | 239 | 101 | 33.703 |
@@ -502,7 +502,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 43.750 | 25 | 103 | 37.019 |
 | GZIP (compression level 9) | 46.375 | 39.500 | 48 | 16.248 |
@@ -511,7 +511,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 77.667 | 73.500 | 45 | 16.819 |
 | GZIP (compression level 9) | 88.500 | 86.500 | 35 | 12.148 |
@@ -542,7 +542,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 45.500 | 28 | 79 | 31.048 |
 | GZIP (compression level 9) | 55.500 | 48 | 39 | 14.629 |
@@ -551,7 +551,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 76.167 | 72 | 41 | 14.916 |
 | GZIP (compression level 9) | 88.500 | 86.500 | 27 | 10.720 |
@@ -582,7 +582,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 63.875 | 22.500 | 229 | 76.734 |
 | GZIP (compression level 9) | 50.875 | 41 | 58 | 19.915 |
@@ -591,7 +591,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 75.667 | 66.500 | 69 | 24.817 |
 | GZIP (compression level 9) | 87.333 | 82.500 | 36 | 14.174 |
@@ -622,7 +622,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 20.625 | 12.500 | 39 | 14.899 |
 | GZIP (compression level 9) | 35.750 | 31.500 | 22 | 7.677 |
@@ -631,7 +631,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 33.833 | 28.500 | 44 | 15.214 |
 | GZIP (compression level 9) | 50 | 48 | 25 | 8.775 |
@@ -662,7 +662,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 458.125 | 416 | 186 | 71.273 |
 | GZIP (compression level 9) | 285.250 | 265.500 | 93 | 37.519 |
@@ -671,7 +671,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 552 | 540 | 81 | 34.409 |
 | GZIP (compression level 9) | 350 | 341.500 | 86 | 28.065 |
@@ -702,7 +702,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 2479.125 | 2243 | 1009 | 395.795 |
 | GZIP (compression level 9) | 1456.375 | 1377.500 | 404 | 161.848 |
@@ -711,7 +711,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 2905.333 | 2865.500 | 663 | 222.548 |
 | GZIP (compression level 9) | 1690.333 | 1629 | 411 | 143.683 |
@@ -742,7 +742,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 370.750 | 289.500 | 394 | 150.329 |
 | GZIP (compression level 9) | 158.500 | 157 | 186 | 58.118 |
@@ -751,7 +751,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 949 | 921 | 214 | 74.166 |
 | GZIP (compression level 9) | 468.500 | 455.500 | 124 | 41.604 |
@@ -782,7 +782,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 195.250 | 141.500 | 375 | 122.472 |
 | GZIP (compression level 9) | 165.750 | 145 | 198 | 63.192 |
@@ -791,7 +791,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 1237 | 1222 | 299 | 101.423 |
 | GZIP (compression level 9) | 703.333 | 676.500 | 229 | 75.832 |
@@ -822,7 +822,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 224.875 | 194 | 236 | 77.059 |
 | GZIP (compression level 9) | 213.875 | 204 | 144 | 41.017 |
@@ -831,7 +831,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 459.333 | 425.500 | 278 | 95.878 |
 | GZIP (compression level 9) | 395.333 | 385.500 | 155 | 50.543 |
@@ -862,7 +862,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 211.500 | 179.500 | 172 | 59.846 |
 | GZIP (compression level 9) | 188.875 | 172.500 | 95 | 30.002 |
@@ -871,7 +871,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 381.667 | 357.500 | 162 | 57.203 |
 | GZIP (compression level 9) | 306 | 297 | 101 | 34.186 |
@@ -902,7 +902,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 1745.875 | 1584.500 | 770 | 296.205 |
 | GZIP (compression level 9) | 924.125 | 896 | 332 | 109.574 |
@@ -911,7 +911,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 2140.833 | 2083 | 403 | 164.341 |
 | GZIP (compression level 9) | 1188.167 | 1152 | 312 | 103.044 |
@@ -942,7 +942,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 533.125 | 458 | 759 | 240.859 |
 | GZIP (compression level 9) | 145.375 | 125.500 | 213 | 67.578 |
@@ -951,7 +951,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 1056.333 | 997.500 | 353 | 119.172 |
 | GZIP (compression level 9) | 389.833 | 370 | 174 | 60.278 |
@@ -982,7 +982,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 7.375 | 4 | 24 | 8.276 |
 | GZIP (compression level 9) | 25.875 | 24 | 15 | 5.797 |
@@ -991,7 +991,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 29.167 | 29 | 12 | 4.017 |
 | GZIP (compression level 9) | 47.833 | 47.500 | 7 | 2.672 |
@@ -1022,7 +1022,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 554.875 | 521.500 | 171 | 60.705 |
 | GZIP (compression level 9) | 116.500 | 115 | 87 | 26.538 |
@@ -1031,7 +1031,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 573.833 | 627 | 471 | 157.541 |
 | GZIP (compression level 9) | 168.167 | 161.500 | 67 | 21.474 |
@@ -1062,7 +1062,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 18.375 | 8.500 | 59 | 21.089 |
 | GZIP (compression level 9) | 29.750 | 27.500 | 32 | 9.549 |
@@ -1071,7 +1071,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 61.333 | 59 | 26 | 9.690 |
 | GZIP (compression level 9) | 68 | 67 | 14 | 5.416 |
@@ -1102,7 +1102,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 59.375 | 48.500 | 42 | 17.204 |
 | GZIP (compression level 9) | 62.500 | 56.500 | 24 | 9.605 |
@@ -1111,7 +1111,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 63.500 | 61.500 | 23 | 8.221 |
 | GZIP (compression level 9) | 70.333 | 69.500 | 16 | 6.368 |
@@ -1142,7 +1142,7 @@ Results
 
 #### Schema-driven statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 30.375 | 15.500 | 80 | 30.311 |
 | GZIP (compression level 9) | 37.750 | 34 | 47 | 13.800 |
@@ -1151,7 +1151,7 @@ Results
 
 #### Schema-less statistics
 
-| Category | Average | Median | Range | Stddev |
+| Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
 | Uncompressed | 83.333 | 79 | 36 | 14.636 |
 | GZIP (compression level 9) | 89.667 | 86 | 26 | 9.638 |

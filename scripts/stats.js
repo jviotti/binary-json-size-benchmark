@@ -83,7 +83,7 @@ const toFixed = (value) => {
 const titles = fs.readFileSync(DATA_PATH, 'utf8')
   .split('\n')[0].split(',').slice(3)
 
-console.log([ 'category', 'average', 'median', 'range', 'stddev' ].join(DELIMITER))
+console.log([ 'category', 'average', 'median', 'range', 'std.dev' ].join(DELIMITER))
 for (const [ index, dimension ] of [ 'uncompressed', 'gzip', 'lz4', 'lzma' ].entries()) {
   console.log([
     titles[index],
