@@ -56,9 +56,8 @@ sns.set(rc={
 
 sns.set_style("whitegrid")
 
-ax = sns.violinplot(x="category", y="bytesize", hue="type",
-    data=pd.DataFrame(data), palette={"schema-driven": "#ff3299", "schema-less": "#6666ff"},
-    split=True, inner="quartile")
+ax = sns.boxplot(x="category", y="bytesize", hue="type",
+    data=pd.DataFrame(data), palette={"schema-driven": "#ff3299", "schema-less": "#6666ff"})
 
 plt.legend(bbox_to_anchor=(0.5, 1.10), loc='upper center', ncol=2)
 plt.title('Byte-size of bit-string by binary serialization format and compression format', pad=40)

@@ -118,7 +118,7 @@ Results
 | LZ4 (compression level 9) | 33 | 33 | 8 | 3.317 |
 | LZMA (compression level 9) | 37.333 | 38 | 7 | 2.625 |
 
-![CircleCI Definition (Blank) violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/circleciblank.png)
+![CircleCI Definition (Blank) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/circleciblank.png)
 
 <h3 id="circlecimatrix">CircleCI Matrix Definition</h3>
 
@@ -160,7 +160,7 @@ Results
 | LZ4 (compression level 9) | 116.667 | 108.500 | 60 | 25.011 |
 | LZMA (compression level 9) | 107.167 | 104.500 | 41 | 14.713 |
 
-![CircleCI Matrix Definition violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/circlecimatrix.png)
+![CircleCI Matrix Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/circlecimatrix.png)
 
 <h3 id="commitlint">CommitLint Configuration</h3>
 
@@ -202,7 +202,7 @@ Results
 | LZ4 (compression level 9) | 89.500 | 84 | 36 | 14.021 |
 | LZMA (compression level 9) | 83.333 | 81.500 | 29 | 11.353 |
 
-![CommitLint Configuration violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/commitlint.png)
+![CommitLint Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/commitlint.png)
 
 <h3 id="commitlintbasic">CommitLint Configuration (Basic)</h3>
 
@@ -244,7 +244,7 @@ Results
 | LZ4 (compression level 9) | 39.333 | 39.500 | 8 | 2.925 |
 | LZMA (compression level 9) | 44.167 | 43.500 | 8 | 2.967 |
 
-![CommitLint Configuration (Basic) violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/commitlintbasic.png)
+![CommitLint Configuration (Basic) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/commitlintbasic.png)
 
 <h3 id="epr">Entry Point Regulation Manifest</h3>
 
@@ -286,7 +286,7 @@ Results
 | LZ4 (compression level 9) | 340.833 | 318.500 | 111 | 42.132 |
 | LZMA (compression level 9) | 277.833 | 263 | 96 | 33.153 |
 
-![Entry Point Regulation Manifest violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/epr.png)
+![Entry Point Regulation Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/epr.png)
 
 <h3 id="eslintrc">ESLint Configuration Document</h3>
 
@@ -328,7 +328,7 @@ Results
 | LZ4 (compression level 9) | 745.833 | 725.500 | 112 | 39.897 |
 | LZMA (compression level 9) | 565.500 | 554.500 | 97 | 32.968 |
 
-![ESLint Configuration Document violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/eslintrc.png)
+![ESLint Configuration Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/eslintrc.png)
 
 <h3 id="esmrc">ECMAScript Module Loader Definition</h3>
 
@@ -370,7 +370,7 @@ Results
 | LZ4 (compression level 9) | 96.167 | 93 | 32 | 12.549 |
 | LZMA (compression level 9) | 94.333 | 92.500 | 27 | 9.826 |
 
-![ECMAScript Module Loader Definition violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/esmrc.png)
+![ECMAScript Module Loader Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/esmrc.png)
 
 <h3 id="geojson">GeoJSON Example Document</h3>
 
@@ -412,7 +412,7 @@ Results
 | LZ4 (compression level 9) | 169.167 | 155.500 | 102 | 36.269 |
 | LZMA (compression level 9) | 132.667 | 124 | 58 | 23.809 |
 
-![GeoJSON Example Document violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/geojson.png)
+![GeoJSON Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/geojson.png)
 
 <h3 id="githubfundingblank">GitHub FUNDING Sponsorship Definition (Empty)</h3>
 
@@ -454,7 +454,7 @@ Results
 | LZ4 (compression level 9) | 151.667 | 150 | 25 | 8.654 |
 | LZMA (compression level 9) | 139.167 | 138 | 17 | 5.520 |
 
-![GitHub FUNDING Sponsorship Definition (Empty) violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/githubfundingblank.png)
+![GitHub FUNDING Sponsorship Definition (Empty) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/githubfundingblank.png)
 
 <h3 id="githubworkflow">GitHub Workflow Definition</h3>
 
@@ -496,7 +496,7 @@ Results
 | LZ4 (compression level 9) | 298 | 279.500 | 113 | 44.415 |
 | LZMA (compression level 9) | 254.167 | 244.500 | 102 | 34.730 |
 
-![GitHub Workflow Definition violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/githubworkflow.png)
+![GitHub Workflow Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/githubworkflow.png)
 
 <h3 id="gruntcontribclean">Grunt.js Clean Task Definition</h3>
 
@@ -538,7 +538,7 @@ Results
 | LZ4 (compression level 9) | 93.500 | 90 | 34 | 13.574 |
 | LZMA (compression level 9) | 90.833 | 88.500 | 38 | 12.928 |
 
-![Grunt.js Clean Task Definition violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/gruntcontribclean.png)
+![Grunt.js Clean Task Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/gruntcontribclean.png)
 
 <h3 id="imageoptimizerwebjob">ImageOptimizer Azure Webjob Configuration</h3>
 
@@ -580,7 +580,7 @@ Results
 | LZ4 (compression level 9) | 93 | 89 | 39 | 14.468 |
 | LZMA (compression level 9) | 88.667 | 87.500 | 27 | 10.094 |
 
-![ImageOptimizer Azure Webjob Configuration violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/imageoptimizerwebjob.png)
+![ImageOptimizer Azure Webjob Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/imageoptimizerwebjob.png)
 
 <h3 id="jsonereversesort">JSON-e Templating Engine Reverse Sort Example</h3>
 
@@ -622,7 +622,7 @@ Results
 | LZ4 (compression level 9) | 92.833 | 85.500 | 58 | 21.598 |
 | LZMA (compression level 9) | 89.167 | 85.500 | 35 | 12.877 |
 
-![JSON-e Templating Engine Reverse Sort Example violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/jsonereversesort.png)
+![JSON-e Templating Engine Reverse Sort Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonereversesort.png)
 
 <h3 id="jsonesort">JSON-e Templating Engine Sort Example</h3>
 
@@ -664,7 +664,7 @@ Results
 | LZ4 (compression level 9) | 52 | 47.500 | 39 | 13.528 |
 | LZMA (compression level 9) | 53.833 | 52.500 | 20 | 7.221 |
 
-![JSON-e Templating Engine Sort Example violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/jsonesort.png)
+![JSON-e Templating Engine Sort Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonesort.png)
 
 <h3 id="jsonfeed">JSON Feed Example Document</h3>
 
@@ -706,7 +706,7 @@ Results
 | LZ4 (compression level 9) | 426.833 | 415.500 | 77 | 28.945 |
 | LZMA (compression level 9) | 356 | 347.500 | 69 | 23.944 |
 
-![JSON Feed Example Document violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/jsonfeed.png)
+![JSON Feed Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonfeed.png)
 
 <h3 id="jsonresume">JSON Resume Example</h3>
 
@@ -748,7 +748,7 @@ Results
 | LZ4 (compression level 9) | 2297 | 2223 | 397 | 155.296 |
 | LZMA (compression level 9) | 1696.833 | 1643 | 354 | 121.171 |
 
-![JSON Resume Example violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/jsonresume.png)
+![JSON Resume Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonresume.png)
 
 <h3 id="netcoreproject">.NET Core Project</h3>
 
@@ -790,7 +790,7 @@ Results
 | LZ4 (compression level 9) | 585.333 | 571.500 | 106 | 36.063 |
 | LZMA (compression level 9) | 465 | 451.500 | 118 | 39.648 |
 
-![.NET Core Project violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/netcoreproject.png)
+![.NET Core Project box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/netcoreproject.png)
 
 <h3 id="nightwatch">Nightwatch.js Test Framework Configuration</h3>
 
@@ -832,7 +832,7 @@ Results
 | LZ4 (compression level 9) | 940.167 | 909.500 | 268 | 93.060 |
 | LZMA (compression level 9) | 720.500 | 697.500 | 206 | 69.663 |
 
-![Nightwatch.js Test Framework Configuration violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/nightwatch.png)
+![Nightwatch.js Test Framework Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/nightwatch.png)
 
 <h3 id="openweathermap">OpenWeatherMap API Example Document</h3>
 
@@ -874,7 +874,7 @@ Results
 | LZ4 (compression level 9) | 452 | 432 | 197 | 67.629 |
 | LZMA (compression level 9) | 386.333 | 375.500 | 144 | 46.974 |
 
-![OpenWeatherMap API Example Document violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/openweathermap.png)
+![OpenWeatherMap API Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/openweathermap.png)
 
 <h3 id="openweatherroadrisk">OpenWeather Road Risk API Example</h3>
 
@@ -916,7 +916,7 @@ Results
 | LZ4 (compression level 9) | 335.167 | 321 | 123 | 42.444 |
 | LZMA (compression level 9) | 290.500 | 284 | 101 | 33.955 |
 
-![OpenWeather Road Risk API Example violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/openweatherroadrisk.png)
+![OpenWeather Road Risk API Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/openweatherroadrisk.png)
 
 <h3 id="packagejson">NPM Package.json Example Manifest</h3>
 
@@ -958,7 +958,7 @@ Results
 | LZ4 (compression level 9) | 1572.167 | 1527.500 | 294 | 109.793 |
 | LZMA (compression level 9) | 1195.833 | 1160.500 | 282 | 92.854 |
 
-![NPM Package.json Example Manifest violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/packagejson.png)
+![NPM Package.json Example Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/packagejson.png)
 
 <h3 id="packagejsonlintrc">NPM Package.json Linter Configuration Manifest</h3>
 
@@ -1000,7 +1000,7 @@ Results
 | LZ4 (compression level 9) | 508 | 483.500 | 153 | 54.724 |
 | LZMA (compression level 9) | 394 | 371.500 | 152 | 52.760 |
 
-![NPM Package.json Linter Configuration Manifest violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/packagejsonlintrc.png)
+![NPM Package.json Linter Configuration Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/packagejsonlintrc.png)
 
 <h3 id="sapcloudsdkpipeline">SAP Cloud SDK Continuous Delivery Toolkit Configuration</h3>
 
@@ -1042,7 +1042,7 @@ Results
 | LZ4 (compression level 9) | 48.167 | 48 | 12 | 4.017 |
 | LZMA (compression level 9) | 51.167 | 50.500 | 7 | 2.672 |
 
-![SAP Cloud SDK Continuous Delivery Toolkit Configuration violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/sapcloudsdkpipeline.png)
+![SAP Cloud SDK Continuous Delivery Toolkit Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/sapcloudsdkpipeline.png)
 
 <h3 id="travisnotifications">TravisCI Notifications Configuration</h3>
 
@@ -1084,7 +1084,7 @@ Results
 | LZ4 (compression level 9) | 204.833 | 198.500 | 52 | 18.004 |
 | LZMA (compression level 9) | 173.167 | 168 | 47 | 15.689 |
 
-![TravisCI Notifications Configuration violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/travisnotifications.png)
+![TravisCI Notifications Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/travisnotifications.png)
 
 <h3 id="tslintbasic">TSLint Linter Definition (Basic)</h3>
 
@@ -1126,7 +1126,7 @@ Results
 | LZ4 (compression level 9) | 75.833 | 72.500 | 18 | 6.793 |
 | LZMA (compression level 9) | 69.833 | 69 | 17 | 5.928 |
 
-![TSLint Linter Definition (Basic) violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/tslintbasic.png)
+![TSLint Linter Definition (Basic) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintbasic.png)
 
 <h3 id="tslintextend">TSLint Linter Definition (Extends Only)</h3>
 
@@ -1168,7 +1168,7 @@ Results
 | LZ4 (compression level 9) | 73.167 | 71.500 | 20 | 7.537 |
 | LZMA (compression level 9) | 72.333 | 72 | 15 | 6.128 |
 
-![TSLint Linter Definition (Extends Only) violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/tslintextend.png)
+![TSLint Linter Definition (Extends Only) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintextend.png)
 
 <h3 id="tslintmulti">TSLint Linter Definition (Multi-rule)</h3>
 
@@ -1210,7 +1210,7 @@ Results
 | LZ4 (compression level 9) | 97.500 | 93 | 29 | 11.087 |
 | LZMA (compression level 9) | 92.167 | 90.500 | 28 | 9.856 |
 
-![TSLint Linter Definition (Multi-rule) violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/tslintmulti.png)
+![TSLint Linter Definition (Multi-rule) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintmulti.png)
 
 
 Running locally

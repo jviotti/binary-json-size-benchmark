@@ -87,13 +87,13 @@ benchmark/%/TAXONOMY: scripts/taxonomy.js benchmark/%/document.json
 charts:
 	mkdir $@
 
-charts/violin: | charts
+charts/boxplots: | charts
 	mkdir $@
 
 charts/%.png: plot.py output/%/data.dat benchmark/%/NAME benchmark/%/TAXONOMY | charts
 	python3 $< $(word 2,$^) "$(shell cat $(word 3,$^))" "$(shell cat $(word 4,$^))" $@
 
-charts/violin/%.png: violin.py output/%/data.dat benchmark/%/NAME | charts/violin
+charts/boxplots/%.png: boxplot.py output/%/data.dat benchmark/%/NAME | charts/boxplots
 	python3 $< $(word 2,$^) "$(shell cat $(word 3,$^))" $@
 
 output/%/stats-schema-driven.dat: scripts/stats.js output/%/data.dat
@@ -376,12 +376,12 @@ endef
 $(foreach document,$(DOCUMENTS),$(eval $(call RULE_DOCUMENT_DAT,$(document))))
 
 CHARTS = $(addsuffix .png,$(addprefix charts/,$(DOCUMENTS)))
-CHARTS_VIOLIN = $(addsuffix .png,$(addprefix charts/violin/,$(DOCUMENTS)))
+CHARTS_BOXPLOT = $(addsuffix .png,$(addprefix charts/boxplots/,$(DOCUMENTS)))
 DATA = $(addsuffix /data.dat,$(addprefix output/,$(DOCUMENTS)))
 
 README.md: scripts/readme.sh docs/versions.markdown docs/reproducibility.markdown data.awk \
 	$(CHARTS) \
-	$(CHARTS_VIOLIN) \
+	$(CHARTS_BOXPLOT) \
 	$(wildcard benchmark/*/NAME) \
 	$(wildcard benchmark/*/SOURCE) \
 	$(wildcard benchmark/*/TAXONOMY) \

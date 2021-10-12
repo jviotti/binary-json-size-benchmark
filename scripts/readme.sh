@@ -79,7 +79,7 @@ do
   awk -f stats-table.awk "output/$DOCUMENT_ID/stats-schema-less.dat"
   echo ""
 
-  echo "![$TITLE violin plot](https://www.jviotti.com/binary-json-size-benchmark/charts/violin/$DOCUMENT_ID.png)"
+  echo "![$TITLE box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/$DOCUMENT_ID.png)"
   echo ""
 done
 
