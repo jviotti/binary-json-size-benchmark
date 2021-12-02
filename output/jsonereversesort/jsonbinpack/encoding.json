@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "$let": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "x": {
+              "type": "array",
+              "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
+              "options": {
+                "minimum": 0,
+                "encoding": {
+                  "type": "integer",
+                  "encoding": "FLOOR_MULTIPLE_ENUM_VARINT",
+                  "options": {
+                    "minimum": 0,
+                    "multiplier": 10
+                  }
+                },
+                "prefixEncodings": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "x"
+          ],
+          "booleanRequiredProperties": []
+        }
+      },
+      "in": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "$reverse": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "$sort": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "$eval": {
+                          "type": "string",
+                          "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                          "options": {
+                            "minimum": 0
+                          }
+                        }
+                      },
+                      "requiredProperties": [
+                        "$eval"
+                      ],
+                      "booleanRequiredProperties": []
+                    }
+                  },
+                  "by(x)": {
+                    "type": "string",
+                    "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
+                  }
+                },
+                "requiredProperties": [
+                  "$sort",
+                  "by(x)"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "$reverse"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "$let",
+      "in"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

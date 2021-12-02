@@ -1,0 +1,113 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "version": {
+        "type": "number",
+        "encoding": "DOUBLE_VARINT_TUPLE",
+        "options": {}
+      },
+      "workflows": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "test": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "jobs": {
+                    "type": "array",
+                    "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
+                    "options": {
+                      "minimum": 0,
+                      "encoding": {
+                        "type": "object",
+                        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                        "options": {
+                          "propertyEncodings": {
+                            "m1": {
+                              "type": "object",
+                              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                              "options": {
+                                "propertyEncodings": {
+                                  "matrix": {
+                                    "type": "object",
+                                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                    "options": {
+                                      "propertyEncodings": {
+                                        "parameters": {
+                                          "type": "object",
+                                          "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                          "options": {
+                                            "propertyEncodings": {
+                                              "a": {
+                                                "type": "array",
+                                                "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
+                                                "options": {
+                                                  "minimum": 0,
+                                                  "encoding": {
+                                                    "type": "integer",
+                                                    "encoding": "FLOOR_ENUM_VARINT",
+                                                    "options": {
+                                                      "minimum": 0
+                                                    }
+                                                  },
+                                                  "prefixEncodings": []
+                                                }
+                                              }
+                                            },
+                                            "requiredProperties": [
+                                              "a"
+                                            ],
+                                            "booleanRequiredProperties": []
+                                          }
+                                        }
+                                      },
+                                      "requiredProperties": [
+                                        "parameters"
+                                      ],
+                                      "booleanRequiredProperties": []
+                                    }
+                                  }
+                                },
+                                "requiredProperties": [
+                                  "matrix"
+                                ],
+                                "booleanRequiredProperties": []
+                              }
+                            }
+                          },
+                          "requiredProperties": [
+                            "m1"
+                          ],
+                          "booleanRequiredProperties": []
+                        }
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                },
+                "requiredProperties": [
+                  "jobs"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "test"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "version",
+      "workflows"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

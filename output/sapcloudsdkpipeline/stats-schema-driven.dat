@@ -1,5 +1,5 @@
 category,average,median,range,std.dev
-"Uncompressed",7.375,4,24,8.276
-"GZIP (compression level 9)",25.875,24,15,5.797
-"LZ4 (compression level 9)",25.375,23,28,9.286
-"LZMA (compression level 9)",28.125,26.500,15,5.183
+"Uncompressed",6.556,1,24,8.139
+"GZIP (compression level 9)",25.222,21,15,5.769
+"LZ4 (compression level 9)",24.222,20,28,9.343
+"LZMA (compression level 9)",27.556,24,15,5.145

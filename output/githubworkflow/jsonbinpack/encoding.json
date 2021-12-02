@@ -1,0 +1,305 @@
+{
+  "type": "object",
+  "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+  "options": {
+    "propertyEncodings": {
+      "name": {
+        "type": "string",
+        "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+        "options": {
+          "minimum": 0
+        }
+      },
+      "on": {
+        "type": "array",
+        "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
+        "options": {
+          "minimum": 0,
+          "encoding": {
+            "type": "string",
+            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+            "options": {
+              "minimum": 0
+            }
+          },
+          "prefixEncodings": []
+        }
+      },
+      "jobs": {
+        "type": "object",
+        "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+        "options": {
+          "propertyEncodings": {
+            "build": {
+              "type": "object",
+              "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+              "options": {
+                "propertyEncodings": {
+                  "runs-on": {
+                    "type": "string",
+                    "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                    "options": {
+                      "minimum": 0
+                    }
+                  },
+                  "env": {
+                    "type": "object",
+                    "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                    "options": {
+                      "propertyEncodings": {
+                        "build-suite-dir": {
+                          "type": "string",
+                          "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                          "options": {
+                            "minimum": 0
+                          }
+                        }
+                      },
+                      "requiredProperties": [
+                        "build-suite-dir"
+                      ],
+                      "booleanRequiredProperties": []
+                    }
+                  },
+                  "steps": {
+                    "type": "array",
+                    "encoding": "FLOOR_TYPED_LENGTH_PREFIX",
+                    "options": {
+                      "minimum": 0,
+                      "encoding": {
+                        "type": "oneOf",
+                        "encoding": "ONEOF_CHOICE_INDEX_PREFIX",
+                        "options": {
+                          "choices": [
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "uses"
+                                ],
+                                "properties": {
+                                  "uses": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "uses": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "uses"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            },
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "uses",
+                                  "with"
+                                ],
+                                "properties": {
+                                  "uses": {
+                                    "type": "string"
+                                  },
+                                  "with": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "required": [
+                                      "node-version"
+                                    ],
+                                    "properties": {
+                                      "node-version": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "uses": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    },
+                                    "with": {
+                                      "type": "object",
+                                      "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                      "options": {
+                                        "propertyEncodings": {
+                                          "node-version": {
+                                            "type": "string",
+                                            "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                            "options": {
+                                              "minimum": 0
+                                            }
+                                          }
+                                        },
+                                        "requiredProperties": [
+                                          "node-version"
+                                        ],
+                                        "booleanRequiredProperties": []
+                                      }
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "uses",
+                                    "with"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            },
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "name",
+                                  "run"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "run": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "name": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    },
+                                    "run": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "name",
+                                    "run"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            },
+                            {
+                              "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "required": [
+                                  "name",
+                                  "run",
+                                  "working-directory"
+                                ],
+                                "properties": {
+                                  "name": {
+                                    "type": "string"
+                                  },
+                                  "run": {
+                                    "type": "string"
+                                  },
+                                  "working-directory": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "encoding": {
+                                "type": "object",
+                                "encoding": "REQUIRED_ONLY_BOUNDED_TYPED_OBJECT",
+                                "options": {
+                                  "propertyEncodings": {
+                                    "name": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    },
+                                    "run": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    },
+                                    "working-directory": {
+                                      "type": "string",
+                                      "encoding": "FLOOR_PREFIX_LENGTH_ENUM_VARINT",
+                                      "options": {
+                                        "minimum": 0
+                                      }
+                                    }
+                                  },
+                                  "requiredProperties": [
+                                    "name",
+                                    "run",
+                                    "working-directory"
+                                  ],
+                                  "booleanRequiredProperties": []
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "prefixEncodings": []
+                    }
+                  }
+                },
+                "requiredProperties": [
+                  "env",
+                  "runs-on",
+                  "steps"
+                ],
+                "booleanRequiredProperties": []
+              }
+            }
+          },
+          "requiredProperties": [
+            "build"
+          ],
+          "booleanRequiredProperties": []
+        }
+      }
+    },
+    "requiredProperties": [
+      "jobs",
+      "name",
+      "on"
+    ],
+    "booleanRequiredProperties": []
+  }
+}

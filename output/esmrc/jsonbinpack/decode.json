@@ -1,0 +1,11 @@
+{
+  "cache": false,
+  "cjs": false,
+  "force": true,
+  "sourceMap": true,
+  "mainFields": [
+    "main",
+    "app"
+  ],
+  "mode": "strict"
+}

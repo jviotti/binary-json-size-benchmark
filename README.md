@@ -90,12 +90,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/capnproto/schema.capnp) | 24 | 32 | 41 | 33 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/capnproto-packed/schema.capnp) | 6 | 26 | 25 | 29 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/flatbuffers/schema.fbs) | 20 | 32 | 39 | 35 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/jsonbinpack/schema.json) | 2 | 22 | 21 | 25 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/protobuf/schema.proto) | 5 | 25 | 24 | 27 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/thrift/schema.thrift) | 10 | 25 | 29 | 28 |
 | JSON | None | 14 | 34 | 33 | 38 |
 | BSON | None | 18 | 36 | 37 | 39 |
 | CBOR | None | 10 | 30 | 29 | 34 |
 | FlexBuffers | None | 18 | 38 | 37 | 41 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circleciblank/jsonbinpack-schemaless/schema.json) | 10 | 30 | 29 | 34 |
 | MessagePack | None | 10 | 30 | 29 | 34 |
 | Smile | None | 15 | 35 | 34 | 39 |
 | UBJSON | None | 13 | 33 | 32 | 37 |
@@ -104,19 +106,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 10.375 | 8 | 20 | 7.140 |
-| GZIP (compression level 9) | 26.625 | 25 | 8 | 3.160 |
-| LZ4 (compression level 9) | 29.125 | 27 | 18 | 6.679 |
-| LZMA (compression level 9) | 29.125 | 28 | 9 | 2.976 |
+| Uncompressed | 9.444 | 6 | 22 | 7.228 |
+| GZIP (compression level 9) | 26.111 | 25 | 10 | 3.315 |
+| LZ4 (compression level 9) | 28.222 | 25 | 20 | 6.795 |
+| LZMA (compression level 9) | 28.667 | 28 | 10 | 3.091 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 14 | 14 | 8 | 3.317 |
-| GZIP (compression level 9) | 33.667 | 34 | 8 | 2.981 |
-| LZ4 (compression level 9) | 33 | 33 | 8 | 3.317 |
-| LZMA (compression level 9) | 37.333 | 38 | 7 | 2.625 |
+| Uncompressed | 13.429 | 13 | 8 | 3.375 |
+| GZIP (compression level 9) | 33.143 | 33 | 8 | 3.044 |
+| LZ4 (compression level 9) | 32.429 | 32 | 8 | 3.375 |
+| LZMA (compression level 9) | 36.857 | 37 | 7 | 2.695 |
 
 ![CircleCI Definition (Blank) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/circleciblank.png)
 
@@ -132,12 +134,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/capnproto/schema.capnp) | 96 | 56 | 72 | 54 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/capnproto-packed/schema.capnp) | 36 | 49 | 54 | 50 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/flatbuffers/schema.fbs) | 104 | 82 | 104 | 77 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/jsonbinpack/schema.json) | 7 | 27 | 26 | 30 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/protobuf/schema.proto) | 26 | 43 | 45 | 46 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/thrift/schema.thrift) | 28 | 39 | 47 | 42 |
 | JSON | None | 95 | 99 | 112 | 101 |
 | BSON | None | 136 | 123 | 150 | 121 |
 | CBOR | None | 72 | 89 | 91 | 90 |
 | FlexBuffers | None | 157 | 134 | 151 | 131 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/circlecimatrix/jsonbinpack-schemaless/schema.json) | 66 | 85 | 85 | 88 |
 | MessagePack | None | 72 | 90 | 91 | 92 |
 | Smile | None | 87 | 104 | 106 | 105 |
 | UBJSON | None | 92 | 103 | 111 | 104 |
@@ -146,19 +150,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 44.125 | 29 | 89 | 32.903 |
-| GZIP (compression level 9) | 47.500 | 43 | 50 | 14.790 |
-| LZ4 (compression level 9) | 55.250 | 48 | 70 | 21.376 |
-| LZMA (compression level 9) | 48.500 | 45.500 | 41 | 12.104 |
+| Uncompressed | 40 | 28 | 97 | 33.143 |
+| GZIP (compression level 9) | 45.222 | 43 | 55 | 15.361 |
+| LZ4 (compression level 9) | 52 | 47 | 78 | 22.151 |
+| LZMA (compression level 9) | 46.444 | 45 | 47 | 12.807 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 102.667 | 89.500 | 85 | 32.412 |
-| GZIP (compression level 9) | 107.167 | 103.500 | 45 | 16.446 |
-| LZ4 (compression level 9) | 116.667 | 108.500 | 60 | 25.011 |
-| LZMA (compression level 9) | 107.167 | 104.500 | 41 | 14.713 |
+| Uncompressed | 97.429 | 87 | 91 | 32.636 |
+| GZIP (compression level 9) | 104 | 103 | 49 | 17.088 |
+| LZ4 (compression level 9) | 112.143 | 106 | 66 | 25.671 |
+| LZMA (compression level 9) | 104.429 | 104 | 43 | 15.183 |
 
 ![CircleCI Matrix Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/circlecimatrix.png)
 
@@ -174,12 +178,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/capnproto/schema.capnp) | 152 | 75 | 96 | 73 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/capnproto-packed/schema.capnp) | 76 | 67 | 75 | 71 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/flatbuffers/schema.fbs) | 156 | 95 | 122 | 91 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/jsonbinpack/schema.json) | 20 | 40 | 39 | 43 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/protobuf/schema.proto) | 62 | 60 | 70 | 63 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/thrift/schema.thrift) | 59 | 53 | 59 | 57 |
 | JSON | None | 96 | 80 | 86 | 83 |
 | BSON | None | 147 | 97 | 112 | 97 |
 | CBOR | None | 74 | 67 | 76 | 70 |
 | FlexBuffers | None | 90 | 97 | 105 | 99 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlint/jsonbinpack-schemaless/schema.json) | 60 | 72 | 75 | 76 |
 | MessagePack | None | 74 | 68 | 76 | 71 |
 | Smile | None | 84 | 76 | 82 | 80 |
 | UBJSON | None | 93 | 79 | 86 | 83 |
@@ -188,19 +194,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 82.250 | 62.500 | 116 | 42.558 |
-| GZIP (compression level 9) | 61.875 | 58 | 54 | 15.972 |
-| LZ4 (compression level 9) | 73.500 | 66 | 73 | 22.798 |
-| LZMA (compression level 9) | 64 | 61.500 | 46 | 13.370 |
+| Uncompressed | 75.333 | 62 | 136 | 44.639 |
+| GZIP (compression level 9) | 59.444 | 56 | 55 | 16.554 |
+| LZ4 (compression level 9) | 69.667 | 62 | 83 | 24.074 |
+| LZMA (compression level 9) | 61.667 | 60 | 48 | 14.228 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 93.667 | 87 | 73 | 24.918 |
-| GZIP (compression level 9) | 80.667 | 77.500 | 30 | 12.284 |
-| LZ4 (compression level 9) | 89.500 | 84 | 36 | 14.021 |
-| LZMA (compression level 9) | 83.333 | 81.500 | 29 | 11.353 |
+| Uncompressed | 88.857 | 84 | 87 | 25.903 |
+| GZIP (compression level 9) | 79.429 | 76 | 30 | 11.770 |
+| LZ4 (compression level 9) | 87.429 | 82 | 37 | 13.937 |
+| LZMA (compression level 9) | 82.286 | 80 | 29 | 10.819 |
 
 ![CommitLint Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/commitlint.png)
 
@@ -216,12 +222,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/capnproto/schema.capnp) | 24 | 31 | 41 | 31 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/capnproto-packed/schema.capnp) | 6 | 26 | 25 | 29 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/flatbuffers/schema.fbs) | 20 | 31 | 39 | 34 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/jsonbinpack/schema.json) | 0 | 20 | 15 | 23 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/protobuf/schema.proto) | 0 | 20 | 15 | 23 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/thrift/schema.thrift) | 2 | 22 | 21 | 25 |
 | JSON | None | 25 | 45 | 44 | 49 |
 | BSON | None | 22 | 41 | 41 | 44 |
 | CBOR | None | 17 | 37 | 36 | 41 |
 | FlexBuffers | None | 25 | 45 | 44 | 49 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/commitlintbasic/jsonbinpack-schemaless/schema.json) | 17 | 37 | 36 | 41 |
 | MessagePack | None | 17 | 37 | 36 | 41 |
 | Smile | None | 22 | 42 | 41 | 47 |
 | UBJSON | None | 19 | 39 | 38 | 43 |
@@ -230,19 +238,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 7.125 | 2.500 | 24 | 8.810 |
-| GZIP (compression level 9) | 24.375 | 22.500 | 11 | 4.181 |
-| LZ4 (compression level 9) | 25.375 | 21.500 | 26 | 8.845 |
-| LZMA (compression level 9) | 27 | 25.500 | 11 | 3.674 |
+| Uncompressed | 6.333 | 2 | 24 | 8.602 |
+| GZIP (compression level 9) | 23.889 | 22 | 11 | 4.175 |
+| LZ4 (compression level 9) | 24.222 | 21 | 26 | 8.954 |
+| LZMA (compression level 9) | 26.556 | 25 | 11 | 3.685 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 20.333 | 20.500 | 8 | 2.925 |
-| GZIP (compression level 9) | 40.167 | 40 | 8 | 2.853 |
-| LZ4 (compression level 9) | 39.333 | 39.500 | 8 | 2.925 |
-| LZMA (compression level 9) | 44.167 | 43.500 | 8 | 2.967 |
+| Uncompressed | 19.857 | 19 | 8 | 2.949 |
+| GZIP (compression level 9) | 39.714 | 39 | 8 | 2.864 |
+| LZ4 (compression level 9) | 38.857 | 38 | 8 | 2.949 |
+| LZMA (compression level 9) | 43.714 | 43 | 8 | 2.962 |
 
 ![CommitLint Configuration (Basic) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/commitlintbasic.png)
 
@@ -258,12 +266,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/capnproto/schema.capnp) | 536 | 261 | 326 | 233 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/capnproto-packed/schema.capnp) | 318 | 255 | 280 | 241 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/flatbuffers/schema.fbs) | 504 | 290 | 369 | 273 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/jsonbinpack/schema.json) | 182 | 171 | 201 | 170 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/protobuf/schema.proto) | 247 | 196 | 222 | 189 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/thrift/schema.thrift) | 251 | 192 | 220 | 186 |
 | JSON | None | 520 | 264 | 332 | 272 |
 | BSON | None | 564 | 304 | 378 | 299 |
 | CBOR | None | 412 | 248 | 306 | 246 |
 | FlexBuffers | None | 429 | 355 | 417 | 342 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/epr/jsonbinpack-schemaless/schema.json) | 321 | 282 | 318 | 274 |
 | MessagePack | None | 412 | 262 | 307 | 254 |
 | Smile | None | 356 | 266 | 311 | 261 |
 | UBJSON | None | 469 | 272 | 326 | 265 |
@@ -272,19 +282,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 318 | 256.500 | 341 | 121.184 |
-| GZIP (compression level 9) | 217.625 | 197.500 | 122 | 41.632 |
-| LZ4 (compression level 9) | 255.875 | 223.500 | 172 | 58.569 |
-| LZMA (compression level 9) | 206.875 | 190 | 106 | 35.059 |
+| Uncompressed | 302.889 | 251 | 354 | 121.986 |
+| GZIP (compression level 9) | 212.444 | 196 | 122 | 41.897 |
+| LZ4 (compression level 9) | 249.778 | 222 | 172 | 57.850 |
+| LZMA (compression level 9) | 202.778 | 189 | 106 | 35.026 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 440.333 | 420.500 | 208 | 64.500 |
-| GZIP (compression level 9) | 284.500 | 269 | 107 | 35.795 |
-| LZ4 (compression level 9) | 340.833 | 318.500 | 111 | 42.132 |
-| LZMA (compression level 9) | 277.833 | 263 | 96 | 33.153 |
+| Uncompressed | 423.286 | 412 | 243 | 72.867 |
+| GZIP (compression level 9) | 284.143 | 272 | 107 | 33.151 |
+| LZ4 (compression level 9) | 337.571 | 318 | 111 | 39.817 |
+| LZMA (compression level 9) | 277.286 | 265 | 96 | 30.723 |
 
 ![Entry Point Regulation Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/epr.png)
 
@@ -300,12 +310,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/capnproto/schema.capnp) | 216 | 136 | 181 | 128 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/capnproto-packed/schema.capnp) | 131 | 130 | 141 | 129 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/flatbuffers/schema.fbs) | 320 | 228 | 305 | 217 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/jsonbinpack/schema.json) | 64 | 80 | 83 | 83 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/protobuf/schema.proto) | 161 | 164 | 180 | 155 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/thrift/schema.thrift) | 150 | 110 | 132 | 109 |
 | JSON | None | 1141 | 488 | 703 | 521 |
 | BSON | None | 1184 | 512 | 727 | 539 |
 | CBOR | None | 979 | 504 | 717 | 544 |
 | FlexBuffers | None | 1201 | 635 | 824 | 636 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/eslintrc/jsonbinpack-schemaless/schema.json) | 969 | 511 | 710 | 538 |
 | MessagePack | None | 971 | 525 | 712 | 546 |
 | Smile | None | 979 | 544 | 724 | 565 |
 | UBJSON | None | 1070 | 550 | 771 | 563 |
@@ -314,19 +326,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 167.125 | 155.500 | 255 | 73.359 |
-| GZIP (compression level 9) | 140.750 | 133 | 147 | 46.040 |
-| LZ4 (compression level 9) | 167.750 | 160.500 | 221 | 65.019 |
-| LZMA (compression level 9) | 136.500 | 128.500 | 134 | 42.620 |
+| Uncompressed | 155.667 | 150 | 256 | 76.381 |
+| GZIP (compression level 9) | 134 | 130 | 148 | 47.420 |
+| LZ4 (compression level 9) | 158.333 | 141 | 222 | 66.836 |
+| LZMA (compression level 9) | 130.556 | 128 | 134 | 43.559 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1064 | 1024.500 | 230 | 96.871 |
-| GZIP (compression level 9) | 545 | 534.500 | 131 | 43.390 |
-| LZ4 (compression level 9) | 745.833 | 725.500 | 112 | 39.897 |
-| LZMA (compression level 9) | 565.500 | 554.500 | 97 | 32.968 |
+| Uncompressed | 1050.429 | 979 | 232 | 95.648 |
+| GZIP (compression level 9) | 540.143 | 525 | 131 | 41.896 |
+| LZ4 (compression level 9) | 740.714 | 724 | 114 | 39.008 |
+| LZMA (compression level 9) | 561.571 | 546 | 98 | 32.004 |
 
 ![ESLint Configuration Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/eslintrc.png)
 
@@ -342,12 +354,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/capnproto/schema.capnp) | 80 | 68 | 82 | 67 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/capnproto-packed/schema.capnp) | 35 | 55 | 54 | 59 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/flatbuffers/schema.fbs) | 80 | 77 | 94 | 74 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/jsonbinpack/schema.json) | 12 | 32 | 31 | 35 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/protobuf/schema.proto) | 23 | 43 | 42 | 47 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/thrift/schema.thrift) | 24 | 44 | 43 | 48 |
 | JSON | None | 102 | 101 | 117 | 103 |
 | BSON | None | 96 | 101 | 115 | 105 |
 | CBOR | None | 64 | 81 | 83 | 82 |
 | FlexBuffers | None | 91 | 107 | 110 | 109 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/esmrc/jsonbinpack-schemaless/schema.json) | 64 | 80 | 83 | 84 |
 | MessagePack | None | 64 | 82 | 83 | 85 |
 | Smile | None | 70 | 87 | 89 | 91 |
 | UBJSON | None | 78 | 93 | 97 | 94 |
@@ -356,19 +370,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 37.375 | 26.500 | 68 | 25.485 |
-| GZIP (compression level 9) | 50.500 | 46.500 | 45 | 14.500 |
-| LZ4 (compression level 9) | 53.625 | 45.500 | 63 | 21.136 |
-| LZMA (compression level 9) | 52.875 | 51 | 39 | 12.524 |
+| Uncompressed | 34.556 | 24 | 68 | 25.316 |
+| GZIP (compression level 9) | 48.444 | 44 | 45 | 14.856 |
+| LZ4 (compression level 9) | 51.111 | 43 | 63 | 21.158 |
+| LZMA (compression level 9) | 50.889 | 48 | 39 | 13.076 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 77.167 | 74 | 32 | 12.549 |
-| GZIP (compression level 9) | 91.833 | 90 | 26 | 9.599 |
-| LZ4 (compression level 9) | 96.167 | 93 | 32 | 12.549 |
-| LZMA (compression level 9) | 94.333 | 92.500 | 27 | 9.826 |
+| Uncompressed | 75.286 | 70 | 32 | 12.498 |
+| GZIP (compression level 9) | 90.143 | 87 | 27 | 9.804 |
+| LZ4 (compression level 9) | 94.286 | 89 | 32 | 12.498 |
+| LZMA (compression level 9) | 92.857 | 91 | 27 | 9.790 |
 
 ![ECMAScript Module Loader Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/esmrc.png)
 
@@ -384,12 +398,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/capnproto/schema.capnp) | 448 | 146 | 197 | 132 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/capnproto-packed/schema.capnp) | 228 | 142 | 162 | 137 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/flatbuffers/schema.fbs) | 680 | 220 | 291 | 195 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/jsonbinpack/schema.json) | 82 | 69 | 82 | 66 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/protobuf/schema.proto) | 325 | 115 | 145 | 107 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/thrift/schema.thrift) | 277 | 110 | 136 | 104 |
 | JSON | None | 190 | 121 | 146 | 116 |
 | BSON | None | 456 | 187 | 234 | 167 |
 | CBOR | None | 172 | 112 | 138 | 109 |
 | FlexBuffers | None | 309 | 167 | 200 | 163 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/geojson/jsonbinpack-schemaless/schema.json) | 117 | 101 | 122 | 100 |
 | MessagePack | None | 162 | 111 | 132 | 109 |
 | Smile | None | 228 | 131 | 158 | 128 |
 | UBJSON | None | 208 | 126 | 153 | 120 |
@@ -398,19 +414,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 343 | 290.500 | 475 | 144.554 |
-| GZIP (compression level 9) | 131.750 | 115.500 | 120 | 36.779 |
-| LZ4 (compression level 9) | 167.500 | 144 | 161 | 50.806 |
-| LZMA (compression level 9) | 122 | 106.500 | 103 | 31.064 |
+| Uncompressed | 314 | 283 | 598 | 159.067 |
+| GZIP (compression level 9) | 124.778 | 115 | 151 | 39.891 |
+| LZ4 (compression level 9) | 158 | 143 | 209 | 54.922 |
+| LZMA (compression level 9) | 115.778 | 106 | 129 | 34.169 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 255.833 | 218 | 294 | 101.480 |
-| GZIP (compression level 9) | 139 | 128.500 | 76 | 28.384 |
-| LZ4 (compression level 9) | 169.167 | 155.500 | 102 | 36.269 |
-| LZMA (compression level 9) | 132.667 | 124 | 58 | 23.809 |
+| Uncompressed | 236 | 208 | 339 | 105.769 |
+| GZIP (compression level 9) | 133.571 | 126 | 86 | 29.451 |
+| LZ4 (compression level 9) | 162.429 | 153 | 112 | 37.416 |
+| LZMA (compression level 9) | 128 | 120 | 67 | 24.831 |
 
 ![GeoJSON Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/geojson.png)
 
@@ -426,12 +442,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/capnproto/schema.capnp) | 40 | 50 | 56 | 51 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/capnproto-packed/schema.capnp) | 25 | 45 | 44 | 50 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/flatbuffers/schema.fbs) | 68 | 71 | 79 | 71 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/jsonbinpack/schema.json) | 16 | 36 | 35 | 39 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/protobuf/schema.proto) | 17 | 37 | 36 | 41 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/thrift/schema.thrift) | 18 | 38 | 37 | 42 |
 | JSON | None | 183 | 134 | 167 | 144 |
 | BSON | None | 133 | 125 | 152 | 137 |
 | CBOR | None | 124 | 114 | 143 | 131 |
 | FlexBuffers | None | 152 | 143 | 168 | 148 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubfundingblank/jsonbinpack-schemaless/schema.json) | 124 | 124 | 143 | 135 |
 | MessagePack | None | 124 | 124 | 143 | 136 |
 | Smile | None | 129 | 134 | 148 | 139 |
 | UBJSON | None | 137 | 135 | 156 | 144 |
@@ -440,19 +458,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 31.125 | 21.500 | 52 | 18.114 |
-| GZIP (compression level 9) | 47.125 | 41.500 | 35 | 12.752 |
-| LZ4 (compression level 9) | 48.750 | 40.500 | 44 | 15.967 |
-| LZMA (compression level 9) | 49.625 | 46 | 32 | 11.313 |
+| Uncompressed | 29.444 | 18 | 52 | 17.727 |
+| GZIP (compression level 9) | 45.889 | 38 | 35 | 12.521 |
+| LZ4 (compression level 9) | 47.222 | 37 | 44 | 15.662 |
+| LZMA (compression level 9) | 48.444 | 42 | 32 | 11.176 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 133.167 | 131 | 28 | 9.616 |
-| GZIP (compression level 9) | 129.167 | 129.500 | 29 | 9.335 |
-| LZ4 (compression level 9) | 151.667 | 150 | 25 | 8.654 |
-| LZMA (compression level 9) | 139.167 | 138 | 17 | 5.520 |
+| Uncompressed | 131.857 | 129 | 28 | 9.463 |
+| GZIP (compression level 9) | 128.429 | 125 | 29 | 8.829 |
+| LZ4 (compression level 9) | 150.429 | 148 | 25 | 8.567 |
+| LZMA (compression level 9) | 138.571 | 137 | 17 | 5.315 |
 
 ![GitHub FUNDING Sponsorship Definition (Empty) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/githubfundingblank.png)
 
@@ -468,12 +486,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/capnproto/schema.capnp) | 464 | 241 | 299 | 223 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/capnproto-packed/schema.capnp) | 242 | 232 | 247 | 230 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/flatbuffers/schema.fbs) | 440 | 275 | 352 | 256 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/jsonbinpack/schema.json) | 165 | 151 | 163 | 152 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/protobuf/schema.proto) | 189 | 176 | 195 | 175 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/thrift/schema.thrift) | 187 | 170 | 186 | 170 |
 | JSON | None | 356 | 228 | 292 | 247 |
 | BSON | None | 411 | 273 | 347 | 278 |
 | CBOR | None | 288 | 208 | 257 | 216 |
 | FlexBuffers | None | 396 | 309 | 369 | 318 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/githubworkflow/jsonbinpack-schemaless/schema.json) | 277 | 233 | 261 | 228 |
 | MessagePack | None | 287 | 222 | 256 | 224 |
 | Smile | None | 287 | 235 | 268 | 240 |
 | UBJSON | None | 339 | 243 | 291 | 249 |
@@ -482,19 +502,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 256.875 | 195 | 299 | 114.993 |
-| GZIP (compression level 9) | 197.375 | 177 | 122 | 42.661 |
-| LZ4 (compression level 9) | 226.250 | 195 | 188 | 63.174 |
-| LZMA (compression level 9) | 192.250 | 177 | 104 | 36.338 |
+| Uncompressed | 246.667 | 189 | 299 | 112.195 |
+| GZIP (compression level 9) | 192.222 | 176 | 124 | 42.781 |
+| LZ4 (compression level 9) | 219.222 | 195 | 189 | 62.790 |
+| LZMA (compression level 9) | 187.778 | 175 | 104 | 36.520 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 334.667 | 313.500 | 124 | 52.169 |
-| GZIP (compression level 9) | 248.333 | 239 | 101 | 33.703 |
-| LZ4 (compression level 9) | 298 | 279.500 | 113 | 44.415 |
-| LZMA (compression level 9) | 254.167 | 244.500 | 102 | 34.730 |
+| Uncompressed | 326.429 | 288 | 134 | 52.345 |
+| GZIP (compression level 9) | 246.143 | 235 | 101 | 31.661 |
+| LZ4 (compression level 9) | 292.714 | 268 | 113 | 43.110 |
+| LZMA (compression level 9) | 250.429 | 240 | 102 | 33.432 |
 
 ![GitHub Workflow Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/githubworkflow.png)
 
@@ -510,12 +530,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/capnproto/schema.capnp) | 96 | 66 | 85 | 66 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/capnproto-packed/schema.capnp) | 39 | 53 | 58 | 56 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/flatbuffers/schema.fbs) | 116 | 77 | 104 | 74 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/jsonbinpack/schema.json) | 11 | 31 | 30 | 35 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/protobuf/schema.proto) | 20 | 36 | 39 | 41 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/thrift/schema.thrift) | 23 | 38 | 39 | 41 |
 | JSON | None | 93 | 94 | 106 | 95 |
 | BSON | None | 105 | 97 | 110 | 98 |
 | CBOR | None | 60 | 75 | 79 | 77 |
 | FlexBuffers | None | 94 | 110 | 113 | 115 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/gruntcontribclean/jsonbinpack-schemaless/schema.json) | 57 | 76 | 76 | 79 |
 | MessagePack | None | 60 | 76 | 79 | 78 |
 | Smile | None | 70 | 85 | 88 | 88 |
 | UBJSON | None | 77 | 88 | 92 | 89 |
@@ -524,19 +546,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 43.750 | 25 | 103 | 37.019 |
-| GZIP (compression level 9) | 46.375 | 39.500 | 48 | 16.248 |
-| LZ4 (compression level 9) | 54.375 | 41 | 72 | 24.728 |
-| LZMA (compression level 9) | 48.750 | 43.500 | 42 | 14.202 |
+| Uncompressed | 40.111 | 23 | 105 | 36.388 |
+| GZIP (compression level 9) | 44.667 | 38 | 48 | 16.062 |
+| LZ4 (compression level 9) | 51.667 | 39 | 74 | 24.540 |
+| LZMA (compression level 9) | 47.222 | 41 | 42 | 14.069 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 77.667 | 73.500 | 45 | 16.819 |
-| GZIP (compression level 9) | 88.500 | 86.500 | 35 | 12.148 |
-| LZ4 (compression level 9) | 93.500 | 90 | 34 | 13.574 |
-| LZMA (compression level 9) | 90.833 | 88.500 | 38 | 12.928 |
+| Uncompressed | 74.714 | 70 | 48 | 17.169 |
+| GZIP (compression level 9) | 86.714 | 85 | 35 | 12.068 |
+| LZ4 (compression level 9) | 91 | 88 | 37 | 13.980 |
+| LZMA (compression level 9) | 89.143 | 88 | 38 | 12.665 |
 
 ![Grunt.js Clean Task Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/gruntcontribclean.png)
 
@@ -552,12 +574,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/capnproto/schema.capnp) | 96 | 76 | 97 | 72 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/capnproto-packed/schema.capnp) | 44 | 64 | 63 | 68 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/flatbuffers/schema.fbs) | 100 | 80 | 101 | 79 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/jsonbinpack/schema.json) | 21 | 41 | 40 | 44 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/protobuf/schema.proto) | 23 | 43 | 42 | 47 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/thrift/schema.thrift) | 26 | 46 | 45 | 50 |
 | JSON | None | 82 | 88 | 96 | 90 |
 | BSON | None | 102 | 103 | 117 | 100 |
 | CBOR | None | 61 | 76 | 78 | 76 |
 | FlexBuffers | None | 89 | 102 | 107 | 103 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/imageoptimizerwebjob/jsonbinpack-schemaless/schema.json) | 61 | 76 | 78 | 78 |
 | MessagePack | None | 61 | 77 | 78 | 78 |
 | Smile | None | 70 | 86 | 88 | 88 |
 | UBJSON | None | 74 | 87 | 90 | 87 |
@@ -566,19 +590,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 45.500 | 28 | 79 | 31.048 |
-| GZIP (compression level 9) | 55.500 | 48 | 39 | 14.629 |
-| LZ4 (compression level 9) | 60 | 47 | 61 | 23.500 |
-| LZMA (compression level 9) | 57.750 | 52 | 34 | 12.387 |
+| Uncompressed | 42.778 | 26 | 79 | 30.268 |
+| GZIP (compression level 9) | 53.889 | 46 | 39 | 14.525 |
+| LZ4 (compression level 9) | 57.778 | 45 | 61 | 23.030 |
+| LZMA (compression level 9) | 56.222 | 50 | 35 | 12.452 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 76.167 | 72 | 41 | 14.916 |
-| GZIP (compression level 9) | 88.500 | 86.500 | 27 | 10.720 |
-| LZ4 (compression level 9) | 93 | 89 | 39 | 14.468 |
-| LZMA (compression level 9) | 88.667 | 87.500 | 27 | 10.094 |
+| Uncompressed | 74 | 70 | 41 | 14.794 |
+| GZIP (compression level 9) | 86.714 | 86 | 27 | 10.846 |
+| LZ4 (compression level 9) | 90.857 | 88 | 39 | 14.387 |
+| LZMA (compression level 9) | 87.143 | 87 | 27 | 10.063 |
 
 ![ImageOptimizer Azure Webjob Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/imageoptimizerwebjob.png)
 
@@ -594,12 +618,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/capnproto/schema.capnp) | 240 | 72 | 100 | 68 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/capnproto-packed/schema.capnp) | 43 | 63 | 62 | 65 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/flatbuffers/schema.fbs) | 136 | 89 | 126 | 87 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/jsonbinpack/schema.json) | 10 | 30 | 29 | 33 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/protobuf/schema.proto) | 21 | 41 | 40 | 43 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/thrift/schema.thrift) | 22 | 39 | 41 | 40 |
 | JSON | None | 86 | 86 | 99 | 88 |
 | BSON | None | 121 | 104 | 129 | 101 |
 | CBOR | None | 53 | 73 | 72 | 76 |
 | FlexBuffers | None | 95 | 109 | 114 | 111 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonereversesort/jsonbinpack-schemaless/schema.json) | 52 | 72 | 71 | 76 |
 | MessagePack | None | 52 | 73 | 71 | 76 |
 | Smile | None | 63 | 82 | 82 | 84 |
 | UBJSON | None | 70 | 83 | 89 | 87 |
@@ -608,19 +634,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 63.875 | 22.500 | 229 | 76.734 |
-| GZIP (compression level 9) | 50.875 | 41 | 58 | 19.915 |
-| LZ4 (compression level 9) | 59.375 | 41.500 | 96 | 32.821 |
-| LZMA (compression level 9) | 51.500 | 42.500 | 54 | 18.228 |
+| Uncompressed | 57.889 | 22 | 230 | 74.300 |
+| GZIP (compression level 9) | 48.556 | 41 | 59 | 19.889 |
+| LZ4 (compression level 9) | 56 | 41 | 97 | 32.383 |
+| LZMA (compression level 9) | 49.444 | 42 | 54 | 18.142 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 75.667 | 66.500 | 69 | 24.817 |
-| GZIP (compression level 9) | 87.333 | 82.500 | 36 | 14.174 |
-| LZ4 (compression level 9) | 92.833 | 85.500 | 58 | 21.598 |
-| LZMA (compression level 9) | 89.167 | 85.500 | 35 | 12.877 |
+| Uncompressed | 72.286 | 63 | 69 | 24.423 |
+| GZIP (compression level 9) | 85.143 | 82 | 37 | 14.177 |
+| LZ4 (compression level 9) | 89.714 | 82 | 58 | 21.406 |
+| LZMA (compression level 9) | 87.286 | 84 | 35 | 12.781 |
 
 ![JSON-e Templating Engine Reverse Sort Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonereversesort.png)
 
@@ -636,12 +662,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/capnproto/schema.capnp) | 48 | 45 | 58 | 45 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/capnproto-packed/schema.capnp) | 18 | 38 | 37 | 41 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/flatbuffers/schema.fbs) | 44 | 51 | 63 | 51 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/jsonbinpack/schema.json) | 8 | 28 | 27 | 31 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/protobuf/schema.proto) | 10 | 30 | 29 | 33 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/thrift/schema.thrift) | 11 | 31 | 30 | 35 |
 | JSON | None | 34 | 54 | 53 | 58 |
 | BSON | None | 65 | 66 | 79 | 66 |
 | CBOR | None | 21 | 41 | 40 | 46 |
 | FlexBuffers | None | 39 | 56 | 58 | 60 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonesort/jsonbinpack-schemaless/schema.json) | 21 | 41 | 40 | 46 |
 | MessagePack | None | 21 | 41 | 40 | 46 |
 | Smile | None | 27 | 48 | 46 | 52 |
 | UBJSON | None | 30 | 48 | 49 | 53 |
@@ -650,19 +678,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 20.625 | 12.500 | 39 | 14.899 |
-| GZIP (compression level 9) | 35.750 | 31.500 | 22 | 7.677 |
-| LZ4 (compression level 9) | 38.500 | 31.500 | 35 | 13.010 |
-| LZMA (compression level 9) | 38.125 | 35.500 | 19 | 6.489 |
+| Uncompressed | 19.222 | 12 | 40 | 14.597 |
+| GZIP (compression level 9) | 34.889 | 31 | 23 | 7.637 |
+| LZ4 (compression level 9) | 37.222 | 31 | 36 | 12.787 |
+| LZMA (compression level 9) | 37.333 | 35 | 20 | 6.515 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 33.833 | 28.500 | 44 | 15.214 |
-| GZIP (compression level 9) | 50 | 48 | 25 | 8.775 |
-| LZ4 (compression level 9) | 52 | 47.500 | 39 | 13.528 |
-| LZMA (compression level 9) | 53.833 | 52.500 | 20 | 7.221 |
+| Uncompressed | 32 | 27 | 44 | 14.784 |
+| GZIP (compression level 9) | 48.714 | 48 | 25 | 8.713 |
+| LZ4 (compression level 9) | 50.286 | 46 | 39 | 13.209 |
+| LZMA (compression level 9) | 52.714 | 52 | 20 | 7.225 |
 
 ![JSON-e Templating Engine Sort Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonesort.png)
 
@@ -678,12 +706,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/capnproto/schema.capnp) | 568 | 329 | 416 | 315 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/capnproto-packed/schema.capnp) | 470 | 329 | 369 | 326 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/flatbuffers/schema.fbs) | 584 | 340 | 429 | 331 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/jsonbinpack/schema.json) | 306 | 254 | 272 | 251 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/protobuf/schema.proto) | 413 | 261 | 302 | 264 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/thrift/schema.thrift) | 415 | 259 | 302 | 261 |
 | JSON | None | 573 | 327 | 418 | 341 |
 | BSON | None | 596 | 360 | 454 | 373 |
 | CBOR | None | 523 | 320 | 403 | 331 |
 | FlexBuffers | None | 598 | 406 | 475 | 400 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonfeed/jsonbinpack-schemaless/schema.json) | 514 | 330 | 396 | 335 |
 | MessagePack | None | 517 | 331 | 398 | 337 |
 | Smile | None | 521 | 335 | 403 | 341 |
 | UBJSON | None | 557 | 348 | 428 | 354 |
@@ -692,19 +722,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 458.125 | 416 | 186 | 71.273 |
-| GZIP (compression level 9) | 285.250 | 265.500 | 93 | 37.519 |
-| LZ4 (compression level 9) | 337.500 | 304 | 142 | 54.706 |
-| LZMA (compression level 9) | 282.375 | 265 | 83 | 33.087 |
+| Uncompressed | 441.222 | 415 | 278 | 82.469 |
+| GZIP (compression level 9) | 281.778 | 261 | 93 | 36.711 |
+| LZ4 (compression level 9) | 330.222 | 302 | 157 | 55.533 |
+| LZMA (compression level 9) | 278.889 | 264 | 83 | 32.716 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 552 | 540 | 81 | 34.409 |
-| GZIP (compression level 9) | 350 | 341.500 | 86 | 28.065 |
-| LZ4 (compression level 9) | 426.833 | 415.500 | 77 | 28.945 |
-| LZMA (compression level 9) | 356 | 347.500 | 69 | 23.944 |
+| Uncompressed | 546.571 | 523 | 84 | 34.521 |
+| GZIP (compression level 9) | 347.143 | 335 | 86 | 26.910 |
+| LZ4 (compression level 9) | 422.429 | 403 | 79 | 28.888 |
+| LZMA (compression level 9) | 353 | 341 | 69 | 23.354 |
 
 ![JSON Feed Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonfeed.png)
 
@@ -720,12 +750,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/capnproto/schema.capnp) | 3152 | 1627 | 2230 | 1566 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/capnproto-packed/schema.capnp) | 2549 | 1668 | 2162 | 1668 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/flatbuffers/schema.fbs) | 3116 | 1686 | 2290 | 1627 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/jsonbinpack/schema.json) | 1468 | 1172 | 1357 | 1139 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/protobuf/schema.proto) | 2225 | 1370 | 1832 | 1371 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/thrift/schema.thrift) | 2230 | 1337 | 1815 | 1352 |
 | JSON | None | 3048 | 1556 | 2204 | 1586 |
 | BSON | None | 3283 | 1782 | 2449 | 1762 |
 | CBOR | None | 2754 | 1555 | 2164 | 1582 |
 | FlexBuffers | None | 3049 | 1966 | 2560 | 1936 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/jsonresume/jsonbinpack-schemaless/schema.json) | 2619 | 1633 | 2179 | 1640 |
 | MessagePack | None | 2749 | 1600 | 2163 | 1615 |
 | Smile | None | 2620 | 1581 | 2169 | 1621 |
 | UBJSON | None | 2977 | 1658 | 2277 | 1665 |
@@ -734,19 +766,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 2479.125 | 2243 | 1009 | 395.795 |
-| GZIP (compression level 9) | 1456.375 | 1377.500 | 404 | 161.848 |
-| LZ4 (compression level 9) | 1964.375 | 1846 | 536 | 208.459 |
-| LZMA (compression level 9) | 1450 | 1384.500 | 366 | 137.258 |
+| Uncompressed | 2366.778 | 2230 | 1684 | 490.125 |
+| GZIP (compression level 9) | 1424.778 | 1370 | 514 | 176.837 |
+| LZ4 (compression level 9) | 1896.889 | 1832 | 933 | 273.974 |
+| LZMA (compression level 9) | 1415.444 | 1371 | 529 | 162.170 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 2905.333 | 2865.500 | 663 | 222.548 |
-| GZIP (compression level 9) | 1690.333 | 1629 | 411 | 143.683 |
-| LZ4 (compression level 9) | 2297 | 2223 | 397 | 155.296 |
-| LZMA (compression level 9) | 1696.833 | 1643 | 354 | 121.171 |
+| Uncompressed | 2864.429 | 2754 | 664 | 229.110 |
+| GZIP (compression level 9) | 1682.143 | 1633 | 411 | 134.529 |
+| LZ4 (compression level 9) | 2280.143 | 2179 | 397 | 149.588 |
+| LZMA (compression level 9) | 1688.714 | 1640 | 354 | 113.932 |
 
 ![JSON Resume Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonresume.png)
 
@@ -762,12 +794,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/capnproto/schema.capnp) | 608 | 195 | 269 | 180 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/capnproto-packed/schema.capnp) | 376 | 181 | 215 | 180 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/flatbuffers/schema.fbs) | 636 | 279 | 365 | 247 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/jsonbinpack/schema.json) | 132 | 129 | 144 | 123 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/protobuf/schema.proto) | 284 | 155 | 195 | 152 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/thrift/schema.thrift) | 283 | 113 | 137 | 115 |
 | JSON | None | 1049 | 411 | 548 | 425 |
 | BSON | None | 1084 | 442 | 577 | 453 |
 | CBOR | None | 923 | 435 | 566 | 434 |
 | FlexBuffers | None | 890 | 559 | 664 | 552 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/netcoreproject/jsonbinpack-schemaless/schema.json) | 748 | 481 | 557 | 465 |
 | MessagePack | None | 919 | 458 | 565 | 443 |
 | Smile | None | 870 | 453 | 558 | 450 |
 | UBJSON | None | 1008 | 464 | 582 | 458 |
@@ -776,19 +810,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 370.750 | 289.500 | 394 | 150.329 |
-| GZIP (compression level 9) | 158.500 | 157 | 186 | 58.118 |
-| LZ4 (compression level 9) | 201.875 | 194.500 | 245 | 78.273 |
-| LZMA (compression level 9) | 153 | 153 | 149 | 47.157 |
+| Uncompressed | 344.222 | 284 | 504 | 160.367 |
+| GZIP (compression level 9) | 155.222 | 155 | 186 | 55.573 |
+| LZ4 (compression level 9) | 195.444 | 194 | 245 | 76.005 |
+| LZMA (compression level 9) | 149.667 | 152 | 149 | 45.448 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 949 | 921 | 214 | 74.166 |
-| GZIP (compression level 9) | 468.500 | 455.500 | 124 | 41.604 |
-| LZ4 (compression level 9) | 585.333 | 571.500 | 106 | 36.063 |
-| LZMA (compression level 9) | 465 | 451.500 | 118 | 39.648 |
+| Uncompressed | 920.286 | 919 | 336 | 98.295 |
+| GZIP (compression level 9) | 470.286 | 458 | 124 | 38.766 |
+| LZ4 (compression level 9) | 581.286 | 566 | 107 | 34.829 |
+| LZMA (compression level 9) | 465 | 453 | 118 | 36.707 |
 
 ![.NET Core Project box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/netcoreproject.png)
 
@@ -804,12 +838,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/capnproto/schema.capnp) | 304 | 170 | 209 | 158 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/capnproto-packed/schema.capnp) | 149 | 148 | 157 | 151 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/flatbuffers/schema.fbs) | 464 | 302 | 390 | 257 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/jsonbinpack/schema.json) | 73 | 94 | 92 | 97 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/protobuf/schema.proto) | 109 | 129 | 128 | 132 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/thrift/schema.thrift) | 134 | 142 | 153 | 142 |
 | JSON | None | 1507 | 649 | 926 | 682 |
 | BSON | None | 1327 | 666 | 933 | 694 |
 | CBOR | None | 1176 | 640 | 874 | 667 |
 | FlexBuffers | None | 1389 | 869 | 1140 | 873 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/nightwatch/jsonbinpack-schemaless/schema.json) | 1085 | 678 | 886 | 688 |
 | MessagePack | None | 1172 | 670 | 872 | 678 |
 | Smile | None | 1090 | 683 | 886 | 701 |
 | UBJSON | None | 1268 | 692 | 936 | 710 |
@@ -818,19 +854,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 195.250 | 141.500 | 375 | 122.472 |
-| GZIP (compression level 9) | 165.750 | 145 | 198 | 63.192 |
-| LZ4 (compression level 9) | 186.625 | 155 | 282 | 87.853 |
-| LZMA (compression level 9) | 159.250 | 146.500 | 150 | 49.487 |
+| Uncompressed | 181.667 | 134 | 391 | 121.692 |
+| GZIP (compression level 9) | 157.778 | 142 | 208 | 63.702 |
+| LZ4 (compression level 9) | 176.111 | 153 | 298 | 88.006 |
+| LZMA (compression level 9) | 152.333 | 142 | 160 | 50.592 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1237 | 1222 | 299 | 101.423 |
-| GZIP (compression level 9) | 703.333 | 676.500 | 229 | 75.832 |
-| LZ4 (compression level 9) | 940.167 | 909.500 | 268 | 93.060 |
-| LZMA (compression level 9) | 720.500 | 697.500 | 206 | 69.663 |
+| Uncompressed | 1215.286 | 1176 | 304 | 107.918 |
+| GZIP (compression level 9) | 699.714 | 678 | 229 | 70.765 |
+| LZ4 (compression level 9) | 932.429 | 886 | 268 | 88.217 |
+| LZMA (compression level 9) | 715.857 | 694 | 206 | 65.490 |
 
 ![Nightwatch.js Test Framework Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/nightwatch.png)
 
@@ -846,12 +882,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/capnproto/schema.capnp) | 320 | 236 | 288 | 222 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/capnproto-packed/schema.capnp) | 206 | 219 | 225 | 220 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/flatbuffers/schema.fbs) | 384 | 307 | 367 | 285 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/jsonbinpack/schema.json) | 113 | 134 | 132 | 137 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/protobuf/schema.proto) | 188 | 199 | 207 | 203 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/thrift/schema.thrift) | 191 | 199 | 209 | 202 |
 | JSON | None | 494 | 341 | 470 | 361 |
 | BSON | None | 480 | 394 | 471 | 395 |
 | CBOR | None | 383 | 347 | 394 | 339 |
 | FlexBuffers | None | 660 | 502 | 590 | 483 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweathermap/jsonbinpack-schemaless/schema.json) | 349 | 331 | 362 | 321 |
 | MessagePack | None | 382 | 358 | 393 | 350 |
 | Smile | None | 412 | 389 | 418 | 372 |
 | UBJSON | None | 439 | 382 | 446 | 379 |
@@ -860,19 +898,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 224.875 | 194 | 236 | 77.059 |
-| GZIP (compression level 9) | 213.875 | 204 | 144 | 41.017 |
-| LZ4 (compression level 9) | 232.875 | 212.500 | 200 | 60.563 |
-| LZMA (compression level 9) | 211.750 | 208 | 119 | 32.847 |
+| Uncompressed | 212.444 | 191 | 271 | 80.712 |
+| GZIP (compression level 9) | 205 | 199 | 173 | 46.104 |
+| LZ4 (compression level 9) | 221.667 | 209 | 235 | 65.310 |
+| LZMA (compression level 9) | 203.444 | 203 | 148 | 38.870 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 459.333 | 425.500 | 278 | 95.878 |
-| GZIP (compression level 9) | 395.333 | 385.500 | 155 | 50.543 |
-| LZ4 (compression level 9) | 452 | 432 | 197 | 67.629 |
-| LZMA (compression level 9) | 386.333 | 375.500 | 144 | 46.974 |
+| Uncompressed | 443.571 | 412 | 311 | 96.799 |
+| GZIP (compression level 9) | 386.143 | 382 | 171 | 51.927 |
+| LZ4 (compression level 9) | 439.143 | 418 | 228 | 70.087 |
+| LZMA (compression level 9) | 377 | 372 | 162 | 49.132 |
 
 ![OpenWeatherMap API Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/openweathermap.png)
 
@@ -888,12 +926,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/capnproto/schema.capnp) | 296 | 216 | 265 | 203 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/capnproto-packed/schema.capnp) | 204 | 204 | 214 | 205 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/flatbuffers/schema.fbs) | 328 | 251 | 297 | 235 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/jsonbinpack/schema.json) | 100 | 119 | 119 | 119 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/protobuf/schema.proto) | 173 | 171 | 183 | 172 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/thrift/schema.thrift) | 177 | 171 | 184 | 173 |
 | JSON | None | 375 | 250 | 302 | 252 |
 | BSON | None | 422 | 315 | 354 | 303 |
 | CBOR | None | 340 | 275 | 298 | 256 |
 | FlexBuffers | None | 488 | 376 | 420 | 357 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/openweatherroadrisk/jsonbinpack-schemaless/schema.json) | 254 | 260 | 270 | 250 |
 | MessagePack | None | 339 | 276 | 297 | 259 |
 | Smile | None | 326 | 299 | 324 | 290 |
 | UBJSON | None | 375 | 295 | 318 | 278 |
@@ -902,19 +942,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 211.500 | 179.500 | 172 | 59.846 |
-| GZIP (compression level 9) | 188.875 | 172.500 | 95 | 30.002 |
-| LZ4 (compression level 9) | 210.375 | 186 | 129 | 43.212 |
-| LZMA (compression level 9) | 185.375 | 174.500 | 79 | 24.854 |
+| Uncompressed | 199.111 | 177 | 228 | 66.419 |
+| GZIP (compression level 9) | 181.111 | 171 | 132 | 35.810 |
+| LZ4 (compression level 9) | 200.222 | 184 | 178 | 49.844 |
+| LZMA (compression level 9) | 178 | 173 | 116 | 31.372 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 381.667 | 357.500 | 162 | 57.203 |
-| GZIP (compression level 9) | 306 | 297 | 101 | 34.186 |
-| LZ4 (compression level 9) | 335.167 | 321 | 123 | 42.444 |
-| LZMA (compression level 9) | 290.500 | 284 | 101 | 33.955 |
+| Uncompressed | 363.429 | 340 | 234 | 69.286 |
+| GZIP (compression level 9) | 299.429 | 295 | 116 | 35.508 |
+| LZ4 (compression level 9) | 325.857 | 318 | 150 | 45.433 |
+| LZMA (compression level 9) | 284.714 | 278 | 107 | 34.483 |
 
 ![OpenWeather Road Risk API Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/openweatherroadrisk.png)
 
@@ -930,12 +970,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/capnproto/schema.capnp) | 2216 | 1007 | 1363 | 977 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/capnproto-packed/schema.capnp) | 1755 | 1013 | 1281 | 1009 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/flatbuffers/schema.fbs) | 2268 | 1132 | 1512 | 1064 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/jsonbinpack/schema.json) | 947 | 839 | 886 | 793 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/protobuf/schema.proto) | 1581 | 888 | 1149 | 903 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/thrift/schema.thrift) | 1561 | 848 | 1108 | 860 |
 | JSON | None | 2259 | 1093 | 1520 | 1129 |
 | BSON | None | 2386 | 1228 | 1660 | 1236 |
 | CBOR | None | 1990 | 1083 | 1478 | 1099 |
 | FlexBuffers | None | 2320 | 1395 | 1767 | 1381 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejson/jsonbinpack-schemaless/schema.json) | 1957 | 1129 | 1472 | 1139 |
 | MessagePack | None | 1995 | 1131 | 1483 | 1143 |
 | Smile | None | 1983 | 1119 | 1473 | 1138 |
 | UBJSON | None | 2171 | 1173 | 1572 | 1178 |
@@ -944,19 +986,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1745.875 | 1584.500 | 770 | 296.205 |
-| GZIP (compression level 9) | 924.125 | 896 | 332 | 109.574 |
-| LZ4 (compression level 9) | 1211.875 | 1155 | 452 | 150.355 |
-| LZMA (compression level 9) | 921.250 | 910 | 244 | 83.510 |
+| Uncompressed | 1657.111 | 1581 | 1321 | 375.528 |
+| GZIP (compression level 9) | 914.667 | 888 | 332 | 106.715 |
+| LZ4 (compression level 9) | 1175.667 | 1149 | 626 | 174.880 |
+| LZMA (compression level 9) | 907 | 903 | 271 | 88.451 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 2140.833 | 2083 | 403 | 164.341 |
-| GZIP (compression level 9) | 1188.167 | 1152 | 312 | 103.044 |
-| LZ4 (compression level 9) | 1572.167 | 1527.500 | 294 | 109.793 |
-| LZMA (compression level 9) | 1195.833 | 1160.500 | 282 | 92.854 |
+| Uncompressed | 2114.571 | 1995 | 429 | 165.190 |
+| GZIP (compression level 9) | 1179.714 | 1131 | 312 | 97.621 |
+| LZ4 (compression level 9) | 1557.857 | 1483 | 295 | 107.522 |
+| LZMA (compression level 9) | 1187.714 | 1143 | 282 | 88.236 |
 
 ![NPM Package.json Example Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/packagejson.png)
 
@@ -972,12 +1014,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/capnproto/schema.capnp) | 880 | 131 | 165 | 123 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/capnproto-packed/schema.capnp) | 519 | 120 | 136 | 119 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/flatbuffers/schema.fbs) | 960 | 288 | 389 | 248 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/jsonbinpack/schema.json) | 90 | 80 | 85 | 81 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/protobuf/schema.proto) | 454 | 197 | 252 | 172 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/thrift/schema.thrift) | 420 | 91 | 102 | 95 |
 | JSON | None | 1159 | 321 | 441 | 344 |
 | BSON | None | 1295 | 348 | 478 | 366 |
 | CBOR | None | 993 | 349 | 477 | 358 |
 | FlexBuffers | None | 942 | 522 | 629 | 510 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/packagejsonlintrc/jsonbinpack-schemaless/schema.json) | 791 | 457 | 542 | 430 |
 | MessagePack | None | 989 | 366 | 476 | 365 |
 | Smile | None | 1002 | 380 | 499 | 388 |
 | UBJSON | None | 1117 | 374 | 489 | 377 |
@@ -986,19 +1030,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 533.125 | 458 | 759 | 240.859 |
-| GZIP (compression level 9) | 145.375 | 125.500 | 213 | 67.578 |
-| LZ4 (compression level 9) | 182.750 | 150.500 | 303 | 97.339 |
-| LZMA (compression level 9) | 135.375 | 121 | 170 | 52.875 |
+| Uncompressed | 483.889 | 454 | 870 | 266.385 |
+| GZIP (compression level 9) | 138.111 | 120 | 213 | 66.943 |
+| LZ4 (compression level 9) | 171.889 | 136 | 304 | 96.777 |
+| LZMA (compression level 9) | 129.333 | 119 | 170 | 52.698 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1056.333 | 997.500 | 353 | 119.172 |
-| GZIP (compression level 9) | 389.833 | 370 | 174 | 60.278 |
-| LZ4 (compression level 9) | 508 | 483.500 | 153 | 54.724 |
-| LZMA (compression level 9) | 394 | 371.500 | 152 | 52.760 |
+| Uncompressed | 1018.429 | 993 | 504 | 144.200 |
+| GZIP (compression level 9) | 399.429 | 374 | 174 | 60.554 |
+| LZ4 (compression level 9) | 512.857 | 489 | 153 | 52.042 |
+| LZMA (compression level 9) | 399.143 | 377 | 152 | 50.445 |
 
 ![NPM Package.json Linter Configuration Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/packagejsonlintrc.png)
 
@@ -1014,12 +1058,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/capnproto/schema.capnp) | 16 | 33 | 35 | 32 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/capnproto-packed/schema.capnp) | 7 | 27 | 26 | 29 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/flatbuffers/schema.fbs) | 24 | 35 | 43 | 38 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/jsonbinpack/schema.json) | 0 | 20 | 15 | 23 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/protobuf/schema.proto) | 0 | 20 | 15 | 23 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/thrift/schema.thrift) | 1 | 21 | 20 | 24 |
 | JSON | None | 44 | 50 | 58 | 55 |
 | BSON | None | 29 | 46 | 48 | 49 |
 | CBOR | None | 25 | 45 | 44 | 48 |
 | FlexBuffers | None | 37 | 52 | 56 | 55 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/sapcloudsdkpipeline/jsonbinpack-schemaless/schema.json) | 25 | 45 | 44 | 49 |
 | MessagePack | None | 25 | 45 | 44 | 49 |
 | Smile | None | 30 | 50 | 49 | 54 |
 | UBJSON | None | 29 | 49 | 48 | 52 |
@@ -1028,19 +1074,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 7.375 | 4 | 24 | 8.276 |
-| GZIP (compression level 9) | 25.875 | 24 | 15 | 5.797 |
-| LZ4 (compression level 9) | 25.375 | 23 | 28 | 9.286 |
-| LZMA (compression level 9) | 28.125 | 26.500 | 15 | 5.183 |
+| Uncompressed | 6.556 | 1 | 24 | 8.139 |
+| GZIP (compression level 9) | 25.222 | 21 | 15 | 5.769 |
+| LZ4 (compression level 9) | 24.222 | 20 | 28 | 9.343 |
+| LZMA (compression level 9) | 27.556 | 24 | 15 | 5.145 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 29.167 | 29 | 12 | 4.017 |
-| GZIP (compression level 9) | 47.833 | 47.500 | 7 | 2.672 |
-| LZ4 (compression level 9) | 48.167 | 48 | 12 | 4.017 |
-| LZMA (compression level 9) | 51.167 | 50.500 | 7 | 2.672 |
+| Uncompressed | 28.571 | 29 | 12 | 3.995 |
+| GZIP (compression level 9) | 47.429 | 46 | 7 | 2.665 |
+| LZ4 (compression level 9) | 47.571 | 48 | 12 | 3.995 |
+| LZMA (compression level 9) | 50.857 | 49 | 7 | 2.587 |
 
 ![SAP Cloud SDK Continuous Delivery Toolkit Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/sapcloudsdkpipeline.png)
 
@@ -1056,12 +1102,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/capnproto/schema.capnp) | 640 | 129 | 152 | 120 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/capnproto-packed/schema.capnp) | 566 | 125 | 135 | 120 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/flatbuffers/schema.fbs) | 668 | 175 | 215 | 164 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/jsonbinpack/schema.json) | 89 | 98 | 108 | 99 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/protobuf/schema.proto) | 521 | 114 | 133 | 109 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/thrift/schema.thrift) | 521 | 95 | 106 | 96 |
 | JSON | None | 673 | 154 | 195 | 164 |
 | BSON | None | 699 | 160 | 204 | 167 |
 | CBOR | None | 627 | 147 | 192 | 160 |
 | FlexBuffers | None | 228 | 214 | 244 | 207 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/travisnotifications/jsonbinpack-schemaless/schema.json) | 185 | 175 | 202 | 177 |
 | MessagePack | None | 627 | 157 | 192 | 163 |
 | Smile | None | 604 | 168 | 199 | 173 |
 | UBJSON | None | 658 | 163 | 198 | 169 |
@@ -1070,19 +1118,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 554.875 | 521.500 | 171 | 60.705 |
-| GZIP (compression level 9) | 116.500 | 115 | 87 | 26.538 |
-| LZ4 (compression level 9) | 134.750 | 132.500 | 113 | 34.741 |
-| LZMA (compression level 9) | 112.625 | 110 | 74 | 22.416 |
+| Uncompressed | 503.111 | 521 | 579 | 157.199 |
+| GZIP (compression level 9) | 114.444 | 114 | 87 | 25.687 |
+| LZ4 (compression level 9) | 131.778 | 132 | 113 | 33.816 |
+| LZMA (compression level 9) | 111.111 | 109 | 74 | 21.564 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 573.833 | 627 | 471 | 157.541 |
-| GZIP (compression level 9) | 168.167 | 161.500 | 67 | 21.474 |
-| LZ4 (compression level 9) | 204.833 | 198.500 | 52 | 18.004 |
-| LZMA (compression level 9) | 173.167 | 168 | 47 | 15.689 |
+| Uncompressed | 518.286 | 627 | 514 | 199.466 |
+| GZIP (compression level 9) | 169.143 | 163 | 67 | 20.024 |
+| LZ4 (compression level 9) | 204.429 | 199 | 52 | 16.698 |
+| LZMA (compression level 9) | 173.714 | 169 | 47 | 14.587 |
 
 ![TravisCI Notifications Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/travisnotifications.png)
 
@@ -1098,12 +1146,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/capnproto/schema.capnp) | 48 | 33 | 45 | 34 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/capnproto-packed/schema.capnp) | 12 | 29 | 31 | 31 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/flatbuffers/schema.fbs) | 60 | 53 | 64 | 49 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/jsonbinpack/schema.json) | 1 | 21 | 20 | 24 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/protobuf/schema.proto) | 8 | 28 | 27 | 31 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/thrift/schema.thrift) | 8 | 26 | 27 | 28 |
 | JSON | None | 67 | 68 | 74 | 70 |
 | BSON | None | 71 | 74 | 82 | 74 |
 | CBOR | None | 51 | 62 | 70 | 63 |
 | FlexBuffers | None | 77 | 76 | 88 | 80 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintbasic/jsonbinpack-schemaless/schema.json) | 51 | 61 | 70 | 64 |
 | MessagePack | None | 51 | 62 | 70 | 64 |
 | Smile | None | 59 | 68 | 73 | 71 |
 | UBJSON | None | 59 | 66 | 72 | 67 |
@@ -1112,19 +1162,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 18.375 | 8.500 | 59 | 21.089 |
-| GZIP (compression level 9) | 29.750 | 27.500 | 32 | 9.549 |
-| LZ4 (compression level 9) | 32.750 | 27.500 | 44 | 13.890 |
-| LZMA (compression level 9) | 31.250 | 30 | 25 | 7.446 |
+| Uncompressed | 16.444 | 8 | 59 | 20.619 |
+| GZIP (compression level 9) | 28.778 | 27 | 32 | 9.414 |
+| LZ4 (compression level 9) | 31.333 | 27 | 44 | 13.695 |
+| LZMA (compression level 9) | 30.444 | 29 | 25 | 7.380 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 61.333 | 59 | 26 | 9.690 |
-| GZIP (compression level 9) | 68 | 67 | 14 | 5.416 |
-| LZ4 (compression level 9) | 75.833 | 72.500 | 18 | 6.793 |
-| LZMA (compression level 9) | 69.833 | 69 | 17 | 5.928 |
+| Uncompressed | 59.857 | 59 | 26 | 9.672 |
+| GZIP (compression level 9) | 67 | 66 | 15 | 5.581 |
+| LZ4 (compression level 9) | 75 | 72 | 18 | 6.612 |
+| LZMA (compression level 9) | 69 | 67 | 17 | 5.855 |
 
 ![TSLint Linter Definition (Basic) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintbasic.png)
 
@@ -1140,12 +1190,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/capnproto/schema.capnp) | 88 | 77 | 90 | 75 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/capnproto-packed/schema.capnp) | 62 | 68 | 70 | 73 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/flatbuffers/schema.fbs) | 88 | 78 | 91 | 78 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/jsonbinpack/schema.json) | 46 | 54 | 56 | 57 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/protobuf/schema.proto) | 47 | 55 | 57 | 58 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/thrift/schema.thrift) | 48 | 56 | 58 | 59 |
 | JSON | None | 63 | 70 | 72 | 73 |
 | BSON | None | 78 | 79 | 85 | 80 |
 | CBOR | None | 55 | 63 | 65 | 65 |
 | FlexBuffers | None | 70 | 78 | 81 | 80 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintextend/jsonbinpack-schemaless/schema.json) | 55 | 63 | 65 | 65 |
 | MessagePack | None | 55 | 63 | 65 | 65 |
 | Smile | None | 61 | 69 | 71 | 72 |
 | UBJSON | None | 62 | 70 | 72 | 72 |
@@ -1154,19 +1206,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 59.375 | 48.500 | 42 | 17.204 |
-| GZIP (compression level 9) | 62.500 | 56.500 | 24 | 9.605 |
-| LZ4 (compression level 9) | 67.250 | 58.500 | 35 | 14.051 |
-| LZMA (compression level 9) | 64.750 | 59.500 | 21 | 8.333 |
+| Uncompressed | 57.889 | 48 | 42 | 16.756 |
+| GZIP (compression level 9) | 61.556 | 56 | 24 | 9.441 |
+| LZ4 (compression level 9) | 66 | 58 | 35 | 13.711 |
+| LZMA (compression level 9) | 63.889 | 59 | 21 | 8.225 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 63.500 | 61.500 | 23 | 8.221 |
-| GZIP (compression level 9) | 70.333 | 69.500 | 16 | 6.368 |
-| LZ4 (compression level 9) | 73.167 | 71.500 | 20 | 7.537 |
-| LZMA (compression level 9) | 72.333 | 72 | 15 | 6.128 |
+| Uncompressed | 62.286 | 61 | 23 | 8.172 |
+| GZIP (compression level 9) | 69.286 | 69 | 16 | 6.430 |
+| LZ4 (compression level 9) | 72 | 71 | 20 | 7.540 |
+| LZMA (compression level 9) | 71.286 | 72 | 15 | 6.227 |
 
 ![TSLint Linter Definition (Extends Only) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintextend.png)
 
@@ -1182,12 +1234,14 @@ Results
 | Cap'n Proto (Binary Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/capnproto/schema.capnp) | 80 | 44 | 59 | 45 |
 | Cap'n Proto (Packed Encoding) | [`schema.capnp`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/capnproto-packed/schema.capnp) | 23 | 37 | 42 | 41 |
 | FlatBuffers | [`schema.fbs`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/flatbuffers/schema.fbs) | 84 | 71 | 94 | 69 |
+| JSON BinPack (Schema-driven) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/jsonbinpack/schema.json) | 1 | 21 | 20 | 24 |
 | Protocol Buffers (Binary Wire Format) | [`schema.proto`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/protobuf/schema.proto) | 14 | 34 | 33 | 36 |
 | Apache Thrift (Compact Protocol) | [`schema.thrift`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/thrift/schema.thrift) | 14 | 31 | 33 | 34 |
 | JSON | None | 98 | 90 | 99 | 92 |
 | BSON | None | 104 | 99 | 109 | 100 |
 | CBOR | None | 68 | 80 | 87 | 81 |
 | FlexBuffers | None | 102 | 106 | 116 | 109 |
+| JSON BinPack (Schema-less) | [`schema.json`](https://github.com/jviotti/binary-json-size-benchmark/blob/main/benchmark/tslintmulti/jsonbinpack-schemaless/schema.json) | 68 | 80 | 87 | 82 |
 | MessagePack | None | 68 | 81 | 87 | 82 |
 | Smile | None | 78 | 88 | 92 | 92 |
 | UBJSON | None | 80 | 84 | 94 | 89 |
@@ -1196,19 +1250,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 30.375 | 15.500 | 80 | 30.311 |
-| GZIP (compression level 9) | 37.750 | 34 | 47 | 13.800 |
-| LZ4 (compression level 9) | 43.250 | 34.500 | 71 | 21.782 |
-| LZMA (compression level 9) | 39.625 | 36 | 42 | 12.369 |
+| Uncompressed | 27.111 | 14 | 83 | 30.031 |
+| GZIP (compression level 9) | 35.889 | 34 | 50 | 14.035 |
+| LZ4 (compression level 9) | 40.667 | 33 | 74 | 21.797 |
+| LZMA (compression level 9) | 37.889 | 36 | 45 | 12.653 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 83.333 | 79 | 36 | 14.636 |
-| GZIP (compression level 9) | 89.667 | 86 | 26 | 9.638 |
-| LZ4 (compression level 9) | 97.500 | 93 | 29 | 11.087 |
-| LZMA (compression level 9) | 92.167 | 90.500 | 28 | 9.856 |
+| Uncompressed | 81.143 | 78 | 36 | 14.574 |
+| GZIP (compression level 9) | 88.286 | 84 | 26 | 9.543 |
+| LZ4 (compression level 9) | 96 | 92 | 29 | 10.902 |
+| LZMA (compression level 9) | 90.714 | 89 | 28 | 9.794 |
 
 ![TSLint Linter Definition (Multi-rule) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintmulti.png)
 

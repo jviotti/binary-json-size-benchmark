@@ -122,10 +122,6 @@ IGNORE_FORMATS += bond
 IGNORE_FORMATS += smile
 endif
 
-# TODO: Remove this one after the benchmark paper is published
-IGNORE_FORMATS += jsonbinpack
-IGNORE_FORMATS += jsonbinpack-schemaless
-
 FORMATS = $(filter-out $(IGNORE_FORMATS),$(ALL_FORMATS))
 
 DOCUMENTS = $(notdir $(wildcard benchmark/*))

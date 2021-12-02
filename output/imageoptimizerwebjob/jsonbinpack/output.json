@@ -1,0 +1,13 @@
+{
+  "optimizations": [
+    {
+      "lossy": true,
+      "excludes": [
+        "ost"
+      ],
+      "includes": [
+        "node_modules"
+      ]
+    }
+  ]
+}
