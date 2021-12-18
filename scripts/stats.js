@@ -77,7 +77,7 @@ const stddev = (array) => {
 }
 
 const toFixed = (value) => {
-  return Number.isInteger(value) ? value : value.toFixed(3)
+  return Number.isInteger(value) ? value : value.toFixed(1)
 }
 
 const titles = fs.readFileSync(DATA_PATH, 'utf8')

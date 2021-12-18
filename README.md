@@ -104,19 +104,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 10.375 | 8 | 20 | 7.140 |
-| GZIP (compression level 9) | 26.625 | 25 | 8 | 3.160 |
-| LZ4 (compression level 9) | 29.125 | 27 | 18 | 6.679 |
-| LZMA (compression level 9) | 29.125 | 28 | 9 | 2.976 |
+| Uncompressed | 10.4 | 8 | 20 | 7.1 |
+| GZIP (compression level 9) | 26.6 | 25 | 8 | 3.2 |
+| LZ4 (compression level 9) | 29.1 | 27 | 18 | 6.7 |
+| LZMA (compression level 9) | 29.1 | 28 | 9 | 3.0 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 14 | 14 | 8 | 3.317 |
-| GZIP (compression level 9) | 33.667 | 34 | 8 | 2.981 |
-| LZ4 (compression level 9) | 33 | 33 | 8 | 3.317 |
-| LZMA (compression level 9) | 37.333 | 38 | 7 | 2.625 |
+| Uncompressed | 14 | 14 | 8 | 3.3 |
+| GZIP (compression level 9) | 33.7 | 34 | 8 | 3.0 |
+| LZ4 (compression level 9) | 33 | 33 | 8 | 3.3 |
+| LZMA (compression level 9) | 37.3 | 38 | 7 | 2.6 |
 
 ![CircleCI Definition (Blank) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/circleciblank.png)
 
@@ -146,19 +146,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 44.125 | 29 | 89 | 32.903 |
-| GZIP (compression level 9) | 47.500 | 43 | 50 | 14.790 |
-| LZ4 (compression level 9) | 55.250 | 48 | 70 | 21.376 |
-| LZMA (compression level 9) | 48.500 | 45.500 | 41 | 12.104 |
+| Uncompressed | 44.1 | 29 | 89 | 32.9 |
+| GZIP (compression level 9) | 47.5 | 43 | 50 | 14.8 |
+| LZ4 (compression level 9) | 55.3 | 48 | 70 | 21.4 |
+| LZMA (compression level 9) | 48.5 | 45.5 | 41 | 12.1 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 102.667 | 89.500 | 85 | 32.412 |
-| GZIP (compression level 9) | 107.167 | 103.500 | 45 | 16.446 |
-| LZ4 (compression level 9) | 116.667 | 108.500 | 60 | 25.011 |
-| LZMA (compression level 9) | 107.167 | 104.500 | 41 | 14.713 |
+| Uncompressed | 102.7 | 89.5 | 85 | 32.4 |
+| GZIP (compression level 9) | 107.2 | 103.5 | 45 | 16.4 |
+| LZ4 (compression level 9) | 116.7 | 108.5 | 60 | 25.0 |
+| LZMA (compression level 9) | 107.2 | 104.5 | 41 | 14.7 |
 
 ![CircleCI Matrix Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/circlecimatrix.png)
 
@@ -188,19 +188,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 82.250 | 62.500 | 116 | 42.558 |
-| GZIP (compression level 9) | 61.875 | 58 | 54 | 15.972 |
-| LZ4 (compression level 9) | 73.500 | 66 | 73 | 22.798 |
-| LZMA (compression level 9) | 64 | 61.500 | 46 | 13.370 |
+| Uncompressed | 82.3 | 62.5 | 116 | 42.6 |
+| GZIP (compression level 9) | 61.9 | 58 | 54 | 16.0 |
+| LZ4 (compression level 9) | 73.5 | 66 | 73 | 22.8 |
+| LZMA (compression level 9) | 64 | 61.5 | 46 | 13.4 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 93.667 | 87 | 73 | 24.918 |
-| GZIP (compression level 9) | 80.667 | 77.500 | 30 | 12.284 |
-| LZ4 (compression level 9) | 89.500 | 84 | 36 | 14.021 |
-| LZMA (compression level 9) | 83.333 | 81.500 | 29 | 11.353 |
+| Uncompressed | 93.7 | 87 | 73 | 24.9 |
+| GZIP (compression level 9) | 80.7 | 77.5 | 30 | 12.3 |
+| LZ4 (compression level 9) | 89.5 | 84 | 36 | 14.0 |
+| LZMA (compression level 9) | 83.3 | 81.5 | 29 | 11.4 |
 
 ![CommitLint Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/commitlint.png)
 
@@ -230,19 +230,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 7.125 | 2.500 | 24 | 8.810 |
-| GZIP (compression level 9) | 24.375 | 22.500 | 11 | 4.181 |
-| LZ4 (compression level 9) | 25.375 | 21.500 | 26 | 8.845 |
-| LZMA (compression level 9) | 27 | 25.500 | 11 | 3.674 |
+| Uncompressed | 7.1 | 2.5 | 24 | 8.8 |
+| GZIP (compression level 9) | 24.4 | 22.5 | 11 | 4.2 |
+| LZ4 (compression level 9) | 25.4 | 21.5 | 26 | 8.8 |
+| LZMA (compression level 9) | 27 | 25.5 | 11 | 3.7 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 20.333 | 20.500 | 8 | 2.925 |
-| GZIP (compression level 9) | 40.167 | 40 | 8 | 2.853 |
-| LZ4 (compression level 9) | 39.333 | 39.500 | 8 | 2.925 |
-| LZMA (compression level 9) | 44.167 | 43.500 | 8 | 2.967 |
+| Uncompressed | 20.3 | 20.5 | 8 | 2.9 |
+| GZIP (compression level 9) | 40.2 | 40 | 8 | 2.9 |
+| LZ4 (compression level 9) | 39.3 | 39.5 | 8 | 2.9 |
+| LZMA (compression level 9) | 44.2 | 43.5 | 8 | 3.0 |
 
 ![CommitLint Configuration (Basic) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/commitlintbasic.png)
 
@@ -272,19 +272,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 318 | 256.500 | 341 | 121.184 |
-| GZIP (compression level 9) | 217.625 | 197.500 | 122 | 41.632 |
-| LZ4 (compression level 9) | 255.875 | 223.500 | 172 | 58.569 |
-| LZMA (compression level 9) | 206.875 | 190 | 106 | 35.059 |
+| Uncompressed | 318 | 256.5 | 341 | 121.2 |
+| GZIP (compression level 9) | 217.6 | 197.5 | 122 | 41.6 |
+| LZ4 (compression level 9) | 255.9 | 223.5 | 172 | 58.6 |
+| LZMA (compression level 9) | 206.9 | 190 | 106 | 35.1 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 440.333 | 420.500 | 208 | 64.500 |
-| GZIP (compression level 9) | 284.500 | 269 | 107 | 35.795 |
-| LZ4 (compression level 9) | 340.833 | 318.500 | 111 | 42.132 |
-| LZMA (compression level 9) | 277.833 | 263 | 96 | 33.153 |
+| Uncompressed | 440.3 | 420.5 | 208 | 64.5 |
+| GZIP (compression level 9) | 284.5 | 269 | 107 | 35.8 |
+| LZ4 (compression level 9) | 340.8 | 318.5 | 111 | 42.1 |
+| LZMA (compression level 9) | 277.8 | 263 | 96 | 33.2 |
 
 ![Entry Point Regulation Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/epr.png)
 
@@ -314,19 +314,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 167.125 | 155.500 | 255 | 73.359 |
-| GZIP (compression level 9) | 140.750 | 133 | 147 | 46.040 |
-| LZ4 (compression level 9) | 167.750 | 160.500 | 221 | 65.019 |
-| LZMA (compression level 9) | 136.500 | 128.500 | 134 | 42.620 |
+| Uncompressed | 167.1 | 155.5 | 255 | 73.4 |
+| GZIP (compression level 9) | 140.8 | 133 | 147 | 46.0 |
+| LZ4 (compression level 9) | 167.8 | 160.5 | 221 | 65.0 |
+| LZMA (compression level 9) | 136.5 | 128.5 | 134 | 42.6 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1064 | 1024.500 | 230 | 96.871 |
-| GZIP (compression level 9) | 545 | 534.500 | 131 | 43.390 |
-| LZ4 (compression level 9) | 745.833 | 725.500 | 112 | 39.897 |
-| LZMA (compression level 9) | 565.500 | 554.500 | 97 | 32.968 |
+| Uncompressed | 1064 | 1024.5 | 230 | 96.9 |
+| GZIP (compression level 9) | 545 | 534.5 | 131 | 43.4 |
+| LZ4 (compression level 9) | 745.8 | 725.5 | 112 | 39.9 |
+| LZMA (compression level 9) | 565.5 | 554.5 | 97 | 33.0 |
 
 ![ESLint Configuration Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/eslintrc.png)
 
@@ -356,19 +356,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 37.375 | 26.500 | 68 | 25.485 |
-| GZIP (compression level 9) | 50.500 | 46.500 | 45 | 14.500 |
-| LZ4 (compression level 9) | 53.625 | 45.500 | 63 | 21.136 |
-| LZMA (compression level 9) | 52.875 | 51 | 39 | 12.524 |
+| Uncompressed | 37.4 | 26.5 | 68 | 25.5 |
+| GZIP (compression level 9) | 50.5 | 46.5 | 45 | 14.5 |
+| LZ4 (compression level 9) | 53.6 | 45.5 | 63 | 21.1 |
+| LZMA (compression level 9) | 52.9 | 51 | 39 | 12.5 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 77.167 | 74 | 32 | 12.549 |
-| GZIP (compression level 9) | 91.833 | 90 | 26 | 9.599 |
-| LZ4 (compression level 9) | 96.167 | 93 | 32 | 12.549 |
-| LZMA (compression level 9) | 94.333 | 92.500 | 27 | 9.826 |
+| Uncompressed | 77.2 | 74 | 32 | 12.5 |
+| GZIP (compression level 9) | 91.8 | 90 | 26 | 9.6 |
+| LZ4 (compression level 9) | 96.2 | 93 | 32 | 12.5 |
+| LZMA (compression level 9) | 94.3 | 92.5 | 27 | 9.8 |
 
 ![ECMAScript Module Loader Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/esmrc.png)
 
@@ -398,19 +398,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 343 | 290.500 | 475 | 144.554 |
-| GZIP (compression level 9) | 131.750 | 115.500 | 120 | 36.779 |
-| LZ4 (compression level 9) | 167.500 | 144 | 161 | 50.806 |
-| LZMA (compression level 9) | 122 | 106.500 | 103 | 31.064 |
+| Uncompressed | 343 | 290.5 | 475 | 144.6 |
+| GZIP (compression level 9) | 131.8 | 115.5 | 120 | 36.8 |
+| LZ4 (compression level 9) | 167.5 | 144 | 161 | 50.8 |
+| LZMA (compression level 9) | 122 | 106.5 | 103 | 31.1 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 255.833 | 218 | 294 | 101.480 |
-| GZIP (compression level 9) | 139 | 128.500 | 76 | 28.384 |
-| LZ4 (compression level 9) | 169.167 | 155.500 | 102 | 36.269 |
-| LZMA (compression level 9) | 132.667 | 124 | 58 | 23.809 |
+| Uncompressed | 255.8 | 218 | 294 | 101.5 |
+| GZIP (compression level 9) | 139 | 128.5 | 76 | 28.4 |
+| LZ4 (compression level 9) | 169.2 | 155.5 | 102 | 36.3 |
+| LZMA (compression level 9) | 132.7 | 124 | 58 | 23.8 |
 
 ![GeoJSON Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/geojson.png)
 
@@ -440,19 +440,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 31.125 | 21.500 | 52 | 18.114 |
-| GZIP (compression level 9) | 47.125 | 41.500 | 35 | 12.752 |
-| LZ4 (compression level 9) | 48.750 | 40.500 | 44 | 15.967 |
-| LZMA (compression level 9) | 49.625 | 46 | 32 | 11.313 |
+| Uncompressed | 31.1 | 21.5 | 52 | 18.1 |
+| GZIP (compression level 9) | 47.1 | 41.5 | 35 | 12.8 |
+| LZ4 (compression level 9) | 48.8 | 40.5 | 44 | 16.0 |
+| LZMA (compression level 9) | 49.6 | 46 | 32 | 11.3 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 133.167 | 131 | 28 | 9.616 |
-| GZIP (compression level 9) | 129.167 | 129.500 | 29 | 9.335 |
-| LZ4 (compression level 9) | 151.667 | 150 | 25 | 8.654 |
-| LZMA (compression level 9) | 139.167 | 138 | 17 | 5.520 |
+| Uncompressed | 133.2 | 131 | 28 | 9.6 |
+| GZIP (compression level 9) | 129.2 | 129.5 | 29 | 9.3 |
+| LZ4 (compression level 9) | 151.7 | 150 | 25 | 8.7 |
+| LZMA (compression level 9) | 139.2 | 138 | 17 | 5.5 |
 
 ![GitHub FUNDING Sponsorship Definition (Empty) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/githubfundingblank.png)
 
@@ -482,19 +482,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 256.875 | 195 | 299 | 114.993 |
-| GZIP (compression level 9) | 197.375 | 177 | 122 | 42.661 |
-| LZ4 (compression level 9) | 226.250 | 195 | 188 | 63.174 |
-| LZMA (compression level 9) | 192.250 | 177 | 104 | 36.338 |
+| Uncompressed | 256.9 | 195 | 299 | 115.0 |
+| GZIP (compression level 9) | 197.4 | 177 | 122 | 42.7 |
+| LZ4 (compression level 9) | 226.3 | 195 | 188 | 63.2 |
+| LZMA (compression level 9) | 192.3 | 177 | 104 | 36.3 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 334.667 | 313.500 | 124 | 52.169 |
-| GZIP (compression level 9) | 248.333 | 239 | 101 | 33.703 |
-| LZ4 (compression level 9) | 298 | 279.500 | 113 | 44.415 |
-| LZMA (compression level 9) | 254.167 | 244.500 | 102 | 34.730 |
+| Uncompressed | 334.7 | 313.5 | 124 | 52.2 |
+| GZIP (compression level 9) | 248.3 | 239 | 101 | 33.7 |
+| LZ4 (compression level 9) | 298 | 279.5 | 113 | 44.4 |
+| LZMA (compression level 9) | 254.2 | 244.5 | 102 | 34.7 |
 
 ![GitHub Workflow Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/githubworkflow.png)
 
@@ -524,19 +524,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 43.750 | 25 | 103 | 37.019 |
-| GZIP (compression level 9) | 46.375 | 39.500 | 48 | 16.248 |
-| LZ4 (compression level 9) | 54.375 | 41 | 72 | 24.728 |
-| LZMA (compression level 9) | 48.750 | 43.500 | 42 | 14.202 |
+| Uncompressed | 43.8 | 25 | 103 | 37.0 |
+| GZIP (compression level 9) | 46.4 | 39.5 | 48 | 16.2 |
+| LZ4 (compression level 9) | 54.4 | 41 | 72 | 24.7 |
+| LZMA (compression level 9) | 48.8 | 43.5 | 42 | 14.2 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 77.667 | 73.500 | 45 | 16.819 |
-| GZIP (compression level 9) | 88.500 | 86.500 | 35 | 12.148 |
-| LZ4 (compression level 9) | 93.500 | 90 | 34 | 13.574 |
-| LZMA (compression level 9) | 90.833 | 88.500 | 38 | 12.928 |
+| Uncompressed | 77.7 | 73.5 | 45 | 16.8 |
+| GZIP (compression level 9) | 88.5 | 86.5 | 35 | 12.1 |
+| LZ4 (compression level 9) | 93.5 | 90 | 34 | 13.6 |
+| LZMA (compression level 9) | 90.8 | 88.5 | 38 | 12.9 |
 
 ![Grunt.js Clean Task Definition box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/gruntcontribclean.png)
 
@@ -566,19 +566,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 45.500 | 28 | 79 | 31.048 |
-| GZIP (compression level 9) | 55.500 | 48 | 39 | 14.629 |
-| LZ4 (compression level 9) | 60 | 47 | 61 | 23.500 |
-| LZMA (compression level 9) | 57.750 | 52 | 34 | 12.387 |
+| Uncompressed | 45.5 | 28 | 79 | 31.0 |
+| GZIP (compression level 9) | 55.5 | 48 | 39 | 14.6 |
+| LZ4 (compression level 9) | 60 | 47 | 61 | 23.5 |
+| LZMA (compression level 9) | 57.8 | 52 | 34 | 12.4 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 76.167 | 72 | 41 | 14.916 |
-| GZIP (compression level 9) | 88.500 | 86.500 | 27 | 10.720 |
-| LZ4 (compression level 9) | 93 | 89 | 39 | 14.468 |
-| LZMA (compression level 9) | 88.667 | 87.500 | 27 | 10.094 |
+| Uncompressed | 76.2 | 72 | 41 | 14.9 |
+| GZIP (compression level 9) | 88.5 | 86.5 | 27 | 10.7 |
+| LZ4 (compression level 9) | 93 | 89 | 39 | 14.5 |
+| LZMA (compression level 9) | 88.7 | 87.5 | 27 | 10.1 |
 
 ![ImageOptimizer Azure Webjob Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/imageoptimizerwebjob.png)
 
@@ -608,19 +608,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 63.875 | 22.500 | 229 | 76.734 |
-| GZIP (compression level 9) | 50.875 | 41 | 58 | 19.915 |
-| LZ4 (compression level 9) | 59.375 | 41.500 | 96 | 32.821 |
-| LZMA (compression level 9) | 51.500 | 42.500 | 54 | 18.228 |
+| Uncompressed | 63.9 | 22.5 | 229 | 76.7 |
+| GZIP (compression level 9) | 50.9 | 41 | 58 | 19.9 |
+| LZ4 (compression level 9) | 59.4 | 41.5 | 96 | 32.8 |
+| LZMA (compression level 9) | 51.5 | 42.5 | 54 | 18.2 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 75.667 | 66.500 | 69 | 24.817 |
-| GZIP (compression level 9) | 87.333 | 82.500 | 36 | 14.174 |
-| LZ4 (compression level 9) | 92.833 | 85.500 | 58 | 21.598 |
-| LZMA (compression level 9) | 89.167 | 85.500 | 35 | 12.877 |
+| Uncompressed | 75.7 | 66.5 | 69 | 24.8 |
+| GZIP (compression level 9) | 87.3 | 82.5 | 36 | 14.2 |
+| LZ4 (compression level 9) | 92.8 | 85.5 | 58 | 21.6 |
+| LZMA (compression level 9) | 89.2 | 85.5 | 35 | 12.9 |
 
 ![JSON-e Templating Engine Reverse Sort Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonereversesort.png)
 
@@ -650,19 +650,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 20.625 | 12.500 | 39 | 14.899 |
-| GZIP (compression level 9) | 35.750 | 31.500 | 22 | 7.677 |
-| LZ4 (compression level 9) | 38.500 | 31.500 | 35 | 13.010 |
-| LZMA (compression level 9) | 38.125 | 35.500 | 19 | 6.489 |
+| Uncompressed | 20.6 | 12.5 | 39 | 14.9 |
+| GZIP (compression level 9) | 35.8 | 31.5 | 22 | 7.7 |
+| LZ4 (compression level 9) | 38.5 | 31.5 | 35 | 13.0 |
+| LZMA (compression level 9) | 38.1 | 35.5 | 19 | 6.5 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 33.833 | 28.500 | 44 | 15.214 |
-| GZIP (compression level 9) | 50 | 48 | 25 | 8.775 |
-| LZ4 (compression level 9) | 52 | 47.500 | 39 | 13.528 |
-| LZMA (compression level 9) | 53.833 | 52.500 | 20 | 7.221 |
+| Uncompressed | 33.8 | 28.5 | 44 | 15.2 |
+| GZIP (compression level 9) | 50 | 48 | 25 | 8.8 |
+| LZ4 (compression level 9) | 52 | 47.5 | 39 | 13.5 |
+| LZMA (compression level 9) | 53.8 | 52.5 | 20 | 7.2 |
 
 ![JSON-e Templating Engine Sort Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonesort.png)
 
@@ -692,19 +692,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 458.125 | 416 | 186 | 71.273 |
-| GZIP (compression level 9) | 285.250 | 265.500 | 93 | 37.519 |
-| LZ4 (compression level 9) | 337.500 | 304 | 142 | 54.706 |
-| LZMA (compression level 9) | 282.375 | 265 | 83 | 33.087 |
+| Uncompressed | 458.1 | 416 | 186 | 71.3 |
+| GZIP (compression level 9) | 285.3 | 265.5 | 93 | 37.5 |
+| LZ4 (compression level 9) | 337.5 | 304 | 142 | 54.7 |
+| LZMA (compression level 9) | 282.4 | 265 | 83 | 33.1 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 552 | 540 | 81 | 34.409 |
-| GZIP (compression level 9) | 350 | 341.500 | 86 | 28.065 |
-| LZ4 (compression level 9) | 426.833 | 415.500 | 77 | 28.945 |
-| LZMA (compression level 9) | 356 | 347.500 | 69 | 23.944 |
+| Uncompressed | 552 | 540 | 81 | 34.4 |
+| GZIP (compression level 9) | 350 | 341.5 | 86 | 28.1 |
+| LZ4 (compression level 9) | 426.8 | 415.5 | 77 | 28.9 |
+| LZMA (compression level 9) | 356 | 347.5 | 69 | 23.9 |
 
 ![JSON Feed Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonfeed.png)
 
@@ -734,19 +734,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 2479.125 | 2243 | 1009 | 395.795 |
-| GZIP (compression level 9) | 1456.375 | 1377.500 | 404 | 161.848 |
-| LZ4 (compression level 9) | 1964.375 | 1846 | 536 | 208.459 |
-| LZMA (compression level 9) | 1450 | 1384.500 | 366 | 137.258 |
+| Uncompressed | 2479.1 | 2243 | 1009 | 395.8 |
+| GZIP (compression level 9) | 1456.4 | 1377.5 | 404 | 161.8 |
+| LZ4 (compression level 9) | 1964.4 | 1846 | 536 | 208.5 |
+| LZMA (compression level 9) | 1450 | 1384.5 | 366 | 137.3 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 2905.333 | 2865.500 | 663 | 222.548 |
-| GZIP (compression level 9) | 1690.333 | 1629 | 411 | 143.683 |
-| LZ4 (compression level 9) | 2297 | 2223 | 397 | 155.296 |
-| LZMA (compression level 9) | 1696.833 | 1643 | 354 | 121.171 |
+| Uncompressed | 2905.3 | 2865.5 | 663 | 222.5 |
+| GZIP (compression level 9) | 1690.3 | 1629 | 411 | 143.7 |
+| LZ4 (compression level 9) | 2297 | 2223 | 397 | 155.3 |
+| LZMA (compression level 9) | 1696.8 | 1643 | 354 | 121.2 |
 
 ![JSON Resume Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/jsonresume.png)
 
@@ -776,19 +776,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 370.750 | 289.500 | 394 | 150.329 |
-| GZIP (compression level 9) | 158.500 | 157 | 186 | 58.118 |
-| LZ4 (compression level 9) | 201.875 | 194.500 | 245 | 78.273 |
-| LZMA (compression level 9) | 153 | 153 | 149 | 47.157 |
+| Uncompressed | 370.8 | 289.5 | 394 | 150.3 |
+| GZIP (compression level 9) | 158.5 | 157 | 186 | 58.1 |
+| LZ4 (compression level 9) | 201.9 | 194.5 | 245 | 78.3 |
+| LZMA (compression level 9) | 153 | 153 | 149 | 47.2 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 949 | 921 | 214 | 74.166 |
-| GZIP (compression level 9) | 468.500 | 455.500 | 124 | 41.604 |
-| LZ4 (compression level 9) | 585.333 | 571.500 | 106 | 36.063 |
-| LZMA (compression level 9) | 465 | 451.500 | 118 | 39.648 |
+| Uncompressed | 949 | 921 | 214 | 74.2 |
+| GZIP (compression level 9) | 468.5 | 455.5 | 124 | 41.6 |
+| LZ4 (compression level 9) | 585.3 | 571.5 | 106 | 36.1 |
+| LZMA (compression level 9) | 465 | 451.5 | 118 | 39.6 |
 
 ![.NET Core Project box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/netcoreproject.png)
 
@@ -818,19 +818,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 195.250 | 141.500 | 375 | 122.472 |
-| GZIP (compression level 9) | 165.750 | 145 | 198 | 63.192 |
-| LZ4 (compression level 9) | 186.625 | 155 | 282 | 87.853 |
-| LZMA (compression level 9) | 159.250 | 146.500 | 150 | 49.487 |
+| Uncompressed | 195.3 | 141.5 | 375 | 122.5 |
+| GZIP (compression level 9) | 165.8 | 145 | 198 | 63.2 |
+| LZ4 (compression level 9) | 186.6 | 155 | 282 | 87.9 |
+| LZMA (compression level 9) | 159.3 | 146.5 | 150 | 49.5 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1237 | 1222 | 299 | 101.423 |
-| GZIP (compression level 9) | 703.333 | 676.500 | 229 | 75.832 |
-| LZ4 (compression level 9) | 940.167 | 909.500 | 268 | 93.060 |
-| LZMA (compression level 9) | 720.500 | 697.500 | 206 | 69.663 |
+| Uncompressed | 1237 | 1222 | 299 | 101.4 |
+| GZIP (compression level 9) | 703.3 | 676.5 | 229 | 75.8 |
+| LZ4 (compression level 9) | 940.2 | 909.5 | 268 | 93.1 |
+| LZMA (compression level 9) | 720.5 | 697.5 | 206 | 69.7 |
 
 ![Nightwatch.js Test Framework Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/nightwatch.png)
 
@@ -860,19 +860,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 224.875 | 194 | 236 | 77.059 |
-| GZIP (compression level 9) | 213.875 | 204 | 144 | 41.017 |
-| LZ4 (compression level 9) | 232.875 | 212.500 | 200 | 60.563 |
-| LZMA (compression level 9) | 211.750 | 208 | 119 | 32.847 |
+| Uncompressed | 224.9 | 194 | 236 | 77.1 |
+| GZIP (compression level 9) | 213.9 | 204 | 144 | 41.0 |
+| LZ4 (compression level 9) | 232.9 | 212.5 | 200 | 60.6 |
+| LZMA (compression level 9) | 211.8 | 208 | 119 | 32.8 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 459.333 | 425.500 | 278 | 95.878 |
-| GZIP (compression level 9) | 395.333 | 385.500 | 155 | 50.543 |
-| LZ4 (compression level 9) | 452 | 432 | 197 | 67.629 |
-| LZMA (compression level 9) | 386.333 | 375.500 | 144 | 46.974 |
+| Uncompressed | 459.3 | 425.5 | 278 | 95.9 |
+| GZIP (compression level 9) | 395.3 | 385.5 | 155 | 50.5 |
+| LZ4 (compression level 9) | 452 | 432 | 197 | 67.6 |
+| LZMA (compression level 9) | 386.3 | 375.5 | 144 | 47.0 |
 
 ![OpenWeatherMap API Example Document box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/openweathermap.png)
 
@@ -902,19 +902,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 211.500 | 179.500 | 172 | 59.846 |
-| GZIP (compression level 9) | 188.875 | 172.500 | 95 | 30.002 |
-| LZ4 (compression level 9) | 210.375 | 186 | 129 | 43.212 |
-| LZMA (compression level 9) | 185.375 | 174.500 | 79 | 24.854 |
+| Uncompressed | 211.5 | 179.5 | 172 | 59.8 |
+| GZIP (compression level 9) | 188.9 | 172.5 | 95 | 30.0 |
+| LZ4 (compression level 9) | 210.4 | 186 | 129 | 43.2 |
+| LZMA (compression level 9) | 185.4 | 174.5 | 79 | 24.9 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 381.667 | 357.500 | 162 | 57.203 |
-| GZIP (compression level 9) | 306 | 297 | 101 | 34.186 |
-| LZ4 (compression level 9) | 335.167 | 321 | 123 | 42.444 |
-| LZMA (compression level 9) | 290.500 | 284 | 101 | 33.955 |
+| Uncompressed | 381.7 | 357.5 | 162 | 57.2 |
+| GZIP (compression level 9) | 306 | 297 | 101 | 34.2 |
+| LZ4 (compression level 9) | 335.2 | 321 | 123 | 42.4 |
+| LZMA (compression level 9) | 290.5 | 284 | 101 | 34.0 |
 
 ![OpenWeather Road Risk API Example box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/openweatherroadrisk.png)
 
@@ -944,19 +944,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1745.875 | 1584.500 | 770 | 296.205 |
-| GZIP (compression level 9) | 924.125 | 896 | 332 | 109.574 |
-| LZ4 (compression level 9) | 1211.875 | 1155 | 452 | 150.355 |
-| LZMA (compression level 9) | 921.250 | 910 | 244 | 83.510 |
+| Uncompressed | 1745.9 | 1584.5 | 770 | 296.2 |
+| GZIP (compression level 9) | 924.1 | 896 | 332 | 109.6 |
+| LZ4 (compression level 9) | 1211.9 | 1155 | 452 | 150.4 |
+| LZMA (compression level 9) | 921.3 | 910 | 244 | 83.5 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 2140.833 | 2083 | 403 | 164.341 |
-| GZIP (compression level 9) | 1188.167 | 1152 | 312 | 103.044 |
-| LZ4 (compression level 9) | 1572.167 | 1527.500 | 294 | 109.793 |
-| LZMA (compression level 9) | 1195.833 | 1160.500 | 282 | 92.854 |
+| Uncompressed | 2140.8 | 2083 | 403 | 164.3 |
+| GZIP (compression level 9) | 1188.2 | 1152 | 312 | 103.0 |
+| LZ4 (compression level 9) | 1572.2 | 1527.5 | 294 | 109.8 |
+| LZMA (compression level 9) | 1195.8 | 1160.5 | 282 | 92.9 |
 
 ![NPM Package.json Example Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/packagejson.png)
 
@@ -986,19 +986,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 533.125 | 458 | 759 | 240.859 |
-| GZIP (compression level 9) | 145.375 | 125.500 | 213 | 67.578 |
-| LZ4 (compression level 9) | 182.750 | 150.500 | 303 | 97.339 |
-| LZMA (compression level 9) | 135.375 | 121 | 170 | 52.875 |
+| Uncompressed | 533.1 | 458 | 759 | 240.9 |
+| GZIP (compression level 9) | 145.4 | 125.5 | 213 | 67.6 |
+| LZ4 (compression level 9) | 182.8 | 150.5 | 303 | 97.3 |
+| LZMA (compression level 9) | 135.4 | 121 | 170 | 52.9 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 1056.333 | 997.500 | 353 | 119.172 |
-| GZIP (compression level 9) | 389.833 | 370 | 174 | 60.278 |
-| LZ4 (compression level 9) | 508 | 483.500 | 153 | 54.724 |
-| LZMA (compression level 9) | 394 | 371.500 | 152 | 52.760 |
+| Uncompressed | 1056.3 | 997.5 | 353 | 119.2 |
+| GZIP (compression level 9) | 389.8 | 370 | 174 | 60.3 |
+| LZ4 (compression level 9) | 508 | 483.5 | 153 | 54.7 |
+| LZMA (compression level 9) | 394 | 371.5 | 152 | 52.8 |
 
 ![NPM Package.json Linter Configuration Manifest box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/packagejsonlintrc.png)
 
@@ -1028,19 +1028,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 7.375 | 4 | 24 | 8.276 |
-| GZIP (compression level 9) | 25.875 | 24 | 15 | 5.797 |
-| LZ4 (compression level 9) | 25.375 | 23 | 28 | 9.286 |
-| LZMA (compression level 9) | 28.125 | 26.500 | 15 | 5.183 |
+| Uncompressed | 7.4 | 4 | 24 | 8.3 |
+| GZIP (compression level 9) | 25.9 | 24 | 15 | 5.8 |
+| LZ4 (compression level 9) | 25.4 | 23 | 28 | 9.3 |
+| LZMA (compression level 9) | 28.1 | 26.5 | 15 | 5.2 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 29.167 | 29 | 12 | 4.017 |
-| GZIP (compression level 9) | 47.833 | 47.500 | 7 | 2.672 |
-| LZ4 (compression level 9) | 48.167 | 48 | 12 | 4.017 |
-| LZMA (compression level 9) | 51.167 | 50.500 | 7 | 2.672 |
+| Uncompressed | 29.2 | 29 | 12 | 4.0 |
+| GZIP (compression level 9) | 47.8 | 47.5 | 7 | 2.7 |
+| LZ4 (compression level 9) | 48.2 | 48 | 12 | 4.0 |
+| LZMA (compression level 9) | 51.2 | 50.5 | 7 | 2.7 |
 
 ![SAP Cloud SDK Continuous Delivery Toolkit Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/sapcloudsdkpipeline.png)
 
@@ -1070,19 +1070,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 554.875 | 521.500 | 171 | 60.705 |
-| GZIP (compression level 9) | 116.500 | 115 | 87 | 26.538 |
-| LZ4 (compression level 9) | 134.750 | 132.500 | 113 | 34.741 |
-| LZMA (compression level 9) | 112.625 | 110 | 74 | 22.416 |
+| Uncompressed | 554.9 | 521.5 | 171 | 60.7 |
+| GZIP (compression level 9) | 116.5 | 115 | 87 | 26.5 |
+| LZ4 (compression level 9) | 134.8 | 132.5 | 113 | 34.7 |
+| LZMA (compression level 9) | 112.6 | 110 | 74 | 22.4 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 573.833 | 627 | 471 | 157.541 |
-| GZIP (compression level 9) | 168.167 | 161.500 | 67 | 21.474 |
-| LZ4 (compression level 9) | 204.833 | 198.500 | 52 | 18.004 |
-| LZMA (compression level 9) | 173.167 | 168 | 47 | 15.689 |
+| Uncompressed | 573.8 | 627 | 471 | 157.5 |
+| GZIP (compression level 9) | 168.2 | 161.5 | 67 | 21.5 |
+| LZ4 (compression level 9) | 204.8 | 198.5 | 52 | 18.0 |
+| LZMA (compression level 9) | 173.2 | 168 | 47 | 15.7 |
 
 ![TravisCI Notifications Configuration box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/travisnotifications.png)
 
@@ -1112,19 +1112,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 18.375 | 8.500 | 59 | 21.089 |
-| GZIP (compression level 9) | 29.750 | 27.500 | 32 | 9.549 |
-| LZ4 (compression level 9) | 32.750 | 27.500 | 44 | 13.890 |
-| LZMA (compression level 9) | 31.250 | 30 | 25 | 7.446 |
+| Uncompressed | 18.4 | 8.5 | 59 | 21.1 |
+| GZIP (compression level 9) | 29.8 | 27.5 | 32 | 9.5 |
+| LZ4 (compression level 9) | 32.8 | 27.5 | 44 | 13.9 |
+| LZMA (compression level 9) | 31.3 | 30 | 25 | 7.4 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 61.333 | 59 | 26 | 9.690 |
-| GZIP (compression level 9) | 68 | 67 | 14 | 5.416 |
-| LZ4 (compression level 9) | 75.833 | 72.500 | 18 | 6.793 |
-| LZMA (compression level 9) | 69.833 | 69 | 17 | 5.928 |
+| Uncompressed | 61.3 | 59 | 26 | 9.7 |
+| GZIP (compression level 9) | 68 | 67 | 14 | 5.4 |
+| LZ4 (compression level 9) | 75.8 | 72.5 | 18 | 6.8 |
+| LZMA (compression level 9) | 69.8 | 69 | 17 | 5.9 |
 
 ![TSLint Linter Definition (Basic) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintbasic.png)
 
@@ -1154,19 +1154,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 59.375 | 48.500 | 42 | 17.204 |
-| GZIP (compression level 9) | 62.500 | 56.500 | 24 | 9.605 |
-| LZ4 (compression level 9) | 67.250 | 58.500 | 35 | 14.051 |
-| LZMA (compression level 9) | 64.750 | 59.500 | 21 | 8.333 |
+| Uncompressed | 59.4 | 48.5 | 42 | 17.2 |
+| GZIP (compression level 9) | 62.5 | 56.5 | 24 | 9.6 |
+| LZ4 (compression level 9) | 67.3 | 58.5 | 35 | 14.1 |
+| LZMA (compression level 9) | 64.8 | 59.5 | 21 | 8.3 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 63.500 | 61.500 | 23 | 8.221 |
-| GZIP (compression level 9) | 70.333 | 69.500 | 16 | 6.368 |
-| LZ4 (compression level 9) | 73.167 | 71.500 | 20 | 7.537 |
-| LZMA (compression level 9) | 72.333 | 72 | 15 | 6.128 |
+| Uncompressed | 63.5 | 61.5 | 23 | 8.2 |
+| GZIP (compression level 9) | 70.3 | 69.5 | 16 | 6.4 |
+| LZ4 (compression level 9) | 73.2 | 71.5 | 20 | 7.5 |
+| LZMA (compression level 9) | 72.3 | 72 | 15 | 6.1 |
 
 ![TSLint Linter Definition (Extends Only) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintextend.png)
 
@@ -1196,19 +1196,19 @@ Results
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 30.375 | 15.500 | 80 | 30.311 |
-| GZIP (compression level 9) | 37.750 | 34 | 47 | 13.800 |
-| LZ4 (compression level 9) | 43.250 | 34.500 | 71 | 21.782 |
-| LZMA (compression level 9) | 39.625 | 36 | 42 | 12.369 |
+| Uncompressed | 30.4 | 15.5 | 80 | 30.3 |
+| GZIP (compression level 9) | 37.8 | 34 | 47 | 13.8 |
+| LZ4 (compression level 9) | 43.3 | 34.5 | 71 | 21.8 |
+| LZMA (compression level 9) | 39.6 | 36 | 42 | 12.4 |
 
 #### Schema-less statistics
 
 | Category | Average | Median | Range | Std.dev |
 |--------|--------|--------|--------|--------|
-| Uncompressed | 83.333 | 79 | 36 | 14.636 |
-| GZIP (compression level 9) | 89.667 | 86 | 26 | 9.638 |
-| LZ4 (compression level 9) | 97.500 | 93 | 29 | 11.087 |
-| LZMA (compression level 9) | 92.167 | 90.500 | 28 | 9.856 |
+| Uncompressed | 83.3 | 79 | 36 | 14.6 |
+| GZIP (compression level 9) | 89.7 | 86 | 26 | 9.6 |
+| LZ4 (compression level 9) | 97.5 | 93 | 29 | 11.1 |
+| LZMA (compression level 9) | 92.2 | 90.5 | 28 | 9.9 |
 
 ![TSLint Linter Definition (Multi-rule) box plot](https://www.jviotti.com/binary-json-size-benchmark/charts/boxplots/tslintmulti.png)
 
