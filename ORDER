@@ -4,12 +4,14 @@ bond
 capnproto
 capnproto-packed
 flatbuffers
+jsonbinpack
 protobuf
 thrift
 json
 bson
 cbor
 flexbuffers
+jsonbinpack-schemaless
 messagepack
 smile
 ubjson

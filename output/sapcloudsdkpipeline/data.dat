@@ -5,12 +5,14 @@
 4,capnproto,"Cap'n Proto\n(Binary Encoding)",16,33,35,32
 5,capnproto-packed,"Cap'n Proto\n(Packed Encoding)",7,27,26,29
 6,flatbuffers,"FlatBuffers",24,35,43,38
-7,protobuf,"Protocol Buffers\n(Binary Wire Format)",0,20,15,23
-8,thrift,"Apache Thrift\n(Compact Protocol)",1,21,20,24
-9,json,"JSON",44,50,58,55
-10,bson,"BSON",29,46,48,49
-11,cbor,"CBOR",25,45,44,48
-12,flexbuffers,"FlexBuffers",37,52,56,55
-13,messagepack,"MessagePack",25,45,44,49
-14,smile,"Smile",30,50,49,54
-15,ubjson,"UBJSON",29,49,48,52
+7,jsonbinpack,"JSON BinPack\n(Schema-driven)",0,20,15,23
+8,protobuf,"Protocol Buffers\n(Binary Wire Format)",0,20,15,23
+9,thrift,"Apache Thrift\n(Compact Protocol)",1,21,20,24
+10,json,"JSON",44,50,58,55
+11,bson,"BSON",29,46,48,49
+12,cbor,"CBOR",25,45,44,48
+13,flexbuffers,"FlexBuffers",37,52,56,55
+14,jsonbinpack-schemaless,"JSON BinPack\n(Schema-less)",25,45,44,49
+15,messagepack,"MessagePack",25,45,44,49
+16,smile,"Smile",30,50,49,54
+17,ubjson,"UBJSON",29,49,48,52
