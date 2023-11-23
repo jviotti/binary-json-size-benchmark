@@ -11,6 +11,13 @@ A large-scale space-efficiency benchmark of JSON-compatible binary
 serialization formats (with and without compression) involving representative
 real-world JSON documents.
 
+***
+
+**NOTE! Check out
+[https://benchmark.sourcemeta.com](https://benchmark.sourcemeta.com) for the
+latest version of this benchmark.**
+
+***
 
 JSON documents
 --------------
